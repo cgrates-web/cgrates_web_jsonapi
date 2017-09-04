@@ -1,8 +1,13 @@
 defmodule CgratesWebJsonapi.Cgrates.Adapter do
   use HTTPoison.Base
 
+  def execute(%{method: method, params: params}) do
+    {:ok, response} = post("/jsonrpc", %{method: method, params: params})
+    response.body
+  end
+
   def process_url(url) do
-    "http://119.28.70.217:2080" <> url
+    Application.get_env(:cgrates_web_jsonapi, :cgrates_url) <> url
   end
 
   defp process_request_options(options) do
@@ -16,6 +21,7 @@ defmodule CgratesWebJsonapi.Cgrates.Adapter do
     params = params
     |> ProperCase.to_camel_case(:upper)
     |> Map.merge(%{Tenant: Application.get_env(:cgrates_web_jsonapi, :cgrates_tenant)})
+
 
     %{
       method: method,

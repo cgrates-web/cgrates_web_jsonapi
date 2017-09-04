@@ -19,7 +19,7 @@ defmodule CgratesWebJsonapi.Mixfile do
   def application do
     [mod: {CgratesWebJsonapi, []},
      applications: [:phoenix, :phoenix_pubsub, :cowboy, :logger, :gettext,
-                    :phoenix_ecto, :postgrex, :ja_serializer, :hackney]]
+                    :phoenix_ecto, :postgrex, :ja_serializer, :hackney, :mapail]]
   end
 
   # Specifies which paths to compile per environment.
@@ -37,8 +37,11 @@ defmodule CgratesWebJsonapi.Mixfile do
      {:gettext, "~> 0.11"},
      {:cowboy, "~> 1.0"},
 
+     {:faker, "~> 0.8", only: :test},
      {:httpoison, "~> 0.13"},
      {:ja_serializer, "~> 0.12.0"},
+     {:mapail, "~> 1.0"},
+     {:mock, "~> 0.2.0", only: :test},
      {:proper_case, github: "max-konin/proper_case", branch: "upper-case"}
    ]
   end

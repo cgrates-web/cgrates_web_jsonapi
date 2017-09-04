@@ -6,6 +6,12 @@ config :cgrates_web_jsonapi, CgratesWebJsonapi.Endpoint,
   http: [port: 4001],
   server: false
 
+  config :cgrates_web_jsonapi,
+    cgrates_url: "http://cg.example.com",
+    cgrates_tenant: "cgrates.org",
+    cgrates_username: "user",
+    cgrates_password: "11111"
+
 # Print only warnings and errors during test
 config :logger, level: :warn
 
