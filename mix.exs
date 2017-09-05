@@ -37,8 +37,11 @@ defmodule CgratesWebJsonapi.Mixfile do
      {:gettext, "~> 0.11"},
      {:cowboy, "~> 1.0"},
 
+     {:comeonin, "~> 2.0"},
      {:cors_plug, "~> 1.2"},
+     {:ex_machina, "~> 2.1", only: :test},
      {:faker, "~> 0.8", only: :test},
+     {:guardian, "~> 0.14"},
      {:httpoison, "~> 0.13"},
      {:ja_serializer, "~> 0.12.0"},
      {:mapail, "~> 1.0"},

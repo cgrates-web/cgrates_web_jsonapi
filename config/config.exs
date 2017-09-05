@@ -29,6 +29,16 @@ config :mime, :types, %{
   "application/vnd.api+json" => ["json-api"]
 }
 
+config :guardian, Guardian,
+      allowed_algos: ["HS512"], # optional
+      verify_module: Guardian.JWT,  # optional
+      ttl: nil,
+      allowed_drift: 2000,
+      verify_issuer: true, # optional
+      serializer: CgratesWebJsonapi.Guardian,
+      issuer: "cgrates_web_jsonapi",
+      secret_key: "qBAQMfUyVgiF9TQHqitGWC1BmNwX0alxYIQrl98HDLo8uvMcANZ60VH22RzvBw+/"
+
 # Import environment specific config. This must remain at the bottom
 # of this file so it overrides the configuration defined above.
 import_config "#{Mix.env}.exs"

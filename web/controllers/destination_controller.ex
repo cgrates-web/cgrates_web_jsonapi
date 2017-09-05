@@ -18,7 +18,6 @@
 
     case DestinationRepo.insert(changeset) do
       {:ok, destination} ->
-        destination |> IO.inspect
         conn
         |> put_status(:created)
         |> put_resp_header("location", destination_path(conn, :show, destination))
@@ -31,7 +30,7 @@
   end
 
   def show(conn, %{"id" => id}) do
-    destination = DestinationRepo.get!(id) |> IO.inspect
+    destination = DestinationRepo.get!(id)
     render(conn, "show.json-api", data: destination)
   end
 

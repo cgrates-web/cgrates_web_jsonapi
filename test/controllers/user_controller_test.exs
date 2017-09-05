@@ -1,0 +1,112 @@
+defmodule CgratesWebJsonapi.UserControllerTest do
+  use CgratesWebJsonapi.ConnCase
+
+  import CgratesWebJsonapi.Factory
+
+  alias CgratesWebJsonapi.User
+  alias CgratesWebJsonapi.Repo
+
+  @valid_attrs %{email: "email@example.com", password: "some content"}
+  @invalid_attrs %{email: nil}
+
+  setup do
+    user = insert :user
+
+    conn = build_conn()
+     |> put_req_header("accept", "application/vnd.api+json")
+     |> put_req_header("content-type", "application/vnd.api+json")
+     |> Guardian.Plug.api_sign_in(
+       user,
+       :token,
+       perms: %{default: [:read, :write]}
+     )
+    {:ok, conn: conn}
+  end
+
+  defp relationships do
+    %{}
+  end
+
+  test "lists all entries on index", %{conn: conn} do
+    conn = get conn, user_path(conn, :index)
+    assert length(json_response(conn, 200)["data"]) == 1
+  end
+
+  test "shows chosen resource", %{conn: conn} do
+    user = insert :user
+    conn = get conn, user_path(conn, :show, user)
+    data = json_response(conn, 200)["data"]
+    assert data["id"] == "#{user.id}"
+    assert data["type"] == "user"
+    assert data["attributes"]["email"] == user.email
+  end
+
+  test "does not show resource and instead throw error when id is nonexistent", %{conn: conn} do
+    assert_error_sent 404, fn ->
+      get conn, user_path(conn, :show, -1)
+    end
+  end
+
+  test "creates and renders resource when data is valid", %{conn: conn} do
+    conn = post conn, user_path(conn, :create), %{
+      "meta" => %{},
+      "data" => %{
+        "type" => "user",
+        "attributes" => @valid_attrs,
+        "relationships" => relationships
+      }
+    }
+
+    assert json_response(conn, 201)["data"]["id"]
+  end
+
+  test "does not create resource and renders errors when data is invalid", %{conn: conn} do
+    conn = post conn, user_path(conn, :create), %{
+      "meta" => %{},
+      "data" => %{
+        "type" => "user",
+        "attributes" => @invalid_attrs,
+        "relationships" => relationships
+      }
+    }
+
+    assert json_response(conn, 422)["errors"] != %{}
+  end
+
+  test "updates and renders chosen resource when data is valid", %{conn: conn} do
+    user = insert :user
+    conn = put conn, user_path(conn, :update, user), %{
+      "meta" => %{},
+      "data" => %{
+        "type" => "user",
+        "id" => user.id,
+        "attributes" => @valid_attrs,
+        "relationships" => relationships
+      }
+    }
+
+    assert json_response(conn, 200)["data"]["id"]
+  end
+
+  test "does not update chosen resource and renders errors when data is invalid", %{conn: conn} do
+    user = insert :user
+    conn = put conn, user_path(conn, :update, user), %{
+      "meta" => %{},
+      "data" => %{
+        "type" => "user",
+        "id" => user.id,
+        "attributes" => @invalid_attrs,
+        "relationships" => relationships
+      }
+    }
+
+    assert json_response(conn, 422)["errors"] != %{}
+  end
+
+  test "deletes chosen resource", %{conn: conn} do
+    user = insert :user
+    conn = delete conn, user_path(conn, :delete, user)
+    assert response(conn, 204)
+    refute Repo.get(User, user.id)
+  end
+end

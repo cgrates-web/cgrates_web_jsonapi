@@ -3,6 +3,8 @@ defmodule CgratesWebJsonapi.DestinationControllerTest do
 
   import Mock
 
+  import CgratesWebJsonapi.Factory
+
   alias CgratesWebJsonapi.Destination
   alias CgratesWebJsonapi.Repo
 
@@ -10,10 +12,16 @@ defmodule CgratesWebJsonapi.DestinationControllerTest do
   @invalid_attrs %{}
 
   setup do
-    conn = build_conn()
-      |> put_req_header("accept", "application/vnd.api+json")
-      |> put_req_header("content-type", "application/vnd.api+json")
+    user = insert :user
 
+    conn = build_conn()
+     |> put_req_header("accept", "application/vnd.api+json")
+     |> put_req_header("content-type", "application/vnd.api+json")
+     |> Guardian.Plug.api_sign_in(
+       user,
+       :token,
+       perms: %{default: [:read, :write]}
+     )
     {:ok, conn: conn}
   end
 
