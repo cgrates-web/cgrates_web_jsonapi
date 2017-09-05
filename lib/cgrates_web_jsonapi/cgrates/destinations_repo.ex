@@ -11,6 +11,11 @@ defmodule CgratesWebJsonapi.Cgrates.DestinationRepo do
     end)
   end
 
+  def delete!(id) do
+    Adapter.execute(%{method: "ApierV2.RemoveDestination", params: %{DestinationIDs: [id]}})
+  end
+
+
   def get!(id) do
     result = Adapter.execute(%{method: "ApierV2.GetDestinations", params: %{DestinationIDs: []}})
     |> Map.get("result")
@@ -27,8 +32,10 @@ defmodule CgratesWebJsonapi.Cgrates.DestinationRepo do
 
   def insert(changeset) do
     if changeset.valid? do
-      Adapter.execute %{method: "ApierV1.SetDestination", params: changeset}
-      {:ok, changeset |> Ecto.Changeset.apply_changes}      
+      destination = changeset |> Ecto.Changeset.apply_changes
+      params = Map.from_struct(destination) |> Map.delete(:__meta__)
+      Adapter.execute %{method: "ApierV1.SetDestination", params: params}
+      {:ok, destination}
     else
       {:error, changeset}
     end

@@ -6,7 +6,7 @@ defmodule CgratesWebJsonapi.DestinationControllerTest do
   alias CgratesWebJsonapi.Destination
   alias CgratesWebJsonapi.Repo
 
-  @valid_attrs %{overwrite: true, prefixes: ["+44"], id: "DIST_NEW"}
+  @valid_attrs %{overwrite: true, prefixes: ["+44"]}
   @invalid_attrs %{}
 
   setup do
@@ -86,12 +86,13 @@ defmodule CgratesWebJsonapi.DestinationControllerTest do
       conn = post conn, destination_path(conn, :create), %{
         "meta" => %{},
         "data" => %{
-          "type" => "destination",
+          "id" => "NEW_DEST",
+          "type" => "destinations",
           "attributes" => @valid_attrs,
         }
       }
 
-      assert json_response(conn, 201)["data"]["id"]
+      assert json_response(conn, 201)["data"]["id"] == "NEW_DEST"
     end
   end
 
@@ -99,7 +100,8 @@ defmodule CgratesWebJsonapi.DestinationControllerTest do
     conn = post conn, destination_path(conn, :create), %{
       "meta" => %{},
       "data" => %{
-        "type" => "destination",
+        "id" => "NEW_DEST",
+        "type" => "destinations",
         "attributes" => @invalid_attrs
       }
     }
@@ -138,12 +140,4 @@ defmodule CgratesWebJsonapi.DestinationControllerTest do
   #
   #   assert json_response(conn, 422)["errors"] != %{}
   # end
-
-  # test "deletes chosen resource", %{conn: conn} do
-  #   destination = Repo.insert! %Destination{}
-  #   conn = delete conn, destination_path(conn, :delete, destination)
-  #   assert response(conn, 204)
-  #   refute Repo.get(Destination, destination.id)
-  # end
-
 end

@@ -12,8 +12,9 @@
     render(conn, "index.json-api", data: destinations)
   end
 
-  def create(conn, %{"data" => data = %{"type" => "destination", "attributes" => _destination_params}}) do
-    changeset = Destination.changeset(%Destination{}, Params.to_attributes(data))
+  def create(conn, %{"data" => data = %{"type" => "destinations", "attributes" => _destination_params, "id" => id}}) do
+    params = Params.to_attributes(data) |> Map.merge(%{"id" => id})
+    changeset = Destination.changeset(%Destination{}, params)
 
     case DestinationRepo.insert(changeset) do
       {:ok, destination} ->
@@ -34,7 +35,7 @@
     render(conn, "show.json-api", data: destination)
   end
 
-  def update(conn, %{"id" => id, "data" => data = %{"type" => "destination", "attributes" => _destination_params}}) do
+  def update(conn, %{"id" => id, "data" => data = %{"type" => "destinations", "attributes" => _destination_params}}) do
     destination = DestinationRepo.get!(Destination, id)
     changeset = Destination.changeset(destination, Params.to_attributes(data))
 
@@ -48,14 +49,10 @@
     end
   end
 
-  # def delete(conn, %{"id" => id}) do
-  #   destination = Repo.get!(Destination, id)
-  #
-  #   # Here we use delete! (with a bang) because we expect
-  #   # it to always work (and if it does not, it will raise).
-  #   Repo.delete!(destination)
-  #
-  #   send_resp(conn, :no_content, "")
-  # end
+  def delete(conn, %{"id" => id}) do
+    DestinationRepo.delete!(id)
+
+    send_resp(conn, :no_content, "")
+  end
 
 end

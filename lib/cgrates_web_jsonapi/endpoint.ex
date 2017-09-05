@@ -36,5 +36,7 @@ defmodule CgratesWebJsonapi.Endpoint do
     key: "_cgrates_web_jsonapi_key",
     signing_salt: "Yjl/cj4Z"
 
+  plug CORSPlug, origin: ~r/.*/
+
   plug CgratesWebJsonapi.Router
 end
