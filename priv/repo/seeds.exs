@@ -9,3 +9,8 @@
 #
 # We recommend using the bang functions (`insert!`, `update!`
 # and so on) as they will fail if something goes wrong.
+
+if CgratesWebJsonapi.Repo.aggregate(CgratesWebJsonapi.User, :count, :id) == 0 do
+  CgratesWebJsonapi.User.registration_changeset(%CgratesWebJsonapi.User{}, %{email: "admin@example.com", password: "password"})
+  |> CgratesWebJsonapi.Repo.insert
+end
