@@ -12,7 +12,7 @@ defmodule CgratesWebJsonapi.Router do
 
     plug JaSerializer.ContentTypeNegotiation
     plug JaSerializer.Deserializer
-    plug Guardian.Plug.VerifyHeader
+    plug Guardian.Plug.VerifyHeader, realm: "Bearer"
     plug Guardian.Plug.LoadResource
     plug Guardian.Plug.EnsureAuthenticated
   end

@@ -35,7 +35,7 @@
   end
 
   def update(conn, %{"id" => id, "data" => data = %{"type" => "destinations", "attributes" => _destination_params}}) do
-    destination = DestinationRepo.get!(Destination, id)
+    destination = DestinationRepo.get!(id)
     changeset = Destination.changeset(destination, Params.to_attributes(data))
 
     case DestinationRepo.insert(changeset) do
