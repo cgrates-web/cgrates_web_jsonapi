@@ -40,6 +40,7 @@ defmodule CgratesWebJsonapi.Mixfile do
      {:gettext, "~> 0.11"},
      {:cowboy, "~> 1.0"},
 
+     {:bureaucrat, "~> 0.1.4", runtime: false},
      {:comeonin, "~> 2.0"},
      {:cors_plug, "~> 1.2"},
      {:distillery, "~> 1.4", runtime: false},

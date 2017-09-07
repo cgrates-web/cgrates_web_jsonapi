@@ -24,7 +24,7 @@ defmodule CgratesWebJsonapi.ConnCase do
       import Ecto
       import Ecto.Changeset
       import Ecto.Query
-
+      import Bureaucrat.Helpers
       import CgratesWebJsonapi.Router.Helpers
 
       # The default endpoint for testing

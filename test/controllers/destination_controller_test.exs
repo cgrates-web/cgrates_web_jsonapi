@@ -36,7 +36,7 @@ defmodule CgratesWebJsonapi.DestinationControllerTest do
         }
       end
     ] do
-      conn = get conn, destination_path(conn, :index)
+      conn = get(conn, destination_path(conn, :index)) |> doc
       assert json_response(conn, 200)["data"] == [%{
           "id" => "DST_1",
           "attributes" => %{
@@ -57,7 +57,7 @@ defmodule CgratesWebJsonapi.DestinationControllerTest do
         }
       end
     ] do
-      conn = get conn, destination_path(conn, :show, "DST_1")
+      conn = get(conn, destination_path(conn, :show, "DST_1")) |> doc
       data = json_response(conn, 200)["data"]
       assert data["id"] == "DST_1"
       assert data["type"] == "destination"
@@ -76,7 +76,7 @@ defmodule CgratesWebJsonapi.DestinationControllerTest do
       end
     ] do
       assert_error_sent 500, fn ->
-        get conn, destination_path(conn, :show, -1)
+        get(conn, destination_path(conn, :show, -1)) |> doc
       end
     end
   end
@@ -91,28 +91,28 @@ defmodule CgratesWebJsonapi.DestinationControllerTest do
         }
       end
     ] do
-      conn = post conn, destination_path(conn, :create), %{
+      conn = post(conn, destination_path(conn, :create), %{
         "meta" => %{},
         "data" => %{
           "id" => "NEW_DEST",
           "type" => "destinations",
           "attributes" => @valid_attrs,
         }
-      }
+      }) |> doc
 
       assert json_response(conn, 201)["data"]["id"] == "NEW_DEST"
     end
   end
 
   test "does not create resource and renders errors when data is invalid", %{conn: conn} do
-    conn = post conn, destination_path(conn, :create), %{
+    conn = post(conn, destination_path(conn, :create), %{
       "meta" => %{},
       "data" => %{
         "id" => "NEW_DEST",
         "type" => "destinations",
         "attributes" => @invalid_attrs
       }
-    }
+    }) |> doc
 
     assert json_response(conn, 422)["errors"] != %{}
   end
