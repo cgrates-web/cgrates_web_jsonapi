@@ -75,7 +75,7 @@ defmodule CgratesWebJsonapi.DestinationControllerTest do
         }
       end
     ] do
-      assert_error_sent 500, fn ->
+      assert_error_sent 404, fn ->
         get(conn, destination_path(conn, :show, -1)) |> doc
       end
     end

@@ -22,8 +22,7 @@ defmodule CgratesWebJsonapi.Cgrates.DestinationRepo do
     |> Enum.find(fn(dist) -> dist["id"] == id end)
 
     if is_nil result do
-      #TODO: create custom error
-      raise "record not found"
+      raise CgratesWebJsonapi.Cgrates.NotFoundError
     else
       {:ok, result} = result |> Mapail.map_to_struct(Destination)
       result
