@@ -2,7 +2,6 @@ defmodule CgratesWebJsonapi.DestinationControllerTest do
   use CgratesWebJsonapi.ConnCase
 
   import Mock
-
   import CgratesWebJsonapi.Factory
 
   alias CgratesWebJsonapi.Destination

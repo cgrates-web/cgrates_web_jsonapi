@@ -51,7 +51,8 @@ defmodule CgratesWebJsonapi.Mixfile do
      {:ja_serializer, "~> 0.12.0"},
      {:mapail, "~> 1.0"},
      {:mock, "~> 0.2.0", only: :test},
-     {:proper_case, github: "max-konin/proper_case", branch: "upper-case"}
+     {:proper_case, github: "max-konin/proper_case", branch: "upper-case"},
+     {:uuid, "~> 1.1"}
    ]
   end
 

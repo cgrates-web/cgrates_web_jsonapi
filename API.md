@@ -1,5 +1,9 @@
 # API Documentation
 
+* [CgratesWebJsonapi.AccountController](#cgrateswebjsonapiaccountcontroller)
+  * [create](#cgrateswebjsonapiaccountcontrollercreate)
+  * [index](#cgrateswebjsonapiaccountcontrollerindex)
+  * [show](#cgrateswebjsonapiaccountcontrollershow)
 * [CgratesWebJsonapi.DestinationController](#cgrateswebjsonapidestinationcontroller)
   * [create](#cgrateswebjsonapidestinationcontrollercreate)
   * [index](#cgrateswebjsonapidestinationcontrollerindex)
@@ -10,6 +14,350 @@
   * [index](#cgrateswebjsonapiusercontrollerindex)
   * [show](#cgrateswebjsonapiusercontrollershow)
   * [update](#cgrateswebjsonapiusercontrollerupdate)
+
+## CgratesWebJsonapi.AccountController
+### CgratesWebJsonapi.AccountController.create
+#### does not create resource and renders errors when data is invalid
+##### Request
+* __Method:__ POST
+* __Path:__ /api/accounts
+* __Request headers:__
+```
+accept: application/vnd.api+json
+content-type: application/vnd.api+json
+```
+##### Response
+* __Status__: 422
+* __Response headers:__
+```
+content-type: application/vnd.api+json; charset=utf-8
+cache-control: max-age=0, private, must-revalidate
+x-request-id: 74n75enlftrfl0l6k1luntn6v10ru66l
+vary: Origin
+access-control-allow-origin: 
+access-control-expose-headers: 
+access-control-allow-credentials: true
+```
+* __Response body:__
+```json
+{
+  "jsonapi": {
+    "version": "1.0"
+  },
+  "errors": [
+    {
+      "title": "can't be blank",
+      "source": {
+        "pointer": "/data/attributes/id"
+      },
+      "detail": "Id can't be blank"
+    }
+  ]
+}
+```
+
+#### creates and renders resource when data is valid
+##### Request
+* __Method:__ POST
+* __Path:__ /api/accounts
+* __Request headers:__
+```
+accept: application/vnd.api+json
+content-type: application/vnd.api+json
+```
+##### Response
+* __Status__: 201
+* __Response headers:__
+```
+content-type: application/vnd.api+json; charset=utf-8
+cache-control: max-age=0, private, must-revalidate
+x-request-id: dgd5cjckg4s89f9pobvrtjg1d2m3aila
+vary: Origin
+access-control-allow-origin: 
+access-control-expose-headers: 
+access-control-allow-credentials: true
+location: /api/accounts/2001
+```
+* __Response body:__
+```json
+{
+  "jsonapi": {
+    "version": "1.0"
+  },
+  "data": {
+    "type": "account",
+    "id": "2001",
+    "attributes": {
+      "unit-counters": null,
+      "disabled": false,
+      "balance-map": null,
+      "allow-negative": true,
+      "action-triggers": null
+    }
+  }
+}
+```
+
+### CgratesWebJsonapi.AccountController.index
+#### returns first page with 10 entries if page and per_page not pass
+##### Request
+* __Method:__ GET
+* __Path:__ /api/accounts
+* __Request headers:__
+```
+accept: application/vnd.api+json
+content-type: application/vnd.api+json
+```
+##### Response
+* __Status__: 200
+* __Response headers:__
+```
+content-type: application/vnd.api+json; charset=utf-8
+cache-control: max-age=0, private, must-revalidate
+x-request-id: gfgqgsbvpqo5vi4nfveeuko6vjaka2j6
+vary: Origin
+access-control-allow-origin: 
+access-control-expose-headers: 
+access-control-allow-credentials: true
+```
+* __Response body:__
+```json
+{
+  "jsonapi": {
+    "version": "1.0"
+  },
+  "data": [
+    {
+      "type": "account",
+      "id": "cgrates.org:1",
+      "attributes": {
+        "unit-counters": null,
+        "disabled": false,
+        "balance-map": {
+          "*monetary": [
+            {
+              "weight": 10,
+              "value": 10,
+              "uuid": "1780ab20-93b1-11e7-b9d3-50e54935fc40",
+              "timings": null,
+              "timing_i_ds": {},
+              "shared_groups": {},
+              "rating_subject": "",
+              "id": "",
+              "factor": null,
+              "expiration_date": "0001-01-01T00:00:00Z",
+              "disabled": false,
+              "directions": {
+                "*out": true
+              },
+              "destination_i_ds": {},
+              "categories": {},
+              "blocker": false
+            }
+          ]
+        },
+        "allow-negative": false,
+        "action-triggers": null
+      }
+    },
+    {
+      "type": "account",
+      "id": "cgrates.org:2",
+      "attributes": {
+        "unit-counters": null,
+        "disabled": false,
+        "balance-map": {
+          "*monetary": [
+            {
+              "weight": 10,
+              "value": 10,
+              "uuid": "1780b7dc-93b1-11e7-a73d-50e54935fc40",
+              "timings": null,
+              "timing_i_ds": {},
+              "shared_groups": {},
+              "rating_subject": "",
+              "id": "",
+              "factor": null,
+              "expiration_date": "0001-01-01T00:00:00Z",
+              "disabled": false,
+              "directions": {
+                "*out": true
+              },
+              "destination_i_ds": {},
+              "categories": {},
+              "blocker": false
+            }
+          ]
+        },
+        "allow-negative": false,
+        "action-triggers": null
+      }
+    }
+  ]
+}
+```
+
+#### paginated lists entries on index
+##### Request
+* __Method:__ GET
+* __Path:__ /api/accounts
+* __Request headers:__
+```
+accept: application/vnd.api+json
+content-type: application/vnd.api+json
+```
+##### Response
+* __Status__: 200
+* __Response headers:__
+```
+content-type: application/vnd.api+json; charset=utf-8
+cache-control: max-age=0, private, must-revalidate
+x-request-id: od57saej92lmc9g6b0m7hrimir7i5lgc
+vary: Origin
+access-control-allow-origin: 
+access-control-expose-headers: 
+access-control-allow-credentials: true
+```
+* __Response body:__
+```json
+{
+  "jsonapi": {
+    "version": "1.0"
+  },
+  "data": [
+    {
+      "type": "account",
+      "id": "cgrates.org:1",
+      "attributes": {
+        "unit-counters": null,
+        "disabled": false,
+        "balance-map": {
+          "*monetary": [
+            {
+              "weight": 10,
+              "value": 10,
+              "uuid": "176eef48-93b1-11e7-858e-50e54935fc40",
+              "timings": null,
+              "timing_i_ds": {},
+              "shared_groups": {},
+              "rating_subject": "",
+              "id": "",
+              "factor": null,
+              "expiration_date": "0001-01-01T00:00:00Z",
+              "disabled": false,
+              "directions": {
+                "*out": true
+              },
+              "destination_i_ds": {},
+              "categories": {},
+              "blocker": false
+            }
+          ]
+        },
+        "allow-negative": false,
+        "action-triggers": null
+      }
+    },
+    {
+      "type": "account",
+      "id": "cgrates.org:2",
+      "attributes": {
+        "unit-counters": null,
+        "disabled": false,
+        "balance-map": {
+          "*monetary": [
+            {
+              "weight": 10,
+              "value": 10,
+              "uuid": "176efd26-93b1-11e7-b9c4-50e54935fc40",
+              "timings": null,
+              "timing_i_ds": {},
+              "shared_groups": {},
+              "rating_subject": "",
+              "id": "",
+              "factor": null,
+              "expiration_date": "0001-01-01T00:00:00Z",
+              "disabled": false,
+              "directions": {
+                "*out": true
+              },
+              "destination_i_ds": {},
+              "categories": {},
+              "blocker": false
+            }
+          ]
+        },
+        "allow-negative": false,
+        "action-triggers": null
+      }
+    }
+  ]
+}
+```
+
+### CgratesWebJsonapi.AccountController.show
+#### shows chosen resource
+##### Request
+* __Method:__ GET
+* __Path:__ /api/accounts/cgrates.org%3A1
+* __Request headers:__
+```
+accept: application/vnd.api+json
+content-type: application/vnd.api+json
+```
+##### Response
+* __Status__: 200
+* __Response headers:__
+```
+content-type: application/vnd.api+json; charset=utf-8
+cache-control: max-age=0, private, must-revalidate
+x-request-id: k7lk3kbgna9aqdhpft57ed7tdssaeq7p
+vary: Origin
+access-control-allow-origin: 
+access-control-expose-headers: 
+access-control-allow-credentials: true
+```
+* __Response body:__
+```json
+{
+  "jsonapi": {
+    "version": "1.0"
+  },
+  "data": {
+    "type": "account",
+    "id": "cgrates.org:1",
+    "attributes": {
+      "unit-counters": null,
+      "disabled": false,
+      "balance-map": {
+        "*monetary": [
+          {
+            "weight": 10,
+            "value": 10,
+            "uuid": "178969ae-93b1-11e7-b4f6-50e54935fc40",
+            "timings": null,
+            "timing_i_ds": {},
+            "shared_groups": {},
+            "rating_subject": "",
+            "id": "",
+            "factor": null,
+            "expiration_date": "0001-01-01T00:00:00Z",
+            "disabled": false,
+            "directions": {
+              "*out": true
+            },
+            "destination_i_ds": {},
+            "categories": {},
+            "blocker": false
+          }
+        ]
+      },
+      "allow-negative": false,
+      "action-triggers": null
+    }
+  }
+}
+```
 
 ## CgratesWebJsonapi.DestinationController
 ### CgratesWebJsonapi.DestinationController.create
@@ -28,7 +376,7 @@ content-type: application/vnd.api+json
 ```
 content-type: application/vnd.api+json; charset=utf-8
 cache-control: max-age=0, private, must-revalidate
-x-request-id: 4nnivfrg7ds7kvkfrv2a2u7epqt6avt9
+x-request-id: beju7thjib34lt8ttuc1e2jlcvjihjpd
 vary: Origin
 access-control-allow-origin: 
 access-control-expose-headers: 
@@ -67,7 +415,7 @@ content-type: application/vnd.api+json
 ```
 content-type: application/vnd.api+json; charset=utf-8
 cache-control: max-age=0, private, must-revalidate
-x-request-id: uegcio6li8s0sqmbk6palk7s61kj3eka
+x-request-id: aev17njtlrcj8oarsv15qhgm419890du
 vary: Origin
 access-control-allow-origin: 
 access-control-expose-headers: 
@@ -108,7 +456,7 @@ content-type: application/vnd.api+json
 ```
 content-type: application/vnd.api+json; charset=utf-8
 cache-control: max-age=0, private, must-revalidate
-x-request-id: sj850st1ha9bi3fdl0snnqph8k591kso
+x-request-id: tsilh6rc8v46bej9j4eqp7pp209h6dl6
 vary: Origin
 access-control-allow-origin: 
 access-control-expose-headers: 
@@ -150,7 +498,7 @@ content-type: application/vnd.api+json
 ```
 content-type: application/vnd.api+json; charset=utf-8
 cache-control: max-age=0, private, must-revalidate
-x-request-id: aj7795ffe95i9g7l1e8q750vp5j502c0
+x-request-id: fuoibffclo51rao9f5lr26td5e0kp2fk
 vary: Origin
 access-control-allow-origin: 
 access-control-expose-headers: 
@@ -191,7 +539,7 @@ content-type: application/vnd.api+json
 ```
 content-type: application/vnd.api+json; charset=utf-8
 cache-control: max-age=0, private, must-revalidate
-x-request-id: dd7kd3uk78h5egj1pc876ii5nu267jlk
+x-request-id: fg4ndtismfcmk6cmt0jrp3l65th6i009
 vary: Origin
 access-control-allow-origin: 
 access-control-expose-headers: 
@@ -230,12 +578,12 @@ content-type: application/vnd.api+json
 ```
 content-type: application/vnd.api+json; charset=utf-8
 cache-control: max-age=0, private, must-revalidate
-x-request-id: r5dc5iqt4b33dd0pipo6bran59g1c2g7
+x-request-id: kodq979qfn9ef0sokcu4v2pl7ihdoio1
 vary: Origin
 access-control-allow-origin: 
 access-control-expose-headers: 
 access-control-allow-credentials: true
-location: /api/users/393
+location: /api/users/761
 ```
 * __Response body:__
 ```json
@@ -245,10 +593,10 @@ location: /api/users/393
   },
   "data": {
     "type": "user",
-    "id": "393",
+    "id": "761",
     "attributes": {
-      "updated-at": "2017-09-07T07:39:48.580829",
-      "inserted-at": "2017-09-07T07:39:48.580817",
+      "updated-at": "2017-09-07T09:44:07.628515",
+      "inserted-at": "2017-09-07T09:44:07.628502",
       "email": "email@example.com"
     }
   }
@@ -259,7 +607,7 @@ location: /api/users/393
 #### deletes chosen resource
 ##### Request
 * __Method:__ DELETE
-* __Path:__ /api/users/387
+* __Path:__ /api/users/759
 * __Request headers:__
 ```
 accept: application/vnd.api+json
@@ -270,7 +618,7 @@ content-type: application/vnd.api+json
 * __Response headers:__
 ```
 cache-control: max-age=0, private, must-revalidate
-x-request-id: 0tsrfljg0j5v71ude73lv71i6hp80ng1
+x-request-id: nh3rghvdchar3fe6a9edhrijj4ni1k1t
 vary: Origin
 access-control-allow-origin: 
 access-control-expose-headers: 
@@ -298,7 +646,7 @@ content-type: application/vnd.api+json
 ```
 content-type: application/vnd.api+json; charset=utf-8
 cache-control: max-age=0, private, must-revalidate
-x-request-id: lona6pe649rt56nfm689rknctuqeiaar
+x-request-id: 65871qvm3tosn7rnr2frvp3pd19j5q8s
 vary: Origin
 access-control-allow-origin: 
 access-control-expose-headers: 
@@ -313,11 +661,11 @@ access-control-allow-credentials: true
   "data": [
     {
       "type": "user",
-      "id": "384",
+      "id": "754",
       "attributes": {
-        "updated-at": "2017-09-07T07:39:48.230409",
-        "inserted-at": "2017-09-07T07:39:48.230402",
-        "email": "allan1962@hodkiewicz.net"
+        "updated-at": "2017-09-07T09:44:07.261607",
+        "inserted-at": "2017-09-07T09:44:07.261596",
+        "email": "baron2055@bechtelar.name"
       }
     }
   ]
@@ -328,7 +676,7 @@ access-control-allow-credentials: true
 #### shows chosen resource
 ##### Request
 * __Method:__ GET
-* __Path:__ /api/users/391
+* __Path:__ /api/users/756
 * __Request headers:__
 ```
 accept: application/vnd.api+json
@@ -340,7 +688,7 @@ content-type: application/vnd.api+json
 ```
 content-type: application/vnd.api+json; charset=utf-8
 cache-control: max-age=0, private, must-revalidate
-x-request-id: o5ft8npq101tpunvhtlh3eqms8f8g4jb
+x-request-id: 3ds7b8ohr09409f1ll4585ta797sb7pb
 vary: Origin
 access-control-allow-origin: 
 access-control-expose-headers: 
@@ -354,11 +702,11 @@ access-control-allow-credentials: true
   },
   "data": {
     "type": "user",
-    "id": "391",
+    "id": "756",
     "attributes": {
-      "updated-at": "2017-09-07T07:39:48.259851",
-      "inserted-at": "2017-09-07T07:39:48.259843",
-      "email": "franco1977@gerlach.biz"
+      "updated-at": "2017-09-07T09:44:07.273784",
+      "inserted-at": "2017-09-07T09:44:07.273777",
+      "email": "al2061@krajcik.org"
     }
   }
 }
@@ -368,7 +716,7 @@ access-control-allow-credentials: true
 #### does not update chosen resource and renders errors when data is invalid
 ##### Request
 * __Method:__ PUT
-* __Path:__ /api/users/383
+* __Path:__ /api/users/763
 * __Request headers:__
 ```
 accept: application/vnd.api+json
@@ -380,7 +728,7 @@ content-type: application/vnd.api+json
 ```
 content-type: application/vnd.api+json; charset=utf-8
 cache-control: max-age=0, private, must-revalidate
-x-request-id: 98jn6s9nmbbco3l4v6mt4c1prhnc25c7
+x-request-id: 909vqocnhs6n4p5n14se201c4i6rd70n
 vary: Origin
 access-control-allow-origin: 
 access-control-expose-headers: 
@@ -407,7 +755,7 @@ access-control-allow-credentials: true
 #### updates and renders chosen resource when data is valid
 ##### Request
 * __Method:__ PUT
-* __Path:__ /api/users/389
+* __Path:__ /api/users/766
 * __Request headers:__
 ```
 accept: application/vnd.api+json
@@ -419,7 +767,7 @@ content-type: application/vnd.api+json
 ```
 content-type: application/vnd.api+json; charset=utf-8
 cache-control: max-age=0, private, must-revalidate
-x-request-id: hgseovl7d3ht234sv9vj5s92qbm1feml
+x-request-id: l4t0f927ts7t29dv077itf52ajbp6tvf
 vary: Origin
 access-control-allow-origin: 
 access-control-expose-headers: 
@@ -433,10 +781,10 @@ access-control-allow-credentials: true
   },
   "data": {
     "type": "user",
-    "id": "389",
+    "id": "766",
     "attributes": {
-      "updated-at": "2017-09-07T07:39:48.257365",
-      "inserted-at": "2017-09-07T07:39:48.256109",
+      "updated-at": "2017-09-07T09:44:07.638758",
+      "inserted-at": "2017-09-07T09:44:07.637517",
       "email": "email@example.com"
     }
   }

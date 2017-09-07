@@ -14,10 +14,10 @@ config :cgrates_web_jsonapi, CgratesWebJsonapi.Endpoint,
   watchers: []
 
 config :cgrates_web_jsonapi,
-  cgrates_url: "http://cgrate.example.com",
-  cgrates_tenant: "cgrates.org",
-  cgrates_username: "username",
-  cgrates_password: "password"
+  cgrates_url: "http://119.28.70.217:2080",
+ cgrates_tenant: "cgrates.org",
+ cgrates_username: "user",
+ cgrates_password: "dupa"
 
 
 # Do not include metadata nor timestamps in development logs
