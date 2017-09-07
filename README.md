@@ -1,4 +1,5 @@
 # CgratesWebJsonapi
+[![Build Status](https://travis-ci.org/max-konin/a2billing_rest_api.svg?branch=master)](https://travis-ci.org/cgrates-web/cgrates_web_jsonapi)
 
 JSON:API for CGrates. Wrapper for CGrates Apier with JWT auth.
 
