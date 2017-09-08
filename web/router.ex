@@ -22,6 +22,7 @@ defmodule CgratesWebJsonapi.Router do
 
     resources "/accounts", AccountController, except: [:new, :edit]
     resources "/destinations", DestinationController, except: [:new, :edit]
+    resources "/tariff_plans", TariffPlanController, except: [:new, :edit]
     resources "/users", UserController, except: [:new, :edit]
   end
 

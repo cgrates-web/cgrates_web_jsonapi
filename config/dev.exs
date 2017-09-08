@@ -19,7 +19,6 @@ config :cgrates_web_jsonapi,
   cgrates_username: "username",
   cgrates_password: "password"
 
-
 # Do not include metadata nor timestamps in development logs
 config :logger, :console, format: "[$level] $message\n"
 

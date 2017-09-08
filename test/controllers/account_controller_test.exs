@@ -101,7 +101,7 @@ defmodule CgratesWebJsonapi.AccountControllerTest do
       end
     ] do
       conn = get(conn, account_path(conn, :show, "cgrates.org:1")) |> doc
-      data = json_response(conn, 200)["data"] |> IO.inspect
+      data = json_response(conn, 200)["data"]
       assert data["id"] == "cgrates.org:1"
       assert data["type"] == "account"
       assert data["attributes"]["balance-map"] == account["balance_map"]
@@ -142,7 +142,7 @@ defmodule CgratesWebJsonapi.AccountControllerTest do
         "meta" => %{},
         "data" => %{
           "id" => "2001",
-          "type" => "account",
+          "type" => "accounts",
           "attributes" => @valid_attrs,
           "relationships" => relationships
         }
@@ -157,7 +157,7 @@ defmodule CgratesWebJsonapi.AccountControllerTest do
       "meta" => %{},
       "data" => %{
         "id" => "",
-        "type" => "account",
+        "type" => "accounts",
         "attributes" => @invalid_attrs,
         "relationships" => relationships
       }
@@ -171,7 +171,7 @@ defmodule CgratesWebJsonapi.AccountControllerTest do
   #   conn = put conn, account_path(conn, :update, account), %{
   #     "meta" => %{},
   #     "data" => %{
-  #       "type" => "account",
+  #       "type" => "accounts",
   #       "id" => account.id,
   #       "attributes" => @valid_attrs,
   #       "relationships" => relationships
@@ -187,7 +187,7 @@ defmodule CgratesWebJsonapi.AccountControllerTest do
   #   conn = put conn, account_path(conn, :update, account), %{
   #     "meta" => %{},
   #     "data" => %{
-  #       "type" => "account",
+  #       "type" => "accounts",
   #       "id" => account.id,
   #       "attributes" => @invalid_attrs,
   #       "relationships" => relationships

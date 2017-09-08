@@ -12,7 +12,7 @@ defmodule CgratesWebJsonapi.AccountController do
     render(conn, "index.json-api", data: accounts)
   end
 
-  def create(conn, %{"data" => data = %{"id" => id, "type" => "account", "attributes" => _account_params}}) do
+  def create(conn, %{"data" => data = %{"id" => id, "type" => "accounts", "attributes" => _account_params}}) do
     params = Params.to_attributes(data) |> Map.merge(%{"id" => id})
     changeset = Account.changeset(%Account{}, params)
 
@@ -30,11 +30,11 @@ defmodule CgratesWebJsonapi.AccountController do
   end
 
   def show(conn, %{"id" => id}) do
-    account = AccountsRepo.get!(id) |> IO.inspect
+    account = AccountsRepo.get!(id)
     render(conn, "show.json-api", data: account)
   end
 
-  def update(conn, %{"id" => id, "data" => data = %{"type" => "account", "attributes" => _account_params}}) do
+  def update(conn, %{"id" => id, "data" => data = %{"type" => "accounts", "attributes" => _account_params}}) do
     account = AccountsRepo.get!(id)
     changeset = Account.changeset(account, Params.to_attributes(data))
 

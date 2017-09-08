@@ -11,7 +11,7 @@ defmodule CgratesWebJsonapi.UserController do
     render(conn, "index.json-api", data: users)
   end
 
-  def create(conn, %{"data" => data = %{"type" => "user", "attributes" => _user_params}}) do
+  def create(conn, %{"data" => data = %{"type" => "users", "attributes" => _user_params}}) do
     changeset = User.registration_changeset(%User{}, Params.to_attributes(data))
 
     case Repo.insert(changeset) do
@@ -32,7 +32,7 @@ defmodule CgratesWebJsonapi.UserController do
     render(conn, "show.json-api", data: user)
   end
 
-  def update(conn, %{"id" => id, "data" => data = %{"type" => "user", "attributes" => _user_params}}) do
+  def update(conn, %{"id" => id, "data" => data = %{"type" => "users", "attributes" => _user_params}}) do
     user = Repo.get!(User, id)
     changeset = User.changeset(user, Params.to_attributes(data))
 

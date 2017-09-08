@@ -7,4 +7,12 @@ defmodule CgratesWebJsonapi.Factory do
       password: "password"
     }
   end
+
+  def tariff_plan_factory do
+    %CgratesWebJsonapi.TariffPlan{
+      name: Faker.Beer.name,
+      alias: Faker.Pokemon.name,
+      description: Faker.Lorem.sentence
+    }
+  end
 end
