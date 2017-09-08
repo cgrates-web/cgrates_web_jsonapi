@@ -1,19 +1,20 @@
 # CgratesWebJsonapi
+[![Build Status](https://travis-ci.org/max-konin/a2billing_rest_api.svg?branch=master)](https://travis-ci.org/cgrates-web/cgrates_web_jsonapi)
 
-To start your Phoenix app:
+JSON:API for CGrates. Wrapper for CGrates Apier with JWT auth.
 
-  * Install dependencies with `mix deps.get`
-  * Create and migrate your database with `mix ecto.create && mix ecto.migrate`
-  * Start Phoenix endpoint with `mix phoenix.server`
+## Start with Docker
 
-Now you can visit [`localhost:4000`](http://localhost:4000) from your browser.
+To start application as a docker container:
+ * Install Docker and Docker Compose
+ * Change docker-compose.yml. Add your credentional to cgrates server.
+ * Run `docker-compose pull`
+ * Run `dcoker-compose up -d`
 
-Ready to run in production? Please [check our deployment guides](http://www.phoenixframework.org/docs/deployment).
+To migrate database and seed initial data run:
+```
+docker exec -it cgrates_web_jsonapi bin/cgrates_web_jsonapi migrate
+```
 
-## Learn more
-
-  * Official website: http://www.phoenixframework.org/
-  * Guides: http://phoenixframework.org/docs/overview
-  * Docs: https://hexdocs.pm/phoenix
-  * Mailing list: http://groups.google.com/group/phoenix-talk
-  * Source: https://github.com/phoenixframework/phoenix
+## API documentation
+[Api Docs](https://github.com/cgrates-web/cgrates_web_jsonapi/blob/master/API.md) 
