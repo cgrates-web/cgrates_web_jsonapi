@@ -15,4 +15,11 @@ defmodule CgratesWebJsonapi.Factory do
       description: Faker.Lorem.sentence
     }
   end
+
+  def tp_destination_factory do
+    %CgratesWebJsonapi.TpDestination{
+      prefix: "+44",
+      tag: Faker.Pokemon.name
+    }
+  end
 end

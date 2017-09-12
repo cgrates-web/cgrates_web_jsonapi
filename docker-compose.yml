@@ -2,12 +2,10 @@ version: "3"
 
 services:
   db:
-    container_name: postgres
-    image: postgres
+    image: mysql
+    container_name: mysql
     environment:
-      POSTGRES_PASSWORD: postgres
-      POSTGRES_PASSWORD: postgres
-      POSTGRES_DB: cgrates_web_jsonapi_dev
+      MYSQL_ROOT_PASSWORD: root
 
   cgrates_web_jsonapi:
     image: maxkonin/cgrates_web_jsonapi
@@ -20,10 +18,10 @@ services:
       HOST: localhost
       SECRET_KEY_BASE: FdhoVLqowHllh1dfJw2Pk3LG9QZLFYmdY1Wffsca6Q1IkMFfNhtUTTzGTaP5umMT
       GUARDIAN_SECRET_KEY: 1LT/1JSIfn/lz04cYyAOh/g3w2rMkho7AF1rURe5/mvyFY25e+2TzxOBCCUWeS7w
-      POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: postgres
-      POSTGRES_HOST: postgres
-      POSTGRES_DATABASE: cgrates_web_jsonapi_dev
+      MYSQL_USER: root
+      MYSQL_PASSWORD: root
+      MYSQL_HOST: db
+      MYSQL_DATABASE: cgrates_web_jsonapi_dev
       CGRATES_URL: cgrate.example.com
       CGRATES_TENANT: cgrates.org
       CGRATES_USERNAME: username
