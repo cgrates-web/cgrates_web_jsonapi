@@ -22,6 +22,7 @@
   "jose": {:hex, :jose, "1.8.4", "7946d1e5c03a76ac9ef42a6e6a20001d35987afd68c2107bcd8f01a84e75aa73", [:mix, :rebar3], [{:base64url, "~> 0.0.1", [hex: :base64url, repo: "hexpm", optional: false]}], "hexpm"},
   "mapail": {:hex, :mapail, "1.0.2", "45d0bc390b965f21b80c02e8fb2279f9bcc57cf5c78f964ef63113317d6944d1", [:mix], [{:maptu, "~> 1.0.0", [hex: :maptu, repo: "hexpm", optional: false]}], "hexpm"},
   "maptu": {:hex, :maptu, "1.0.0", "3f1915d3241a733f46a39e935bed369faaf4ff69182b95ea58e9ad1b065c3b11", [:mix], [], "hexpm"},
+  "mariaex": {:hex, :mariaex, "0.8.3", "bf51ff4d480f68400bad69d1ebe778b6edbcafa4dd0429826ae1dd89cb90c8ad", [:mix], [{:db_connection, "~> 1.1", [hex: :db_connection, repo: "hexpm", optional: false]}, {:decimal, "~> 1.0", [hex: :decimal, repo: "hexpm", optional: false]}], "hexpm"},
   "meck": {:hex, :meck, "0.8.8", "eeb3efe811d4346e1a7f65b2738abc2ad73cbe1a2c91b5dd909bac2ea0414fa6", [:rebar3], [], "hexpm"},
   "metrics": {:hex, :metrics, "1.0.1", "25f094dea2cda98213cecc3aeff09e940299d950904393b2a29d191c346a8486", [:rebar3], [], "hexpm"},
   "mime": {:hex, :mime, "1.1.0", "01c1d6f4083d8aa5c7b8c246ade95139620ef8effb009edde934e0ec3b28090a", [:mix], [], "hexpm"},

@@ -28,9 +28,9 @@ config :phoenix, :stacktrace_depth, 20
 
 # Configure your database
 config :cgrates_web_jsonapi, CgratesWebJsonapi.Repo,
-  adapter: Ecto.Adapters.Postgres,
-  username: "postgres",
-  password: "postgres",
+  adapter: Ecto.Adapters.MySQL,
+  username: "root",
+  password: "root",
   database: "cgrates_web_jsonapi_dev",
   hostname: "localhost",
   pool_size: 10

@@ -22,11 +22,11 @@ config :cgrates_web_jsonapi, CgratesWebJsonapi.Endpoint,
 config :logger, level: :info
 
 config :cgrates_web_jsonapi, CgratesWebJsonapi.Repo,
-  adapter: Ecto.Adapters.Postgres,
-  username: "${POSTGRES_USER}",
-  password: "${POSTGRES_PASSWORD}",
-  database: "${POSTGRES_DATABASE}",
-  hostname: "${POSTGRES_HOST}",
+  adapter: Ecto.Adapters.MySQL,
+  username: "${MYSQL_USER}",
+  password: "${MYSQL_PASSWORD}",
+  database: "${MYSQL_DATABASE}",
+  hostname: "${MYSQL_HOST}",
   pool_size: 10
 
 config :guardian, Guardian,
