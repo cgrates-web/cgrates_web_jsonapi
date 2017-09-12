@@ -22,4 +22,15 @@ defmodule CgratesWebJsonapi.Factory do
       tag: Faker.Pokemon.name
     }
   end
+
+  def tp_rate_factory do
+    %CgratesWebJsonapi.TpRate{
+      tag: Faker.Beer.name,
+      connect_fee: 0.01,
+      rate: 0.01,
+      rate_unit: "60s",
+      rate_increment: "60s",
+      group_interval_start: "60s"
+    }
+  end
 end
