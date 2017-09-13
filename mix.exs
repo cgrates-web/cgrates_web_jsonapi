@@ -18,8 +18,8 @@ defmodule CgratesWebJsonapi.Mixfile do
   # Type `mix help compile.app` for more information.
   def application do
     [mod: {CgratesWebJsonapi, []},
-     applications: [:phoenix, :phoenix_pubsub, :cowboy, :logger, :gettext,
-                    :phoenix_ecto, :mariaex, :ja_serializer, :hackney, :mapail, :comeonin,
+     applications: [:phoenix, :phoenix_pubsub, :cowboy, :logger, :gettext, :scrivener_ecto,
+                    :phoenix_ecto, :mariaex, :ja_resource, :ja_serializer, :hackney, :mapail, :comeonin,
                     :cors_plug, :guardian, :httpoison, :proper_case
                     ]
                   ]
@@ -47,11 +47,13 @@ defmodule CgratesWebJsonapi.Mixfile do
      {:faker, "~> 0.8", only: :test},
      {:guardian, "~> 0.14"},
      {:httpoison, "~> 0.13"},
+     {:ja_resource, "~> 0.3"},
      {:ja_serializer, "~> 0.12.0"},
      {:mapail, "~> 1.0"},
      {:mariaex, "~> 0.1"},
      {:mock, "~> 0.2.0", only: :test},
      {:proper_case, github: "max-konin/proper_case", branch: "upper-case"},
+     {:scrivener_ecto, "~> 1.0"},
      {:uuid, "~> 1.1"}
    ]
   end
@@ -65,6 +67,6 @@ defmodule CgratesWebJsonapi.Mixfile do
   defp aliases do
     ["ecto.setup": ["ecto.create", "ecto.load", "ecto.migrate", "run priv/repo/seeds.exs"],
      "ecto.reset": ["ecto.drop", "ecto.setup"],
-     "test": ["ecto.create --quiet", "ecto.load", "ecto.migrate", "test"]]
+     "test": ["ecto.create --quiet", "ecto.migrate", "test"]]
   end
 end

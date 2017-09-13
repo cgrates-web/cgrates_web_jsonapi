@@ -35,6 +35,50 @@ defmodule CgratesWebJsonapi.TpDestinationControllerTest do
     assert length(json_response(conn, 200)["data"]) == 1
   end
 
+  test "filtering by tag", %{conn: conn} do
+    tariff_plan = insert :tariff_plan
+
+    d1 = insert :tp_destination, tpid: tariff_plan.alias
+    d2 = insert :tp_destination, tpid: tariff_plan.alias
+
+    conn = get(conn, tp_destination_path(conn, :index, tpid: tariff_plan.alias), filter: %{tag: d1.tag})
+    |> doc
+    assert length(json_response(conn, 200)["data"]) == 1
+  end
+
+  test "filtering by prefix", %{conn: conn} do
+    tariff_plan = insert :tariff_plan
+
+    d1 = insert :tp_destination, tpid: tariff_plan.alias
+    d2 = insert :tp_destination, tpid: tariff_plan.alias
+
+    conn = get(conn, tp_destination_path(conn, :index, tpid: tariff_plan.alias), filter: %{tag: d1.tag})
+    |> doc
+    assert length(json_response(conn, 200)["data"]) == 1
+  end
+
+  test "sorting by tag", %{conn: conn} do
+    tariff_plan = insert :tariff_plan
+
+    d1 = insert :tp_destination, tpid: tariff_plan.alias, tag: "B"
+    d2 = insert :tp_destination, tpid: tariff_plan.alias, tag: "A"
+
+    conn = get(conn, tp_destination_path(conn, :index, tpid: tariff_plan.alias), sort: "tag")
+    |> doc
+    assert (json_response(conn, 200)["data"] |> List.first)["id"] == d2.id |> Integer.to_string
+  end
+
+  test "sorting by prefix", %{conn: conn} do
+    tariff_plan = insert :tariff_plan
+
+    d1 = insert :tp_destination, tpid: tariff_plan.alias, prefix: "+4"
+    d2 = insert :tp_destination, tpid: tariff_plan.alias, prefix: "+7"
+
+    conn = get(conn, tp_destination_path(conn, :index, tpid: tariff_plan.alias), sort: "-prefix")
+    |> doc
+    assert (json_response(conn, 200)["data"] |> List.first)["id"] == d2.id |> Integer.to_string
+  end
+
   test "returns bad request status if tpid option wasn't pass", %{conn: conn} do
     assert_error_sent 400, fn ->
       conn = get(conn, tp_destination_path(conn, :index)) |> doc

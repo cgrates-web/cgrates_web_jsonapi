@@ -39,6 +39,7 @@ config :guardian, Guardian,
       issuer: "cgrates_web_jsonapi",
       secret_key: "qBAQMfUyVgiF9TQHqitGWC1BmNwX0alxYIQrl98HDLo8uvMcANZ60VH22RzvBw+/"
 
+config :ja_resource, repo: CgratesWebJsonapi.Repo
 # Import environment specific config. This must remain at the bottom
 # of this file so it overrides the configuration defined above.
 import_config "#{Mix.env}.exs"
