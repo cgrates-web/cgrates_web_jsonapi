@@ -35,6 +35,89 @@ defmodule CgratesWebJsonapi.TpDestinationRateControllerTest do
     assert length(json_response(conn, 200)["data"]) == 1
   end
 
+  test "filtering by tag", %{conn: conn} do
+    tariff_plan = insert :tariff_plan
+
+    dr1 = insert :tp_destination_rate, tpid: tariff_plan.alias, tag: "aa"
+    dr2 = insert :tp_destination_rate, tpid: tariff_plan.alias, tag: "b"
+
+    conn = get(conn, tp_destination_rate_path(conn, :index, tpid: tariff_plan.alias), filter: %{tag: dr1.tag})
+    |> doc
+    assert length(json_response(conn, 200)["data"]) == 1
+  end
+
+  test "filtering by destinations_tag", %{conn: conn} do
+    tariff_plan = insert :tariff_plan
+
+    dr1 = insert :tp_destination_rate, tpid: tariff_plan.alias, destinations_tag: "aa"
+    dr2 = insert :tp_destination_rate, tpid: tariff_plan.alias, destinations_tag: "b"
+
+    conn = get(conn, tp_destination_rate_path(conn, :index, tpid: tariff_plan.alias),
+                    filter: %{destinations_tag: dr1.destinations_tag})
+    |> doc
+    assert length(json_response(conn, 200)["data"]) == 1
+  end
+
+  test "filtering by rates_tag", %{conn: conn} do
+    tariff_plan = insert :tariff_plan
+
+    dr1 = insert :tp_destination_rate, tpid: tariff_plan.alias, rates_tag: "aa"
+    dr2 = insert :tp_destination_rate, tpid: tariff_plan.alias, rates_tag: "b"
+
+    conn = get(conn, tp_destination_rate_path(conn, :index, tpid: tariff_plan.alias),
+                    filter: %{rates_tag: "aa"})
+    |> doc
+    assert length(json_response(conn, 200)["data"]) == 1
+  end
+
+  test "filtering by rounding_method", %{conn: conn} do
+    tariff_plan = insert :tariff_plan
+
+    dr1 = insert :tp_destination_rate, tpid: tariff_plan.alias, rounding_method: "*up"
+    dr2 = insert :tp_destination_rate, tpid: tariff_plan.alias, rounding_method: "*down"
+
+    conn = get(conn, tp_destination_rate_path(conn, :index, tpid: tariff_plan.alias),
+                    filter: %{rounding_method: dr1.rounding_method})
+    |> doc
+    assert length(json_response(conn, 200)["data"]) == 1
+  end
+
+  test "filtering by rounding_decimals", %{conn: conn} do
+    tariff_plan = insert :tariff_plan
+
+    dr1 = insert :tp_destination_rate, tpid: tariff_plan.alias, rounding_decimals: 1
+    dr2 = insert :tp_destination_rate, tpid: tariff_plan.alias, rounding_decimals: 0
+
+    conn = get(conn, tp_destination_rate_path(conn, :index, tpid: tariff_plan.alias),
+                    filter: %{rounding_decimals: dr1.rounding_decimals})
+    |> doc
+    assert length(json_response(conn, 200)["data"]) == 1
+  end
+
+  test "filtering by max_cost", %{conn: conn} do
+    tariff_plan = insert :tariff_plan
+
+    dr1 = insert :tp_destination_rate, tpid: tariff_plan.alias, max_cost: 1
+    dr2 = insert :tp_destination_rate, tpid: tariff_plan.alias, max_cost: 0
+
+    conn = get(conn, tp_destination_rate_path(conn, :index, tpid: tariff_plan.alias),
+                    filter: %{max_cost: dr1.max_cost})
+    |> doc
+    assert length(json_response(conn, 200)["data"]) == 1
+  end
+
+  test "filtering by max_cost_strategy", %{conn: conn} do
+    tariff_plan = insert :tariff_plan
+
+    dr1 = insert :tp_destination_rate, tpid: tariff_plan.alias, max_cost_strategy: "*free"
+    dr2 = insert :tp_destination_rate, tpid: tariff_plan.alias, max_cost_strategy: "*discount"
+
+    conn = get(conn, tp_destination_rate_path(conn, :index, tpid: tariff_plan.alias),
+                    filter: %{max_cost_strategy: dr1.max_cost_strategy})
+    |> doc
+    assert length(json_response(conn, 200)["data"]) == 1
+  end
+
   test "shows chosen resource", %{conn: conn} do
     tariff_plan = insert :tariff_plan
     tp_destination_rate = insert :tp_destination_rate, tpid: tariff_plan.alias
