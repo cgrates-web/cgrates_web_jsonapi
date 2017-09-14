@@ -1,14 +1,29 @@
-SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET time_zone = "+00:00";
+-- MySQL dump 10.13  Distrib 5.7.19, for Linux (x86_64)
+--
+-- Host: localhost    Database: cgrates_web_jsonapi_dev
+-- ------------------------------------------------------
+-- Server version	5.7.19-0ubuntu0.16.04.1
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
 /*!40101 SET NAMES utf8 */;
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
+--
+-- Table structure for table `cdrs`
+--
 
-CREATE TABLE IF NOT EXISTS `cdrs` (
-`id` int(11) NOT NULL,
+DROP TABLE IF EXISTS `cdrs`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `cdrs` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `cgrid` char(40) NOT NULL,
   `run_id` varchar(64) NOT NULL,
   `origin_host` varchar(64) NOT NULL,
@@ -36,11 +51,35 @@ CREATE TABLE IF NOT EXISTS `cdrs` (
   `extra_info` text,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
-  `deleted_at` timestamp NULL DEFAULT NULL
+  `deleted_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `cdrrun` (`cgrid`,`run_id`,`origin_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
-CREATE TABLE IF NOT EXISTS `sm_costs` (
-`id` int(11) NOT NULL,
+--
+-- Table structure for table `schema_migrations`
+--
+
+DROP TABLE IF EXISTS `schema_migrations`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `schema_migrations` (
+  `version` bigint(20) NOT NULL,
+  `inserted_at` datetime DEFAULT NULL,
+  PRIMARY KEY (`version`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Table structure for table `sm_costs`
+--
+
+DROP TABLE IF EXISTS `sm_costs`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `sm_costs` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `cgrid` char(40) NOT NULL,
   `run_id` varchar(64) NOT NULL,
   `origin_host` varchar(64) NOT NULL,
@@ -49,11 +88,44 @@ CREATE TABLE IF NOT EXISTS `sm_costs` (
   `usage` decimal(30,9) NOT NULL,
   `cost_details` text,
   `created_at` timestamp NULL DEFAULT NULL,
-  `deleted_at` timestamp NULL DEFAULT NULL
+  `deleted_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `costid` (`cgrid`,`run_id`),
+  KEY `origin_idx` (`origin_host`,`origin_id`),
+  KEY `run_origin_idx` (`run_id`,`origin_id`),
+  KEY `deleted_at_idx` (`deleted_at`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
-CREATE TABLE IF NOT EXISTS `tp_account_actions` (
-`id` int(11) NOT NULL,
+--
+-- Table structure for table `tariff_plans`
+--
+
+DROP TABLE IF EXISTS `tariff_plans`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `tariff_plans` (
+  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+  `alias` varchar(255) DEFAULT NULL,
+  `name` varchar(255) DEFAULT NULL,
+  `description` varchar(255) DEFAULT NULL,
+  `inserted_at` datetime NOT NULL,
+  `updated_at` datetime NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `tariff_plans_alias_index` (`alias`),
+  UNIQUE KEY `tariff_plans_name_index` (`name`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Table structure for table `tp_account_actions`
+--
+
+DROP TABLE IF EXISTS `tp_account_actions`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `tp_account_actions` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `tpid` varchar(64) NOT NULL,
   `loadid` varchar(64) NOT NULL,
   `tenant` varchar(64) NOT NULL,
@@ -62,21 +134,43 @@ CREATE TABLE IF NOT EXISTS `tp_account_actions` (
   `action_triggers_tag` varchar(64) DEFAULT NULL,
   `allow_negative` tinyint(1) NOT NULL,
   `disabled` tinyint(1) NOT NULL,
-  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `unique_tp_account` (`tpid`,`loadid`,`tenant`,`account`),
+  KEY `tpid` (`tpid`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
-CREATE TABLE IF NOT EXISTS `tp_action_plans` (
-`id` int(11) NOT NULL,
+--
+-- Table structure for table `tp_action_plans`
+--
+
+DROP TABLE IF EXISTS `tp_action_plans`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `tp_action_plans` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `tpid` varchar(64) NOT NULL,
   `tag` varchar(64) NOT NULL,
   `actions_tag` varchar(64) NOT NULL,
   `timing_tag` varchar(64) NOT NULL,
   `weight` decimal(8,2) NOT NULL,
-  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `unique_action_schedule` (`tpid`,`tag`,`actions_tag`),
+  KEY `tpid` (`tpid`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
-CREATE TABLE IF NOT EXISTS `tp_action_triggers` (
-`id` int(11) NOT NULL,
+--
+-- Table structure for table `tp_action_triggers`
+--
+
+DROP TABLE IF EXISTS `tp_action_triggers`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `tp_action_triggers` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `tpid` varchar(64) NOT NULL,
   `tag` varchar(64) NOT NULL,
   `unique_id` varchar(64) NOT NULL,
@@ -101,11 +195,22 @@ CREATE TABLE IF NOT EXISTS `tp_action_triggers` (
   `min_queued_items` int(11) NOT NULL,
   `actions_tag` varchar(64) NOT NULL,
   `weight` decimal(8,2) NOT NULL,
-  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `unique_trigger_definition` (`tpid`,`tag`,`balance_tag`,`balance_type`,`balance_directions`,`threshold_type`,`threshold_value`,`balance_destination_tags`,`actions_tag`),
+  KEY `tpid` (`tpid`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
-CREATE TABLE IF NOT EXISTS `tp_actions` (
-`id` int(11) NOT NULL,
+--
+-- Table structure for table `tp_actions`
+--
+
+DROP TABLE IF EXISTS `tp_actions`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `tp_actions` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `tpid` varchar(64) NOT NULL,
   `tag` varchar(64) NOT NULL,
   `action` varchar(24) NOT NULL,
@@ -125,11 +230,22 @@ CREATE TABLE IF NOT EXISTS `tp_actions` (
   `extra_parameters` varchar(256) NOT NULL,
   `filter` varchar(256) NOT NULL,
   `weight` decimal(8,2) NOT NULL,
-  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `unique_action` (`tpid`,`tag`,`action`,`balance_tag`,`balance_type`,`directions`,`expiry_time`,`timing_tags`,`destination_tags`,`shared_groups`,`balance_weight`,`weight`),
+  KEY `tpid` (`tpid`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
-CREATE TABLE IF NOT EXISTS `tp_aliases` (
-`id` int(11) NOT NULL,
+--
+-- Table structure for table `tp_aliases`
+--
+
+DROP TABLE IF EXISTS `tp_aliases`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `tp_aliases` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `tpid` varchar(64) NOT NULL,
   `direction` varchar(8) NOT NULL,
   `tenant` varchar(64) NOT NULL,
@@ -142,11 +258,22 @@ CREATE TABLE IF NOT EXISTS `tp_aliases` (
   `original` varchar(64) NOT NULL,
   `alias` varchar(64) NOT NULL,
   `weight` decimal(8,2) NOT NULL,
-  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `unique_tp_aliases` (`tpid`,`direction`,`tenant`,`category`,`account`,`subject`,`context`,`target`),
+  KEY `tpid` (`tpid`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
-CREATE TABLE IF NOT EXISTS `tp_cdr_stats` (
-`id` int(11) NOT NULL,
+--
+-- Table structure for table `tp_cdr_stats`
+--
+
+DROP TABLE IF EXISTS `tp_cdr_stats`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `tp_cdr_stats` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `tpid` varchar(64) NOT NULL,
   `tag` varchar(64) NOT NULL,
   `queue_length` int(11) NOT NULL,
@@ -173,11 +300,21 @@ CREATE TABLE IF NOT EXISTS `tp_cdr_stats` (
   `rated_subjects` varchar(64) NOT NULL,
   `cost_interval` varchar(24) NOT NULL,
   `action_triggers` varchar(64) NOT NULL,
-  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`),
+  KEY `tpid` (`tpid`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
-CREATE TABLE IF NOT EXISTS `tp_derived_chargers` (
-`id` int(11) NOT NULL,
+--
+-- Table structure for table `tp_derived_chargers`
+--
+
+DROP TABLE IF EXISTS `tp_derived_chargers`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `tp_derived_chargers` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `tpid` varchar(64) NOT NULL,
   `loadid` varchar(64) NOT NULL,
   `direction` varchar(8) NOT NULL,
@@ -203,11 +340,21 @@ CREATE TABLE IF NOT EXISTS `tp_derived_chargers` (
   `disconnect_cause_field` varchar(64) NOT NULL,
   `rated_field` varchar(64) NOT NULL,
   `cost_field` varchar(64) NOT NULL,
-  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`),
+  KEY `tpid` (`tpid`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
-CREATE TABLE IF NOT EXISTS `tp_destination_rates` (
-`id` int(11) NOT NULL,
+--
+-- Table structure for table `tp_destination_rates`
+--
+
+DROP TABLE IF EXISTS `tp_destination_rates`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `tp_destination_rates` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `tpid` varchar(64) NOT NULL,
   `tag` varchar(64) NOT NULL,
   `destinations_tag` varchar(64) NOT NULL,
@@ -216,19 +363,43 @@ CREATE TABLE IF NOT EXISTS `tp_destination_rates` (
   `rounding_decimals` tinyint(4) NOT NULL,
   `max_cost` decimal(7,4) NOT NULL,
   `max_cost_strategy` varchar(16) NOT NULL,
-  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
-) ENGINE=InnoDB AUTO_INCREMENT=133 DEFAULT CHARSET=latin1;
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `tpid_drid_dstid` (`tpid`,`tag`,`destinations_tag`),
+  KEY `tpid` (`tpid`),
+  KEY `tpid_drid` (`tpid`,`tag`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
-CREATE TABLE IF NOT EXISTS `tp_destinations` (
-`id` int(11) NOT NULL,
+--
+-- Table structure for table `tp_destinations`
+--
+
+DROP TABLE IF EXISTS `tp_destinations`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `tp_destinations` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `tpid` varchar(64) NOT NULL,
   `tag` varchar(64) NOT NULL,
   `prefix` varchar(24) NOT NULL,
-  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
-) ENGINE=InnoDB AUTO_INCREMENT=28 DEFAULT CHARSET=latin1;
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `tpid_dest_prefix` (`tpid`,`tag`,`prefix`),
+  KEY `tpid` (`tpid`),
+  KEY `tpid_dstid` (`tpid`,`tag`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
-CREATE TABLE IF NOT EXISTS `tp_lcr_rules` (
-`id` int(11) NOT NULL,
+--
+-- Table structure for table `tp_lcr_rules`
+--
+
+DROP TABLE IF EXISTS `tp_lcr_rules`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `tp_lcr_rules` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `tpid` varchar(64) NOT NULL,
   `direction` varchar(8) NOT NULL,
   `tenant` varchar(64) NOT NULL,
@@ -241,11 +412,21 @@ CREATE TABLE IF NOT EXISTS `tp_lcr_rules` (
   `strategy_params` varchar(256) NOT NULL,
   `activation_time` varchar(24) NOT NULL,
   `weight` decimal(8,2) NOT NULL,
-  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`),
+  KEY `tpid` (`tpid`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
-CREATE TABLE IF NOT EXISTS `tp_rates` (
-`id` int(11) NOT NULL,
+--
+-- Table structure for table `tp_rates`
+--
+
+DROP TABLE IF EXISTS `tp_rates`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `tp_rates` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `tpid` varchar(64) NOT NULL,
   `tag` varchar(64) NOT NULL,
   `connect_fee` decimal(7,4) NOT NULL,
@@ -253,21 +434,45 @@ CREATE TABLE IF NOT EXISTS `tp_rates` (
   `rate_unit` varchar(16) NOT NULL,
   `rate_increment` varchar(16) NOT NULL,
   `group_interval_start` varchar(16) NOT NULL,
-  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
-) ENGINE=InnoDB AUTO_INCREMENT=75 DEFAULT CHARSET=latin1;
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `unique_tprate` (`tpid`,`tag`,`group_interval_start`),
+  KEY `tpid` (`tpid`),
+  KEY `tpid_rtid` (`tpid`,`tag`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
-CREATE TABLE IF NOT EXISTS `tp_rating_plans` (
-`id` int(11) NOT NULL,
+--
+-- Table structure for table `tp_rating_plans`
+--
+
+DROP TABLE IF EXISTS `tp_rating_plans`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `tp_rating_plans` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `tpid` varchar(64) NOT NULL,
   `tag` varchar(64) NOT NULL,
   `destrates_tag` varchar(64) NOT NULL,
   `timing_tag` varchar(64) NOT NULL,
   `weight` decimal(8,2) NOT NULL,
-  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
-) ENGINE=InnoDB AUTO_INCREMENT=131 DEFAULT CHARSET=latin1;
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `tpid_rplid_destrates_timings_weight` (`tpid`,`tag`,`destrates_tag`,`timing_tag`),
+  KEY `tpid` (`tpid`),
+  KEY `tpid_rpl` (`tpid`,`tag`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
-CREATE TABLE IF NOT EXISTS `tp_rating_profiles` (
-`id` int(11) NOT NULL,
+--
+-- Table structure for table `tp_rating_profiles`
+--
+
+DROP TABLE IF EXISTS `tp_rating_profiles`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `tp_rating_profiles` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `tpid` varchar(64) NOT NULL,
   `loadid` varchar(64) NOT NULL,
   `direction` varchar(8) NOT NULL,
@@ -278,11 +483,23 @@ CREATE TABLE IF NOT EXISTS `tp_rating_profiles` (
   `rating_plan_tag` varchar(64) NOT NULL,
   `fallback_subjects` varchar(64) DEFAULT NULL,
   `cdr_stat_queue_ids` varchar(64) DEFAULT NULL,
-  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
-) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=latin1;
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `tpid_loadid_tenant_category_dir_subj_atime` (`tpid`,`loadid`,`tenant`,`category`,`direction`,`subject`,`activation_time`),
+  KEY `tpid` (`tpid`),
+  KEY `tpid_loadid` (`tpid`,`loadid`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
-CREATE TABLE IF NOT EXISTS `tp_resource_limits` (
-`id` int(11) NOT NULL,
+--
+-- Table structure for table `tp_resource_limits`
+--
+
+DROP TABLE IF EXISTS `tp_resource_limits`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `tp_resource_limits` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `tpid` varchar(64) NOT NULL,
   `tag` varchar(64) NOT NULL,
   `filter_type` varchar(16) NOT NULL,
@@ -294,21 +511,43 @@ CREATE TABLE IF NOT EXISTS `tp_resource_limits` (
   `allocation_message` varchar(64) NOT NULL,
   `weight` decimal(8,2) NOT NULL,
   `action_trigger_ids` varchar(64) NOT NULL,
-  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `unique_tp_resource_limits` (`tpid`,`tag`,`filter_type`,`filter_field_name`),
+  KEY `tpid` (`tpid`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
-CREATE TABLE IF NOT EXISTS `tp_shared_groups` (
-`id` int(11) NOT NULL,
+--
+-- Table structure for table `tp_shared_groups`
+--
+
+DROP TABLE IF EXISTS `tp_shared_groups`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `tp_shared_groups` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `tpid` varchar(64) NOT NULL,
   `tag` varchar(64) NOT NULL,
   `account` varchar(64) NOT NULL,
   `strategy` varchar(24) NOT NULL,
   `rating_subject` varchar(24) NOT NULL,
-  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `unique_shared_group` (`tpid`,`tag`,`account`,`strategy`,`rating_subject`),
+  KEY `tpid` (`tpid`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
-CREATE TABLE IF NOT EXISTS `tp_timings` (
-`id` int(11) NOT NULL,
+--
+-- Table structure for table `tp_timings`
+--
+
+DROP TABLE IF EXISTS `tp_timings`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `tp_timings` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `tpid` varchar(64) NOT NULL,
   `tag` varchar(64) NOT NULL,
   `years` varchar(255) NOT NULL,
@@ -316,11 +555,23 @@ CREATE TABLE IF NOT EXISTS `tp_timings` (
   `month_days` varchar(255) NOT NULL,
   `week_days` varchar(255) NOT NULL,
   `time` varchar(32) NOT NULL,
-  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `tpid_tag` (`tpid`,`tag`),
+  KEY `tpid` (`tpid`),
+  KEY `tpid_tmid` (`tpid`,`tag`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
-CREATE TABLE IF NOT EXISTS `tp_users` (
-`id` int(11) NOT NULL,
+--
+-- Table structure for table `tp_users`
+--
+
+DROP TABLE IF EXISTS `tp_users`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `tp_users` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `tpid` varchar(64) NOT NULL,
   `tenant` varchar(64) NOT NULL,
   `user_name` varchar(64) NOT NULL,
@@ -328,117 +579,59 @@ CREATE TABLE IF NOT EXISTS `tp_users` (
   `attribute_name` varchar(64) NOT NULL,
   `attribute_value` varchar(64) NOT NULL,
   `weight` decimal(8,2) NOT NULL,
-  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
-) ENGINE=InnoDB AUTO_INCREMENT=23 DEFAULT CHARSET=latin1;
-
-CREATE TABLE IF NOT EXISTS `versions` (
-`id` int(11) NOT NULL,
-  `item` varchar(64) NOT NULL,
-  `version` int(11) NOT NULL
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`),
+  KEY `tpid` (`tpid`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
+--
+-- Table structure for table `users`
+--
 
-ALTER TABLE `cdrs`
- ADD PRIMARY KEY (`id`), ADD UNIQUE KEY `cdrrun` (`cgrid`,`run_id`,`origin_id`);
+DROP TABLE IF EXISTS `users`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `users` (
+  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+  `email` varchar(255) DEFAULT NULL,
+  `password_encrypted` varchar(255) DEFAULT NULL,
+  `inserted_at` datetime NOT NULL,
+  `updated_at` datetime NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `users_email_index` (`email`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
-ALTER TABLE `sm_costs`
- ADD PRIMARY KEY (`id`), ADD UNIQUE KEY `costid` (`cgrid`,`run_id`), ADD KEY `origin_idx` (`origin_host`,`origin_id`), ADD KEY `run_origin_idx` (`run_id`,`origin_id`), ADD KEY `deleted_at_idx` (`deleted_at`);
+--
+-- Table structure for table `versions`
+--
 
-ALTER TABLE `tp_account_actions`
- ADD PRIMARY KEY (`id`), ADD UNIQUE KEY `unique_tp_account` (`tpid`,`loadid`,`tenant`,`account`), ADD KEY `tpid` (`tpid`);
+DROP TABLE IF EXISTS `versions`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `versions` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `item` varchar(64) NOT NULL,
+  `version` int(11) NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `item` (`item`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
-ALTER TABLE `tp_action_plans`
- ADD PRIMARY KEY (`id`), ADD UNIQUE KEY `unique_action_schedule` (`tpid`,`tag`,`actions_tag`), ADD KEY `tpid` (`tpid`);
+--
+-- Dumping routines for database 'cgrates_web_jsonapi_dev'
+--
+/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
-ALTER TABLE `tp_action_triggers`
- ADD PRIMARY KEY (`id`), ADD UNIQUE KEY `unique_trigger_definition` (`tpid`,`tag`,`balance_tag`,`balance_type`,`balance_directions`,`threshold_type`,`threshold_value`,`balance_destination_tags`,`actions_tag`), ADD KEY `tpid` (`tpid`);
-
-ALTER TABLE `tp_actions`
- ADD PRIMARY KEY (`id`), ADD UNIQUE KEY `unique_action` (`tpid`,`tag`,`action`,`balance_tag`,`balance_type`,`directions`,`expiry_time`,`timing_tags`,`destination_tags`,`shared_groups`,`balance_weight`,`weight`), ADD KEY `tpid` (`tpid`);
-
-ALTER TABLE `tp_aliases`
- ADD PRIMARY KEY (`id`), ADD UNIQUE KEY `unique_tp_aliases` (`tpid`,`direction`,`tenant`,`category`,`account`,`subject`,`context`,`target`), ADD KEY `tpid` (`tpid`);
-
-ALTER TABLE `tp_cdr_stats`
- ADD PRIMARY KEY (`id`), ADD KEY `tpid` (`tpid`);
-
-ALTER TABLE `tp_derived_chargers`
- ADD PRIMARY KEY (`id`), ADD KEY `tpid` (`tpid`);
-
-ALTER TABLE `tp_destination_rates`
- ADD PRIMARY KEY (`id`), ADD UNIQUE KEY `tpid_drid_dstid` (`tpid`,`tag`,`destinations_tag`), ADD KEY `tpid` (`tpid`), ADD KEY `tpid_drid` (`tpid`,`tag`);
-
-ALTER TABLE `tp_destinations`
- ADD PRIMARY KEY (`id`), ADD UNIQUE KEY `tpid_dest_prefix` (`tpid`,`tag`,`prefix`), ADD KEY `tpid` (`tpid`), ADD KEY `tpid_dstid` (`tpid`,`tag`);
-
-ALTER TABLE `tp_lcr_rules`
- ADD PRIMARY KEY (`id`), ADD KEY `tpid` (`tpid`);
-
-ALTER TABLE `tp_rates`
- ADD PRIMARY KEY (`id`), ADD UNIQUE KEY `unique_tprate` (`tpid`,`tag`,`group_interval_start`), ADD KEY `tpid` (`tpid`), ADD KEY `tpid_rtid` (`tpid`,`tag`);
-
-ALTER TABLE `tp_rating_plans`
- ADD PRIMARY KEY (`id`), ADD UNIQUE KEY `tpid_rplid_destrates_timings_weight` (`tpid`,`tag`,`destrates_tag`,`timing_tag`), ADD KEY `tpid` (`tpid`), ADD KEY `tpid_rpl` (`tpid`,`tag`);
-
-ALTER TABLE `tp_rating_profiles`
- ADD PRIMARY KEY (`id`), ADD UNIQUE KEY `tpid_loadid_tenant_category_dir_subj_atime` (`tpid`,`loadid`,`tenant`,`category`,`direction`,`subject`,`activation_time`), ADD KEY `tpid` (`tpid`), ADD KEY `tpid_loadid` (`tpid`,`loadid`);
-
-ALTER TABLE `tp_resource_limits`
- ADD PRIMARY KEY (`id`), ADD UNIQUE KEY `unique_tp_resource_limits` (`tpid`,`tag`,`filter_type`,`filter_field_name`), ADD KEY `tpid` (`tpid`);
-
-ALTER TABLE `tp_shared_groups`
- ADD PRIMARY KEY (`id`), ADD UNIQUE KEY `unique_shared_group` (`tpid`,`tag`,`account`,`strategy`,`rating_subject`), ADD KEY `tpid` (`tpid`);
-
-ALTER TABLE `tp_timings`
- ADD PRIMARY KEY (`id`), ADD UNIQUE KEY `tpid_tag` (`tpid`,`tag`), ADD KEY `tpid` (`tpid`), ADD KEY `tpid_tmid` (`tpid`,`tag`);
-
-ALTER TABLE `tp_users`
- ADD PRIMARY KEY (`id`), ADD KEY `tpid` (`tpid`);
-
-ALTER TABLE `versions`
- ADD PRIMARY KEY (`id`), ADD UNIQUE KEY `item` (`item`);
-
-
-ALTER TABLE `cdrs`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-ALTER TABLE `sm_costs`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-ALTER TABLE `tp_account_actions`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-ALTER TABLE `tp_action_plans`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-ALTER TABLE `tp_action_triggers`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-ALTER TABLE `tp_actions`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-ALTER TABLE `tp_aliases`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-ALTER TABLE `tp_cdr_stats`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-ALTER TABLE `tp_derived_chargers`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-ALTER TABLE `tp_destination_rates`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-ALTER TABLE `tp_destinations`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-ALTER TABLE `tp_lcr_rules`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-ALTER TABLE `tp_rates`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-ALTER TABLE `tp_rating_plans`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-ALTER TABLE `tp_rating_profiles`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-ALTER TABLE `tp_resource_limits`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-ALTER TABLE `tp_shared_groups`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-ALTER TABLE `tp_timings`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-ALTER TABLE `tp_users`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-ALTER TABLE `versions`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
+/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
+/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
+
+-- Dump completed on 2017-09-14 12:51:53
+INSERT INTO `schema_migrations` (version) VALUES (20170905093653), (20170908061508);
+

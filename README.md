@@ -11,10 +11,16 @@ To start application as a docker container:
  * Run `docker-compose pull`
  * Run `dcoker-compose up -d`
 
+
+ To load database's schema run:
+ ```shell
+ docker exec -it cgrates_web_jsonapi bin/cgrates_web_jsonapi ecto_load
+ ```
+
 To migrate database and seed initial data run:
-```
+```shell
 docker exec -it cgrates_web_jsonapi bin/cgrates_web_jsonapi migrate
 ```
 
 ## API documentation
-[Api Docs](https://github.com/cgrates-web/cgrates_web_jsonapi/blob/master/API.md) 
+[Api Docs](https://github.com/cgrates-web/cgrates_web_jsonapi/blob/master/API.md)
