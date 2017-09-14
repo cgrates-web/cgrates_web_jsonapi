@@ -23,6 +23,18 @@ defmodule CgratesWebJsonapi.Factory do
     }
   end
 
+  def tp_destination_rate_factory do
+    %CgratesWebJsonapi.TpDestinationRate{
+      tag: Faker.Pokemon.name,
+      destinations_tag: Faker.Pokemon.name,
+      rates_tag: Faker.Pokemon.name,
+      rounding_method: "*up",
+      rounding_decimals: 1,
+      max_cost: 100.0,
+      max_cost_strategy: "*free"
+    }
+  end
+
   def tp_rate_factory do
     %CgratesWebJsonapi.TpRate{
       tag: Faker.Beer.name,

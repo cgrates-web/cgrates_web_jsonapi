@@ -38,6 +38,7 @@ defmodule CgratesWebJsonapi.Mixfile do
      {:phoenix_ecto, "~> 3.0"},
      {:gettext, "~> 0.11"},
      {:cowboy, "~> 1.0"},
+     {:plug, "~>1.3.5", override: true},
 
      {:bureaucrat, "~> 0.1.4", runtime: false},
      {:comeonin, "~> 2.0"},
