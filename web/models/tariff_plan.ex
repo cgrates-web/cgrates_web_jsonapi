@@ -18,5 +18,6 @@ defmodule CgratesWebJsonapi.TariffPlan do
     |> validate_required([:alias, :name])
     |> unique_constraint(:alias)
     |> unique_constraint(:name)
+    |> validate_length(:alias, max: 64)
   end
 end

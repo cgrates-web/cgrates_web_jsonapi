@@ -10,6 +10,7 @@ defmodule CgratesWebJsonapi.Mixfile do
      build_embedded: Mix.env == :prod,
      start_permanent: Mix.env == :prod,
      aliases: aliases(),
+     test_coverage: [tool: Coverex.Task, coveralls: true],
      deps: deps()]
   end
 
@@ -43,6 +44,7 @@ defmodule CgratesWebJsonapi.Mixfile do
      {:bureaucrat, "~> 0.1.4", runtime: false},
      {:comeonin, "~> 2.0"},
      {:cors_plug, "~> 1.2"},
+     {:coverex, "~> 1.4.10", only: :test},
      {:distillery, "~> 1.4", runtime: false},
      {:ex_machina, "~> 2.1", only: :test},
      {:faker, "~> 0.8", only: :test},

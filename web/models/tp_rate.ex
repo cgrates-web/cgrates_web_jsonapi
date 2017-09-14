@@ -25,5 +25,7 @@ defmodule CgratesWebJsonapi.TpRate do
     |> validate_format(:rate_unit, @time_format)
     |> validate_format(:rate_increment, @time_format)
     |> validate_format(:group_interval_start, @time_format)
+    |> validate_length(:tag, max: 64)
+    |> validate_length(:tpid, max: 64)
   end
 end

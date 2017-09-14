@@ -16,5 +16,8 @@ defmodule CgratesWebJsonapi.TpDestination do
     struct
     |> cast(params, [:tpid, :tag, :prefix])
     |> validate_required([:tpid, :tag, :prefix])
+    |> validate_length(:tag, max: 64)
+    |> validate_length(:tpid, max: 64)
+    |> validate_length(:prefix, max: 24)
   end
 end
