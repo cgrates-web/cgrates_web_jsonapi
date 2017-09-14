@@ -46,8 +46,7 @@ end
 
 release :cgrates_web_jsonapi do
   set commands: [
-    "migrate": "rel/commands/migrate.sh",
-    "ecto_load": "rel/commands/ecto_load.sh"
+    "migrate": "rel/commands/migrate.sh"
   ]
   set version: current_version(:cgrates_web_jsonapi)
   set applications: [

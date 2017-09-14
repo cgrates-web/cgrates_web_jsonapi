@@ -10,12 +10,7 @@ To start application as a docker container:
  * Change docker-compose.yml. Add your credentional to cgrates server.
  * Run `docker-compose pull`
  * Run `dcoker-compose up -d`
-
-
- To load database's schema run:
- ```shell
- docker exec -it cgrates_web_jsonapi bin/cgrates_web_jsonapi ecto_load
- ```
+ * Upload priv/repo/structure.sql to mysql database
 
 To migrate database and seed initial data run:
 ```shell

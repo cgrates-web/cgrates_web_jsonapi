@@ -15,22 +15,6 @@ defmodule CgratesWebJsonapi.ReleaseTasks do
     CgratesWebJsonapi.Repo
   ]
 
-  def load_schema do
-    IO.puts "Loading myapp.."
-    # Load the code for myapp, but don't start it
-    :ok = Application.load(:cgrates_web_jsonapi)
-
-    IO.puts "Starting dependencies.."
-    # Start apps necessary for executing migrations
-    Enum.each(@start_apps, &Application.ensure_all_started/1)
-
-    # Start the Repo(s) for myapp
-    IO.puts "Starting repos.."
-    Enum.each(@repos, &(&1.start_link(pool_size: 1)))
-
-    @repos |> Enum.each(fn(repo) -> repo |> Mix.Tasks.Ecto.Load.load_structure(%{}) end)
-  end
-
   def seed do
     IO.puts "Loading myapp.."
     # Load the code for myapp, but don't start it
@@ -67,6 +51,4 @@ defmodule CgratesWebJsonapi.ReleaseTasks do
   end
 
   defp migrations_path(app), do: Path.join([priv_dir(app), "repo", "migrations"])
-  defp seed_path(app), do: Path.join([priv_dir(app), "repo", "seeds.exs"])
-
 end
