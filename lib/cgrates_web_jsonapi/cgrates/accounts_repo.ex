@@ -4,6 +4,10 @@ defmodule CgratesWebJsonapi.Cgrates.AccountsRepo do
 
   import CgratesWebJsonapi.Cgrates.BaseRepo
 
+  def add_balance(changeset) do
+    changeset |> insert("ApierV1.AddBalance")
+  end
+
   def all do
     Adapter.execute(%{method: "ApierV2.GetAccounts", params: %{}})
     |> process_list_resources(Account)
