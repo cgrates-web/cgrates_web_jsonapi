@@ -58,6 +58,7 @@ defmodule CgratesWebJsonapi.UserControllerTest do
     }) |> doc
 
     assert json_response(conn, 201)["data"]["id"]
+    assert Repo.get!(User, json_response(conn, 201)["data"]["id"]).password_encrypted
   end
 
   test "does not create resource and renders errors when data is invalid", %{conn: conn} do
