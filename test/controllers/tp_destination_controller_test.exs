@@ -49,10 +49,10 @@ defmodule CgratesWebJsonapi.TpDestinationControllerTest do
   test "filtering by prefix", %{conn: conn} do
     tariff_plan = insert :tariff_plan
 
-    d1 = insert :tp_destination, tpid: tariff_plan.alias
-    d2 = insert :tp_destination, tpid: tariff_plan.alias
+    d1 = insert :tp_destination, tpid: tariff_plan.alias, prefix: "1"
+    d2 = insert :tp_destination, tpid: tariff_plan.alias, prefix: "2"
 
-    conn = get(conn, tp_destination_path(conn, :index, tpid: tariff_plan.alias), filter: %{tag: d1.tag})
+    conn = get(conn, tp_destination_path(conn, :index, tpid: tariff_plan.alias), filter: %{prefix: d1.prefix})
     |> doc
     assert length(json_response(conn, 200)["data"]) == 1
   end

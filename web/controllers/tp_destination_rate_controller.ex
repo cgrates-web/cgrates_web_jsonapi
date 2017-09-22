@@ -3,6 +3,7 @@ defmodule CgratesWebJsonapi.TpDestinationRateController do
   use JaResource
   use CgratesWebJsonapi.TpSubresource
   use CgratesWebJsonapi.DefaultSorting
+  use CgratesWebJsonapi.DefaultPaginator
 
   alias CgratesWebJsonapi.TpDestinationRate
   alias JaSerializer.Params
