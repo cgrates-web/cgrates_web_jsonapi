@@ -35,6 +35,16 @@ defmodule CgratesWebJsonapi.TpDestinationControllerTest do
     assert length(json_response(conn, 200)["data"]) == 1
   end
 
+  test "pagination list", %{conn: conn} do
+    tp = insert :tariff_plan
+
+    td1 = insert :tp_destination, tpid: tp.alias
+    td2 = insert :tp_destination, tpid: tp.alias
+
+    conn = get(conn, tp_destination_path(conn, :index, tpid: tp.alias, page: 2, page_size: 1)) |> doc
+    assert length(json_response(conn, 200)["data"]) == 1
+  end
+
   test "filtering by tag", %{conn: conn} do
     tariff_plan = insert :tariff_plan
 

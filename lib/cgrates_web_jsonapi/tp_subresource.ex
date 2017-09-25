@@ -1,11 +1,12 @@
 defmodule CgratesWebJsonapi.TpSubresource do
   defmacro __using__(_opts) do
     quote do
-      def handle_index(conn, %{"tpid" => tpid}), do: model |> where(tpid: ^tpid) |> paginate(conn)
+      def handle_index(conn, %{"tpid" => tpid}), do: model |> where(tpid: ^tpid)
       def handle_index(conn, _params), do: raise CgratesWebJsonapi.TpidIsNotPassedError
 
-      # Override if need paginate
-      def paginate(query, _conn), do: query
+      def handle_index_query(%{query_params: qp}, query) do
+        query |> repo().paginate(page: qp["page"], page_size: qp["page_size"])
+      end
     end
   end
 end
