@@ -21,12 +21,12 @@ defmodule CgratesWebJsonapi.Router do
     pipe_through :private_api
 
     resources "/accounts",             AccountController,           except: [:new, :edit]
-    resources "/add_balance",          AddBalanceController,        only:   [:create]
+    resources "/add-balance",          AddBalanceController,        only:   [:create]
     resources "/destinations",         DestinationController,       except: [:new, :edit]
     resources "/tariff-plans",         TariffPlanController,        except: [:new, :edit]
-    resources "/tp_destinations",      TpDestinationController,     except: [:new, :edit]
-    resources "/tp_destination_rates", TpDestinationRateController, except: [:new, :edit]
-    resources "/tp_rates",             TpRateController,            except: [:new, :edit]
+    resources "/tp-destinations",      TpDestinationController,     except: [:new, :edit]
+    resources "/tp-destination-rates", TpDestinationRateController, except: [:new, :edit]
+    resources "/tp-rates",             TpRateController,            except: [:new, :edit]
     resources "/users",                UserController,              except: [:new, :edit]
   end
 
