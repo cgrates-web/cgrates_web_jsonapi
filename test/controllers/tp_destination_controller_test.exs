@@ -41,8 +41,10 @@ defmodule CgratesWebJsonapi.TpDestinationControllerTest do
     td1 = insert :tp_destination, tpid: tp.alias
     td2 = insert :tp_destination, tpid: tp.alias
 
-    conn = get(conn, tp_destination_path(conn, :index, tpid: tp.alias, page: %{ page: 2, page_size: 1 } )) |> doc
+    conn = get(conn, tp_destination_path(conn, :index, tpid: tp.alias, page: %{ "page" => 2, "page-size" => 1 } ))
+    |> doc
     assert length(json_response(conn, 200)["data"]) == 1
+    assert json_response(conn, 200)["meta"]
   end
 
   test "filtering by tag", %{conn: conn} do
