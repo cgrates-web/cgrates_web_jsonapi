@@ -58,7 +58,7 @@ content-type: application/vnd.api+json
 ```
 content-type: application/vnd.api+json; charset=utf-8
 cache-control: max-age=0, private, must-revalidate
-x-request-id: 04r1frrmi04n2ft3e3ud522usc6uplud
+x-request-id: r1om6jfli0eir24g8fsrjhclg7hjm9q1
 vary: Origin
 access-control-allow-origin: 
 access-control-expose-headers: 
@@ -97,7 +97,7 @@ content-type: application/vnd.api+json
 ```
 content-type: application/vnd.api+json; charset=utf-8
 cache-control: max-age=0, private, must-revalidate
-x-request-id: 176310k5rbq740e7068cdpdfcvsu99el
+x-request-id: 1bhtviem8gj3cne7r0s67ecp9hll5skd
 vary: Origin
 access-control-allow-origin: 
 access-control-expose-headers: 
@@ -140,7 +140,7 @@ content-type: application/vnd.api+json
 ```
 content-type: application/vnd.api+json; charset=utf-8
 cache-control: max-age=0, private, must-revalidate
-x-request-id: en4k7lfoiae33s1me76vfn6a1q70i0mp
+x-request-id: e33o2jv4btqm1qvjddvldn3ko4lmpegl
 vary: Origin
 access-control-allow-origin: 
 access-control-expose-headers: 
@@ -164,7 +164,7 @@ access-control-allow-credentials: true
             {
               "weight": 10,
               "value": 10,
-              "uuid": "9d6a6d3a-a1f2-11e7-9fee-50e54935fc40",
+              "uuid": "1e92644e-a284-11e7-979e-50e54935fc40",
               "timings": null,
               "timing_i_ds": {},
               "shared_groups": {},
@@ -197,7 +197,7 @@ access-control-allow-credentials: true
             {
               "weight": 10,
               "value": 10,
-              "uuid": "9d6a782a-a1f2-11e7-9025-50e54935fc40",
+              "uuid": "1e926ff2-a284-11e7-823c-50e54935fc40",
               "timings": null,
               "timing_i_ds": {},
               "shared_groups": {},
@@ -238,7 +238,7 @@ content-type: application/vnd.api+json
 ```
 content-type: application/vnd.api+json; charset=utf-8
 cache-control: max-age=0, private, must-revalidate
-x-request-id: s5lkam41tl3elru23b9jdhdffcq9au9j
+x-request-id: bqdtaok4dr3d7bljej88bee6ombjc5ih
 vary: Origin
 access-control-allow-origin: 
 access-control-expose-headers: 
@@ -262,7 +262,7 @@ access-control-allow-credentials: true
             {
               "weight": 10,
               "value": 10,
-              "uuid": "9d707888-a1f2-11e7-ae16-50e54935fc40",
+              "uuid": "1e8c62c4-a284-11e7-a1b7-50e54935fc40",
               "timings": null,
               "timing_i_ds": {},
               "shared_groups": {},
@@ -295,7 +295,7 @@ access-control-allow-credentials: true
             {
               "weight": 10,
               "value": 10,
-              "uuid": "9d708328-a1f2-11e7-8ddb-50e54935fc40",
+              "uuid": "1e8c6ea4-a284-11e7-9532-50e54935fc40",
               "timings": null,
               "timing_i_ds": {},
               "shared_groups": {},
@@ -337,7 +337,7 @@ content-type: application/vnd.api+json
 ```
 content-type: application/vnd.api+json; charset=utf-8
 cache-control: max-age=0, private, must-revalidate
-x-request-id: 4an5cpi7ii4pk7oftqjcmjeeace4os4u
+x-request-id: rgmqocfp95foqk505gm6e9updtoeeo5o
 vary: Origin
 access-control-allow-origin: 
 access-control-expose-headers: 
@@ -360,7 +360,7 @@ access-control-allow-credentials: true
           {
             "weight": 10,
             "value": 10,
-            "uuid": "9d549ac8-a1f2-11e7-8230-50e54935fc40",
+            "uuid": "1e79554e-a284-11e7-a28b-50e54935fc40",
             "timings": null,
             "timing_i_ds": {},
             "shared_groups": {},
@@ -402,7 +402,7 @@ content-type: application/vnd.api+json
 ```
 content-type: application/vnd.api+json; charset=utf-8
 cache-control: max-age=0, private, must-revalidate
-x-request-id: hm5blo82sjhh9hmlkctpouct8vh4m4mv
+x-request-id: aouludd3mgc375fo9g1h5fq3khkak0vd
 vary: Origin
 access-control-allow-origin: 
 access-control-expose-headers: 
@@ -448,7 +448,7 @@ content-type: application/vnd.api+json
 ```
 content-type: application/vnd.api+json; charset=utf-8
 cache-control: max-age=0, private, must-revalidate
-x-request-id: ukbjidec5mmj8ke8ksafapvvo6dtcebl
+x-request-id: 01tgkuurcbatkr2nsn181g59i3veftvv
 vary: Origin
 access-control-allow-origin: 
 access-control-expose-headers: 
@@ -502,7 +502,7 @@ content-type: application/vnd.api+json
 ```
 content-type: application/vnd.api+json; charset=utf-8
 cache-control: max-age=0, private, must-revalidate
-x-request-id: quvadq1tnrrokeq4digt4mfpt1dhimsq
+x-request-id: h35tnpndssp847u970npmu1v96jkk3hq
 vary: Origin
 access-control-allow-origin: 
 access-control-expose-headers: 
@@ -541,7 +541,7 @@ content-type: application/vnd.api+json
 ```
 content-type: application/vnd.api+json; charset=utf-8
 cache-control: max-age=0, private, must-revalidate
-x-request-id: 339bul2qkk3nebhsheuhrcop7ibo6ntn
+x-request-id: k98ks2aubg76i06ppt6uv71k3ntr2v87
 vary: Origin
 access-control-allow-origin: 
 access-control-expose-headers: 
@@ -582,7 +582,7 @@ content-type: application/vnd.api+json
 ```
 content-type: application/vnd.api+json; charset=utf-8
 cache-control: max-age=0, private, must-revalidate
-x-request-id: aee5kr01jpbulovfij8efnldeikjou92
+x-request-id: 3h7qptn0if1fifopmgkub2av583dbi7u
 vary: Origin
 access-control-allow-origin: 
 access-control-expose-headers: 
@@ -624,7 +624,7 @@ content-type: application/vnd.api+json
 ```
 content-type: application/vnd.api+json; charset=utf-8
 cache-control: max-age=0, private, must-revalidate
-x-request-id: 5lq3esjvcd03a41u98vppl6qi74jln5k
+x-request-id: 8b9bthj4f96t8i1jn4v2vpik43tsmqis
 vary: Origin
 access-control-allow-origin: 
 access-control-expose-headers: 
@@ -665,7 +665,7 @@ content-type: application/vnd.api+json
 ```
 content-type: application/vnd.api+json; charset=utf-8
 cache-control: max-age=0, private, must-revalidate
-x-request-id: g7e3n18ro7cruelb14v7jpvalhpu6e0v
+x-request-id: 3v4rh49p17epnij6r3lcvhmqd5k0qscb
 vary: Origin
 access-control-allow-origin: 
 access-control-expose-headers: 
@@ -711,7 +711,7 @@ content-type: application/vnd.api+json
 * __Response headers:__
 ```
 cache-control: max-age=0, private, must-revalidate
-x-request-id: i4uqussmrd54arkarfot12oj95q59bmi
+x-request-id: m4jk3rj2scvppc9lvh99kmttrdls4mim
 vary: Origin
 access-control-allow-origin: 
 access-control-expose-headers: 
@@ -739,7 +739,7 @@ content-type: application/vnd.api+json
 ```
 content-type: application/vnd.api+json; charset=utf-8
 cache-control: max-age=0, private, must-revalidate
-x-request-id: 5uonivulci0amtbmrd41oqm49j9r0puo
+x-request-id: 6aokjc8aca82phusodqichjvmjvi06j0
 vary: Origin
 access-control-allow-origin: 
 access-control-expose-headers: 
@@ -759,7 +759,7 @@ access-control-allow-credentials: true
 #### shows chosen resource
 ##### Request
 * __Method:__ GET
-* __Path:__ /api/tariff-plans/42
+* __Path:__ /api/tariff-plans/43
 * __Request headers:__
 ```
 accept: application/vnd.api+json
@@ -771,7 +771,7 @@ content-type: application/vnd.api+json
 ```
 content-type: application/vnd.api+json; charset=utf-8
 cache-control: max-age=0, private, must-revalidate
-x-request-id: bcrmf24s4hpt4br1eeelhjt6dbg9jk4b
+x-request-id: 8bed94hq60k6e5pum39tevmakijg9q7a
 vary: Origin
 access-control-allow-origin: 
 access-control-expose-headers: 
@@ -785,13 +785,13 @@ access-control-allow-credentials: true
   },
   "data": {
     "type": "tariff-plan",
-    "id": "42",
+    "id": "43",
     "attributes": {
-      "updated-at": "2017-09-25T13:08:25.000000",
-      "name": "Ruination IPA",
-      "inserted-at": "2017-09-25T13:08:25.000000",
-      "description": "Quis nesciunt cumque reprehenderit eum autem maxime quia voluptatem inventore.",
-      "alias": "Kabuto"
+      "updated-at": "2017-09-26T06:29:59.000000",
+      "name": "Hennepin",
+      "inserted-at": "2017-09-26T06:29:59.000000",
+      "description": "Repellat recusandae officia ut animi.",
+      "alias": "Sandslash"
     }
   }
 }
@@ -801,7 +801,7 @@ access-control-allow-credentials: true
 #### does not update chosen resource and renders errors when data is invalid
 ##### Request
 * __Method:__ PUT
-* __Path:__ /api/tariff-plans/40
+* __Path:__ /api/tariff-plans/41
 * __Request headers:__
 ```
 accept: application/vnd.api+json
@@ -813,7 +813,7 @@ content-type: application/vnd.api+json
 ```
 content-type: application/vnd.api+json; charset=utf-8
 cache-control: max-age=0, private, must-revalidate
-x-request-id: n8bkdbt790lsvqosgmo4n0rbc7hp5u7a
+x-request-id: o3im51l2c0o6fr4df0abdjep6i2c4f2g
 vary: Origin
 access-control-allow-origin: 
 access-control-expose-headers: 
@@ -840,7 +840,7 @@ access-control-allow-credentials: true
 #### updates and renders chosen resource when data is valid
 ##### Request
 * __Method:__ PUT
-* __Path:__ /api/tariff-plans/43
+* __Path:__ /api/tariff-plans/40
 * __Request headers:__
 ```
 accept: application/vnd.api+json
@@ -852,7 +852,7 @@ content-type: application/vnd.api+json
 ```
 content-type: application/vnd.api+json; charset=utf-8
 cache-control: max-age=0, private, must-revalidate
-x-request-id: tmgone2e2gtlem2jej9jiucgcs3h0hom
+x-request-id: 77g74kjurg02692j3fp5c6urrb8t3edn
 vary: Origin
 access-control-allow-origin: 
 access-control-expose-headers: 
@@ -866,13 +866,13 @@ access-control-allow-credentials: true
   },
   "data": {
     "type": "tariff-plan",
-    "id": "43",
+    "id": "40",
     "attributes": {
-      "updated-at": "2017-09-25T13:08:25.171671",
-      "name": "Péché Mortel",
-      "inserted-at": "2017-09-25T13:08:25.000000",
-      "description": "Impedit nostrum ipsum sed explicabo ea ut eveniet.",
-      "alias": "Kangaskhan"
+      "updated-at": "2017-09-26T06:29:59.049309",
+      "name": "Oak Aged Yeti Imperial Stout",
+      "inserted-at": "2017-09-26T06:29:59.000000",
+      "description": "Est ea aperiam eos impedit nostrum?",
+      "alias": "Charmander"
     }
   }
 }
@@ -895,7 +895,7 @@ content-type: application/vnd.api+json
 ```
 content-type: application/vnd.api+json; charset=utf-8
 cache-control: max-age=0, private, must-revalidate
-x-request-id: cgk0gd3lbotpgat9qidbnevu17u46cqk
+x-request-id: d7hv1ltu40paqb33cmal5h671g7ff80m
 vary: Origin
 access-control-allow-origin: 
 access-control-expose-headers: 
@@ -909,10 +909,10 @@ access-control-allow-credentials: true
   },
   "data": {
     "type": "tp-destination",
-    "id": "8",
+    "id": "5",
     "attributes": {
-      "tpid": "Dratini",
-      "tag": "Meowth",
+      "tpid": "Articuno",
+      "tag": "Magmar",
       "prefix": "+44",
       "created-at": null
     }
@@ -935,7 +935,7 @@ content-type: application/vnd.api+json
 * __Response headers:__
 ```
 cache-control: max-age=0, private, must-revalidate
-x-request-id: 06gvs534cr91agi06r4iuqascnv9botp
+x-request-id: j3dnh5cdc1qppto0h3v28dijmb4c2das
 vary: Origin
 access-control-allow-origin: 
 access-control-expose-headers: 
@@ -951,7 +951,7 @@ content-type: application/vnd.api+json
 #### sorting by prefix
 ##### Request
 * __Method:__ GET
-* __Path:__ /api/tp-destinations?tpid=Aerodactyl
+* __Path:__ /api/tp-destinations?tpid=Venusaur
 * __Request headers:__
 ```
 accept: application/vnd.api+json
@@ -963,7 +963,7 @@ content-type: application/vnd.api+json
 ```
 content-type: application/vnd.api+json; charset=utf-8
 cache-control: max-age=0, private, must-revalidate
-x-request-id: 3o3p7oskgc2dn8mlvurku4jbs0im7r05
+x-request-id: dotfo6g7hrp5di3v8bj0e7rie4q2r6dr
 vary: Origin
 access-control-allow-origin: 
 access-control-expose-headers: 
@@ -973,62 +973,7 @@ access-control-allow-credentials: true
 ```json
 {
   "links": {
-    "self": "/api/tp-destinations?page[page]=1&page[page-size]=10&tpid=Aerodactyl"
-  },
-  "jsonapi": {
-    "version": "1.0"
-  },
-  "data": [
-    {
-      "type": "tp-destination",
-      "id": "2",
-      "attributes": {
-        "tpid": "Aerodactyl",
-        "tag": "Voltorb",
-        "prefix": "+7",
-        "created-at": "2017-09-25T20:08:24.000000"
-      }
-    },
-    {
-      "type": "tp-destination",
-      "id": "1",
-      "attributes": {
-        "tpid": "Aerodactyl",
-        "tag": "Magmar",
-        "prefix": "+4",
-        "created-at": "2017-09-25T20:08:24.000000"
-      }
-    }
-  ]
-}
-```
-
-#### sorting by tag
-##### Request
-* __Method:__ GET
-* __Path:__ /api/tp-destinations?tpid=Bellsprout
-* __Request headers:__
-```
-accept: application/vnd.api+json
-content-type: application/vnd.api+json
-```
-##### Response
-* __Status__: 200
-* __Response headers:__
-```
-content-type: application/vnd.api+json; charset=utf-8
-cache-control: max-age=0, private, must-revalidate
-x-request-id: nl8qaqmvv298a9f7co8oniqfv37gn5ki
-vary: Origin
-access-control-allow-origin: 
-access-control-expose-headers: 
-access-control-allow-credentials: true
-```
-* __Response body:__
-```json
-{
-  "links": {
-    "self": "/api/tp-destinations?page[page]=1&page[page-size]=10&tpid=Bellsprout"
+    "self": "/api/tp-destinations?page[page]=1&page[page-size]=10&tpid=Venusaur"
   },
   "jsonapi": {
     "version": "1.0"
@@ -1038,20 +983,75 @@ access-control-allow-credentials: true
       "type": "tp-destination",
       "id": "16",
       "attributes": {
-        "tpid": "Bellsprout",
-        "tag": "A",
-        "prefix": "+44",
-        "created-at": "2017-09-25T20:08:24.000000"
+        "tpid": "Venusaur",
+        "tag": "Dugtrio",
+        "prefix": "+7",
+        "created-at": "2017-09-26T13:29:58.000000"
       }
     },
     {
       "type": "tp-destination",
       "id": "15",
       "attributes": {
-        "tpid": "Bellsprout",
+        "tpid": "Venusaur",
+        "tag": "Snorlax",
+        "prefix": "+4",
+        "created-at": "2017-09-26T13:29:58.000000"
+      }
+    }
+  ]
+}
+```
+
+#### sorting by tag
+##### Request
+* __Method:__ GET
+* __Path:__ /api/tp-destinations?tpid=Meowth
+* __Request headers:__
+```
+accept: application/vnd.api+json
+content-type: application/vnd.api+json
+```
+##### Response
+* __Status__: 200
+* __Response headers:__
+```
+content-type: application/vnd.api+json; charset=utf-8
+cache-control: max-age=0, private, must-revalidate
+x-request-id: p11kvude7ai852633cuf6dat34amq3gs
+vary: Origin
+access-control-allow-origin: 
+access-control-expose-headers: 
+access-control-allow-credentials: true
+```
+* __Response body:__
+```json
+{
+  "links": {
+    "self": "/api/tp-destinations?page[page]=1&page[page-size]=10&tpid=Meowth"
+  },
+  "jsonapi": {
+    "version": "1.0"
+  },
+  "data": [
+    {
+      "type": "tp-destination",
+      "id": "11",
+      "attributes": {
+        "tpid": "Meowth",
+        "tag": "A",
+        "prefix": "+44",
+        "created-at": "2017-09-26T13:29:58.000000"
+      }
+    },
+    {
+      "type": "tp-destination",
+      "id": "10",
+      "attributes": {
+        "tpid": "Meowth",
         "tag": "B",
         "prefix": "+44",
-        "created-at": "2017-09-25T20:08:24.000000"
+        "created-at": "2017-09-26T13:29:58.000000"
       }
     }
   ]
@@ -1061,7 +1061,7 @@ access-control-allow-credentials: true
 #### filtering by prefix
 ##### Request
 * __Method:__ GET
-* __Path:__ /api/tp-destinations?tpid=Venonat
+* __Path:__ /api/tp-destinations?tpid=Golduck
 * __Request headers:__
 ```
 accept: application/vnd.api+json
@@ -1073,7 +1073,7 @@ content-type: application/vnd.api+json
 ```
 content-type: application/vnd.api+json; charset=utf-8
 cache-control: max-age=0, private, must-revalidate
-x-request-id: n9vgovrb9gl2aji3rqb30m747j0q0h1l
+x-request-id: nvkc9bj8kjoovava8p2dfpjo2pk8444f
 vary: Origin
 access-control-allow-origin: 
 access-control-expose-headers: 
@@ -1083,7 +1083,7 @@ access-control-allow-credentials: true
 ```json
 {
   "links": {
-    "self": "/api/tp-destinations?page[page]=1&page[page-size]=10&tpid=Venonat"
+    "self": "/api/tp-destinations?page[page]=1&page[page-size]=10&tpid=Golduck"
   },
   "jsonapi": {
     "version": "1.0"
@@ -1091,12 +1091,12 @@ access-control-allow-credentials: true
   "data": [
     {
       "type": "tp-destination",
-      "id": "9",
+      "id": "6",
       "attributes": {
-        "tpid": "Venonat",
-        "tag": "Tauros",
+        "tpid": "Golduck",
+        "tag": "Sandshrew",
         "prefix": "1",
-        "created-at": "2017-09-25T20:08:24.000000"
+        "created-at": "2017-09-26T13:29:58.000000"
       }
     }
   ]
@@ -1106,7 +1106,7 @@ access-control-allow-credentials: true
 #### filtering by tag
 ##### Request
 * __Method:__ GET
-* __Path:__ /api/tp-destinations?tpid=Clefable
+* __Path:__ /api/tp-destinations?tpid=Porygon
 * __Request headers:__
 ```
 accept: application/vnd.api+json
@@ -1118,7 +1118,7 @@ content-type: application/vnd.api+json
 ```
 content-type: application/vnd.api+json; charset=utf-8
 cache-control: max-age=0, private, must-revalidate
-x-request-id: v1m1b1qcd0jmvtsujdfr1k6of83bfcte
+x-request-id: torch8en6pocb5i30es7kiildpbocaml
 vary: Origin
 access-control-allow-origin: 
 access-control-expose-headers: 
@@ -1128,7 +1128,7 @@ access-control-allow-credentials: true
 ```json
 {
   "links": {
-    "self": "/api/tp-destinations?page[page]=1&page[page-size]=10&tpid=Clefable"
+    "self": "/api/tp-destinations?page[page]=1&page[page-size]=10&tpid=Porygon"
   },
   "jsonapi": {
     "version": "1.0"
@@ -1136,12 +1136,12 @@ access-control-allow-credentials: true
   "data": [
     {
       "type": "tp-destination",
-      "id": "13",
+      "id": "1",
       "attributes": {
-        "tpid": "Clefable",
-        "tag": "Nidoking",
+        "tpid": "Porygon",
+        "tag": "Butterfree",
         "prefix": "+44",
-        "created-at": "2017-09-25T20:08:24.000000"
+        "created-at": "2017-09-26T13:29:58.000000"
       }
     }
   ]
@@ -1151,7 +1151,7 @@ access-control-allow-credentials: true
 #### pagination list
 ##### Request
 * __Method:__ GET
-* __Path:__ /api/tp-destinations?tpid=Seaking&page=2&page_size=1
+* __Path:__ /api/tp-destinations?tpid=Grimer&page[page]=2&page[page_size]=1
 * __Request headers:__
 ```
 accept: application/vnd.api+json
@@ -1163,7 +1163,7 @@ content-type: application/vnd.api+json
 ```
 content-type: application/vnd.api+json; charset=utf-8
 cache-control: max-age=0, private, must-revalidate
-x-request-id: glt8cq74kulvch8lr5jt5lipig2idh6f
+x-request-id: j3aantvtlo5er4jsf3s8hdi6ipauob04
 vary: Origin
 access-control-allow-origin: 
 access-control-expose-headers: 
@@ -1173,9 +1173,9 @@ access-control-allow-credentials: true
 ```json
 {
   "links": {
-    "self": "/api/tp-destinations?page[page]=2&page[page-size]=1&page_size=1&tpid=Seaking",
-    "prev": "/api/tp-destinations?page[page]=1&page[page-size]=1&page_size=1&tpid=Seaking",
-    "first": "/api/tp-destinations?page[page]=1&page[page-size]=1&page_size=1&tpid=Seaking"
+    "self": "/api/tp-destinations?page[page]=2&page[page-size]=1&tpid=Grimer",
+    "prev": "/api/tp-destinations?page[page]=1&page[page-size]=1&tpid=Grimer",
+    "first": "/api/tp-destinations?page[page]=1&page[page-size]=1&tpid=Grimer"
   },
   "jsonapi": {
     "version": "1.0"
@@ -1183,12 +1183,12 @@ access-control-allow-credentials: true
   "data": [
     {
       "type": "tp-destination",
-      "id": "7",
+      "id": "9",
       "attributes": {
-        "tpid": "Seaking",
-        "tag": "Scyther",
+        "tpid": "Grimer",
+        "tag": "Wartortle",
         "prefix": "+44",
-        "created-at": "2017-09-25T20:08:24.000000"
+        "created-at": "2017-09-26T13:29:58.000000"
       }
     }
   ]
@@ -1198,7 +1198,7 @@ access-control-allow-credentials: true
 #### lists all entries related tariff plan on index
 ##### Request
 * __Method:__ GET
-* __Path:__ /api/tp-destinations?tpid=Kabutops
+* __Path:__ /api/tp-destinations?tpid=Rhyhorn
 * __Request headers:__
 ```
 accept: application/vnd.api+json
@@ -1210,7 +1210,7 @@ content-type: application/vnd.api+json
 ```
 content-type: application/vnd.api+json; charset=utf-8
 cache-control: max-age=0, private, must-revalidate
-x-request-id: f3clcisr51avd6dmghds1lee9drefeqe
+x-request-id: kjtnl6sbmj9vo950sni3q81ritbf89dh
 vary: Origin
 access-control-allow-origin: 
 access-control-expose-headers: 
@@ -1220,7 +1220,7 @@ access-control-allow-credentials: true
 ```json
 {
   "links": {
-    "self": "/api/tp-destinations?page[page]=1&page[page-size]=10&tpid=Kabutops"
+    "self": "/api/tp-destinations?page[page]=1&page[page-size]=10&tpid=Rhyhorn"
   },
   "jsonapi": {
     "version": "1.0"
@@ -1228,12 +1228,12 @@ access-control-allow-credentials: true
   "data": [
     {
       "type": "tp-destination",
-      "id": "4",
+      "id": "12",
       "attributes": {
-        "tpid": "Kabutops",
-        "tag": "Tangela",
+        "tpid": "Rhyhorn",
+        "tag": "Rapidash",
         "prefix": "+44",
-        "created-at": "2017-09-25T20:08:24.000000"
+        "created-at": "2017-09-26T13:29:58.000000"
       }
     }
   ]
@@ -1244,7 +1244,7 @@ access-control-allow-credentials: true
 #### shows chosen resource
 ##### Request
 * __Method:__ GET
-* __Path:__ /api/tp-destinations/11
+* __Path:__ /api/tp-destinations/14
 * __Request headers:__
 ```
 accept: application/vnd.api+json
@@ -1256,7 +1256,7 @@ content-type: application/vnd.api+json
 ```
 content-type: application/vnd.api+json; charset=utf-8
 cache-control: max-age=0, private, must-revalidate
-x-request-id: 2f9e5gjnffgcnnbnb7n2uasfvr6bsfeh
+x-request-id: 4pldug6bt24q6nj1g7defrvivi5cs28t
 vary: Origin
 access-control-allow-origin: 
 access-control-expose-headers: 
@@ -1270,12 +1270,12 @@ access-control-allow-credentials: true
   },
   "data": {
     "type": "tp-destination",
-    "id": "11",
+    "id": "14",
     "attributes": {
-      "tpid": "Vulpix",
-      "tag": "Zapdos",
+      "tpid": "Tangela",
+      "tag": "Hypno",
       "prefix": "+44",
-      "created-at": "2017-09-25T20:08:24.000000"
+      "created-at": "2017-09-26T13:29:58.000000"
     }
   }
 }
@@ -1285,7 +1285,7 @@ access-control-allow-credentials: true
 #### does not update chosen resource and renders errors when data is invalid
 ##### Request
 * __Method:__ PUT
-* __Path:__ /api/tp-destinations/3
+* __Path:__ /api/tp-destinations/4
 * __Request headers:__
 ```
 accept: application/vnd.api+json
@@ -1297,7 +1297,7 @@ content-type: application/vnd.api+json
 ```
 content-type: application/vnd.api+json; charset=utf-8
 cache-control: max-age=0, private, must-revalidate
-x-request-id: g0ndtlrn8knl1kilc87e74fl8ja5qk5k
+x-request-id: 7e580psja66jv6tjqlir5e40108bj0li
 vary: Origin
 access-control-allow-origin: 
 access-control-expose-headers: 
@@ -1324,7 +1324,7 @@ access-control-allow-credentials: true
 #### updates and renders chosen resource when data is valid
 ##### Request
 * __Method:__ PUT
-* __Path:__ /api/tp-destinations/12
+* __Path:__ /api/tp-destinations/3
 * __Request headers:__
 ```
 accept: application/vnd.api+json
@@ -1336,7 +1336,7 @@ content-type: application/vnd.api+json
 ```
 content-type: application/vnd.api+json; charset=utf-8
 cache-control: max-age=0, private, must-revalidate
-x-request-id: ju7k2qu2e8lgbhdkv5ju80om4dh4mdkl
+x-request-id: pqr40v63jul88ega3t7to542m9rtd8fj
 vary: Origin
 access-control-allow-origin: 
 access-control-expose-headers: 
@@ -1350,12 +1350,12 @@ access-control-allow-credentials: true
   },
   "data": {
     "type": "tp-destination",
-    "id": "12",
+    "id": "3",
     "attributes": {
-      "tpid": "Ditto",
-      "tag": "Seel",
+      "tpid": "Aerodactyl",
+      "tag": "Paras",
       "prefix": "+44",
-      "created-at": "2017-09-25T20:08:24.000000"
+      "created-at": "2017-09-26T13:29:58.000000"
     }
   }
 }
@@ -1378,7 +1378,7 @@ content-type: application/vnd.api+json
 ```
 content-type: application/vnd.api+json; charset=utf-8
 cache-control: max-age=0, private, must-revalidate
-x-request-id: 7g56a86k64eenc3ufis1ubh7ka03mbq2
+x-request-id: mmj1j3r813psmaqh5brfo2oqv378knue
 vary: Origin
 access-control-allow-origin: 
 access-control-expose-headers: 
@@ -1466,7 +1466,7 @@ content-type: application/vnd.api+json
 ```
 content-type: application/vnd.api+json; charset=utf-8
 cache-control: max-age=0, private, must-revalidate
-x-request-id: nc5vsecou03j1gggt151mirgefudqlut
+x-request-id: mlqcsirghgtsg6jq1u6reolpsr77pjj9
 vary: Origin
 access-control-allow-origin: 
 access-control-expose-headers: 
@@ -1480,16 +1480,16 @@ access-control-allow-credentials: true
   },
   "data": {
     "type": "tp-destination-rate",
-    "id": "12",
+    "id": "9",
     "attributes": {
-      "tpid": "Drowzee",
-      "tag": "Graveler",
+      "tpid": "Rattata",
+      "tag": "Golduck",
       "rounding-method": "*up",
       "rounding-decimals": 1,
-      "rates-tag": "Aerodactyl",
+      "rates-tag": "Charmander",
       "max-cost-strategy": "*free",
       "max-cost": 100.0,
-      "destinations-tag": "Dodrio",
+      "destinations-tag": "Sandshrew",
       "created-at": null
     }
   }
@@ -1511,7 +1511,7 @@ content-type: application/vnd.api+json
 * __Response headers:__
 ```
 cache-control: max-age=0, private, must-revalidate
-x-request-id: qr05jhn8sfcf52hiqr8e1c654bhea5r0
+x-request-id: loedpos76oiqnlk89e30ebg5qo6lirl5
 vary: Origin
 access-control-allow-origin: 
 access-control-expose-headers: 
@@ -1527,7 +1527,7 @@ content-type: application/vnd.api+json
 #### filtering by max_cost_strategy
 ##### Request
 * __Method:__ GET
-* __Path:__ /api/tp-destination-rates?tpid=Kabutops
+* __Path:__ /api/tp-destination-rates?tpid=Staryu
 * __Request headers:__
 ```
 accept: application/vnd.api+json
@@ -1539,7 +1539,7 @@ content-type: application/vnd.api+json
 ```
 content-type: application/vnd.api+json; charset=utf-8
 cache-control: max-age=0, private, must-revalidate
-x-request-id: s6fqq875d3cand419bhnjmd1u8vo6b60
+x-request-id: e45aualttf7ti81fanbim25ec8rmtm0v
 vary: Origin
 access-control-allow-origin: 
 access-control-expose-headers: 
@@ -1549,7 +1549,207 @@ access-control-allow-credentials: true
 ```json
 {
   "links": {
-    "self": "/api/tp-destination-rates?page[page]=1&page[page-size]=10&tpid=Kabutops"
+    "self": "/api/tp-destination-rates?page[page]=1&page[page-size]=10&tpid=Staryu"
+  },
+  "jsonapi": {
+    "version": "1.0"
+  },
+  "data": [
+    {
+      "type": "tp-destination-rate",
+      "id": "1",
+      "attributes": {
+        "tpid": "Staryu",
+        "tag": "Slowpoke",
+        "rounding-method": "*up",
+        "rounding-decimals": 1,
+        "rates-tag": "Venusaur",
+        "max-cost-strategy": "*free",
+        "max-cost": 100.0,
+        "destinations-tag": "Arcanine",
+        "created-at": "2017-09-26T13:29:58.000000"
+      }
+    }
+  ]
+}
+```
+
+#### filtering by max_cost
+##### Request
+* __Method:__ GET
+* __Path:__ /api/tp-destination-rates?tpid=Pidgeotto
+* __Request headers:__
+```
+accept: application/vnd.api+json
+content-type: application/vnd.api+json
+```
+##### Response
+* __Status__: 200
+* __Response headers:__
+```
+content-type: application/vnd.api+json; charset=utf-8
+cache-control: max-age=0, private, must-revalidate
+x-request-id: jdkaa6scthh10mkmkgk9ncjvploltopb
+vary: Origin
+access-control-allow-origin: 
+access-control-expose-headers: 
+access-control-allow-credentials: true
+```
+* __Response body:__
+```json
+{
+  "links": {
+    "self": "/api/tp-destination-rates?page[page]=1&page[page-size]=10&tpid=Pidgeotto"
+  },
+  "jsonapi": {
+    "version": "1.0"
+  },
+  "data": [
+    {
+      "type": "tp-destination-rate",
+      "id": "19",
+      "attributes": {
+        "tpid": "Pidgeotto",
+        "tag": "Pidgeot",
+        "rounding-method": "*up",
+        "rounding-decimals": 1,
+        "rates-tag": "Wigglytuff",
+        "max-cost-strategy": "*free",
+        "max-cost": 1.0,
+        "destinations-tag": "Nidoran",
+        "created-at": "2017-09-26T13:29:58.000000"
+      }
+    }
+  ]
+}
+```
+
+#### filtering by rounding_decimals
+##### Request
+* __Method:__ GET
+* __Path:__ /api/tp-destination-rates?tpid=Snorlax
+* __Request headers:__
+```
+accept: application/vnd.api+json
+content-type: application/vnd.api+json
+```
+##### Response
+* __Status__: 200
+* __Response headers:__
+```
+content-type: application/vnd.api+json; charset=utf-8
+cache-control: max-age=0, private, must-revalidate
+x-request-id: 4r8h9c2bp9nm0oktf7tnv06kn9vsgt2b
+vary: Origin
+access-control-allow-origin: 
+access-control-expose-headers: 
+access-control-allow-credentials: true
+```
+* __Response body:__
+```json
+{
+  "links": {
+    "self": "/api/tp-destination-rates?page[page]=1&page[page-size]=10&tpid=Snorlax"
+  },
+  "jsonapi": {
+    "version": "1.0"
+  },
+  "data": [
+    {
+      "type": "tp-destination-rate",
+      "id": "14",
+      "attributes": {
+        "tpid": "Snorlax",
+        "tag": "Jolteon",
+        "rounding-method": "*up",
+        "rounding-decimals": 1,
+        "rates-tag": "Tentacool",
+        "max-cost-strategy": "*free",
+        "max-cost": 100.0,
+        "destinations-tag": "Tauros",
+        "created-at": "2017-09-26T13:29:58.000000"
+      }
+    }
+  ]
+}
+```
+
+#### filtering by rounding_method
+##### Request
+* __Method:__ GET
+* __Path:__ /api/tp-destination-rates?tpid=Gyarados
+* __Request headers:__
+```
+accept: application/vnd.api+json
+content-type: application/vnd.api+json
+```
+##### Response
+* __Status__: 200
+* __Response headers:__
+```
+content-type: application/vnd.api+json; charset=utf-8
+cache-control: max-age=0, private, must-revalidate
+x-request-id: 2nilmve0mlqbbhj0cf3cdtlv9jihkbfi
+vary: Origin
+access-control-allow-origin: 
+access-control-expose-headers: 
+access-control-allow-credentials: true
+```
+* __Response body:__
+```json
+{
+  "links": {
+    "self": "/api/tp-destination-rates?page[page]=1&page[page-size]=10&tpid=Gyarados"
+  },
+  "jsonapi": {
+    "version": "1.0"
+  },
+  "data": [
+    {
+      "type": "tp-destination-rate",
+      "id": "10",
+      "attributes": {
+        "tpid": "Gyarados",
+        "tag": "Nidoking",
+        "rounding-method": "*up",
+        "rounding-decimals": 1,
+        "rates-tag": "Weezing",
+        "max-cost-strategy": "*free",
+        "max-cost": 100.0,
+        "destinations-tag": "Nidorino",
+        "created-at": "2017-09-26T13:29:58.000000"
+      }
+    }
+  ]
+}
+```
+
+#### filtering by rates_tag
+##### Request
+* __Method:__ GET
+* __Path:__ /api/tp-destination-rates?tpid=Clefable
+* __Request headers:__
+```
+accept: application/vnd.api+json
+content-type: application/vnd.api+json
+```
+##### Response
+* __Status__: 200
+* __Response headers:__
+```
+content-type: application/vnd.api+json; charset=utf-8
+cache-control: max-age=0, private, must-revalidate
+x-request-id: 278mirsgf7ar82kktklmu55jqq708ve3
+vary: Origin
+access-control-allow-origin: 
+access-control-expose-headers: 
+access-control-allow-credentials: true
+```
+* __Response body:__
+```json
+{
+  "links": {
+    "self": "/api/tp-destination-rates?page[page]=1&page[page-size]=10&tpid=Clefable"
   },
   "jsonapi": {
     "version": "1.0"
@@ -1559,22 +1759,122 @@ access-control-allow-credentials: true
       "type": "tp-destination-rate",
       "id": "3",
       "attributes": {
-        "tpid": "Kabutops",
-        "tag": "Beedrill",
+        "tpid": "Clefable",
+        "tag": "Poliwhirl",
         "rounding-method": "*up",
         "rounding-decimals": 1,
-        "rates-tag": "Cloyster",
+        "rates-tag": "aa",
         "max-cost-strategy": "*free",
         "max-cost": 100.0,
-        "destinations-tag": "Charmander",
-        "created-at": "2017-09-25T20:08:24.000000"
+        "destinations-tag": "Omastar",
+        "created-at": "2017-09-26T13:29:58.000000"
       }
     }
   ]
 }
 ```
 
-#### filtering by max_cost
+#### filtering by destinations_tag
+##### Request
+* __Method:__ GET
+* __Path:__ /api/tp-destination-rates?tpid=Arbok
+* __Request headers:__
+```
+accept: application/vnd.api+json
+content-type: application/vnd.api+json
+```
+##### Response
+* __Status__: 200
+* __Response headers:__
+```
+content-type: application/vnd.api+json; charset=utf-8
+cache-control: max-age=0, private, must-revalidate
+x-request-id: qrd02v3dn1lfjfc19i8plbegbdsm3jqn
+vary: Origin
+access-control-allow-origin: 
+access-control-expose-headers: 
+access-control-allow-credentials: true
+```
+* __Response body:__
+```json
+{
+  "links": {
+    "self": "/api/tp-destination-rates?page[page]=1&page[page-size]=10&tpid=Arbok"
+  },
+  "jsonapi": {
+    "version": "1.0"
+  },
+  "data": [
+    {
+      "type": "tp-destination-rate",
+      "id": "12",
+      "attributes": {
+        "tpid": "Arbok",
+        "tag": "Electabuzz",
+        "rounding-method": "*up",
+        "rounding-decimals": 1,
+        "rates-tag": "Horsea",
+        "max-cost-strategy": "*free",
+        "max-cost": 100.0,
+        "destinations-tag": "aa",
+        "created-at": "2017-09-26T13:29:58.000000"
+      }
+    }
+  ]
+}
+```
+
+#### filtering by tag
+##### Request
+* __Method:__ GET
+* __Path:__ /api/tp-destination-rates?tpid=Primeape
+* __Request headers:__
+```
+accept: application/vnd.api+json
+content-type: application/vnd.api+json
+```
+##### Response
+* __Status__: 200
+* __Response headers:__
+```
+content-type: application/vnd.api+json; charset=utf-8
+cache-control: max-age=0, private, must-revalidate
+x-request-id: lqcc1pks1d8oh4n2oeuoivgseb6dfi3f
+vary: Origin
+access-control-allow-origin: 
+access-control-expose-headers: 
+access-control-allow-credentials: true
+```
+* __Response body:__
+```json
+{
+  "links": {
+    "self": "/api/tp-destination-rates?page[page]=1&page[page-size]=10&tpid=Primeape"
+  },
+  "jsonapi": {
+    "version": "1.0"
+  },
+  "data": [
+    {
+      "type": "tp-destination-rate",
+      "id": "16",
+      "attributes": {
+        "tpid": "Primeape",
+        "tag": "aa",
+        "rounding-method": "*up",
+        "rounding-decimals": 1,
+        "rates-tag": "Zubat",
+        "max-cost-strategy": "*free",
+        "max-cost": 100.0,
+        "destinations-tag": "Geodude",
+        "created-at": "2017-09-26T13:29:58.000000"
+      }
+    }
+  ]
+}
+```
+
+#### lists all entries related tariff plan on index
 ##### Request
 * __Method:__ GET
 * __Path:__ /api/tp-destination-rates?tpid=Weezing
@@ -1589,7 +1889,7 @@ content-type: application/vnd.api+json
 ```
 content-type: application/vnd.api+json; charset=utf-8
 cache-control: max-age=0, private, must-revalidate
-x-request-id: sadt68horcnlvn8opv3e306nt3gp8i8q
+x-request-id: oeaevsmsao9jhscegfc8ke6880g8dgkp
 vary: Origin
 access-control-allow-origin: 
 access-control-expose-headers: 
@@ -1607,317 +1907,17 @@ access-control-allow-credentials: true
   "data": [
     {
       "type": "tp-destination-rate",
-      "id": "1",
+      "id": "6",
       "attributes": {
         "tpid": "Weezing",
-        "tag": "Hypno",
-        "rounding-method": "*up",
-        "rounding-decimals": 1,
-        "rates-tag": "Ivysaur",
-        "max-cost-strategy": "*free",
-        "max-cost": 1.0,
-        "destinations-tag": "Graveler",
-        "created-at": "2017-09-25T20:08:24.000000"
-      }
-    }
-  ]
-}
-```
-
-#### filtering by rounding_decimals
-##### Request
-* __Method:__ GET
-* __Path:__ /api/tp-destination-rates?tpid=Scyther
-* __Request headers:__
-```
-accept: application/vnd.api+json
-content-type: application/vnd.api+json
-```
-##### Response
-* __Status__: 200
-* __Response headers:__
-```
-content-type: application/vnd.api+json; charset=utf-8
-cache-control: max-age=0, private, must-revalidate
-x-request-id: r2msqdlt3bu6gf8isl2d4b9tbe9qpjrl
-vary: Origin
-access-control-allow-origin: 
-access-control-expose-headers: 
-access-control-allow-credentials: true
-```
-* __Response body:__
-```json
-{
-  "links": {
-    "self": "/api/tp-destination-rates?page[page]=1&page[page-size]=10&tpid=Scyther"
-  },
-  "jsonapi": {
-    "version": "1.0"
-  },
-  "data": [
-    {
-      "type": "tp-destination-rate",
-      "id": "19",
-      "attributes": {
-        "tpid": "Scyther",
-        "tag": "Abra",
-        "rounding-method": "*up",
-        "rounding-decimals": 1,
-        "rates-tag": "Golbat",
-        "max-cost-strategy": "*free",
-        "max-cost": 100.0,
-        "destinations-tag": "Dragonair",
-        "created-at": "2017-09-25T20:08:24.000000"
-      }
-    }
-  ]
-}
-```
-
-#### filtering by rounding_method
-##### Request
-* __Method:__ GET
-* __Path:__ /api/tp-destination-rates?tpid=Kabuto
-* __Request headers:__
-```
-accept: application/vnd.api+json
-content-type: application/vnd.api+json
-```
-##### Response
-* __Status__: 200
-* __Response headers:__
-```
-content-type: application/vnd.api+json; charset=utf-8
-cache-control: max-age=0, private, must-revalidate
-x-request-id: aht2ndoht60rkv0vj2e73u3q64so6032
-vary: Origin
-access-control-allow-origin: 
-access-control-expose-headers: 
-access-control-allow-credentials: true
-```
-* __Response body:__
-```json
-{
-  "links": {
-    "self": "/api/tp-destination-rates?page[page]=1&page[page-size]=10&tpid=Kabuto"
-  },
-  "jsonapi": {
-    "version": "1.0"
-  },
-  "data": [
-    {
-      "type": "tp-destination-rate",
-      "id": "13",
-      "attributes": {
-        "tpid": "Kabuto",
-        "tag": "Kabutops",
-        "rounding-method": "*up",
-        "rounding-decimals": 1,
-        "rates-tag": "Paras",
-        "max-cost-strategy": "*free",
-        "max-cost": 100.0,
-        "destinations-tag": "Golem",
-        "created-at": "2017-09-25T20:08:24.000000"
-      }
-    }
-  ]
-}
-```
-
-#### filtering by rates_tag
-##### Request
-* __Method:__ GET
-* __Path:__ /api/tp-destination-rates?tpid=Muk
-* __Request headers:__
-```
-accept: application/vnd.api+json
-content-type: application/vnd.api+json
-```
-##### Response
-* __Status__: 200
-* __Response headers:__
-```
-content-type: application/vnd.api+json; charset=utf-8
-cache-control: max-age=0, private, must-revalidate
-x-request-id: iu63uo2quo4jaep5folclkv5rpc1blt5
-vary: Origin
-access-control-allow-origin: 
-access-control-expose-headers: 
-access-control-allow-credentials: true
-```
-* __Response body:__
-```json
-{
-  "links": {
-    "self": "/api/tp-destination-rates?page[page]=1&page[page-size]=10&tpid=Muk"
-  },
-  "jsonapi": {
-    "version": "1.0"
-  },
-  "data": [
-    {
-      "type": "tp-destination-rate",
-      "id": "17",
-      "attributes": {
-        "tpid": "Muk",
-        "tag": "Shellder",
-        "rounding-method": "*up",
-        "rounding-decimals": 1,
-        "rates-tag": "aa",
-        "max-cost-strategy": "*free",
-        "max-cost": 100.0,
-        "destinations-tag": "Caterpie",
-        "created-at": "2017-09-25T20:08:24.000000"
-      }
-    }
-  ]
-}
-```
-
-#### filtering by destinations_tag
-##### Request
-* __Method:__ GET
-* __Path:__ /api/tp-destination-rates?tpid=Electabuzz
-* __Request headers:__
-```
-accept: application/vnd.api+json
-content-type: application/vnd.api+json
-```
-##### Response
-* __Status__: 200
-* __Response headers:__
-```
-content-type: application/vnd.api+json; charset=utf-8
-cache-control: max-age=0, private, must-revalidate
-x-request-id: mepb4slbb0fafrc5gsmk1amaens5nbro
-vary: Origin
-access-control-allow-origin: 
-access-control-expose-headers: 
-access-control-allow-credentials: true
-```
-* __Response body:__
-```json
-{
-  "links": {
-    "self": "/api/tp-destination-rates?page[page]=1&page[page-size]=10&tpid=Electabuzz"
-  },
-  "jsonapi": {
-    "version": "1.0"
-  },
-  "data": [
-    {
-      "type": "tp-destination-rate",
-      "id": "10",
-      "attributes": {
-        "tpid": "Electabuzz",
-        "tag": "Dugtrio",
+        "tag": "Kadabra",
         "rounding-method": "*up",
         "rounding-decimals": 1,
         "rates-tag": "Slowbro",
         "max-cost-strategy": "*free",
         "max-cost": 100.0,
-        "destinations-tag": "aa",
-        "created-at": "2017-09-25T20:08:24.000000"
-      }
-    }
-  ]
-}
-```
-
-#### filtering by tag
-##### Request
-* __Method:__ GET
-* __Path:__ /api/tp-destination-rates?tpid=Caterpie
-* __Request headers:__
-```
-accept: application/vnd.api+json
-content-type: application/vnd.api+json
-```
-##### Response
-* __Status__: 200
-* __Response headers:__
-```
-content-type: application/vnd.api+json; charset=utf-8
-cache-control: max-age=0, private, must-revalidate
-x-request-id: mpmn20f6crsqdss9rhv6tggh1g1kl6lq
-vary: Origin
-access-control-allow-origin: 
-access-control-expose-headers: 
-access-control-allow-credentials: true
-```
-* __Response body:__
-```json
-{
-  "links": {
-    "self": "/api/tp-destination-rates?page[page]=1&page[page-size]=10&tpid=Caterpie"
-  },
-  "jsonapi": {
-    "version": "1.0"
-  },
-  "data": [
-    {
-      "type": "tp-destination-rate",
-      "id": "8",
-      "attributes": {
-        "tpid": "Caterpie",
-        "tag": "aa",
-        "rounding-method": "*up",
-        "rounding-decimals": 1,
-        "rates-tag": "Sandshrew",
-        "max-cost-strategy": "*free",
-        "max-cost": 100.0,
-        "destinations-tag": "Drowzee",
-        "created-at": "2017-09-25T20:08:24.000000"
-      }
-    }
-  ]
-}
-```
-
-#### lists all entries related tariff plan on index
-##### Request
-* __Method:__ GET
-* __Path:__ /api/tp-destination-rates?tpid=Articuno
-* __Request headers:__
-```
-accept: application/vnd.api+json
-content-type: application/vnd.api+json
-```
-##### Response
-* __Status__: 200
-* __Response headers:__
-```
-content-type: application/vnd.api+json; charset=utf-8
-cache-control: max-age=0, private, must-revalidate
-x-request-id: dhqoas5vp0jsh574mnvnibvik3ossosr
-vary: Origin
-access-control-allow-origin: 
-access-control-expose-headers: 
-access-control-allow-credentials: true
-```
-* __Response body:__
-```json
-{
-  "links": {
-    "self": "/api/tp-destination-rates?page[page]=1&page[page-size]=10&tpid=Articuno"
-  },
-  "jsonapi": {
-    "version": "1.0"
-  },
-  "data": [
-    {
-      "type": "tp-destination-rate",
-      "id": "6",
-      "attributes": {
-        "tpid": "Articuno",
-        "tag": "Dragonite",
-        "rounding-method": "*up",
-        "rounding-decimals": 1,
-        "rates-tag": "Nidoran",
-        "max-cost-strategy": "*free",
-        "max-cost": 100.0,
-        "destinations-tag": "Chansey",
-        "created-at": "2017-09-25T20:08:24.000000"
+        "destinations-tag": "Squirtle",
+        "created-at": "2017-09-26T13:29:58.000000"
       }
     }
   ]
@@ -1928,7 +1928,7 @@ access-control-allow-credentials: true
 #### shows chosen resource
 ##### Request
 * __Method:__ GET
-* __Path:__ /api/tp-destination-rates/15
+* __Path:__ /api/tp-destination-rates/18
 * __Request headers:__
 ```
 accept: application/vnd.api+json
@@ -1940,7 +1940,7 @@ content-type: application/vnd.api+json
 ```
 content-type: application/vnd.api+json; charset=utf-8
 cache-control: max-age=0, private, must-revalidate
-x-request-id: hva8vcn66rvde7t4ldt5q8v0ghferdpp
+x-request-id: 67eaoc2p8j4cgghpd3l8c3cags564egk
 vary: Origin
 access-control-allow-origin: 
 access-control-expose-headers: 
@@ -1954,17 +1954,17 @@ access-control-allow-credentials: true
   },
   "data": {
     "type": "tp-destination-rate",
-    "id": "15",
+    "id": "18",
     "attributes": {
-      "tpid": "Marowak",
-      "tag": "Paras",
+      "tpid": "Horsea",
+      "tag": "Kadabra",
       "rounding-method": "*up",
       "rounding-decimals": 1,
-      "rates-tag": "Seadra",
+      "rates-tag": "Psyduck",
       "max-cost-strategy": "*free",
       "max-cost": 100.0,
-      "destinations-tag": "Pidgeot",
-      "created-at": "2017-09-25T20:08:24.000000"
+      "destinations-tag": "Krabby",
+      "created-at": "2017-09-26T13:29:58.000000"
     }
   }
 }
@@ -1974,7 +1974,7 @@ access-control-allow-credentials: true
 #### does not update chosen resource and renders errors when data is invalid
 ##### Request
 * __Method:__ PUT
-* __Path:__ /api/tp-destination-rates/5
+* __Path:__ /api/tp-destination-rates/8
 * __Request headers:__
 ```
 accept: application/vnd.api+json
@@ -1986,7 +1986,7 @@ content-type: application/vnd.api+json
 ```
 content-type: application/vnd.api+json; charset=utf-8
 cache-control: max-age=0, private, must-revalidate
-x-request-id: 5gi4evqas12er5e5vqv0c1pl23tkm3o3
+x-request-id: u2tvuktribi2bq3pds4dhbmsk93kfr2a
 vary: Origin
 access-control-allow-origin: 
 access-control-expose-headers: 
@@ -2013,7 +2013,7 @@ access-control-allow-credentials: true
 #### updates and renders chosen resource when data is valid
 ##### Request
 * __Method:__ PUT
-* __Path:__ /api/tp-destination-rates/16
+* __Path:__ /api/tp-destination-rates/5
 * __Request headers:__
 ```
 accept: application/vnd.api+json
@@ -2025,7 +2025,7 @@ content-type: application/vnd.api+json
 ```
 content-type: application/vnd.api+json; charset=utf-8
 cache-control: max-age=0, private, must-revalidate
-x-request-id: 32ibbqqn4854u6358ecs7ms6pfk533h0
+x-request-id: bnvjuijk5ilqpnpm3e94707ikfvce2e9
 vary: Origin
 access-control-allow-origin: 
 access-control-expose-headers: 
@@ -2039,17 +2039,17 @@ access-control-allow-credentials: true
   },
   "data": {
     "type": "tp-destination-rate",
-    "id": "16",
+    "id": "5",
     "attributes": {
-      "tpid": "Gloom",
-      "tag": "Sandslash",
+      "tpid": "Lickitung",
+      "tag": "Raichu",
       "rounding-method": "*up",
       "rounding-decimals": 1,
-      "rates-tag": "Electrode",
+      "rates-tag": "Tauros",
       "max-cost-strategy": "*free",
       "max-cost": 100.0,
-      "destinations-tag": "Ditto",
-      "created-at": "2017-09-25T20:08:24.000000"
+      "destinations-tag": "Machamp",
+      "created-at": "2017-09-26T13:29:58.000000"
     }
   }
 }
@@ -2072,7 +2072,7 @@ content-type: application/vnd.api+json
 ```
 content-type: application/vnd.api+json; charset=utf-8
 cache-control: max-age=0, private, must-revalidate
-x-request-id: kg00k6dkns5g8tbeecs9lepsfjnah0d2
+x-request-id: cd8j5acr6967v30r7aod2m7qth9aprdf
 vary: Origin
 access-control-allow-origin: 
 access-control-expose-headers: 
@@ -2086,10 +2086,10 @@ access-control-allow-credentials: true
   },
   "data": {
     "type": "tp-rate",
-    "id": "10",
+    "id": "7",
     "attributes": {
-      "tpid": "Nidorino",
-      "tag": "Storm King Stout",
+      "tpid": "Alakazam",
+      "tag": "Sublimely Self-Righteous Ale",
       "rate-unit": "60s",
       "rate-increment": "60s",
       "rate": 0.01,
@@ -2116,7 +2116,7 @@ content-type: application/vnd.api+json
 * __Response headers:__
 ```
 cache-control: max-age=0, private, must-revalidate
-x-request-id: reud788kuejbljts76trvkpaj96d5ism
+x-request-id: f8pmoj705q7o1j0u2em4glvk33vscbiv
 vary: Origin
 access-control-allow-origin: 
 access-control-expose-headers: 
@@ -2132,7 +2132,7 @@ content-type: application/vnd.api+json
 #### filtering by group_interval_start
 ##### Request
 * __Method:__ GET
-* __Path:__ /api/tp-rates?tpid=Golduck
+* __Path:__ /api/tp-rates?tpid=Dragonite
 * __Request headers:__
 ```
 accept: application/vnd.api+json
@@ -2144,7 +2144,7 @@ content-type: application/vnd.api+json
 ```
 content-type: application/vnd.api+json; charset=utf-8
 cache-control: max-age=0, private, must-revalidate
-x-request-id: fsbd85v90415sicadj4pig9b5dbk5da3
+x-request-id: lscr2om8h2n9ovn9r28smgqr787morf5
 vary: Origin
 access-control-allow-origin: 
 access-control-expose-headers: 
@@ -2154,7 +2154,7 @@ access-control-allow-credentials: true
 ```json
 {
   "links": {
-    "self": "/api/tp-rates?page[page]=1&page[page-size]=10&tpid=Golduck"
+    "self": "/api/tp-rates?page[page]=1&page[page-size]=10&tpid=Dragonite"
   },
   "jsonapi": {
     "version": "1.0"
@@ -2162,15 +2162,15 @@ access-control-allow-credentials: true
   "data": [
     {
       "type": "tp-rate",
-      "id": "1",
+      "id": "17",
       "attributes": {
-        "tpid": "Golduck",
-        "tag": "Founders Kentucky Breakfast",
+        "tpid": "Dragonite",
+        "tag": "Chocolate St",
         "rate-unit": "60s",
         "rate-increment": "60s",
         "rate": 0.01,
         "group-interval-start": "60s",
-        "created-at": "2017-09-25T20:08:24.000000",
+        "created-at": "2017-09-26T13:29:58.000000",
         "connect-fee": 0.01
       }
     }
@@ -2181,7 +2181,7 @@ access-control-allow-credentials: true
 #### filtering by rate_increment
 ##### Request
 * __Method:__ GET
-* __Path:__ /api/tp-rates?tpid=Wartortle
+* __Path:__ /api/tp-rates?tpid=Machoke
 * __Request headers:__
 ```
 accept: application/vnd.api+json
@@ -2193,7 +2193,7 @@ content-type: application/vnd.api+json
 ```
 content-type: application/vnd.api+json; charset=utf-8
 cache-control: max-age=0, private, must-revalidate
-x-request-id: lobq8tl48m1se47b9ji4boq51o5vu0d6
+x-request-id: tvssrg896h2jrm14fv1abemrdfl351md
 vary: Origin
 access-control-allow-origin: 
 access-control-expose-headers: 
@@ -2203,7 +2203,7 @@ access-control-allow-credentials: true
 ```json
 {
   "links": {
-    "self": "/api/tp-rates?page[page]=1&page[page-size]=10&tpid=Wartortle"
+    "self": "/api/tp-rates?page[page]=1&page[page-size]=10&tpid=Machoke"
   },
   "jsonapi": {
     "version": "1.0"
@@ -2211,15 +2211,15 @@ access-control-allow-credentials: true
   "data": [
     {
       "type": "tp-rate",
-      "id": "17",
+      "id": "12",
       "attributes": {
-        "tpid": "Wartortle",
-        "tag": "Nugget Nectar",
+        "tpid": "Machoke",
+        "tag": "St. Bernardus Abt 12",
         "rate-unit": "60s",
         "rate-increment": "60s",
         "rate": 0.01,
         "group-interval-start": "60s",
-        "created-at": "2017-09-25T20:08:24.000000",
+        "created-at": "2017-09-26T13:29:58.000000",
         "connect-fee": 0.01
       }
     }
@@ -2230,7 +2230,7 @@ access-control-allow-credentials: true
 #### filtering by rate_unit
 ##### Request
 * __Method:__ GET
-* __Path:__ /api/tp-rates?tpid=Kangaskhan
+* __Path:__ /api/tp-rates?tpid=Nidorina
 * __Request headers:__
 ```
 accept: application/vnd.api+json
@@ -2242,7 +2242,7 @@ content-type: application/vnd.api+json
 ```
 content-type: application/vnd.api+json; charset=utf-8
 cache-control: max-age=0, private, must-revalidate
-x-request-id: 5p8h4lk25bj2f1g40g82c87dqt71sist
+x-request-id: kuca09ilgneudt2uedfaudlt8ejhmisn
 vary: Origin
 access-control-allow-origin: 
 access-control-expose-headers: 
@@ -2252,7 +2252,7 @@ access-control-allow-credentials: true
 ```json
 {
   "links": {
-    "self": "/api/tp-rates?page[page]=1&page[page-size]=10&tpid=Kangaskhan"
+    "self": "/api/tp-rates?page[page]=1&page[page-size]=10&tpid=Nidorina"
   },
   "jsonapi": {
     "version": "1.0"
@@ -2260,15 +2260,15 @@ access-control-allow-credentials: true
   "data": [
     {
       "type": "tp-rate",
-      "id": "11",
+      "id": "8",
       "attributes": {
-        "tpid": "Kangaskhan",
-        "tag": "Trappistes Rochefort 10",
+        "tpid": "Nidorina",
+        "tag": "Schneider Aventinus",
         "rate-unit": "60s",
         "rate-increment": "60s",
         "rate": 0.01,
         "group-interval-start": "60s",
-        "created-at": "2017-09-25T20:08:24.000000",
+        "created-at": "2017-09-26T13:29:58.000000",
         "connect-fee": 0.01
       }
     }
@@ -2279,7 +2279,7 @@ access-control-allow-credentials: true
 #### filtering by tag
 ##### Request
 * __Method:__ GET
-* __Path:__ /api/tp-rates?tpid=Omastar
+* __Path:__ /api/tp-rates?tpid=Meowth
 * __Request headers:__
 ```
 accept: application/vnd.api+json
@@ -2291,7 +2291,7 @@ content-type: application/vnd.api+json
 ```
 content-type: application/vnd.api+json; charset=utf-8
 cache-control: max-age=0, private, must-revalidate
-x-request-id: 51g9h3ofk3u3nt234gokgd7j08rnlc6h
+x-request-id: 0hubjq1k9lm0eii5h5q1ta3o3c2s8noc
 vary: Origin
 access-control-allow-origin: 
 access-control-expose-headers: 
@@ -2301,7 +2301,7 @@ access-control-allow-credentials: true
 ```json
 {
   "links": {
-    "self": "/api/tp-rates?page[page]=1&page[page-size]=10&tpid=Omastar"
+    "self": "/api/tp-rates?page[page]=1&page[page-size]=10&tpid=Meowth"
   },
   "jsonapi": {
     "version": "1.0"
@@ -2309,15 +2309,15 @@ access-control-allow-credentials: true
   "data": [
     {
       "type": "tp-rate",
-      "id": "15",
+      "id": "1",
       "attributes": {
-        "tpid": "Omastar",
-        "tag": "Nugget Nectar",
+        "tpid": "Meowth",
+        "tag": "Old Rasputin Russian Imperial Stout",
         "rate-unit": "60s",
         "rate-increment": "60s",
         "rate": 0.01,
         "group-interval-start": "60s",
-        "created-at": "2017-09-25T20:08:24.000000",
+        "created-at": "2017-09-26T13:29:58.000000",
         "connect-fee": 0.01
       }
     }
@@ -2328,7 +2328,7 @@ access-control-allow-credentials: true
 #### filtering by connect_fee
 ##### Request
 * __Method:__ GET
-* __Path:__ /api/tp-rates?tpid=Eevee
+* __Path:__ /api/tp-rates?tpid=Butterfree
 * __Request headers:__
 ```
 accept: application/vnd.api+json
@@ -2340,7 +2340,7 @@ content-type: application/vnd.api+json
 ```
 content-type: application/vnd.api+json; charset=utf-8
 cache-control: max-age=0, private, must-revalidate
-x-request-id: r06lubvs0ealr7u1er5a5ip854dl6cq3
+x-request-id: ng4j0c187j2dir3csci164u5dcin8mub
 vary: Origin
 access-control-allow-origin: 
 access-control-expose-headers: 
@@ -2350,7 +2350,7 @@ access-control-allow-credentials: true
 ```json
 {
   "links": {
-    "self": "/api/tp-rates?page[page]=1&page[page-size]=10&tpid=Eevee"
+    "self": "/api/tp-rates?page[page]=1&page[page-size]=10&tpid=Butterfree"
   },
   "jsonapi": {
     "version": "1.0"
@@ -2358,15 +2358,15 @@ access-control-allow-credentials: true
   "data": [
     {
       "type": "tp-rate",
-      "id": "8",
+      "id": "10",
       "attributes": {
-        "tpid": "Eevee",
-        "tag": "La Fin Du Monde",
+        "tpid": "Butterfree",
+        "tag": "Samuel Smith’s Oatmeal Stout",
         "rate-unit": "60s",
         "rate-increment": "60s",
         "rate": 0.01,
         "group-interval-start": "60s",
-        "created-at": "2017-09-25T20:08:24.000000",
+        "created-at": "2017-09-26T13:29:58.000000",
         "connect-fee": 0.01
       }
     }
@@ -2377,7 +2377,7 @@ access-control-allow-credentials: true
 #### filtering by rate
 ##### Request
 * __Method:__ GET
-* __Path:__ /api/tp-rates?tpid=Pikachu
+* __Path:__ /api/tp-rates?tpid=Machop
 * __Request headers:__
 ```
 accept: application/vnd.api+json
@@ -2389,7 +2389,7 @@ content-type: application/vnd.api+json
 ```
 content-type: application/vnd.api+json; charset=utf-8
 cache-control: max-age=0, private, must-revalidate
-x-request-id: 8u76kv4arhhvr4tbkblhf5s3rlu5r9mj
+x-request-id: 6dvgkq7bclr8ohm74kqmde3m4hhn83rs
 vary: Origin
 access-control-allow-origin: 
 access-control-expose-headers: 
@@ -2399,7 +2399,7 @@ access-control-allow-credentials: true
 ```json
 {
   "links": {
-    "self": "/api/tp-rates?page[page]=1&page[page-size]=10&tpid=Pikachu"
+    "self": "/api/tp-rates?page[page]=1&page[page-size]=10&tpid=Machop"
   },
   "jsonapi": {
     "version": "1.0"
@@ -2407,15 +2407,15 @@ access-control-allow-credentials: true
   "data": [
     {
       "type": "tp-rate",
-      "id": "6",
+      "id": "14",
       "attributes": {
-        "tpid": "Pikachu",
-        "tag": "Dreadnaught IPA",
+        "tpid": "Machop",
+        "tag": "Yeti Imperial Stout",
         "rate-unit": "60s",
         "rate-increment": "60s",
         "rate": 0.01,
         "group-interval-start": "60s",
-        "created-at": "2017-09-25T20:08:24.000000",
+        "created-at": "2017-09-26T13:29:58.000000",
         "connect-fee": 0.01
       }
     }
@@ -2426,7 +2426,7 @@ access-control-allow-credentials: true
 #### lists all entries related tariff plan on index
 ##### Request
 * __Method:__ GET
-* __Path:__ /api/tp-rates?tpid=Moltres
+* __Path:__ /api/tp-rates?tpid=Meowth
 * __Request headers:__
 ```
 accept: application/vnd.api+json
@@ -2438,7 +2438,7 @@ content-type: application/vnd.api+json
 ```
 content-type: application/vnd.api+json; charset=utf-8
 cache-control: max-age=0, private, must-revalidate
-x-request-id: cua7u2r3m8g3fhf86fdcqe4lg94953rr
+x-request-id: qf8tavglof5rljlcobkdl6k1j5fvm2pk
 vary: Origin
 access-control-allow-origin: 
 access-control-expose-headers: 
@@ -2448,7 +2448,7 @@ access-control-allow-credentials: true
 ```json
 {
   "links": {
-    "self": "/api/tp-rates?page[page]=1&page[page-size]=10&tpid=Moltres"
+    "self": "/api/tp-rates?page[page]=1&page[page-size]=10&tpid=Meowth"
   },
   "jsonapi": {
     "version": "1.0"
@@ -2458,13 +2458,13 @@ access-control-allow-credentials: true
       "type": "tp-rate",
       "id": "4",
       "attributes": {
-        "tpid": "Moltres",
-        "tag": "La Fin Du Monde",
+        "tpid": "Meowth",
+        "tag": "90 Minute IPA",
         "rate-unit": "60s",
         "rate-increment": "60s",
         "rate": 0.01,
         "group-interval-start": "60s",
-        "created-at": "2017-09-25T20:08:24.000000",
+        "created-at": "2017-09-26T13:29:58.000000",
         "connect-fee": 0.01
       }
     }
@@ -2476,7 +2476,7 @@ access-control-allow-credentials: true
 #### shows chosen resource
 ##### Request
 * __Method:__ GET
-* __Path:__ /api/tp-rates/13
+* __Path:__ /api/tp-rates/16
 * __Request headers:__
 ```
 accept: application/vnd.api+json
@@ -2488,7 +2488,7 @@ content-type: application/vnd.api+json
 ```
 content-type: application/vnd.api+json; charset=utf-8
 cache-control: max-age=0, private, must-revalidate
-x-request-id: 0aq7t259uerjoffq0ao228snue299t0d
+x-request-id: h61jspbi4qvkrmcitc19o5rjctlqo1bc
 vary: Origin
 access-control-allow-origin: 
 access-control-expose-headers: 
@@ -2502,15 +2502,15 @@ access-control-allow-credentials: true
   },
   "data": {
     "type": "tp-rate",
-    "id": "13",
+    "id": "16",
     "attributes": {
-      "tpid": "Weedle",
-      "tag": "Pliny The Elder",
+      "tpid": "Dragonair",
+      "tag": "Orval Trappist Ale",
       "rate-unit": "60s",
       "rate-increment": "60s",
       "rate": 0.01,
       "group-interval-start": "60s",
-      "created-at": "2017-09-25T20:08:24.000000",
+      "created-at": "2017-09-26T13:29:58.000000",
       "connect-fee": 0.01
     }
   }
@@ -2521,7 +2521,7 @@ access-control-allow-credentials: true
 #### does not update chosen resource and renders errors when data is invalid
 ##### Request
 * __Method:__ PUT
-* __Path:__ /api/tp-rates/3
+* __Path:__ /api/tp-rates/6
 * __Request headers:__
 ```
 accept: application/vnd.api+json
@@ -2533,7 +2533,7 @@ content-type: application/vnd.api+json
 ```
 content-type: application/vnd.api+json; charset=utf-8
 cache-control: max-age=0, private, must-revalidate
-x-request-id: obj8erp4uj5lhm1r500kqbbscm7vsrm5
+x-request-id: 2rt7mgakp7i63crl1m7r9nei1c7fu2td
 vary: Origin
 access-control-allow-origin: 
 access-control-expose-headers: 
@@ -2574,7 +2574,7 @@ access-control-allow-credentials: true
 #### updates and renders chosen resource when data is valid
 ##### Request
 * __Method:__ PUT
-* __Path:__ /api/tp-rates/14
+* __Path:__ /api/tp-rates/3
 * __Request headers:__
 ```
 accept: application/vnd.api+json
@@ -2586,7 +2586,7 @@ content-type: application/vnd.api+json
 ```
 content-type: application/vnd.api+json; charset=utf-8
 cache-control: max-age=0, private, must-revalidate
-x-request-id: qidbckpgl22qnl2f6nv840s81c6t9us5
+x-request-id: fnsmfrit963gfn71rq73q33lvn3l71sl
 vary: Origin
 access-control-allow-origin: 
 access-control-expose-headers: 
@@ -2600,15 +2600,15 @@ access-control-allow-credentials: true
   },
   "data": {
     "type": "tp-rate",
-    "id": "14",
+    "id": "3",
     "attributes": {
-      "tpid": "Ekans",
-      "tag": "Stone Imperial Russian Stout",
+      "tpid": "Blastoise",
+      "tag": "Double Bastard Ale",
       "rate-unit": "60s",
       "rate-increment": "60s",
       "rate": 0.01,
       "group-interval-start": "60s",
-      "created-at": "2017-09-25T20:08:24.000000",
+      "created-at": "2017-09-26T13:29:58.000000",
       "connect-fee": 0.01
     }
   }
@@ -2632,7 +2632,7 @@ content-type: application/vnd.api+json
 ```
 content-type: application/vnd.api+json; charset=utf-8
 cache-control: max-age=0, private, must-revalidate
-x-request-id: aek2oadjjdnkmu42s262avatpe0ng3mu
+x-request-id: 6tfosg3iqd165fg2t6ibjlt39tep7eup
 vary: Origin
 access-control-allow-origin: 
 access-control-expose-headers: 
@@ -2671,7 +2671,7 @@ content-type: application/vnd.api+json
 ```
 content-type: application/vnd.api+json; charset=utf-8
 cache-control: max-age=0, private, must-revalidate
-x-request-id: kq5m7qlkkghn1cjcsieufr7ccm1i835d
+x-request-id: iar4idmu8mt2d8rl256e33sd5pdamod8
 vary: Origin
 access-control-allow-origin: 
 access-control-expose-headers: 
@@ -2685,10 +2685,10 @@ access-control-allow-credentials: true
   },
   "data": {
     "type": "user",
-    "id": "50",
+    "id": "53",
     "attributes": {
-      "updated-at": "2017-09-25T13:08:25.145879",
-      "inserted-at": "2017-09-25T13:08:25.145867",
+      "updated-at": "2017-09-26T06:29:58.796265",
+      "inserted-at": "2017-09-26T06:29:58.796254",
       "email": "email@example.com"
     }
   }
@@ -2710,7 +2710,7 @@ content-type: application/vnd.api+json
 * __Response headers:__
 ```
 cache-control: max-age=0, private, must-revalidate
-x-request-id: p5v8bmdh38847ap7q3ib6msbcv2nf6c0
+x-request-id: sc975m7e1kuvpnsi6hs90o5c7uhhu8he
 vary: Origin
 access-control-allow-origin: 
 access-control-expose-headers: 
@@ -2738,7 +2738,7 @@ content-type: application/vnd.api+json
 ```
 content-type: application/vnd.api+json; charset=utf-8
 cache-control: max-age=0, private, must-revalidate
-x-request-id: 4qqbth268824840a8h65bhhn0cghfe58
+x-request-id: r3kurrp5jc40c5p5sh5kt2v0n8t2te2l
 vary: Origin
 access-control-allow-origin: 
 access-control-expose-headers: 
@@ -2753,11 +2753,11 @@ access-control-allow-credentials: true
   "data": [
     {
       "type": "user",
-      "id": "46",
+      "id": "45",
       "attributes": {
-        "updated-at": "2017-09-25T13:08:25.000000",
-        "inserted-at": "2017-09-25T13:08:25.000000",
-        "email": "audreanne_schowalter@grimes.info"
+        "updated-at": "2017-09-26T06:29:58.000000",
+        "inserted-at": "2017-09-26T06:29:58.000000",
+        "email": "helena2009@bartell.org"
       }
     }
   ]
@@ -2768,7 +2768,7 @@ access-control-allow-credentials: true
 #### shows chosen resource
 ##### Request
 * __Method:__ GET
-* __Path:__ /api/users/53
+* __Path:__ /api/users/55
 * __Request headers:__
 ```
 accept: application/vnd.api+json
@@ -2780,7 +2780,7 @@ content-type: application/vnd.api+json
 ```
 content-type: application/vnd.api+json; charset=utf-8
 cache-control: max-age=0, private, must-revalidate
-x-request-id: 30ce9nf85mpk4iki4cmlcgfboqukplm5
+x-request-id: br1r4b58fe7t042u92neu2fa2u94d103
 vary: Origin
 access-control-allow-origin: 
 access-control-expose-headers: 
@@ -2794,11 +2794,11 @@ access-control-allow-credentials: true
   },
   "data": {
     "type": "user",
-    "id": "53",
+    "id": "55",
     "attributes": {
-      "updated-at": "2017-09-25T13:08:25.000000",
-      "inserted-at": "2017-09-25T13:08:25.000000",
-      "email": "aurelia1974@cronin.biz"
+      "updated-at": "2017-09-26T06:29:59.000000",
+      "inserted-at": "2017-09-26T06:29:59.000000",
+      "email": "jannie1918@ryan.net"
     }
   }
 }
@@ -2808,7 +2808,7 @@ access-control-allow-credentials: true
 #### does not update chosen resource and renders errors when data is invalid
 ##### Request
 * __Method:__ PUT
-* __Path:__ /api/users/48
+* __Path:__ /api/users/50
 * __Request headers:__
 ```
 accept: application/vnd.api+json
@@ -2820,7 +2820,7 @@ content-type: application/vnd.api+json
 ```
 content-type: application/vnd.api+json; charset=utf-8
 cache-control: max-age=0, private, must-revalidate
-x-request-id: cdftpekhstp8bvme48qg820mf0a6g7lq
+x-request-id: d2t0vamhr4m5bgfacifns0nl4lnb9b8r
 vary: Origin
 access-control-allow-origin: 
 access-control-expose-headers: 
@@ -2847,7 +2847,7 @@ access-control-allow-credentials: true
 #### updates and renders chosen resource when data is valid
 ##### Request
 * __Method:__ PUT
-* __Path:__ /api/users/55
+* __Path:__ /api/users/47
 * __Request headers:__
 ```
 accept: application/vnd.api+json
@@ -2859,7 +2859,7 @@ content-type: application/vnd.api+json
 ```
 content-type: application/vnd.api+json; charset=utf-8
 cache-control: max-age=0, private, must-revalidate
-x-request-id: sgfam2i74oam3s9bvamlmbepcj9gom6a
+x-request-id: u7pri7158mnrocgd5ngqqdfhbh4n9hag
 vary: Origin
 access-control-allow-origin: 
 access-control-expose-headers: 
@@ -2873,10 +2873,10 @@ access-control-allow-credentials: true
   },
   "data": {
     "type": "user",
-    "id": "55",
+    "id": "47",
     "attributes": {
-      "updated-at": "2017-09-25T13:08:25.153233",
-      "inserted-at": "2017-09-25T13:08:25.000000",
+      "updated-at": "2017-09-26T06:29:58.450917",
+      "inserted-at": "2017-09-26T06:29:58.000000",
       "email": "email@example.com"
     }
   }

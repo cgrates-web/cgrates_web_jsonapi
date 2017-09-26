@@ -5,7 +5,19 @@ defmodule CgratesWebJsonapi.TpSubresource do
       def handle_index(conn, _params), do: raise CgratesWebJsonapi.TpidIsNotPassedError
 
       def handle_index_query(%{query_params: qp}, query) do
-        query |> repo().paginate(page: qp["page"], page_size: qp["page_size"])
+        paginator = if (qp["page"] |> is_nil), do: %{"page" => 1}, else: qp["page"]
+        query |> repo().paginate(page: paginator["page"], page_size: paginator["page_size"])
+      end
+
+      def serialization_opts(_conn, _params, models) do
+        if models.__struct__ == "Scrivener.Page" do
+          %{
+            meta: %{
+              total_pages: models.total_pages,
+              total_records: models.total_entries
+            }
+          }
+        end
       end
     end
   end
