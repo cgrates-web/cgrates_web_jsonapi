@@ -5,7 +5,6 @@ defmodule CgratesWebJsonapi.TpRateController do
   use CgratesWebJsonapi.DefaultSorting
 
   alias CgratesWebJsonapi.TpRate
-  alias JaSerializer.Params
 
   plug JaResource
 

@@ -45,4 +45,16 @@ defmodule CgratesWebJsonapi.Factory do
       group_interval_start: "60s"
     }
   end
+
+  def tp_timing_factory do
+    %CgratesWebJsonapi.TpTiming{
+      tpid: Faker.Beer.name,
+      tag: Faker.Beer.name,
+      years: "2017",
+      months: "10",
+      month_days: "30",
+      week_days: "14",
+      time: "8"
+    }
+  end
 end

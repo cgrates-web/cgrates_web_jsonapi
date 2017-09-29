@@ -5,7 +5,6 @@ defmodule CgratesWebJsonapi.TpDestinationController do
   use CgratesWebJsonapi.DefaultSorting
 
   alias CgratesWebJsonapi.TpDestination
-  alias JaSerializer.Params
 
   plug JaResource
 
