@@ -46,6 +46,16 @@ defmodule CgratesWebJsonapi.Factory do
     }
   end
 
+  def tp_rating_plan_factory do
+    %CgratesWebJsonapi.TpRatingPlan{
+      tpid: Faker.Beer.name,
+      tag: Faker.Beer.name,
+      timing_tag: Faker.Beer.name,
+      destrates_tag: Faker.Beer.name,
+      weight: 12.1
+    }
+  end
+
   def tp_timing_factory do
     %CgratesWebJsonapi.TpTiming{
       tpid: Faker.Beer.name,
