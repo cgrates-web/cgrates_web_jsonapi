@@ -11,7 +11,7 @@ defmodule CgratesWebJsonapi.TpRateController do
 
   def handle_show(conn, id), do: Repo.get!(TpRate, id)
 
-  def filter(_conn, query, "tag", tag),                       do: query |> where([r], like(r.tag, ^tag))
+  def filter(_conn, query, "tag", tag),                       do: query |> where([r], like(r.tag, ^"%#{tag}%"))
   def filter(_conn, query, "rate", rate),                     do: query |> where(rate: ^rate)
   def filter(_conn, query, "connect_fee", connect_fee),       do: query |> where(connect_fee: ^connect_fee)
   def filter(_conn, query, "rate_unit", rate_unit),           do: query |> where(rate_unit: ^rate_unit)
