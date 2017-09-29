@@ -27,5 +27,6 @@ defmodule CgratesWebJsonapi.TpRate do
     |> validate_format(:group_interval_start, @time_format)
     |> validate_length(:tag, max: 64)
     |> validate_length(:tpid, max: 64)
+    |> unique_constraint(:tag, name: :unique_tprate)
   end
 end

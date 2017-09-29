@@ -28,5 +28,6 @@ defmodule CgratesWebJsonapi.TpDestinationRate do
     |> validate_length(:rates_tag, max: 64)
     |> validate_inclusion(:rounding_method, ["*up", "*down", "*middle"])
     |> validate_inclusion(:max_cost_strategy, ["*free", "*disconnect"])
+    |> unique_constraint(:tag, name: :tpid_drid_dstid)
   end
 end

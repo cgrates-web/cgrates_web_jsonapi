@@ -19,5 +19,6 @@ defmodule CgratesWebJsonapi.TpDestination do
     |> validate_length(:tag, max: 64)
     |> validate_length(:tpid, max: 64)
     |> validate_length(:prefix, max: 24)
+    |> unique_constraint(:tag, name: :tpid_dest_prefix)
   end
 end
