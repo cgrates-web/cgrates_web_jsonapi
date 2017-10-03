@@ -23,7 +23,7 @@ defmodule CgratesWebJsonapi.SessionController do
     else
       conn
       |> put_status(401)
-      |> render(HelpsealBackend.ErrorView, "404.json")
+      |> render(CgratesWebJsonapi.ErrorView, "404.json")
     end
 
   end
