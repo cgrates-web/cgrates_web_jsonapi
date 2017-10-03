@@ -8,7 +8,7 @@ defmodule CgratesWebJsonapi.AccountController do
   plug :scrub_params, "data" when action in [:create, :update]
 
   def index(conn, params) do
-    accounts = AccountsRepo.all(%{page: (params["page"] || 1), per_page: (params["pre_page"] || 10)})
+    accounts = AccountsRepo.all(%{page: (params["page"] || 1), per_page: (params["per_page"] || 10)})
     render(conn, "index.json-api", data: accounts)
   end
 
