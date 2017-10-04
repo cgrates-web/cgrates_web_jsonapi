@@ -56,6 +56,21 @@ defmodule CgratesWebJsonapi.Factory do
     }
   end
 
+  def tp_rating_profile_factory do
+    %CgratesWebJsonapi.TpRatingProfile{
+      tpid: Faker.Beer.name,
+      loadid: Faker.Beer.name,
+      direction: "up",
+      tenant: Faker.Beer.name,
+      category: Faker.Lorem.word,
+      subject: Faker.Beer.name,
+      activation_time: Faker.Lorem.word,
+      rating_plan_tag: Faker.Beer.name,
+      fallback_subjects: Faker.Beer.name,
+      cdr_stat_queue_ids: Faker.Beer.name,
+    }
+  end
+
   def tp_timing_factory do
     %CgratesWebJsonapi.TpTiming{
       tpid: Faker.Beer.name,

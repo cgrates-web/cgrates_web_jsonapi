@@ -28,6 +28,7 @@ defmodule CgratesWebJsonapi.Router do
     resources "/tp-destination-rates", TpDestinationRateController, except: [:new, :edit]
     resources "/tp-rates",             TpRateController,            except: [:new, :edit]
     resources "/tp-rating-plans",      TpRatingPlanController,      except: [:new, :edit]
+    resources "/tp-rating-profiles",   TpRatingProfileController,   except: [:new, :edit]
     resources "/tp-timings",           TpTimingController,          except: [:new, :edit]
     resources "/users",                UserController,              except: [:new, :edit]
   end
