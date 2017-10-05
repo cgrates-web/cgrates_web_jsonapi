@@ -16,6 +16,29 @@ defmodule CgratesWebJsonapi.Factory do
     }
   end
 
+  def tp_action_factory do
+    %CgratesWebJsonapi.TpAction{
+      tag: Faker.Beer.name,
+      action: Faker.Pokemon.name,
+      balance_tag: Faker.Pokemon.name,
+      balance_type: "*monetary",
+      directions: "*up",
+      units: Faker.Beer.name,
+      expiry_time: "10s",
+      timing_tags: "TIMING_1, TIMING_2",
+      destination_tags: "DST_1, DST_2",
+      rating_subject: Faker.Pokemon.name,
+      categories: "cat1, cat2",
+      shared_groups: "xz",
+      balance_weight: "100",
+      balance_blocker: "false",
+      balance_disabled: "false",
+      extra_parameters: Faker.Beer.name,
+      filter:  Faker.Beer.name,
+      weight: 10.0
+    }
+  end
+
   def tp_destination_factory do
     %CgratesWebJsonapi.TpDestination{
       prefix: "+44",
