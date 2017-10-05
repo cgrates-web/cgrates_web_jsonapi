@@ -68,7 +68,7 @@ defmodule CgratesWebJsonapi.AccountControllerTest do
         }
       end
     ] do
-      conn = get(conn, account_path(conn, :index), %{page: 2, per_page: 10}) |> doc
+      conn = get(conn, account_path(conn, :index), %{page: "2", per_page: "10"}) |> doc
       assert length(json_response(conn, 200)["data"]) == 2
     end
 

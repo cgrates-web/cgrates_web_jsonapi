@@ -90,7 +90,7 @@ content-type: application/vnd.api+json
 ```
 content-type: application/vnd.api+json; charset=utf-8
 cache-control: max-age=0, private, must-revalidate
-x-request-id: tiqo8u18na50jimveu7cm4vimtudjg7p
+x-request-id: drt848tj1blvpbkrcslitjlscfo1so45
 vary: Origin
 access-control-allow-origin: 
 access-control-expose-headers: 
@@ -129,7 +129,7 @@ content-type: application/vnd.api+json
 ```
 content-type: application/vnd.api+json; charset=utf-8
 cache-control: max-age=0, private, must-revalidate
-x-request-id: 5egsakclrj8u0svc1m8sh54a6jo3eciq
+x-request-id: 6setoi73ne3ap14gskqt7btrqf4q26lp
 vary: Origin
 access-control-allow-origin: 
 access-control-expose-headers: 
@@ -172,7 +172,7 @@ content-type: application/vnd.api+json
 ```
 content-type: application/vnd.api+json; charset=utf-8
 cache-control: max-age=0, private, must-revalidate
-x-request-id: ke4mi7biq00pp1t0d2rhj6dbelco1h8m
+x-request-id: m5n8vj1ji36k3915bf9i6rje42uvf44j
 vary: Origin
 access-control-allow-origin: 
 access-control-expose-headers: 
@@ -196,7 +196,7 @@ access-control-allow-credentials: true
             {
               "weight": 10,
               "value": 10,
-              "uuid": "39900d40-a988-11e7-8528-50e54935fc40",
+              "uuid": "e9b0ccee-a98f-11e7-a1ac-50e54935fc40",
               "timings": null,
               "timing_i_ds": {},
               "shared_groups": {},
@@ -229,7 +229,7 @@ access-control-allow-credentials: true
             {
               "weight": 10,
               "value": 10,
-              "uuid": "399018c6-a988-11e7-9ce6-50e54935fc40",
+              "uuid": "e9b0d7e8-a98f-11e7-afda-50e54935fc40",
               "timings": null,
               "timing_i_ds": {},
               "shared_groups": {},
@@ -270,7 +270,7 @@ content-type: application/vnd.api+json
 ```
 content-type: application/vnd.api+json; charset=utf-8
 cache-control: max-age=0, private, must-revalidate
-x-request-id: kqldb3coqd0ahc7rlu5o3abngjk99ls7
+x-request-id: s4r26i8mh0009l0binem265n8ckpcnjq
 vary: Origin
 access-control-allow-origin: 
 access-control-expose-headers: 
@@ -294,7 +294,7 @@ access-control-allow-credentials: true
             {
               "weight": 10,
               "value": 10,
-              "uuid": "39824d90-a988-11e7-89be-50e54935fc40",
+              "uuid": "e9b858b0-a98f-11e7-acb4-50e54935fc40",
               "timings": null,
               "timing_i_ds": {},
               "shared_groups": {},
@@ -327,7 +327,7 @@ access-control-allow-credentials: true
             {
               "weight": 10,
               "value": 10,
-              "uuid": "39825826-a988-11e7-b2ac-50e54935fc40",
+              "uuid": "e9b8653a-a98f-11e7-98b5-50e54935fc40",
               "timings": null,
               "timing_i_ds": {},
               "shared_groups": {},
@@ -369,7 +369,7 @@ content-type: application/vnd.api+json
 ```
 content-type: application/vnd.api+json; charset=utf-8
 cache-control: max-age=0, private, must-revalidate
-x-request-id: j84fonhcj8mr6tovmeklk47k7cgguorb
+x-request-id: ivk8iiu2u2gdv2hdbhqj6064dodq76a3
 vary: Origin
 access-control-allow-origin: 
 access-control-expose-headers: 
@@ -392,7 +392,7 @@ access-control-allow-credentials: true
           {
             "weight": 10,
             "value": 10,
-            "uuid": "3985167e-a988-11e7-a643-50e54935fc40",
+            "uuid": "e99d2f22-a98f-11e7-b016-50e54935fc40",
             "timings": null,
             "timing_i_ds": {},
             "shared_groups": {},
@@ -434,7 +434,7 @@ content-type: application/vnd.api+json
 ```
 content-type: application/vnd.api+json; charset=utf-8
 cache-control: max-age=0, private, must-revalidate
-x-request-id: bikvka6eep29amk7ujtdruohav6vc9uj
+x-request-id: 33hb1e9ruuvf37bg957s5ma8uauo88g5
 vary: Origin
 access-control-allow-origin: 
 access-control-expose-headers: 
@@ -480,7 +480,7 @@ content-type: application/vnd.api+json
 ```
 content-type: application/vnd.api+json; charset=utf-8
 cache-control: max-age=0, private, must-revalidate
-x-request-id: v9f5rk5gnjeted4pq8mptaa8260c6ok8
+x-request-id: pfjf7la181hknn7r6qi29pji172nh4na
 vary: Origin
 access-control-allow-origin: 
 access-control-expose-headers: 
@@ -534,7 +534,7 @@ content-type: application/vnd.api+json
 ```
 content-type: application/vnd.api+json; charset=utf-8
 cache-control: max-age=0, private, must-revalidate
-x-request-id: 07v48u1kuvtg2otremb631k3rgglkjt8
+x-request-id: 76u599um5iibsjem8jbq8pq8kviutku1
 vary: Origin
 access-control-allow-origin: 
 access-control-expose-headers: 
@@ -573,7 +573,7 @@ content-type: application/vnd.api+json
 ```
 content-type: application/vnd.api+json; charset=utf-8
 cache-control: max-age=0, private, must-revalidate
-x-request-id: qfha96ef1855k9mpvlgdb96q7sf7mmbb
+x-request-id: j5d4omb6vlvfq26isjnfimf1ksoensts
 vary: Origin
 access-control-allow-origin: 
 access-control-expose-headers: 
@@ -614,7 +614,7 @@ content-type: application/vnd.api+json
 ```
 content-type: application/vnd.api+json; charset=utf-8
 cache-control: max-age=0, private, must-revalidate
-x-request-id: endcr0epq48pggomttcd0v45k7ini109
+x-request-id: 5beerq77jkm14jnsqri16mobtmo81lb4
 vary: Origin
 access-control-allow-origin: 
 access-control-expose-headers: 
@@ -656,7 +656,7 @@ content-type: application/vnd.api+json
 ```
 content-type: application/vnd.api+json; charset=utf-8
 cache-control: max-age=0, private, must-revalidate
-x-request-id: u3t8r7qloornntggq0rklnbo7q4l63q9
+x-request-id: 8vvttddv7194ti59pjb4s6vkcee9upk3
 vary: Origin
 access-control-allow-origin: 
 access-control-expose-headers: 
@@ -697,7 +697,7 @@ content-type: application/vnd.api+json
 ```
 content-type: application/json; charset=utf-8
 cache-control: max-age=0, private, must-revalidate
-x-request-id: ftoh3hcum2knmndj5pudltbcdrl6har8
+x-request-id: uunnj77rjua4m19b6nj6cldphvaq87gd
 vary: Origin
 access-control-allow-origin: 
 access-control-expose-headers: 
@@ -729,7 +729,7 @@ content-type: application/vnd.api+json
 ```
 content-type: application/vnd.api+json; charset=utf-8
 cache-control: max-age=0, private, must-revalidate
-x-request-id: 2v7t418he9vpe011fj87tu1b25hv0ilu
+x-request-id: egu4j5adu0pku0f49ro7jid44ijgeb4o
 vary: Origin
 access-control-allow-origin: 
 access-control-expose-headers: 
@@ -775,7 +775,7 @@ content-type: application/vnd.api+json
 * __Response headers:__
 ```
 cache-control: max-age=0, private, must-revalidate
-x-request-id: o24fpep5k3h8f7jcipcgtiimmus3gc04
+x-request-id: dqrl4q7gpl6ltoi24aehj2ki6nv5vno7
 vary: Origin
 access-control-allow-origin: 
 access-control-expose-headers: 
@@ -803,7 +803,7 @@ content-type: application/vnd.api+json
 ```
 content-type: application/vnd.api+json; charset=utf-8
 cache-control: max-age=0, private, must-revalidate
-x-request-id: td04ir4l9tg32mpe08d9631tdqadhk94
+x-request-id: mersgug6eat6ou54t364vd4lao1gn6o0
 vary: Origin
 access-control-allow-origin: 
 access-control-expose-headers: 
@@ -823,7 +823,7 @@ access-control-allow-credentials: true
 #### shows chosen resource
 ##### Request
 * __Method:__ GET
-* __Path:__ /api/tariff-plans/109
+* __Path:__ /api/tariff-plans/111
 * __Request headers:__
 ```
 accept: application/vnd.api+json
@@ -835,7 +835,7 @@ content-type: application/vnd.api+json
 ```
 content-type: application/vnd.api+json; charset=utf-8
 cache-control: max-age=0, private, must-revalidate
-x-request-id: v4rdv0ki6fkhugpnob3shpp0pprfvgej
+x-request-id: qt9d0m51o6eoi1e0furi54qhurh6decq
 vary: Origin
 access-control-allow-origin: 
 access-control-expose-headers: 
@@ -849,13 +849,13 @@ access-control-allow-credentials: true
   },
   "data": {
     "type": "tariff-plan",
-    "id": "109",
+    "id": "111",
     "attributes": {
-      "updated-at": "2017-10-05T04:47:00.000000",
-      "name": "Schneider Aventinus",
-      "inserted-at": "2017-10-05T04:47:00.000000",
-      "description": "Sed quia qui dolor et exercitationem quos.",
-      "alias": "Abra"
+      "updated-at": "2017-10-05T05:42:02.000000",
+      "name": "Péché Mortel",
+      "inserted-at": "2017-10-05T05:42:02.000000",
+      "description": "Eos commodi aut voluptatem et voluptatum repellat aut omnis!",
+      "alias": "Koffing"
     }
   }
 }
@@ -865,7 +865,7 @@ access-control-allow-credentials: true
 #### does not update chosen resource and renders errors when data is invalid
 ##### Request
 * __Method:__ PUT
-* __Path:__ /api/tariff-plans/111
+* __Path:__ /api/tariff-plans/108
 * __Request headers:__
 ```
 accept: application/vnd.api+json
@@ -877,7 +877,7 @@ content-type: application/vnd.api+json
 ```
 content-type: application/vnd.api+json; charset=utf-8
 cache-control: max-age=0, private, must-revalidate
-x-request-id: hr96n6e6u1q6vv4mjbjkmhuojmhk0g62
+x-request-id: amqkrfuk5730cdo4d7njtommmtvncras
 vary: Origin
 access-control-allow-origin: 
 access-control-expose-headers: 
@@ -904,7 +904,7 @@ access-control-allow-credentials: true
 #### updates and renders chosen resource when data is valid
 ##### Request
 * __Method:__ PUT
-* __Path:__ /api/tariff-plans/108
+* __Path:__ /api/tariff-plans/109
 * __Request headers:__
 ```
 accept: application/vnd.api+json
@@ -916,7 +916,7 @@ content-type: application/vnd.api+json
 ```
 content-type: application/vnd.api+json; charset=utf-8
 cache-control: max-age=0, private, must-revalidate
-x-request-id: sir2tua704b4rjfotmcatr2ecepalc97
+x-request-id: ul8ae6hts5u2k82vi1vrri9qa2slkcld
 vary: Origin
 access-control-allow-origin: 
 access-control-expose-headers: 
@@ -930,13 +930,13 @@ access-control-allow-credentials: true
   },
   "data": {
     "type": "tariff-plan",
-    "id": "108",
+    "id": "109",
     "attributes": {
-      "updated-at": "2017-10-05T04:47:00.247859",
-      "name": "Sierra Nevada Bigfoot Barleywine Style Ale",
-      "inserted-at": "2017-10-05T04:47:00.000000",
-      "description": "Rerum veritatis facilis eos ut et repellat autem suscipit.",
-      "alias": "Jolteon"
+      "updated-at": "2017-10-05T05:42:02.216267",
+      "name": "Hennepin",
+      "inserted-at": "2017-10-05T05:42:02.000000",
+      "description": "Aut molestiae consectetur dolor voluptatem dolor sit natus fugit provident.",
+      "alias": "Golduck"
     }
   }
 }
@@ -959,7 +959,7 @@ content-type: application/vnd.api+json
 ```
 content-type: application/vnd.api+json; charset=utf-8
 cache-control: max-age=0, private, must-revalidate
-x-request-id: 0psk15050sda2uoec3a5ot9o7lc8sn22
+x-request-id: 9giqad13qberebcjb0cnf85i853v76ri
 vary: Origin
 access-control-allow-origin: 
 access-control-expose-headers: 
@@ -1124,7 +1124,7 @@ content-type: application/vnd.api+json
 ```
 content-type: application/vnd.api+json; charset=utf-8
 cache-control: max-age=0, private, must-revalidate
-x-request-id: rr1o3kiu3tnjfidh2pea8sqo154bnc3d
+x-request-id: l1rqln2sf5lt8713kt7s8mmqilm6sdk7
 vary: Origin
 access-control-allow-origin: 
 access-control-expose-headers: 
@@ -1138,17 +1138,17 @@ access-control-allow-credentials: true
   },
   "data": {
     "type": "tp-action",
-    "id": "9",
+    "id": "35",
     "attributes": {
       "weight": 10.0,
-      "units": "90 Minute IPA",
-      "tpid": "Pikachu",
+      "units": "Schneider Aventinus",
+      "tpid": "Geodude",
       "timing-tags": "TIMING_1, TIMING_2",
-      "tag": "Trappistes Rochefort 10",
+      "tag": "Storm King Stout",
       "shared-groups": "xz",
-      "rating-subject": "Fearow",
-      "filter": "Double Bastard Ale",
-      "extra-parameters": "Two Hearted Ale",
+      "rating-subject": "Kangaskhan",
+      "filter": "Duvel",
+      "extra-parameters": "Trappistes Rochefort 10",
       "expiry-time": "10s",
       "directions": "*up",
       "destination-tags": "DST_1, DST_2",
@@ -1156,10 +1156,10 @@ access-control-allow-credentials: true
       "categories": "cat1, cat2",
       "balance-weight": "100",
       "balance-type": "*monetary",
-      "balance-tag": "Lapras",
+      "balance-tag": "Exeggcute",
       "balance-disabled": "false",
       "balance-blocker": "false",
-      "action": "Ponyta"
+      "action": "Staryu"
     }
   }
 }
@@ -1169,7 +1169,7 @@ access-control-allow-credentials: true
 #### DELETE destroy deletes chosen resource
 ##### Request
 * __Method:__ DELETE
-* __Path:__ /api/tp-actions/35
+* __Path:__ /api/tp-actions/37
 * __Request headers:__
 ```
 accept: application/vnd.api+json
@@ -1180,7 +1180,7 @@ content-type: application/vnd.api+json
 * __Response headers:__
 ```
 cache-control: max-age=0, private, must-revalidate
-x-request-id: vg6sturukn3e56dreo37ig7967ust33h
+x-request-id: v9ig41s2gla0u5e76rn0igl9oanqj0so
 vary: Origin
 access-control-allow-origin: 
 access-control-expose-headers: 
@@ -1196,7 +1196,7 @@ content-type: application/vnd.api+json
 #### GET index filtering by weight
 ##### Request
 * __Method:__ GET
-* __Path:__ /api/tp-actions?tpid=Machamp
+* __Path:__ /api/tp-actions?tpid=Machop
 * __Request headers:__
 ```
 accept: application/vnd.api+json
@@ -1208,7 +1208,7 @@ content-type: application/vnd.api+json
 ```
 content-type: application/vnd.api+json; charset=utf-8
 cache-control: max-age=0, private, must-revalidate
-x-request-id: mfbd2dru65ttjp38ufuht4n75i102h6p
+x-request-id: l64v27uqtcv6gu5ak6jl4c3vdrcfi9vg
 vary: Origin
 access-control-allow-origin: 
 access-control-expose-headers: 
@@ -1222,7 +1222,7 @@ access-control-allow-credentials: true
     "total_pages": 1
   },
   "links": {
-    "self": "/api/tp-actions?page[page]=1&page[page-size]=10&tpid=Machamp"
+    "self": "/api/tp-actions?page[page]=1&page[page-size]=10&tpid=Machop"
   },
   "jsonapi": {
     "version": "1.0"
@@ -1230,28 +1230,28 @@ access-control-allow-credentials: true
   "data": [
     {
       "type": "tp-action",
-      "id": "19",
+      "id": "32",
       "attributes": {
         "weight": 1.0,
-        "units": "Shakespeare Oatmeal",
-        "tpid": "Machamp",
+        "units": "Sublimely Self-Righteous Ale",
+        "tpid": "Machop",
         "timing-tags": "TIMING_1, TIMING_2",
-        "tag": "Samuel Smith’s Imperial IPA",
+        "tag": "Pliny The Elder",
         "shared-groups": "xz",
-        "rating-subject": "Bellsprout",
-        "filter": "Stone Imperial Russian Stout",
-        "extra-parameters": "Maharaj",
+        "rating-subject": "Aerodactyl",
+        "filter": "Samuel Smith’s Oatmeal Stout",
+        "extra-parameters": "Schneider Aventinus",
         "expiry-time": "10s",
         "directions": "*up",
         "destination-tags": "DST_1, DST_2",
-        "created-at": "2017-10-05T11:47:00.000000",
+        "created-at": "2017-10-05T12:42:02.000000",
         "categories": "cat1, cat2",
         "balance-weight": "100",
         "balance-type": "*monetary",
-        "balance-tag": "Porygon",
+        "balance-tag": "Articuno",
         "balance-disabled": "false",
         "balance-blocker": "false",
-        "action": "Muk"
+        "action": "Dewgong"
       }
     }
   ]
@@ -1261,7 +1261,7 @@ access-control-allow-credentials: true
 #### GET index filtering by balance_disabled
 ##### Request
 * __Method:__ GET
-* __Path:__ /api/tp-actions?tpid=Seaking
+* __Path:__ /api/tp-actions?tpid=Bellsprout
 * __Request headers:__
 ```
 accept: application/vnd.api+json
@@ -1273,7 +1273,7 @@ content-type: application/vnd.api+json
 ```
 content-type: application/vnd.api+json; charset=utf-8
 cache-control: max-age=0, private, must-revalidate
-x-request-id: 463b0jgqjcvanmgf7ul7ah9ci781mlaf
+x-request-id: he0vt047ocl57s9p0dhdkvuig0fgcuic
 vary: Origin
 access-control-allow-origin: 
 access-control-expose-headers: 
@@ -1287,7 +1287,7 @@ access-control-allow-credentials: true
     "total_pages": 1
   },
   "links": {
-    "self": "/api/tp-actions?page[page]=1&page[page-size]=10&tpid=Seaking"
+    "self": "/api/tp-actions?page[page]=1&page[page-size]=10&tpid=Bellsprout"
   },
   "jsonapi": {
     "version": "1.0"
@@ -1295,611 +1295,26 @@ access-control-allow-credentials: true
   "data": [
     {
       "type": "tp-action",
-      "id": "1",
-      "attributes": {
-        "weight": 10.0,
-        "units": "Oak Aged Yeti Imperial Stout",
-        "tpid": "Seaking",
-        "timing-tags": "TIMING_1, TIMING_2",
-        "tag": "St. Bernardus Abt 12",
-        "shared-groups": "xz",
-        "rating-subject": "Venomoth",
-        "filter": "La Fin Du Monde",
-        "extra-parameters": "Arrogant Bastard Ale",
-        "expiry-time": "10s",
-        "directions": "*up",
-        "destination-tags": "DST_1, DST_2",
-        "created-at": "2017-10-05T11:46:59.000000",
-        "categories": "cat1, cat2",
-        "balance-weight": "100",
-        "balance-type": "*monetary",
-        "balance-tag": "Kabuto",
-        "balance-disabled": "true",
-        "balance-blocker": "false",
-        "action": "Eevee"
-      }
-    }
-  ]
-}
-```
-
-#### GET index filtering by balance_blocker
-##### Request
-* __Method:__ GET
-* __Path:__ /api/tp-actions?tpid=Pidgeotto
-* __Request headers:__
-```
-accept: application/vnd.api+json
-content-type: application/vnd.api+json
-```
-##### Response
-* __Status__: 200
-* __Response headers:__
-```
-content-type: application/vnd.api+json; charset=utf-8
-cache-control: max-age=0, private, must-revalidate
-x-request-id: 6i9limp9i90ch54cjlcf8c077e0ovdu0
-vary: Origin
-access-control-allow-origin: 
-access-control-expose-headers: 
-access-control-allow-credentials: true
-```
-* __Response body:__
-```json
-{
-  "meta": {
-    "total_records": 1,
-    "total_pages": 1
-  },
-  "links": {
-    "self": "/api/tp-actions?page[page]=1&page[page-size]=10&tpid=Pidgeotto"
-  },
-  "jsonapi": {
-    "version": "1.0"
-  },
-  "data": [
-    {
-      "type": "tp-action",
-      "id": "33",
-      "attributes": {
-        "weight": 10.0,
-        "units": "Stone Imperial Russian Stout",
-        "tpid": "Pidgeotto",
-        "timing-tags": "TIMING_1, TIMING_2",
-        "tag": "Arrogant Bastard Ale",
-        "shared-groups": "xz",
-        "rating-subject": "Raticate",
-        "filter": "Stone Imperial Russian Stout",
-        "extra-parameters": "Samuel Smith’s Imperial IPA",
-        "expiry-time": "10s",
-        "directions": "*up",
-        "destination-tags": "DST_1, DST_2",
-        "created-at": "2017-10-05T11:47:00.000000",
-        "categories": "cat1, cat2",
-        "balance-weight": "100",
-        "balance-type": "*monetary",
-        "balance-tag": "Starmie",
-        "balance-disabled": "false",
-        "balance-blocker": "true",
-        "action": "Kakuna"
-      }
-    }
-  ]
-}
-```
-
-#### GET index filtering by balance_weight
-##### Request
-* __Method:__ GET
-* __Path:__ /api/tp-actions?tpid=Ninetales
-* __Request headers:__
-```
-accept: application/vnd.api+json
-content-type: application/vnd.api+json
-```
-##### Response
-* __Status__: 200
-* __Response headers:__
-```
-content-type: application/vnd.api+json; charset=utf-8
-cache-control: max-age=0, private, must-revalidate
-x-request-id: lhc8b2d0vcnmqbu20861ogkvqnsn3ud1
-vary: Origin
-access-control-allow-origin: 
-access-control-expose-headers: 
-access-control-allow-credentials: true
-```
-* __Response body:__
-```json
-{
-  "meta": {
-    "total_records": 1,
-    "total_pages": 1
-  },
-  "links": {
-    "self": "/api/tp-actions?page[page]=1&page[page-size]=10&tpid=Ninetales"
-  },
-  "jsonapi": {
-    "version": "1.0"
-  },
-  "data": [
-    {
-      "type": "tp-action",
-      "id": "31",
-      "attributes": {
-        "weight": 10.0,
-        "units": "Oak Aged Yeti Imperial Stout",
-        "tpid": "Ninetales",
-        "timing-tags": "TIMING_1, TIMING_2",
-        "tag": "Two Hearted Ale",
-        "shared-groups": "xz",
-        "rating-subject": "Cubone",
-        "filter": "Maharaj",
-        "extra-parameters": "St. Bernardus Abt 12",
-        "expiry-time": "10s",
-        "directions": "*up",
-        "destination-tags": "DST_1, DST_2",
-        "created-at": "2017-10-05T11:47:00.000000",
-        "categories": "cat1, cat2",
-        "balance-weight": "c1",
-        "balance-type": "*monetary",
-        "balance-tag": "Machop",
-        "balance-disabled": "false",
-        "balance-blocker": "false",
-        "action": "Weezing"
-      }
-    }
-  ]
-}
-```
-
-#### GET index filtering by shared_groups
-##### Request
-* __Method:__ GET
-* __Path:__ /api/tp-actions?tpid=Beedrill
-* __Request headers:__
-```
-accept: application/vnd.api+json
-content-type: application/vnd.api+json
-```
-##### Response
-* __Status__: 200
-* __Response headers:__
-```
-content-type: application/vnd.api+json; charset=utf-8
-cache-control: max-age=0, private, must-revalidate
-x-request-id: 37nil96uob39k9q8dpe2ndpi5p6n0skj
-vary: Origin
-access-control-allow-origin: 
-access-control-expose-headers: 
-access-control-allow-credentials: true
-```
-* __Response body:__
-```json
-{
-  "meta": {
-    "total_records": 1,
-    "total_pages": 1
-  },
-  "links": {
-    "self": "/api/tp-actions?page[page]=1&page[page-size]=10&tpid=Beedrill"
-  },
-  "jsonapi": {
-    "version": "1.0"
-  },
-  "data": [
-    {
-      "type": "tp-action",
-      "id": "16",
-      "attributes": {
-        "weight": 10.0,
-        "units": "Maharaj",
-        "tpid": "Beedrill",
-        "timing-tags": "TIMING_1, TIMING_2",
-        "tag": "St. Bernardus Abt 12",
-        "shared-groups": "g1",
-        "rating-subject": "Rhydon",
-        "filter": "Schneider Aventinus",
-        "extra-parameters": "Ten FIDY",
-        "expiry-time": "10s",
-        "directions": "*up",
-        "destination-tags": "DST_1, DST_2",
-        "created-at": "2017-10-05T11:47:00.000000",
-        "categories": "cat1, cat2",
-        "balance-weight": "100",
-        "balance-type": "*monetary",
-        "balance-tag": "Exeggutor",
-        "balance-disabled": "false",
-        "balance-blocker": "false",
-        "action": "Rapidash"
-      }
-    }
-  ]
-}
-```
-
-#### GET index filtering by categories
-##### Request
-* __Method:__ GET
-* __Path:__ /api/tp-actions?tpid=Machoke
-* __Request headers:__
-```
-accept: application/vnd.api+json
-content-type: application/vnd.api+json
-```
-##### Response
-* __Status__: 200
-* __Response headers:__
-```
-content-type: application/vnd.api+json; charset=utf-8
-cache-control: max-age=0, private, must-revalidate
-x-request-id: 16dl1b5q7cd2nlg85opdh4g9niemjunl
-vary: Origin
-access-control-allow-origin: 
-access-control-expose-headers: 
-access-control-allow-credentials: true
-```
-* __Response body:__
-```json
-{
-  "meta": {
-    "total_records": 1,
-    "total_pages": 1
-  },
-  "links": {
-    "self": "/api/tp-actions?page[page]=1&page[page-size]=10&tpid=Machoke"
-  },
-  "jsonapi": {
-    "version": "1.0"
-  },
-  "data": [
-    {
-      "type": "tp-action",
-      "id": "6",
-      "attributes": {
-        "weight": 10.0,
-        "units": "Hop Rod Rye",
-        "tpid": "Machoke",
-        "timing-tags": "TIMING_1, TIMING_2",
-        "tag": "Bell’s Expedition",
-        "shared-groups": "xz",
-        "rating-subject": "Charmander",
-        "filter": "Sublimely Self-Righteous Ale",
-        "extra-parameters": "Brooklyn Black",
-        "expiry-time": "10s",
-        "directions": "*up",
-        "destination-tags": "DST_1, DST_2",
-        "created-at": "2017-10-05T11:46:59.000000",
-        "categories": "c1",
-        "balance-weight": "100",
-        "balance-type": "*monetary",
-        "balance-tag": "Victreebel",
-        "balance-disabled": "false",
-        "balance-blocker": "false",
-        "action": "Nidoran"
-      }
-    }
-  ]
-}
-```
-
-#### GET index filtering by rating_subject
-##### Request
-* __Method:__ GET
-* __Path:__ /api/tp-actions?tpid=Fearow
-* __Request headers:__
-```
-accept: application/vnd.api+json
-content-type: application/vnd.api+json
-```
-##### Response
-* __Status__: 200
-* __Response headers:__
-```
-content-type: application/vnd.api+json; charset=utf-8
-cache-control: max-age=0, private, must-revalidate
-x-request-id: sm3dspua2c8rnqhpl3bj3is3u54lalnp
-vary: Origin
-access-control-allow-origin: 
-access-control-expose-headers: 
-access-control-allow-credentials: true
-```
-* __Response body:__
-```json
-{
-  "meta": {
-    "total_records": 1,
-    "total_pages": 1
-  },
-  "links": {
-    "self": "/api/tp-actions?page[page]=1&page[page-size]=10&tpid=Fearow"
-  },
-  "jsonapi": {
-    "version": "1.0"
-  },
-  "data": [
-    {
-      "type": "tp-action",
-      "id": "29",
-      "attributes": {
-        "weight": 10.0,
-        "units": "Yeti Imperial Stout",
-        "tpid": "Fearow",
-        "timing-tags": "TIMING_1, TIMING_2",
-        "tag": "Hop Rod Rye",
-        "shared-groups": "xz",
-        "rating-subject": "Jigglypuff",
-        "filter": "Sierra Nevada Celebration Ale",
-        "extra-parameters": "Westmalle Trappist Tripel",
-        "expiry-time": "10s",
-        "directions": "*up",
-        "destination-tags": "DST_1, DST_2",
-        "created-at": "2017-10-05T11:47:00.000000",
-        "categories": "cat1, cat2",
-        "balance-weight": "100",
-        "balance-type": "*monetary",
-        "balance-tag": "Beedrill",
-        "balance-disabled": "false",
-        "balance-blocker": "false",
-        "action": "Weezing"
-      }
-    }
-  ]
-}
-```
-
-#### GET index filtering by destination_tags
-##### Request
-* __Method:__ GET
-* __Path:__ /api/tp-actions?tpid=Farfetch%27d
-* __Request headers:__
-```
-accept: application/vnd.api+json
-content-type: application/vnd.api+json
-```
-##### Response
-* __Status__: 200
-* __Response headers:__
-```
-content-type: application/vnd.api+json; charset=utf-8
-cache-control: max-age=0, private, must-revalidate
-x-request-id: uh02cptnff3oc1p3kqt1q0o5rkl4f055
-vary: Origin
-access-control-allow-origin: 
-access-control-expose-headers: 
-access-control-allow-credentials: true
-```
-* __Response body:__
-```json
-{
-  "meta": {
-    "total_records": 1,
-    "total_pages": 1
-  },
-  "links": {
-    "self": "/api/tp-actions?page[page]=1&page[page-size]=10&tpid=Farfetch%27d"
-  },
-  "jsonapi": {
-    "version": "1.0"
-  },
-  "data": [
-    {
-      "type": "tp-action",
-      "id": "36",
-      "attributes": {
-        "weight": 10.0,
-        "units": "Duvel",
-        "tpid": "Farfetch'd",
-        "timing-tags": "TIMING_1, TIMING_2",
-        "tag": "Founders Breakfast Stout",
-        "shared-groups": "xz",
-        "rating-subject": "Nidorina",
-        "filter": "Chocolate St",
-        "extra-parameters": "Ten FIDY",
-        "expiry-time": "10s",
-        "directions": "*up",
-        "destination-tags": "d1",
-        "created-at": "2017-10-05T11:47:00.000000",
-        "categories": "cat1, cat2",
-        "balance-weight": "100",
-        "balance-type": "*monetary",
-        "balance-tag": "Sandshrew",
-        "balance-disabled": "false",
-        "balance-blocker": "false",
-        "action": "Muk"
-      }
-    }
-  ]
-}
-```
-
-#### GET index filtering by timing_tags
-##### Request
-* __Method:__ GET
-* __Path:__ /api/tp-actions?tpid=Goldeen
-* __Request headers:__
-```
-accept: application/vnd.api+json
-content-type: application/vnd.api+json
-```
-##### Response
-* __Status__: 200
-* __Response headers:__
-```
-content-type: application/vnd.api+json; charset=utf-8
-cache-control: max-age=0, private, must-revalidate
-x-request-id: md6jbhvg5371tqrukkcf05qurtb1br90
-vary: Origin
-access-control-allow-origin: 
-access-control-expose-headers: 
-access-control-allow-credentials: true
-```
-* __Response body:__
-```json
-{
-  "meta": {
-    "total_records": 1,
-    "total_pages": 1
-  },
-  "links": {
-    "self": "/api/tp-actions?page[page]=1&page[page-size]=10&tpid=Goldeen"
-  },
-  "jsonapi": {
-    "version": "1.0"
-  },
-  "data": [
-    {
-      "type": "tp-action",
-      "id": "25",
-      "attributes": {
-        "weight": 10.0,
-        "units": "Maudite",
-        "tpid": "Goldeen",
-        "timing-tags": "t1",
-        "tag": "Hop Rod Rye",
-        "shared-groups": "xz",
-        "rating-subject": "Magmar",
-        "filter": "Pliny The Elder",
-        "extra-parameters": "Shakespeare Oatmeal",
-        "expiry-time": "10s",
-        "directions": "*up",
-        "destination-tags": "DST_1, DST_2",
-        "created-at": "2017-10-05T11:47:00.000000",
-        "categories": "cat1, cat2",
-        "balance-weight": "100",
-        "balance-type": "*monetary",
-        "balance-tag": "Nidoran",
-        "balance-disabled": "false",
-        "balance-blocker": "false",
-        "action": "Kingler"
-      }
-    }
-  ]
-}
-```
-
-#### GET index filtering by expiry_time
-##### Request
-* __Method:__ GET
-* __Path:__ /api/tp-actions?tpid=Blastoise
-* __Request headers:__
-```
-accept: application/vnd.api+json
-content-type: application/vnd.api+json
-```
-##### Response
-* __Status__: 200
-* __Response headers:__
-```
-content-type: application/vnd.api+json; charset=utf-8
-cache-control: max-age=0, private, must-revalidate
-x-request-id: mto4os9rt8p7nmnk8ds4pgp4mg11q65p
-vary: Origin
-access-control-allow-origin: 
-access-control-expose-headers: 
-access-control-allow-credentials: true
-```
-* __Response body:__
-```json
-{
-  "meta": {
-    "total_records": 1,
-    "total_pages": 1
-  },
-  "links": {
-    "self": "/api/tp-actions?page[page]=1&page[page-size]=10&tpid=Blastoise"
-  },
-  "jsonapi": {
-    "version": "1.0"
-  },
-  "data": [
-    {
-      "type": "tp-action",
-      "id": "10",
-      "attributes": {
-        "weight": 10.0,
-        "units": "Samuel Smith’s Oatmeal Stout",
-        "tpid": "Blastoise",
-        "timing-tags": "TIMING_1, TIMING_2",
-        "tag": "90 Minute IPA",
-        "shared-groups": "xz",
-        "rating-subject": "Ninetales",
-        "filter": "90 Minute IPA",
-        "extra-parameters": "Trois Pistoles",
-        "expiry-time": "10s",
-        "directions": "*up",
-        "destination-tags": "DST_1, DST_2",
-        "created-at": "2017-10-05T11:47:00.000000",
-        "categories": "cat1, cat2",
-        "balance-weight": "100",
-        "balance-type": "*monetary",
-        "balance-tag": "Zapdos",
-        "balance-disabled": "false",
-        "balance-blocker": "false",
-        "action": "Victreebel"
-      }
-    }
-  ]
-}
-```
-
-#### GET index filtering by units
-##### Request
-* __Method:__ GET
-* __Path:__ /api/tp-actions?tpid=Charizard
-* __Request headers:__
-```
-accept: application/vnd.api+json
-content-type: application/vnd.api+json
-```
-##### Response
-* __Status__: 200
-* __Response headers:__
-```
-content-type: application/vnd.api+json; charset=utf-8
-cache-control: max-age=0, private, must-revalidate
-x-request-id: frr2t8vvonaocg1b0eosj03kbo8jutfr
-vary: Origin
-access-control-allow-origin: 
-access-control-expose-headers: 
-access-control-allow-credentials: true
-```
-* __Response body:__
-```json
-{
-  "meta": {
-    "total_records": 1,
-    "total_pages": 1
-  },
-  "links": {
-    "self": "/api/tp-actions?page[page]=1&page[page-size]=10&tpid=Charizard"
-  },
-  "jsonapi": {
-    "version": "1.0"
-  },
-  "data": [
-    {
-      "type": "tp-action",
-      "id": "14",
+      "id": "22",
       "attributes": {
         "weight": 10.0,
         "units": "Nugget Nectar",
-        "tpid": "Charizard",
+        "tpid": "Bellsprout",
         "timing-tags": "TIMING_1, TIMING_2",
-        "tag": "Racer 5 India Pale Ale, Bear Republic Bre",
+        "tag": "Chimay Grande Réserve",
         "shared-groups": "xz",
-        "rating-subject": "Meowth",
-        "filter": "Racer 5 India Pale Ale, Bear Republic Bre",
-        "extra-parameters": "Brooklyn Black",
+        "rating-subject": "Cubone",
+        "filter": "Trois Pistoles",
+        "extra-parameters": "Edmund Fitzgerald Porter",
         "expiry-time": "10s",
         "directions": "*up",
         "destination-tags": "DST_1, DST_2",
-        "created-at": "2017-10-05T11:47:00.000000",
+        "created-at": "2017-10-05T12:42:01.000000",
         "categories": "cat1, cat2",
         "balance-weight": "100",
         "balance-type": "*monetary",
-        "balance-tag": "Golduck",
-        "balance-disabled": "false",
+        "balance-tag": "Magneton",
+        "balance-disabled": "true",
         "balance-blocker": "false",
         "action": "Spearow"
       }
@@ -1908,267 +1323,7 @@ access-control-allow-credentials: true
 }
 ```
 
-#### GET index filtering by balance_type
-##### Request
-* __Method:__ GET
-* __Path:__ /api/tp-actions?tpid=Ekans
-* __Request headers:__
-```
-accept: application/vnd.api+json
-content-type: application/vnd.api+json
-```
-##### Response
-* __Status__: 200
-* __Response headers:__
-```
-content-type: application/vnd.api+json; charset=utf-8
-cache-control: max-age=0, private, must-revalidate
-x-request-id: 882muvc2f40us2a9f3n5cd0d9qnh8ipo
-vary: Origin
-access-control-allow-origin: 
-access-control-expose-headers: 
-access-control-allow-credentials: true
-```
-* __Response body:__
-```json
-{
-  "meta": {
-    "total_records": 1,
-    "total_pages": 1
-  },
-  "links": {
-    "self": "/api/tp-actions?page[page]=1&page[page-size]=10&tpid=Ekans"
-  },
-  "jsonapi": {
-    "version": "1.0"
-  },
-  "data": [
-    {
-      "type": "tp-action",
-      "id": "3",
-      "attributes": {
-        "weight": 10.0,
-        "units": "90 Minute IPA",
-        "tpid": "Ekans",
-        "timing-tags": "TIMING_1, TIMING_2",
-        "tag": "Trois Pistoles",
-        "shared-groups": "xz",
-        "rating-subject": "Pikachu",
-        "filter": "Weihenstephaner Hefeweissbier",
-        "extra-parameters": "Hennepin",
-        "expiry-time": "10s",
-        "directions": "*up",
-        "destination-tags": "DST_1, DST_2",
-        "created-at": "2017-10-05T11:46:59.000000",
-        "categories": "cat1, cat2",
-        "balance-weight": "100",
-        "balance-type": "monetary",
-        "balance-tag": "Pidgeot",
-        "balance-disabled": "false",
-        "balance-blocker": "false",
-        "action": "Omanyte"
-      }
-    }
-  ]
-}
-```
-
-#### GET index filtering by balance_tag
-##### Request
-* __Method:__ GET
-* __Path:__ /api/tp-actions?tpid=Caterpie
-* __Request headers:__
-```
-accept: application/vnd.api+json
-content-type: application/vnd.api+json
-```
-##### Response
-* __Status__: 200
-* __Response headers:__
-```
-content-type: application/vnd.api+json; charset=utf-8
-cache-control: max-age=0, private, must-revalidate
-x-request-id: avodufbtqjedvfdc933uob9bc579dquk
-vary: Origin
-access-control-allow-origin: 
-access-control-expose-headers: 
-access-control-allow-credentials: true
-```
-* __Response body:__
-```json
-{
-  "meta": {
-    "total_records": 1,
-    "total_pages": 1
-  },
-  "links": {
-    "self": "/api/tp-actions?page[page]=1&page[page-size]=10&tpid=Caterpie"
-  },
-  "jsonapi": {
-    "version": "1.0"
-  },
-  "data": [
-    {
-      "type": "tp-action",
-      "id": "23",
-      "attributes": {
-        "weight": 10.0,
-        "units": "Samuel Smith’s Oatmeal Stout",
-        "tpid": "Caterpie",
-        "timing-tags": "TIMING_1, TIMING_2",
-        "tag": "Westmalle Trappist Tripel",
-        "shared-groups": "xz",
-        "rating-subject": "Clefable",
-        "filter": "Stone IPA",
-        "extra-parameters": "Samuel Smith’s Imperial IPA",
-        "expiry-time": "10s",
-        "directions": "*up",
-        "destination-tags": "DST_1, DST_2",
-        "created-at": "2017-10-05T11:47:00.000000",
-        "categories": "cat1, cat2",
-        "balance-weight": "100",
-        "balance-type": "*monetary",
-        "balance-tag": "Gastly",
-        "balance-disabled": "false",
-        "balance-blocker": "false",
-        "action": "Hitmonlee"
-      }
-    }
-  ]
-}
-```
-
-#### GET index filtering by action
-##### Request
-* __Method:__ GET
-* __Path:__ /api/tp-actions?tpid=Pikachu
-* __Request headers:__
-```
-accept: application/vnd.api+json
-content-type: application/vnd.api+json
-```
-##### Response
-* __Status__: 200
-* __Response headers:__
-```
-content-type: application/vnd.api+json; charset=utf-8
-cache-control: max-age=0, private, must-revalidate
-x-request-id: l5o66v50r86p3po0hhrrpiu8fdmfmagt
-vary: Origin
-access-control-allow-origin: 
-access-control-expose-headers: 
-access-control-allow-credentials: true
-```
-* __Response body:__
-```json
-{
-  "meta": {
-    "total_records": 1,
-    "total_pages": 1
-  },
-  "links": {
-    "self": "/api/tp-actions?page[page]=1&page[page-size]=10&tpid=Pikachu"
-  },
-  "jsonapi": {
-    "version": "1.0"
-  },
-  "data": [
-    {
-      "type": "tp-action",
-      "id": "38",
-      "attributes": {
-        "weight": 10.0,
-        "units": "Dreadnaught IPA",
-        "tpid": "Pikachu",
-        "timing-tags": "TIMING_1, TIMING_2",
-        "tag": "Schneider Aventinus",
-        "shared-groups": "xz",
-        "rating-subject": "Dodrio",
-        "filter": "Alpha King Pale Ale",
-        "extra-parameters": "Trappistes Rochefort 10",
-        "expiry-time": "10s",
-        "directions": "*up",
-        "destination-tags": "DST_1, DST_2",
-        "created-at": "2017-10-05T11:47:00.000000",
-        "categories": "cat1, cat2",
-        "balance-weight": "100",
-        "balance-type": "*monetary",
-        "balance-tag": "Electrode",
-        "balance-disabled": "false",
-        "balance-blocker": "false",
-        "action": "Golbat"
-      }
-    }
-  ]
-}
-```
-
-#### GET index filtering by directions
-##### Request
-* __Method:__ GET
-* __Path:__ /api/tp-actions?tpid=Wigglytuff
-* __Request headers:__
-```
-accept: application/vnd.api+json
-content-type: application/vnd.api+json
-```
-##### Response
-* __Status__: 200
-* __Response headers:__
-```
-content-type: application/vnd.api+json; charset=utf-8
-cache-control: max-age=0, private, must-revalidate
-x-request-id: 81k1i3ka98pmio1a4681sf1vrrb484ss
-vary: Origin
-access-control-allow-origin: 
-access-control-expose-headers: 
-access-control-allow-credentials: true
-```
-* __Response body:__
-```json
-{
-  "meta": {
-    "total_records": 1,
-    "total_pages": 1
-  },
-  "links": {
-    "self": "/api/tp-actions?page[page]=1&page[page-size]=10&tpid=Wigglytuff"
-  },
-  "jsonapi": {
-    "version": "1.0"
-  },
-  "data": [
-    {
-      "type": "tp-action",
-      "id": "27",
-      "attributes": {
-        "weight": 10.0,
-        "units": "Alpha King Pale Ale",
-        "tpid": "Wigglytuff",
-        "timing-tags": "TIMING_1, TIMING_2",
-        "tag": "Bell’s Expedition",
-        "shared-groups": "xz",
-        "rating-subject": "Shellder",
-        "filter": "Nugget Nectar",
-        "extra-parameters": "Racer 5 India Pale Ale, Bear Republic Bre",
-        "expiry-time": "10s",
-        "directions": "up",
-        "destination-tags": "DST_1, DST_2",
-        "created-at": "2017-10-05T11:47:00.000000",
-        "categories": "cat1, cat2",
-        "balance-weight": "100",
-        "balance-type": "*monetary",
-        "balance-tag": "Wartortle",
-        "balance-disabled": "false",
-        "balance-blocker": "false",
-        "action": "Pikachu"
-      }
-    }
-  ]
-}
-```
-
-#### GET index filtering by tag
+#### GET index filtering by balance_blocker
 ##### Request
 * __Method:__ GET
 * __Path:__ /api/tp-actions?tpid=Persian
@@ -2183,7 +1338,7 @@ content-type: application/vnd.api+json
 ```
 content-type: application/vnd.api+json; charset=utf-8
 cache-control: max-age=0, private, must-revalidate
-x-request-id: 4ej3nn4q541duocd77livdkk37eip5mh
+x-request-id: 9u4emiafmm6m72qpcb4kkjfb3e732dm0
 vary: Origin
 access-control-allow-origin: 
 access-control-expose-headers: 
@@ -2205,38 +1360,38 @@ access-control-allow-credentials: true
   "data": [
     {
       "type": "tp-action",
-      "id": "12",
+      "id": "38",
       "attributes": {
         "weight": 10.0,
-        "units": "Sierra Nevada Celebration Ale",
+        "units": "Founders Kentucky Breakfast",
         "tpid": "Persian",
         "timing-tags": "TIMING_1, TIMING_2",
-        "tag": "Double Bastard Ale",
+        "tag": "Weihenstephaner Hefeweissbier",
         "shared-groups": "xz",
-        "rating-subject": "Oddish",
+        "rating-subject": "Jolteon",
         "filter": "Samuel Smith’s Oatmeal Stout",
-        "extra-parameters": "Arrogant Bastard Ale",
+        "extra-parameters": "Double Bastard Ale",
         "expiry-time": "10s",
         "directions": "*up",
         "destination-tags": "DST_1, DST_2",
-        "created-at": "2017-10-05T11:47:00.000000",
+        "created-at": "2017-10-05T12:42:02.000000",
         "categories": "cat1, cat2",
         "balance-weight": "100",
         "balance-type": "*monetary",
-        "balance-tag": "Cloyster",
+        "balance-tag": "Pinsir",
         "balance-disabled": "false",
-        "balance-blocker": "false",
-        "action": "Fearow"
+        "balance-blocker": "true",
+        "action": "Golem"
       }
     }
   ]
 }
 ```
 
-#### GET index lists all entries related tariff plan on index
+#### GET index filtering by balance_weight
 ##### Request
 * __Method:__ GET
-* __Path:__ /api/tp-actions?tpid=Magneton
+* __Path:__ /api/tp-actions?tpid=Raticate
 * __Request headers:__
 ```
 accept: application/vnd.api+json
@@ -2248,7 +1403,7 @@ content-type: application/vnd.api+json
 ```
 content-type: application/vnd.api+json; charset=utf-8
 cache-control: max-age=0, private, must-revalidate
-x-request-id: vj9tqivh3i5e6ktbuds0f2gui5iv0eur
+x-request-id: tr9pcmvrteeeirfk2pjkp9ocu84vr30e
 vary: Origin
 access-control-allow-origin: 
 access-control-expose-headers: 
@@ -2262,7 +1417,7 @@ access-control-allow-credentials: true
     "total_pages": 1
   },
   "links": {
-    "self": "/api/tp-actions?page[page]=1&page[page-size]=10&tpid=Magneton"
+    "self": "/api/tp-actions?page[page]=1&page[page-size]=10&tpid=Raticate"
   },
   "jsonapi": {
     "version": "1.0"
@@ -2270,39 +1425,38 @@ access-control-allow-credentials: true
   "data": [
     {
       "type": "tp-action",
-      "id": "21",
+      "id": "26",
       "attributes": {
         "weight": 10.0,
-        "units": "Founders Breakfast Stout",
-        "tpid": "Magneton",
+        "units": "Trois Pistoles",
+        "tpid": "Raticate",
         "timing-tags": "TIMING_1, TIMING_2",
-        "tag": "Trois Pistoles",
+        "tag": "Sublimely Self-Righteous Ale",
         "shared-groups": "xz",
-        "rating-subject": "Primeape",
-        "filter": "Maudite",
-        "extra-parameters": "Orval Trappist Ale",
+        "rating-subject": "Starmie",
+        "filter": "Founders Breakfast Stout",
+        "extra-parameters": "Celebrator Doppelbock",
         "expiry-time": "10s",
         "directions": "*up",
         "destination-tags": "DST_1, DST_2",
-        "created-at": "2017-10-05T11:47:00.000000",
+        "created-at": "2017-10-05T12:42:02.000000",
         "categories": "cat1, cat2",
-        "balance-weight": "100",
+        "balance-weight": "c1",
         "balance-type": "*monetary",
-        "balance-tag": "Ekans",
+        "balance-tag": "Charmander",
         "balance-disabled": "false",
         "balance-blocker": "false",
-        "action": "Nidoking"
+        "action": "Machop"
       }
     }
   ]
 }
 ```
 
-### CgratesWebJsonapi.TpActionController.show
-#### GET show shows chosen resource
+#### GET index filtering by shared_groups
 ##### Request
 * __Method:__ GET
-* __Path:__ /api/tp-actions/8
+* __Path:__ /api/tp-actions?tpid=Gyarados
 * __Request headers:__
 ```
 accept: application/vnd.api+json
@@ -2314,7 +1468,853 @@ content-type: application/vnd.api+json
 ```
 content-type: application/vnd.api+json; charset=utf-8
 cache-control: max-age=0, private, must-revalidate
-x-request-id: l3a344ntp5besdm5irsv0ksi273uq8ke
+x-request-id: rvbqcj6tri0hobdg2cqj910lgl9u2got
+vary: Origin
+access-control-allow-origin: 
+access-control-expose-headers: 
+access-control-allow-credentials: true
+```
+* __Response body:__
+```json
+{
+  "meta": {
+    "total_records": 1,
+    "total_pages": 1
+  },
+  "links": {
+    "self": "/api/tp-actions?page[page]=1&page[page-size]=10&tpid=Gyarados"
+  },
+  "jsonapi": {
+    "version": "1.0"
+  },
+  "data": [
+    {
+      "type": "tp-action",
+      "id": "24",
+      "attributes": {
+        "weight": 10.0,
+        "units": "HopSlam Ale",
+        "tpid": "Gyarados",
+        "timing-tags": "TIMING_1, TIMING_2",
+        "tag": "Schneider Aventinus",
+        "shared-groups": "g1",
+        "rating-subject": "Jynx",
+        "filter": "Edmund Fitzgerald Porter",
+        "extra-parameters": "Trappistes Rochefort 10",
+        "expiry-time": "10s",
+        "directions": "*up",
+        "destination-tags": "DST_1, DST_2",
+        "created-at": "2017-10-05T12:42:01.000000",
+        "categories": "cat1, cat2",
+        "balance-weight": "100",
+        "balance-type": "*monetary",
+        "balance-tag": "Kakuna",
+        "balance-disabled": "false",
+        "balance-blocker": "false",
+        "action": "Pikachu"
+      }
+    }
+  ]
+}
+```
+
+#### GET index filtering by categories
+##### Request
+* __Method:__ GET
+* __Path:__ /api/tp-actions?tpid=Paras
+* __Request headers:__
+```
+accept: application/vnd.api+json
+content-type: application/vnd.api+json
+```
+##### Response
+* __Status__: 200
+* __Response headers:__
+```
+content-type: application/vnd.api+json; charset=utf-8
+cache-control: max-age=0, private, must-revalidate
+x-request-id: k89d9lh1gn71cjjueilkjn5kn4k40909
+vary: Origin
+access-control-allow-origin: 
+access-control-expose-headers: 
+access-control-allow-credentials: true
+```
+* __Response body:__
+```json
+{
+  "meta": {
+    "total_records": 1,
+    "total_pages": 1
+  },
+  "links": {
+    "self": "/api/tp-actions?page[page]=1&page[page-size]=10&tpid=Paras"
+  },
+  "jsonapi": {
+    "version": "1.0"
+  },
+  "data": [
+    {
+      "type": "tp-action",
+      "id": "12",
+      "attributes": {
+        "weight": 10.0,
+        "units": "Storm King Stout",
+        "tpid": "Paras",
+        "timing-tags": "TIMING_1, TIMING_2",
+        "tag": "Celebrator Doppelbock",
+        "shared-groups": "xz",
+        "rating-subject": "Charmander",
+        "filter": "Duvel",
+        "extra-parameters": "90 Minute IPA",
+        "expiry-time": "10s",
+        "directions": "*up",
+        "destination-tags": "DST_1, DST_2",
+        "created-at": "2017-10-05T12:42:01.000000",
+        "categories": "c1",
+        "balance-weight": "100",
+        "balance-type": "*monetary",
+        "balance-tag": "Growlithe",
+        "balance-disabled": "false",
+        "balance-blocker": "false",
+        "action": "Dratini"
+      }
+    }
+  ]
+}
+```
+
+#### GET index filtering by rating_subject
+##### Request
+* __Method:__ GET
+* __Path:__ /api/tp-actions?tpid=Dodrio
+* __Request headers:__
+```
+accept: application/vnd.api+json
+content-type: application/vnd.api+json
+```
+##### Response
+* __Status__: 200
+* __Response headers:__
+```
+content-type: application/vnd.api+json; charset=utf-8
+cache-control: max-age=0, private, must-revalidate
+x-request-id: ilcs3q3b1cdgp8ije0k09ht9d2b2psj8
+vary: Origin
+access-control-allow-origin: 
+access-control-expose-headers: 
+access-control-allow-credentials: true
+```
+* __Response body:__
+```json
+{
+  "meta": {
+    "total_records": 1,
+    "total_pages": 1
+  },
+  "links": {
+    "self": "/api/tp-actions?page[page]=1&page[page-size]=10&tpid=Dodrio"
+  },
+  "jsonapi": {
+    "version": "1.0"
+  },
+  "data": [
+    {
+      "type": "tp-action",
+      "id": "6",
+      "attributes": {
+        "weight": 10.0,
+        "units": "HopSlam Ale",
+        "tpid": "Dodrio",
+        "timing-tags": "TIMING_1, TIMING_2",
+        "tag": "Sublimely Self-Righteous Ale",
+        "shared-groups": "xz",
+        "rating-subject": "Starmie",
+        "filter": "Westmalle Trappist Tripel",
+        "extra-parameters": "Oaked Arrogant Bastard Ale",
+        "expiry-time": "10s",
+        "directions": "*up",
+        "destination-tags": "DST_1, DST_2",
+        "created-at": "2017-10-05T12:42:01.000000",
+        "categories": "cat1, cat2",
+        "balance-weight": "100",
+        "balance-type": "*monetary",
+        "balance-tag": "Gloom",
+        "balance-disabled": "false",
+        "balance-blocker": "false",
+        "action": "Spearow"
+      }
+    }
+  ]
+}
+```
+
+#### GET index filtering by destination_tags
+##### Request
+* __Method:__ GET
+* __Path:__ /api/tp-actions?tpid=Chansey
+* __Request headers:__
+```
+accept: application/vnd.api+json
+content-type: application/vnd.api+json
+```
+##### Response
+* __Status__: 200
+* __Response headers:__
+```
+content-type: application/vnd.api+json; charset=utf-8
+cache-control: max-age=0, private, must-revalidate
+x-request-id: 0fsnp9j1k3ji8rvq8f2j0ti93aeeddo6
+vary: Origin
+access-control-allow-origin: 
+access-control-expose-headers: 
+access-control-allow-credentials: true
+```
+* __Response body:__
+```json
+{
+  "meta": {
+    "total_records": 1,
+    "total_pages": 1
+  },
+  "links": {
+    "self": "/api/tp-actions?page[page]=1&page[page-size]=10&tpid=Chansey"
+  },
+  "jsonapi": {
+    "version": "1.0"
+  },
+  "data": [
+    {
+      "type": "tp-action",
+      "id": "8",
+      "attributes": {
+        "weight": 10.0,
+        "units": "Ten FIDY",
+        "tpid": "Chansey",
+        "timing-tags": "TIMING_1, TIMING_2",
+        "tag": "Trappistes Rochefort 10",
+        "shared-groups": "xz",
+        "rating-subject": "Haunter",
+        "filter": "Pliny The Elder",
+        "extra-parameters": "Maharaj",
+        "expiry-time": "10s",
+        "directions": "*up",
+        "destination-tags": "d1",
+        "created-at": "2017-10-05T12:42:01.000000",
+        "categories": "cat1, cat2",
+        "balance-weight": "100",
+        "balance-type": "*monetary",
+        "balance-tag": "Blastoise",
+        "balance-disabled": "false",
+        "balance-blocker": "false",
+        "action": "Magikarp"
+      }
+    }
+  ]
+}
+```
+
+#### GET index filtering by timing_tags
+##### Request
+* __Method:__ GET
+* __Path:__ /api/tp-actions?tpid=Pikachu
+* __Request headers:__
+```
+accept: application/vnd.api+json
+content-type: application/vnd.api+json
+```
+##### Response
+* __Status__: 200
+* __Response headers:__
+```
+content-type: application/vnd.api+json; charset=utf-8
+cache-control: max-age=0, private, must-revalidate
+x-request-id: 8k042sa43urgej485cg59v4cflr2j73b
+vary: Origin
+access-control-allow-origin: 
+access-control-expose-headers: 
+access-control-allow-credentials: true
+```
+* __Response body:__
+```json
+{
+  "meta": {
+    "total_records": 1,
+    "total_pages": 1
+  },
+  "links": {
+    "self": "/api/tp-actions?page[page]=1&page[page-size]=10&tpid=Pikachu"
+  },
+  "jsonapi": {
+    "version": "1.0"
+  },
+  "data": [
+    {
+      "type": "tp-action",
+      "id": "16",
+      "attributes": {
+        "weight": 10.0,
+        "units": "Sierra Nevada Celebration Ale",
+        "tpid": "Pikachu",
+        "timing-tags": "t1",
+        "tag": "Samuel Smith’s Oatmeal Stout",
+        "shared-groups": "xz",
+        "rating-subject": "Omastar",
+        "filter": "Nugget Nectar",
+        "extra-parameters": "Storm King Stout",
+        "expiry-time": "10s",
+        "directions": "*up",
+        "destination-tags": "DST_1, DST_2",
+        "created-at": "2017-10-05T12:42:01.000000",
+        "categories": "cat1, cat2",
+        "balance-weight": "100",
+        "balance-type": "*monetary",
+        "balance-tag": "Zubat",
+        "balance-disabled": "false",
+        "balance-blocker": "false",
+        "action": "Bellsprout"
+      }
+    }
+  ]
+}
+```
+
+#### GET index filtering by expiry_time
+##### Request
+* __Method:__ GET
+* __Path:__ /api/tp-actions?tpid=Grimer
+* __Request headers:__
+```
+accept: application/vnd.api+json
+content-type: application/vnd.api+json
+```
+##### Response
+* __Status__: 200
+* __Response headers:__
+```
+content-type: application/vnd.api+json; charset=utf-8
+cache-control: max-age=0, private, must-revalidate
+x-request-id: 2bjf3tlmn7saluosirs581qsf8qum40g
+vary: Origin
+access-control-allow-origin: 
+access-control-expose-headers: 
+access-control-allow-credentials: true
+```
+* __Response body:__
+```json
+{
+  "meta": {
+    "total_records": 1,
+    "total_pages": 1
+  },
+  "links": {
+    "self": "/api/tp-actions?page[page]=1&page[page-size]=10&tpid=Grimer"
+  },
+  "jsonapi": {
+    "version": "1.0"
+  },
+  "data": [
+    {
+      "type": "tp-action",
+      "id": "28",
+      "attributes": {
+        "weight": 10.0,
+        "units": "Ten FIDY",
+        "tpid": "Grimer",
+        "timing-tags": "TIMING_1, TIMING_2",
+        "tag": "Sierra Nevada Celebration Ale",
+        "shared-groups": "xz",
+        "rating-subject": "Omanyte",
+        "filter": "Hennepin",
+        "extra-parameters": "Samuel Smith’s Oatmeal Stout",
+        "expiry-time": "10s",
+        "directions": "*up",
+        "destination-tags": "DST_1, DST_2",
+        "created-at": "2017-10-05T12:42:02.000000",
+        "categories": "cat1, cat2",
+        "balance-weight": "100",
+        "balance-type": "*monetary",
+        "balance-tag": "Rattata",
+        "balance-disabled": "false",
+        "balance-blocker": "false",
+        "action": "Clefable"
+      }
+    }
+  ]
+}
+```
+
+#### GET index filtering by units
+##### Request
+* __Method:__ GET
+* __Path:__ /api/tp-actions?tpid=Pidgeot
+* __Request headers:__
+```
+accept: application/vnd.api+json
+content-type: application/vnd.api+json
+```
+##### Response
+* __Status__: 200
+* __Response headers:__
+```
+content-type: application/vnd.api+json; charset=utf-8
+cache-control: max-age=0, private, must-revalidate
+x-request-id: sjqrelnljqnqsi5thprflbna66p4s02p
+vary: Origin
+access-control-allow-origin: 
+access-control-expose-headers: 
+access-control-allow-credentials: true
+```
+* __Response body:__
+```json
+{
+  "meta": {
+    "total_records": 1,
+    "total_pages": 1
+  },
+  "links": {
+    "self": "/api/tp-actions?page[page]=1&page[page-size]=10&tpid=Pidgeot"
+  },
+  "jsonapi": {
+    "version": "1.0"
+  },
+  "data": [
+    {
+      "type": "tp-action",
+      "id": "30",
+      "attributes": {
+        "weight": 10.0,
+        "units": "Weihenstephaner Hefeweissbier",
+        "tpid": "Pidgeot",
+        "timing-tags": "TIMING_1, TIMING_2",
+        "tag": "Shakespeare Oatmeal",
+        "shared-groups": "xz",
+        "rating-subject": "Arbok",
+        "filter": "Brooklyn Black",
+        "extra-parameters": "Hennepin",
+        "expiry-time": "10s",
+        "directions": "*up",
+        "destination-tags": "DST_1, DST_2",
+        "created-at": "2017-10-05T12:42:02.000000",
+        "categories": "cat1, cat2",
+        "balance-weight": "100",
+        "balance-type": "*monetary",
+        "balance-tag": "Golbat",
+        "balance-disabled": "false",
+        "balance-blocker": "false",
+        "action": "Pinsir"
+      }
+    }
+  ]
+}
+```
+
+#### GET index filtering by balance_type
+##### Request
+* __Method:__ GET
+* __Path:__ /api/tp-actions?tpid=Pidgeotto
+* __Request headers:__
+```
+accept: application/vnd.api+json
+content-type: application/vnd.api+json
+```
+##### Response
+* __Status__: 200
+* __Response headers:__
+```
+content-type: application/vnd.api+json; charset=utf-8
+cache-control: max-age=0, private, must-revalidate
+x-request-id: 4bljsfb939ra9at6mhppi9de4f4gtclq
+vary: Origin
+access-control-allow-origin: 
+access-control-expose-headers: 
+access-control-allow-credentials: true
+```
+* __Response body:__
+```json
+{
+  "meta": {
+    "total_records": 1,
+    "total_pages": 1
+  },
+  "links": {
+    "self": "/api/tp-actions?page[page]=1&page[page-size]=10&tpid=Pidgeotto"
+  },
+  "jsonapi": {
+    "version": "1.0"
+  },
+  "data": [
+    {
+      "type": "tp-action",
+      "id": "14",
+      "attributes": {
+        "weight": 10.0,
+        "units": "Nugget Nectar",
+        "tpid": "Pidgeotto",
+        "timing-tags": "TIMING_1, TIMING_2",
+        "tag": "Sierra Nevada Celebration Ale",
+        "shared-groups": "xz",
+        "rating-subject": "Jigglypuff",
+        "filter": "Edmund Fitzgerald Porter",
+        "extra-parameters": "Trappistes Rochefort 8",
+        "expiry-time": "10s",
+        "directions": "*up",
+        "destination-tags": "DST_1, DST_2",
+        "created-at": "2017-10-05T12:42:01.000000",
+        "categories": "cat1, cat2",
+        "balance-weight": "100",
+        "balance-type": "monetary",
+        "balance-tag": "Psyduck",
+        "balance-disabled": "false",
+        "balance-blocker": "false",
+        "action": "Magmar"
+      }
+    }
+  ]
+}
+```
+
+#### GET index filtering by balance_tag
+##### Request
+* __Method:__ GET
+* __Path:__ /api/tp-actions?tpid=Starmie
+* __Request headers:__
+```
+accept: application/vnd.api+json
+content-type: application/vnd.api+json
+```
+##### Response
+* __Status__: 200
+* __Response headers:__
+```
+content-type: application/vnd.api+json; charset=utf-8
+cache-control: max-age=0, private, must-revalidate
+x-request-id: pl7jh6ao7rd5fgb51vmbjd2bdc5ql3fs
+vary: Origin
+access-control-allow-origin: 
+access-control-expose-headers: 
+access-control-allow-credentials: true
+```
+* __Response body:__
+```json
+{
+  "meta": {
+    "total_records": 1,
+    "total_pages": 1
+  },
+  "links": {
+    "self": "/api/tp-actions?page[page]=1&page[page-size]=10&tpid=Starmie"
+  },
+  "jsonapi": {
+    "version": "1.0"
+  },
+  "data": [
+    {
+      "type": "tp-action",
+      "id": "10",
+      "attributes": {
+        "weight": 10.0,
+        "units": "Weihenstephaner Hefeweissbier",
+        "tpid": "Starmie",
+        "timing-tags": "TIMING_1, TIMING_2",
+        "tag": "Schneider Aventinus",
+        "shared-groups": "xz",
+        "rating-subject": "Growlithe",
+        "filter": "Weihenstephaner Hefeweissbier",
+        "extra-parameters": "Founders Kentucky Breakfast",
+        "expiry-time": "10s",
+        "directions": "*up",
+        "destination-tags": "DST_1, DST_2",
+        "created-at": "2017-10-05T12:42:01.000000",
+        "categories": "cat1, cat2",
+        "balance-weight": "100",
+        "balance-type": "*monetary",
+        "balance-tag": "Wartortle",
+        "balance-disabled": "false",
+        "balance-blocker": "false",
+        "action": "Ditto"
+      }
+    }
+  ]
+}
+```
+
+#### GET index filtering by action
+##### Request
+* __Method:__ GET
+* __Path:__ /api/tp-actions?tpid=Kabuto
+* __Request headers:__
+```
+accept: application/vnd.api+json
+content-type: application/vnd.api+json
+```
+##### Response
+* __Status__: 200
+* __Response headers:__
+```
+content-type: application/vnd.api+json; charset=utf-8
+cache-control: max-age=0, private, must-revalidate
+x-request-id: 00g1f2fu4h2qasjdtt1ce2m5j41q921j
+vary: Origin
+access-control-allow-origin: 
+access-control-expose-headers: 
+access-control-allow-credentials: true
+```
+* __Response body:__
+```json
+{
+  "meta": {
+    "total_records": 1,
+    "total_pages": 1
+  },
+  "links": {
+    "self": "/api/tp-actions?page[page]=1&page[page-size]=10&tpid=Kabuto"
+  },
+  "jsonapi": {
+    "version": "1.0"
+  },
+  "data": [
+    {
+      "type": "tp-action",
+      "id": "18",
+      "attributes": {
+        "weight": 10.0,
+        "units": "Oak Aged Yeti Imperial Stout",
+        "tpid": "Kabuto",
+        "timing-tags": "TIMING_1, TIMING_2",
+        "tag": "Stone IPA",
+        "shared-groups": "xz",
+        "rating-subject": "Pidgey",
+        "filter": "Old Rasputin Russian Imperial Stout",
+        "extra-parameters": "Stone Imperial Russian Stout",
+        "expiry-time": "10s",
+        "directions": "*up",
+        "destination-tags": "DST_1, DST_2",
+        "created-at": "2017-10-05T12:42:01.000000",
+        "categories": "cat1, cat2",
+        "balance-weight": "100",
+        "balance-type": "*monetary",
+        "balance-tag": "Butterfree",
+        "balance-disabled": "false",
+        "balance-blocker": "false",
+        "action": "Poliwhirl"
+      }
+    }
+  ]
+}
+```
+
+#### GET index filtering by directions
+##### Request
+* __Method:__ GET
+* __Path:__ /api/tp-actions?tpid=Chansey
+* __Request headers:__
+```
+accept: application/vnd.api+json
+content-type: application/vnd.api+json
+```
+##### Response
+* __Status__: 200
+* __Response headers:__
+```
+content-type: application/vnd.api+json; charset=utf-8
+cache-control: max-age=0, private, must-revalidate
+x-request-id: ohu0qklh7neb63bm1gjjsv9obdorj2cb
+vary: Origin
+access-control-allow-origin: 
+access-control-expose-headers: 
+access-control-allow-credentials: true
+```
+* __Response body:__
+```json
+{
+  "meta": {
+    "total_records": 1,
+    "total_pages": 1
+  },
+  "links": {
+    "self": "/api/tp-actions?page[page]=1&page[page-size]=10&tpid=Chansey"
+  },
+  "jsonapi": {
+    "version": "1.0"
+  },
+  "data": [
+    {
+      "type": "tp-action",
+      "id": "2",
+      "attributes": {
+        "weight": 10.0,
+        "units": "Bourbon County Stout",
+        "tpid": "Chansey",
+        "timing-tags": "TIMING_1, TIMING_2",
+        "tag": "Ten FIDY",
+        "shared-groups": "xz",
+        "rating-subject": "Geodude",
+        "filter": "Alpha King Pale Ale",
+        "extra-parameters": "Orval Trappist Ale",
+        "expiry-time": "10s",
+        "directions": "up",
+        "destination-tags": "DST_1, DST_2",
+        "created-at": "2017-10-05T12:42:01.000000",
+        "categories": "cat1, cat2",
+        "balance-weight": "100",
+        "balance-type": "*monetary",
+        "balance-tag": "Arcanine",
+        "balance-disabled": "false",
+        "balance-blocker": "false",
+        "action": "Dewgong"
+      }
+    }
+  ]
+}
+```
+
+#### GET index filtering by tag
+##### Request
+* __Method:__ GET
+* __Path:__ /api/tp-actions?tpid=Golem
+* __Request headers:__
+```
+accept: application/vnd.api+json
+content-type: application/vnd.api+json
+```
+##### Response
+* __Status__: 200
+* __Response headers:__
+```
+content-type: application/vnd.api+json; charset=utf-8
+cache-control: max-age=0, private, must-revalidate
+x-request-id: hj6ubj5qvbt2aglae5nlqgjb54h1f643
+vary: Origin
+access-control-allow-origin: 
+access-control-expose-headers: 
+access-control-allow-credentials: true
+```
+* __Response body:__
+```json
+{
+  "meta": {
+    "total_records": 1,
+    "total_pages": 1
+  },
+  "links": {
+    "self": "/api/tp-actions?page[page]=1&page[page-size]=10&tpid=Golem"
+  },
+  "jsonapi": {
+    "version": "1.0"
+  },
+  "data": [
+    {
+      "type": "tp-action",
+      "id": "4",
+      "attributes": {
+        "weight": 10.0,
+        "units": "Stone IPA",
+        "tpid": "Golem",
+        "timing-tags": "TIMING_1, TIMING_2",
+        "tag": "Sierra Nevada Celebration Ale",
+        "shared-groups": "xz",
+        "rating-subject": "Kakuna",
+        "filter": "Founders Kentucky Breakfast",
+        "extra-parameters": "Chocolate St",
+        "expiry-time": "10s",
+        "directions": "*up",
+        "destination-tags": "DST_1, DST_2",
+        "created-at": "2017-10-05T12:42:01.000000",
+        "categories": "cat1, cat2",
+        "balance-weight": "100",
+        "balance-type": "*monetary",
+        "balance-tag": "Magikarp",
+        "balance-disabled": "false",
+        "balance-blocker": "false",
+        "action": "Dugtrio"
+      }
+    }
+  ]
+}
+```
+
+#### GET index lists all entries related tariff plan on index
+##### Request
+* __Method:__ GET
+* __Path:__ /api/tp-actions?tpid=Growlithe
+* __Request headers:__
+```
+accept: application/vnd.api+json
+content-type: application/vnd.api+json
+```
+##### Response
+* __Status__: 200
+* __Response headers:__
+```
+content-type: application/vnd.api+json; charset=utf-8
+cache-control: max-age=0, private, must-revalidate
+x-request-id: 4oc1nii11tnvit271e65c92ila3e1di8
+vary: Origin
+access-control-allow-origin: 
+access-control-expose-headers: 
+access-control-allow-credentials: true
+```
+* __Response body:__
+```json
+{
+  "meta": {
+    "total_records": 1,
+    "total_pages": 1
+  },
+  "links": {
+    "self": "/api/tp-actions?page[page]=1&page[page-size]=10&tpid=Growlithe"
+  },
+  "jsonapi": {
+    "version": "1.0"
+  },
+  "data": [
+    {
+      "type": "tp-action",
+      "id": "20",
+      "attributes": {
+        "weight": 10.0,
+        "units": "Stone Imperial Russian Stout",
+        "tpid": "Growlithe",
+        "timing-tags": "TIMING_1, TIMING_2",
+        "tag": "Hop Rod Rye",
+        "shared-groups": "xz",
+        "rating-subject": "Machamp",
+        "filter": "Hop Rod Rye",
+        "extra-parameters": "Old Rasputin Russian Imperial Stout",
+        "expiry-time": "10s",
+        "directions": "*up",
+        "destination-tags": "DST_1, DST_2",
+        "created-at": "2017-10-05T12:42:01.000000",
+        "categories": "cat1, cat2",
+        "balance-weight": "100",
+        "balance-type": "*monetary",
+        "balance-tag": "Magneton",
+        "balance-disabled": "false",
+        "balance-blocker": "false",
+        "action": "Dugtrio"
+      }
+    }
+  ]
+}
+```
+
+### CgratesWebJsonapi.TpActionController.show
+#### GET show shows chosen resource
+##### Request
+* __Method:__ GET
+* __Path:__ /api/tp-actions/36
+* __Request headers:__
+```
+accept: application/vnd.api+json
+content-type: application/vnd.api+json
+```
+##### Response
+* __Status__: 200
+* __Response headers:__
+```
+content-type: application/vnd.api+json; charset=utf-8
+cache-control: max-age=0, private, must-revalidate
+x-request-id: a4rqvhlfuc6v22i77lqla93avq8kg47u
 vary: Origin
 access-control-allow-origin: 
 access-control-expose-headers: 
@@ -2328,28 +2328,28 @@ access-control-allow-credentials: true
   },
   "data": {
     "type": "tp-action",
-    "id": "8",
+    "id": "36",
     "attributes": {
       "weight": 10.0,
-      "units": "Maudite",
-      "tpid": "Magnemite",
+      "units": "Storm King Stout",
+      "tpid": "Nidoran",
       "timing-tags": "TIMING_1, TIMING_2",
-      "tag": "Dreadnaught IPA",
+      "tag": "Maharaj",
       "shared-groups": "xz",
-      "rating-subject": "Hitmonchan",
-      "filter": "Duvel",
-      "extra-parameters": "HopSlam Ale",
+      "rating-subject": "Nidorina",
+      "filter": "Trappistes Rochefort 8",
+      "extra-parameters": "Edmund Fitzgerald Porter",
       "expiry-time": "10s",
       "directions": "*up",
       "destination-tags": "DST_1, DST_2",
-      "created-at": "2017-10-05T11:46:59.000000",
+      "created-at": "2017-10-05T12:42:02.000000",
       "categories": "cat1, cat2",
       "balance-weight": "100",
       "balance-type": "*monetary",
-      "balance-tag": "Hitmonlee",
+      "balance-tag": "Goldeen",
       "balance-disabled": "false",
       "balance-blocker": "false",
-      "action": "Starmie"
+      "action": "Vaporeon"
     }
   }
 }
@@ -2359,7 +2359,7 @@ access-control-allow-credentials: true
 #### PATCH/PUT update does not update chosen resource and renders errors when data is invalid
 ##### Request
 * __Method:__ PUT
-* __Path:__ /api/tp-actions/18
+* __Path:__ /api/tp-actions/1
 * __Request headers:__
 ```
 accept: application/vnd.api+json
@@ -2371,7 +2371,7 @@ content-type: application/vnd.api+json
 ```
 content-type: application/vnd.api+json; charset=utf-8
 cache-control: max-age=0, private, must-revalidate
-x-request-id: 1ulngmmqf9j8qmsh8qgn42b48r2prvga
+x-request-id: m9b8gn6og5um9gcn5gtts7mu4au459ld
 vary: Origin
 access-control-allow-origin: 
 access-control-expose-headers: 
@@ -2398,7 +2398,7 @@ access-control-allow-credentials: true
 #### PATCH/PUT update updates and renders chosen resource when data is valid
 ##### Request
 * __Method:__ PUT
-* __Path:__ /api/tp-actions/5
+* __Path:__ /api/tp-actions/34
 * __Request headers:__
 ```
 accept: application/vnd.api+json
@@ -2410,7 +2410,7 @@ content-type: application/vnd.api+json
 ```
 content-type: application/vnd.api+json; charset=utf-8
 cache-control: max-age=0, private, must-revalidate
-x-request-id: 11ji7dkrr4ccf4skpbtm7bsod2agqhgr
+x-request-id: n2rv697eeotjh00kcrriue6s1habo3vl
 vary: Origin
 access-control-allow-origin: 
 access-control-expose-headers: 
@@ -2424,28 +2424,28 @@ access-control-allow-credentials: true
   },
   "data": {
     "type": "tp-action",
-    "id": "5",
+    "id": "34",
     "attributes": {
       "weight": 10.0,
-      "units": "Yeti Imperial Stout",
-      "tpid": "Alakazam",
+      "units": "Stone Imperial Russian Stout",
+      "tpid": "Butterfree",
       "timing-tags": "TIMING_1, TIMING_2",
-      "tag": "Trappistes Rochefort 8",
+      "tag": "Nugget Nectar",
       "shared-groups": "xz",
-      "rating-subject": "Electabuzz",
-      "filter": "Maharaj",
-      "extra-parameters": "Duvel",
+      "rating-subject": "Charizard",
+      "filter": "Stone Imperial Russian Stout",
+      "extra-parameters": "Chimay Grande Réserve",
       "expiry-time": "10s",
       "directions": "*up",
       "destination-tags": "DST_1, DST_2",
-      "created-at": "2017-10-05T11:46:59.000000",
+      "created-at": "2017-10-05T12:42:02.000000",
       "categories": "cat1, cat2",
       "balance-weight": "100",
       "balance-type": "*monetary",
-      "balance-tag": "Kabuto",
+      "balance-tag": "Vileplume",
       "balance-disabled": "false",
       "balance-blocker": "false",
-      "action": "Tauros"
+      "action": "Porygon"
     }
   }
 }
@@ -2468,7 +2468,7 @@ content-type: application/vnd.api+json
 ```
 content-type: application/vnd.api+json; charset=utf-8
 cache-control: max-age=0, private, must-revalidate
-x-request-id: 4h3vflbgr67prs12bo8lnbbiecgku4gc
+x-request-id: 9rskg3a7orkfeto3m4g9gsaf6f88ibtu
 vary: Origin
 access-control-allow-origin: 
 access-control-expose-headers: 
@@ -2535,7 +2535,7 @@ content-type: application/vnd.api+json
 ```
 content-type: application/vnd.api+json; charset=utf-8
 cache-control: max-age=0, private, must-revalidate
-x-request-id: 0lfsteh6o3kbm2h2si0b0ldr9s9mggu1
+x-request-id: pqcp861d4ebstksiuj1hbjq2gjmo6h2b
 vary: Origin
 access-control-allow-origin: 
 access-control-expose-headers: 
@@ -2549,14 +2549,14 @@ access-control-allow-credentials: true
   },
   "data": {
     "type": "tp-action-plan",
-    "id": "5",
+    "id": "11",
     "attributes": {
       "weight": 10.0,
-      "tpid": "Dodrio",
-      "timing-tag": "Old Rasputin Russian Imperial Stout",
-      "tag": "Trappistes Rochefort 8",
+      "tpid": "Psyduck",
+      "timing-tag": "Sierra Nevada Bigfoot Barleywine Style Ale",
+      "tag": "Trois Pistoles",
       "created-at": null,
-      "actions-tag": "Maudite"
+      "actions-tag": "Samuel Smith’s Oatmeal Stout"
     }
   }
 }
@@ -2566,7 +2566,7 @@ access-control-allow-credentials: true
 #### DELETE destroy deletes chosen resource
 ##### Request
 * __Method:__ DELETE
-* __Path:__ /api/tp-action-plans/15
+* __Path:__ /api/tp-action-plans/13
 * __Request headers:__
 ```
 accept: application/vnd.api+json
@@ -2577,7 +2577,7 @@ content-type: application/vnd.api+json
 * __Response headers:__
 ```
 cache-control: max-age=0, private, must-revalidate
-x-request-id: d3fo6ium6c5aqti6q67rod8nvt0i6iqn
+x-request-id: qvl9t7qslhtf8rcqcaq85n45mf20ob9f
 vary: Origin
 access-control-allow-origin: 
 access-control-expose-headers: 
@@ -2593,7 +2593,7 @@ content-type: application/vnd.api+json
 #### GET index filtering by weight
 ##### Request
 * __Method:__ GET
-* __Path:__ /api/tp-action-plans?tpid=Butterfree
+* __Path:__ /api/tp-action-plans?tpid=Golem
 * __Request headers:__
 ```
 accept: application/vnd.api+json
@@ -2605,7 +2605,7 @@ content-type: application/vnd.api+json
 ```
 content-type: application/vnd.api+json; charset=utf-8
 cache-control: max-age=0, private, must-revalidate
-x-request-id: k6eeo62lt6obp6pr5rq21jkvnk42a71j
+x-request-id: 8aa92aq05nleb7sbvcbvvjbifv8q34r5
 vary: Origin
 access-control-allow-origin: 
 access-control-expose-headers: 
@@ -2619,7 +2619,7 @@ access-control-allow-credentials: true
     "total_pages": 1
   },
   "links": {
-    "self": "/api/tp-action-plans?page[page]=1&page[page-size]=10&tpid=Butterfree"
+    "self": "/api/tp-action-plans?page[page]=1&page[page-size]=10&tpid=Golem"
   },
   "jsonapi": {
     "version": "1.0"
@@ -2627,14 +2627,14 @@ access-control-allow-credentials: true
   "data": [
     {
       "type": "tp-action-plan",
-      "id": "9",
+      "id": "8",
       "attributes": {
         "weight": 1.0,
-        "tpid": "Butterfree",
-        "timing-tag": "Celebrator Doppelbock",
-        "tag": "Pliny The Elder",
-        "created-at": "2017-10-05T11:47:00.000000",
-        "actions-tag": "Sierra Nevada Celebration Ale"
+        "tpid": "Golem",
+        "timing-tag": "Ten FIDY",
+        "tag": "Samuel Smith’s Imperial IPA",
+        "created-at": "2017-10-05T12:42:02.000000",
+        "actions-tag": "Alpha King Pale Ale"
       }
     }
   ]
@@ -2644,7 +2644,7 @@ access-control-allow-credentials: true
 #### GET index filtering by timing_tag
 ##### Request
 * __Method:__ GET
-* __Path:__ /api/tp-action-plans?tpid=Voltorb
+* __Path:__ /api/tp-action-plans?tpid=Bellsprout
 * __Request headers:__
 ```
 accept: application/vnd.api+json
@@ -2656,7 +2656,7 @@ content-type: application/vnd.api+json
 ```
 content-type: application/vnd.api+json; charset=utf-8
 cache-control: max-age=0, private, must-revalidate
-x-request-id: fomqhvrkukmuqjvsq1ab5tpl3cvhfcci
+x-request-id: 8ufnob22mvid4vt87fgojcbova38csk0
 vary: Origin
 access-control-allow-origin: 
 access-control-expose-headers: 
@@ -2670,7 +2670,7 @@ access-control-allow-credentials: true
     "total_pages": 1
   },
   "links": {
-    "self": "/api/tp-action-plans?page[page]=1&page[page-size]=10&tpid=Voltorb"
+    "self": "/api/tp-action-plans?page[page]=1&page[page-size]=10&tpid=Bellsprout"
   },
   "jsonapi": {
     "version": "1.0"
@@ -2678,14 +2678,14 @@ access-control-allow-credentials: true
   "data": [
     {
       "type": "tp-action-plan",
-      "id": "1",
+      "id": "2",
       "attributes": {
         "weight": 10.0,
-        "tpid": "Voltorb",
-        "timing-tag": "Maharaj",
-        "tag": "Founders Kentucky Breakfast",
-        "created-at": "2017-10-05T11:47:00.000000",
-        "actions-tag": "Weihenstephaner Hefeweissbier"
+        "tpid": "Bellsprout",
+        "timing-tag": "Oaked Arrogant Bastard Ale",
+        "tag": "Orval Trappist Ale",
+        "created-at": "2017-10-05T12:42:02.000000",
+        "actions-tag": "Alpha King Pale Ale"
       }
     }
   ]
@@ -2695,7 +2695,7 @@ access-control-allow-credentials: true
 #### GET index filtering by actions_tag
 ##### Request
 * __Method:__ GET
-* __Path:__ /api/tp-action-plans?tpid=Articuno
+* __Path:__ /api/tp-action-plans?tpid=Poliwrath
 * __Request headers:__
 ```
 accept: application/vnd.api+json
@@ -2707,7 +2707,7 @@ content-type: application/vnd.api+json
 ```
 content-type: application/vnd.api+json; charset=utf-8
 cache-control: max-age=0, private, must-revalidate
-x-request-id: uffpp9s8fmb8pev06gki8gqjptlv54vq
+x-request-id: jnq8gn7delesv3ib7svted7rpgqs9o29
 vary: Origin
 access-control-allow-origin: 
 access-control-expose-headers: 
@@ -2721,7 +2721,7 @@ access-control-allow-credentials: true
     "total_pages": 1
   },
   "links": {
-    "self": "/api/tp-action-plans?page[page]=1&page[page-size]=10&tpid=Articuno"
+    "self": "/api/tp-action-plans?page[page]=1&page[page-size]=10&tpid=Poliwrath"
   },
   "jsonapi": {
     "version": "1.0"
@@ -2729,14 +2729,14 @@ access-control-allow-credentials: true
   "data": [
     {
       "type": "tp-action-plan",
-      "id": "13",
+      "id": "14",
       "attributes": {
         "weight": 10.0,
-        "tpid": "Articuno",
-        "timing-tag": "Samuel Smith’s Oatmeal Stout",
-        "tag": "Chocolate St",
-        "created-at": "2017-10-05T11:47:00.000000",
-        "actions-tag": "Duvel"
+        "tpid": "Poliwrath",
+        "timing-tag": "Hennepin",
+        "tag": "Storm King Stout",
+        "created-at": "2017-10-05T12:42:02.000000",
+        "actions-tag": "Two Hearted Ale"
       }
     }
   ]
@@ -2746,7 +2746,7 @@ access-control-allow-credentials: true
 #### GET index filtering by tag
 ##### Request
 * __Method:__ GET
-* __Path:__ /api/tp-action-plans?tpid=Golbat
+* __Path:__ /api/tp-action-plans?tpid=Gengar
 * __Request headers:__
 ```
 accept: application/vnd.api+json
@@ -2758,7 +2758,7 @@ content-type: application/vnd.api+json
 ```
 content-type: application/vnd.api+json; charset=utf-8
 cache-control: max-age=0, private, must-revalidate
-x-request-id: ibp434160ns57mthh4lgvk0j56iahjil
+x-request-id: d29pfv3ta0mg7pilg5rf637pq31foe3h
 vary: Origin
 access-control-allow-origin: 
 access-control-expose-headers: 
@@ -2772,58 +2772,7 @@ access-control-allow-credentials: true
     "total_pages": 1
   },
   "links": {
-    "self": "/api/tp-action-plans?page[page]=1&page[page-size]=10&tpid=Golbat"
-  },
-  "jsonapi": {
-    "version": "1.0"
-  },
-  "data": [
-    {
-      "type": "tp-action-plan",
-      "id": "11",
-      "attributes": {
-        "weight": 10.0,
-        "tpid": "Golbat",
-        "timing-tag": "Trois Pistoles",
-        "tag": "90 Minute IPA",
-        "created-at": "2017-10-05T11:47:00.000000",
-        "actions-tag": "Racer 5 India Pale Ale, Bear Republic Bre"
-      }
-    }
-  ]
-}
-```
-
-#### GET index lists all entries related tariff plan on index
-##### Request
-* __Method:__ GET
-* __Path:__ /api/tp-action-plans?tpid=Exeggcute
-* __Request headers:__
-```
-accept: application/vnd.api+json
-content-type: application/vnd.api+json
-```
-##### Response
-* __Status__: 200
-* __Response headers:__
-```
-content-type: application/vnd.api+json; charset=utf-8
-cache-control: max-age=0, private, must-revalidate
-x-request-id: b4ej6ab8h91cn3br0ogu4dns2jri5ctt
-vary: Origin
-access-control-allow-origin: 
-access-control-expose-headers: 
-access-control-allow-credentials: true
-```
-* __Response body:__
-```json
-{
-  "meta": {
-    "total_records": 1,
-    "total_pages": 1
-  },
-  "links": {
-    "self": "/api/tp-action-plans?page[page]=1&page[page-size]=10&tpid=Exeggcute"
+    "self": "/api/tp-action-plans?page[page]=1&page[page-size]=10&tpid=Gengar"
   },
   "jsonapi": {
     "version": "1.0"
@@ -2834,22 +2783,21 @@ access-control-allow-credentials: true
       "id": "6",
       "attributes": {
         "weight": 10.0,
-        "tpid": "Exeggcute",
-        "timing-tag": "Nugget Nectar",
-        "tag": "Stone Imperial Russian Stout",
-        "created-at": "2017-10-05T11:47:00.000000",
-        "actions-tag": "Chimay Grande Réserve"
+        "tpid": "Gengar",
+        "timing-tag": "Sublimely Self-Righteous Ale",
+        "tag": "Oaked Arrogant Bastard Ale",
+        "created-at": "2017-10-05T12:42:02.000000",
+        "actions-tag": "HopSlam Ale"
       }
     }
   ]
 }
 ```
 
-### CgratesWebJsonapi.TpActionPlanController.show
-#### GET show shows chosen resource
+#### GET index lists all entries related tariff plan on index
 ##### Request
 * __Method:__ GET
-* __Path:__ /api/tp-action-plans/4
+* __Path:__ /api/tp-action-plans?tpid=Nidorino
 * __Request headers:__
 ```
 accept: application/vnd.api+json
@@ -2861,7 +2809,59 @@ content-type: application/vnd.api+json
 ```
 content-type: application/vnd.api+json; charset=utf-8
 cache-control: max-age=0, private, must-revalidate
-x-request-id: 5suqh86nmu8mj5tf4kor0gdcss2ur323
+x-request-id: bnsbh4sgu5rdmptlbkoc38jkq4qe2r88
+vary: Origin
+access-control-allow-origin: 
+access-control-expose-headers: 
+access-control-allow-credentials: true
+```
+* __Response body:__
+```json
+{
+  "meta": {
+    "total_records": 1,
+    "total_pages": 1
+  },
+  "links": {
+    "self": "/api/tp-action-plans?page[page]=1&page[page-size]=10&tpid=Nidorino"
+  },
+  "jsonapi": {
+    "version": "1.0"
+  },
+  "data": [
+    {
+      "type": "tp-action-plan",
+      "id": "4",
+      "attributes": {
+        "weight": 10.0,
+        "tpid": "Nidorino",
+        "timing-tag": "Dreadnaught IPA",
+        "tag": "Samuel Smith’s Oatmeal Stout",
+        "created-at": "2017-10-05T12:42:02.000000",
+        "actions-tag": "La Fin Du Monde"
+      }
+    }
+  ]
+}
+```
+
+### CgratesWebJsonapi.TpActionPlanController.show
+#### GET show shows chosen resource
+##### Request
+* __Method:__ GET
+* __Path:__ /api/tp-action-plans/12
+* __Request headers:__
+```
+accept: application/vnd.api+json
+content-type: application/vnd.api+json
+```
+##### Response
+* __Status__: 200
+* __Response headers:__
+```
+content-type: application/vnd.api+json; charset=utf-8
+cache-control: max-age=0, private, must-revalidate
+x-request-id: t0s052nmpiv032v9q4tbivgtn212v7er
 vary: Origin
 access-control-allow-origin: 
 access-control-expose-headers: 
@@ -2875,14 +2875,14 @@ access-control-allow-credentials: true
   },
   "data": {
     "type": "tp-action-plan",
-    "id": "4",
+    "id": "12",
     "attributes": {
       "weight": 10.0,
-      "tpid": "Jynx",
-      "timing-tag": "Storm King Stout",
-      "tag": "Duvel",
-      "created-at": "2017-10-05T11:47:00.000000",
-      "actions-tag": "Two Hearted Ale"
+      "tpid": "Electrode",
+      "timing-tag": "Double Bastard Ale",
+      "tag": "Nugget Nectar",
+      "created-at": "2017-10-05T12:42:02.000000",
+      "actions-tag": "Dreadnaught IPA"
     }
   }
 }
@@ -2892,7 +2892,7 @@ access-control-allow-credentials: true
 #### PATCH/PUT update does not update chosen resource and renders errors when data is invalid
 ##### Request
 * __Method:__ PUT
-* __Path:__ /api/tp-action-plans/8
+* __Path:__ /api/tp-action-plans/1
 * __Request headers:__
 ```
 accept: application/vnd.api+json
@@ -2904,7 +2904,7 @@ content-type: application/vnd.api+json
 ```
 content-type: application/vnd.api+json; charset=utf-8
 cache-control: max-age=0, private, must-revalidate
-x-request-id: eb2tgajh6l4uif2u65unbn6c0c6a3pjn
+x-request-id: lqd7d7cp7heljkk42dhml6ie59r4vpd6
 vary: Origin
 access-control-allow-origin: 
 access-control-expose-headers: 
@@ -2931,7 +2931,7 @@ access-control-allow-credentials: true
 #### PATCH/PUT update updates and renders chosen resource when data is valid
 ##### Request
 * __Method:__ PUT
-* __Path:__ /api/tp-action-plans/3
+* __Path:__ /api/tp-action-plans/10
 * __Request headers:__
 ```
 accept: application/vnd.api+json
@@ -2943,7 +2943,7 @@ content-type: application/vnd.api+json
 ```
 content-type: application/vnd.api+json; charset=utf-8
 cache-control: max-age=0, private, must-revalidate
-x-request-id: flbntih2ccglhpg55ma465kg125hmfo0
+x-request-id: s32oo31b7oepec1hf5taht1fa7r489nf
 vary: Origin
 access-control-allow-origin: 
 access-control-expose-headers: 
@@ -2957,14 +2957,14 @@ access-control-allow-credentials: true
   },
   "data": {
     "type": "tp-action-plan",
-    "id": "3",
+    "id": "10",
     "attributes": {
       "weight": 10.0,
-      "tpid": "Koffing",
-      "timing-tag": "Storm King Stout",
-      "tag": "Maharaj",
-      "created-at": "2017-10-05T11:47:00.000000",
-      "actions-tag": "HopSlam Ale"
+      "tpid": "Grimer",
+      "timing-tag": "Shakespeare Oatmeal",
+      "tag": "Brooklyn Black",
+      "created-at": "2017-10-05T12:42:02.000000",
+      "actions-tag": "Double Bastard Ale"
     }
   }
 }
@@ -2987,7 +2987,7 @@ content-type: application/vnd.api+json
 ```
 content-type: application/vnd.api+json; charset=utf-8
 cache-control: max-age=0, private, must-revalidate
-x-request-id: rkce6cc7pg0kut7hiv0arg85nqsg1q24
+x-request-id: qugi0tv3p2juensea4thsdur6o39setl
 vary: Origin
 access-control-allow-origin: 
 access-control-expose-headers: 
@@ -3001,10 +3001,10 @@ access-control-allow-credentials: true
   },
   "data": {
     "type": "tp-destination",
-    "id": "7",
+    "id": "13",
     "attributes": {
-      "tpid": "Dodrio",
-      "tag": "Sandshrew",
+      "tpid": "Nidoran",
+      "tag": "Magikarp",
       "prefix": "+44",
       "created-at": null
     }
@@ -3016,7 +3016,7 @@ access-control-allow-credentials: true
 #### deletes chosen resource
 ##### Request
 * __Method:__ DELETE
-* __Path:__ /api/tp-destinations/17
+* __Path:__ /api/tp-destinations/15
 * __Request headers:__
 ```
 accept: application/vnd.api+json
@@ -3027,7 +3027,7 @@ content-type: application/vnd.api+json
 * __Response headers:__
 ```
 cache-control: max-age=0, private, must-revalidate
-x-request-id: km47borao3tclbua726l270vkasl5oaq
+x-request-id: k9qleqntbiu5m5an131ho0ompe5e91cp
 vary: Origin
 access-control-allow-origin: 
 access-control-expose-headers: 
@@ -3043,7 +3043,7 @@ content-type: application/vnd.api+json
 #### sorting by prefix
 ##### Request
 * __Method:__ GET
-* __Path:__ /api/tp-destinations?tpid=Kabutops
+* __Path:__ /api/tp-destinations?tpid=Rhydon
 * __Request headers:__
 ```
 accept: application/vnd.api+json
@@ -3055,7 +3055,7 @@ content-type: application/vnd.api+json
 ```
 content-type: application/vnd.api+json; charset=utf-8
 cache-control: max-age=0, private, must-revalidate
-x-request-id: kosf274i73rgv65kbg5cuhs40h639413
+x-request-id: 9e4jjnadhia13b2og4von5jusph9qiaa
 vary: Origin
 access-control-allow-origin: 
 access-control-expose-headers: 
@@ -3069,7 +3069,7 @@ access-control-allow-credentials: true
     "total_pages": 1
   },
   "links": {
-    "self": "/api/tp-destinations?page[page]=1&page[page-size]=10&tpid=Kabutops"
+    "self": "/api/tp-destinations?page[page]=1&page[page-size]=10&tpid=Rhydon"
   },
   "jsonapi": {
     "version": "1.0"
@@ -3077,22 +3077,22 @@ access-control-allow-credentials: true
   "data": [
     {
       "type": "tp-destination",
-      "id": "2",
+      "id": "7",
       "attributes": {
-        "tpid": "Kabutops",
-        "tag": "Kabutops",
+        "tpid": "Rhydon",
+        "tag": "Dragonite",
         "prefix": "+7",
-        "created-at": "2017-10-05T11:47:00.000000"
+        "created-at": "2017-10-05T12:42:02.000000"
       }
     },
     {
       "type": "tp-destination",
-      "id": "1",
+      "id": "6",
       "attributes": {
-        "tpid": "Kabutops",
-        "tag": "Rhyhorn",
+        "tpid": "Rhydon",
+        "tag": "Exeggutor",
         "prefix": "+4",
-        "created-at": "2017-10-05T11:47:00.000000"
+        "created-at": "2017-10-05T12:42:02.000000"
       }
     }
   ]
@@ -3102,7 +3102,7 @@ access-control-allow-credentials: true
 #### sorting by tag
 ##### Request
 * __Method:__ GET
-* __Path:__ /api/tp-destinations?tpid=Omanyte
+* __Path:__ /api/tp-destinations?tpid=Clefairy
 * __Request headers:__
 ```
 accept: application/vnd.api+json
@@ -3114,7 +3114,7 @@ content-type: application/vnd.api+json
 ```
 content-type: application/vnd.api+json; charset=utf-8
 cache-control: max-age=0, private, must-revalidate
-x-request-id: h8e8qjgk5bv5646p96ns2edapuuq23sv
+x-request-id: ss6ggnescolale5rgtpr3k9l45geocj6
 vary: Origin
 access-control-allow-origin: 
 access-control-expose-headers: 
@@ -3128,7 +3128,7 @@ access-control-allow-credentials: true
     "total_pages": 1
   },
   "links": {
-    "self": "/api/tp-destinations?page[page]=1&page[page-size]=10&tpid=Omanyte"
+    "self": "/api/tp-destinations?page[page]=1&page[page-size]=10&tpid=Clefairy"
   },
   "jsonapi": {
     "version": "1.0"
@@ -3136,22 +3136,22 @@ access-control-allow-credentials: true
   "data": [
     {
       "type": "tp-destination",
-      "id": "16",
+      "id": "17",
       "attributes": {
-        "tpid": "Omanyte",
+        "tpid": "Clefairy",
         "tag": "A",
         "prefix": "+44",
-        "created-at": "2017-10-05T11:47:00.000000"
+        "created-at": "2017-10-05T12:42:02.000000"
       }
     },
     {
       "type": "tp-destination",
-      "id": "15",
+      "id": "16",
       "attributes": {
-        "tpid": "Omanyte",
+        "tpid": "Clefairy",
         "tag": "B",
         "prefix": "+44",
-        "created-at": "2017-10-05T11:47:00.000000"
+        "created-at": "2017-10-05T12:42:02.000000"
       }
     }
   ]
@@ -3161,7 +3161,7 @@ access-control-allow-credentials: true
 #### filtering by prefix
 ##### Request
 * __Method:__ GET
-* __Path:__ /api/tp-destinations?tpid=Pinsir
+* __Path:__ /api/tp-destinations?tpid=Gyarados
 * __Request headers:__
 ```
 accept: application/vnd.api+json
@@ -3173,7 +3173,7 @@ content-type: application/vnd.api+json
 ```
 content-type: application/vnd.api+json; charset=utf-8
 cache-control: max-age=0, private, must-revalidate
-x-request-id: 69icdg8ins88dsaakb4tescprmmngc5b
+x-request-id: gjfc8sitdql5c93tspi3handh5so5e05
 vary: Origin
 access-control-allow-origin: 
 access-control-expose-headers: 
@@ -3187,7 +3187,7 @@ access-control-allow-credentials: true
     "total_pages": 1
   },
   "links": {
-    "self": "/api/tp-destinations?page[page]=1&page[page-size]=10&tpid=Pinsir"
+    "self": "/api/tp-destinations?page[page]=1&page[page-size]=10&tpid=Gyarados"
   },
   "jsonapi": {
     "version": "1.0"
@@ -3195,12 +3195,12 @@ access-control-allow-credentials: true
   "data": [
     {
       "type": "tp-destination",
-      "id": "13",
+      "id": "10",
       "attributes": {
-        "tpid": "Pinsir",
-        "tag": "Raticate",
+        "tpid": "Gyarados",
+        "tag": "Nidoran",
         "prefix": "12",
-        "created-at": "2017-10-05T11:47:00.000000"
+        "created-at": "2017-10-05T12:42:02.000000"
       }
     }
   ]
@@ -3210,7 +3210,7 @@ access-control-allow-credentials: true
 #### filtering by tag
 ##### Request
 * __Method:__ GET
-* __Path:__ /api/tp-destinations?tpid=Abra
+* __Path:__ /api/tp-destinations?tpid=Charmeleon
 * __Request headers:__
 ```
 accept: application/vnd.api+json
@@ -3222,7 +3222,7 @@ content-type: application/vnd.api+json
 ```
 content-type: application/vnd.api+json; charset=utf-8
 cache-control: max-age=0, private, must-revalidate
-x-request-id: u1t5u9gesbr8q7fue7eavi0uc9522d1p
+x-request-id: epqr925aitpb830vacle264rq7jlln8f
 vary: Origin
 access-control-allow-origin: 
 access-control-expose-headers: 
@@ -3236,7 +3236,7 @@ access-control-allow-credentials: true
     "total_pages": 1
   },
   "links": {
-    "self": "/api/tp-destinations?page[page]=1&page[page-size]=10&tpid=Abra"
+    "self": "/api/tp-destinations?page[page]=1&page[page-size]=10&tpid=Charmeleon"
   },
   "jsonapi": {
     "version": "1.0"
@@ -3246,10 +3246,10 @@ access-control-allow-credentials: true
       "type": "tp-destination",
       "id": "8",
       "attributes": {
-        "tpid": "Abra",
-        "tag": "Hitmonlee",
+        "tpid": "Charmeleon",
+        "tag": "Rattata",
         "prefix": "+44",
-        "created-at": "2017-10-05T11:47:00.000000"
+        "created-at": "2017-10-05T12:42:02.000000"
       }
     }
   ]
@@ -3259,7 +3259,7 @@ access-control-allow-credentials: true
 #### pagination list
 ##### Request
 * __Method:__ GET
-* __Path:__ /api/tp-destinations?tpid=Mr.&page[page]=2&page[page-size]=1
+* __Path:__ /api/tp-destinations?tpid=Flareon&page[page]=2&page[page-size]=1
 * __Request headers:__
 ```
 accept: application/vnd.api+json
@@ -3271,7 +3271,7 @@ content-type: application/vnd.api+json
 ```
 content-type: application/vnd.api+json; charset=utf-8
 cache-control: max-age=0, private, must-revalidate
-x-request-id: j67lfothm8h94ugbq4i0h4uv5v14stqu
+x-request-id: u0ejbv8dc31senad01o7h521dmt9nt9m
 vary: Origin
 access-control-allow-origin: 
 access-control-expose-headers: 
@@ -3285,9 +3285,9 @@ access-control-allow-credentials: true
     "total_pages": 2
   },
   "links": {
-    "self": "/api/tp-destinations?page[page]=2&page[page-size]=1&tpid=Mr.",
-    "prev": "/api/tp-destinations?page[page]=1&page[page-size]=1&tpid=Mr.",
-    "first": "/api/tp-destinations?page[page]=1&page[page-size]=1&tpid=Mr."
+    "self": "/api/tp-destinations?page[page]=2&page[page-size]=1&tpid=Flareon",
+    "prev": "/api/tp-destinations?page[page]=1&page[page-size]=1&tpid=Flareon",
+    "first": "/api/tp-destinations?page[page]=1&page[page-size]=1&tpid=Flareon"
   },
   "jsonapi": {
     "version": "1.0"
@@ -3295,12 +3295,12 @@ access-control-allow-credentials: true
   "data": [
     {
       "type": "tp-destination",
-      "id": "5",
+      "id": "4",
       "attributes": {
-        "tpid": "Mr.",
-        "tag": "Poliwhirl",
+        "tpid": "Flareon",
+        "tag": "Nidoking",
         "prefix": "+44",
-        "created-at": "2017-10-05T11:47:00.000000"
+        "created-at": "2017-10-05T12:42:02.000000"
       }
     }
   ]
@@ -3310,7 +3310,7 @@ access-control-allow-credentials: true
 #### lists all entries related tariff plan on index
 ##### Request
 * __Method:__ GET
-* __Path:__ /api/tp-destinations?tpid=Hypno
+* __Path:__ /api/tp-destinations?tpid=Sandshrew
 * __Request headers:__
 ```
 accept: application/vnd.api+json
@@ -3322,7 +3322,7 @@ content-type: application/vnd.api+json
 ```
 content-type: application/vnd.api+json; charset=utf-8
 cache-control: max-age=0, private, must-revalidate
-x-request-id: d1ccvb1j3sputdljosk844aokotn6gl0
+x-request-id: f0o58ft6qpb26cnaa3nn4tmei71pn8ml
 vary: Origin
 access-control-allow-origin: 
 access-control-expose-headers: 
@@ -3336,7 +3336,7 @@ access-control-allow-credentials: true
     "total_pages": 1
   },
   "links": {
-    "self": "/api/tp-destinations?page[page]=1&page[page-size]=10&tpid=Hypno"
+    "self": "/api/tp-destinations?page[page]=1&page[page-size]=10&tpid=Sandshrew"
   },
   "jsonapi": {
     "version": "1.0"
@@ -3344,12 +3344,12 @@ access-control-allow-credentials: true
   "data": [
     {
       "type": "tp-destination",
-      "id": "11",
+      "id": "2",
       "attributes": {
-        "tpid": "Hypno",
-        "tag": "Machamp",
+        "tpid": "Sandshrew",
+        "tag": "Kadabra",
         "prefix": "+44",
-        "created-at": "2017-10-05T11:47:00.000000"
+        "created-at": "2017-10-05T12:42:02.000000"
       }
     }
   ]
@@ -3360,7 +3360,7 @@ access-control-allow-credentials: true
 #### shows chosen resource
 ##### Request
 * __Method:__ GET
-* __Path:__ /api/tp-destinations/6
+* __Path:__ /api/tp-destinations/14
 * __Request headers:__
 ```
 accept: application/vnd.api+json
@@ -3372,7 +3372,7 @@ content-type: application/vnd.api+json
 ```
 content-type: application/vnd.api+json; charset=utf-8
 cache-control: max-age=0, private, must-revalidate
-x-request-id: fpkau77pb3gqs7i2cadn2pq099hq92qs
+x-request-id: f41c762cft9ta49eq8svt0pmcnnqpvvc
 vary: Origin
 access-control-allow-origin: 
 access-control-expose-headers: 
@@ -3386,12 +3386,12 @@ access-control-allow-credentials: true
   },
   "data": {
     "type": "tp-destination",
-    "id": "6",
+    "id": "14",
     "attributes": {
-      "tpid": "Tentacruel",
-      "tag": "Shellder",
+      "tpid": "Magikarp",
+      "tag": "Dodrio",
       "prefix": "+44",
-      "created-at": "2017-10-05T11:47:00.000000"
+      "created-at": "2017-10-05T12:42:02.000000"
     }
   }
 }
@@ -3401,7 +3401,7 @@ access-control-allow-credentials: true
 #### does not update chosen resource and renders errors when data is invalid
 ##### Request
 * __Method:__ PUT
-* __Path:__ /api/tp-destinations/10
+* __Path:__ /api/tp-destinations/1
 * __Request headers:__
 ```
 accept: application/vnd.api+json
@@ -3413,7 +3413,7 @@ content-type: application/vnd.api+json
 ```
 content-type: application/vnd.api+json; charset=utf-8
 cache-control: max-age=0, private, must-revalidate
-x-request-id: scpa4u5e4isldgiigk9g9gj3gfrvutig
+x-request-id: c9j3m236i8p2a5geec3dnricieurg9ld
 vary: Origin
 access-control-allow-origin: 
 access-control-expose-headers: 
@@ -3440,7 +3440,7 @@ access-control-allow-credentials: true
 #### updates and renders chosen resource when data is valid
 ##### Request
 * __Method:__ PUT
-* __Path:__ /api/tp-destinations/3
+* __Path:__ /api/tp-destinations/12
 * __Request headers:__
 ```
 accept: application/vnd.api+json
@@ -3452,7 +3452,7 @@ content-type: application/vnd.api+json
 ```
 content-type: application/vnd.api+json; charset=utf-8
 cache-control: max-age=0, private, must-revalidate
-x-request-id: 04c00vq4dcv3nb5ete93oefvkqqlm1lv
+x-request-id: 0u1c80h8p55vhv3hvbjkcbmkro0ieke5
 vary: Origin
 access-control-allow-origin: 
 access-control-expose-headers: 
@@ -3466,12 +3466,12 @@ access-control-allow-credentials: true
   },
   "data": {
     "type": "tp-destination",
-    "id": "3",
+    "id": "12",
     "attributes": {
-      "tpid": "Rhydon",
-      "tag": "Dragonair",
+      "tpid": "Raticate",
+      "tag": "Bellsprout",
       "prefix": "+44",
-      "created-at": "2017-10-05T11:47:00.000000"
+      "created-at": "2017-10-05T12:42:02.000000"
     }
   }
 }
@@ -3494,7 +3494,7 @@ content-type: application/vnd.api+json
 ```
 content-type: application/vnd.api+json; charset=utf-8
 cache-control: max-age=0, private, must-revalidate
-x-request-id: rvjl1o0gnl0h4f2foia39hrcldr8b9qo
+x-request-id: 1jucfe4gudqvjef3r8oljg1opshg7k62
 vary: Origin
 access-control-allow-origin: 
 access-control-expose-headers: 
@@ -3582,7 +3582,7 @@ content-type: application/vnd.api+json
 ```
 content-type: application/vnd.api+json; charset=utf-8
 cache-control: max-age=0, private, must-revalidate
-x-request-id: bta1r3m141shit96tl3ahcgns1ed5obr
+x-request-id: m4h8rojgs5jhinj6i92hn19a32nnshc8
 vary: Origin
 access-control-allow-origin: 
 access-control-expose-headers: 
@@ -3596,13 +3596,13 @@ access-control-allow-credentials: true
   },
   "data": {
     "type": "tp-destination-rate",
-    "id": "7",
+    "id": "17",
     "attributes": {
-      "tpid": "Arbok",
-      "tag": "Raichu",
+      "tpid": "Ditto",
+      "tag": "Dewgong",
       "rounding-method": "*up",
       "rounding-decimals": 1,
-      "rates-tag": "Nidoking",
+      "rates-tag": "Farfetch'd",
       "max-cost-strategy": "*free",
       "max-cost": 100.0,
       "destinations-tag": "Dragonite",
@@ -3627,7 +3627,7 @@ content-type: application/vnd.api+json
 * __Response headers:__
 ```
 cache-control: max-age=0, private, must-revalidate
-x-request-id: 4g7ih92dmksnnklq3f03jusdkbfirs5g
+x-request-id: jjng621fjl6kidm0iobo5oampack1e7g
 vary: Origin
 access-control-allow-origin: 
 access-control-expose-headers: 
@@ -3643,7 +3643,7 @@ content-type: application/vnd.api+json
 #### filtering by max_cost_strategy
 ##### Request
 * __Method:__ GET
-* __Path:__ /api/tp-destination-rates?tpid=Diglett
+* __Path:__ /api/tp-destination-rates?tpid=Aerodactyl
 * __Request headers:__
 ```
 accept: application/vnd.api+json
@@ -3655,7 +3655,7 @@ content-type: application/vnd.api+json
 ```
 content-type: application/vnd.api+json; charset=utf-8
 cache-control: max-age=0, private, must-revalidate
-x-request-id: nv37500ep5h7kjote9nfk2hkk27eludv
+x-request-id: 32jq4qrqdgerg5j8ir6qi4mdhht25hos
 vary: Origin
 access-control-allow-origin: 
 access-control-expose-headers: 
@@ -3669,7 +3669,7 @@ access-control-allow-credentials: true
     "total_pages": 1
   },
   "links": {
-    "self": "/api/tp-destination-rates?page[page]=1&page[page-size]=10&tpid=Diglett"
+    "self": "/api/tp-destination-rates?page[page]=1&page[page-size]=10&tpid=Aerodactyl"
   },
   "jsonapi": {
     "version": "1.0"
@@ -3677,17 +3677,17 @@ access-control-allow-credentials: true
   "data": [
     {
       "type": "tp-destination-rate",
-      "id": "11",
+      "id": "14",
       "attributes": {
-        "tpid": "Diglett",
-        "tag": "Jolteon",
+        "tpid": "Aerodactyl",
+        "tag": "Mankey",
         "rounding-method": "*up",
         "rounding-decimals": 1,
-        "rates-tag": "Porygon",
+        "rates-tag": "Grimer",
         "max-cost-strategy": "*free",
         "max-cost": 100.0,
-        "destinations-tag": "Tangela",
-        "created-at": "2017-10-05T11:47:00.000000"
+        "destinations-tag": "Wartortle",
+        "created-at": "2017-10-05T12:42:02.000000"
       }
     }
   ]
@@ -3697,7 +3697,7 @@ access-control-allow-credentials: true
 #### filtering by max_cost
 ##### Request
 * __Method:__ GET
-* __Path:__ /api/tp-destination-rates?tpid=Nidoking
+* __Path:__ /api/tp-destination-rates?tpid=Rhyhorn
 * __Request headers:__
 ```
 accept: application/vnd.api+json
@@ -3709,7 +3709,7 @@ content-type: application/vnd.api+json
 ```
 content-type: application/vnd.api+json; charset=utf-8
 cache-control: max-age=0, private, must-revalidate
-x-request-id: jskhg43r3rif7hhuovapijoeu3eu6udr
+x-request-id: 34arnpmrt8a0ib1bs5jtm70578kdi7f5
 vary: Origin
 access-control-allow-origin: 
 access-control-expose-headers: 
@@ -3723,169 +3723,7 @@ access-control-allow-credentials: true
     "total_pages": 1
   },
   "links": {
-    "self": "/api/tp-destination-rates?page[page]=1&page[page-size]=10&tpid=Nidoking"
-  },
-  "jsonapi": {
-    "version": "1.0"
-  },
-  "data": [
-    {
-      "type": "tp-destination-rate",
-      "id": "1",
-      "attributes": {
-        "tpid": "Nidoking",
-        "tag": "Pikachu",
-        "rounding-method": "*up",
-        "rounding-decimals": 1,
-        "rates-tag": "Diglett",
-        "max-cost-strategy": "*free",
-        "max-cost": 1.0,
-        "destinations-tag": "Haunter",
-        "created-at": "2017-10-05T11:47:00.000000"
-      }
-    }
-  ]
-}
-```
-
-#### filtering by rounding_decimals
-##### Request
-* __Method:__ GET
-* __Path:__ /api/tp-destination-rates?tpid=Articuno
-* __Request headers:__
-```
-accept: application/vnd.api+json
-content-type: application/vnd.api+json
-```
-##### Response
-* __Status__: 200
-* __Response headers:__
-```
-content-type: application/vnd.api+json; charset=utf-8
-cache-control: max-age=0, private, must-revalidate
-x-request-id: s32pnmne1nopbjnv503e8schq254u592
-vary: Origin
-access-control-allow-origin: 
-access-control-expose-headers: 
-access-control-allow-credentials: true
-```
-* __Response body:__
-```json
-{
-  "meta": {
-    "total_records": 1,
-    "total_pages": 1
-  },
-  "links": {
-    "self": "/api/tp-destination-rates?page[page]=1&page[page-size]=10&tpid=Articuno"
-  },
-  "jsonapi": {
-    "version": "1.0"
-  },
-  "data": [
-    {
-      "type": "tp-destination-rate",
-      "id": "17",
-      "attributes": {
-        "tpid": "Articuno",
-        "tag": "Snorlax",
-        "rounding-method": "*up",
-        "rounding-decimals": 1,
-        "rates-tag": "Caterpie",
-        "max-cost-strategy": "*free",
-        "max-cost": 100.0,
-        "destinations-tag": "Victreebel",
-        "created-at": "2017-10-05T11:47:00.000000"
-      }
-    }
-  ]
-}
-```
-
-#### filtering by rounding_method
-##### Request
-* __Method:__ GET
-* __Path:__ /api/tp-destination-rates?tpid=Meowth
-* __Request headers:__
-```
-accept: application/vnd.api+json
-content-type: application/vnd.api+json
-```
-##### Response
-* __Status__: 200
-* __Response headers:__
-```
-content-type: application/vnd.api+json; charset=utf-8
-cache-control: max-age=0, private, must-revalidate
-x-request-id: rbr3uoeb7e0lalmb0p425777mu6q2shv
-vary: Origin
-access-control-allow-origin: 
-access-control-expose-headers: 
-access-control-allow-credentials: true
-```
-* __Response body:__
-```json
-{
-  "meta": {
-    "total_records": 1,
-    "total_pages": 1
-  },
-  "links": {
-    "self": "/api/tp-destination-rates?page[page]=1&page[page-size]=10&tpid=Meowth"
-  },
-  "jsonapi": {
-    "version": "1.0"
-  },
-  "data": [
-    {
-      "type": "tp-destination-rate",
-      "id": "15",
-      "attributes": {
-        "tpid": "Meowth",
-        "tag": "Seaking",
-        "rounding-method": "*up",
-        "rounding-decimals": 1,
-        "rates-tag": "Drowzee",
-        "max-cost-strategy": "*free",
-        "max-cost": 100.0,
-        "destinations-tag": "Farfetch'd",
-        "created-at": "2017-10-05T11:47:00.000000"
-      }
-    }
-  ]
-}
-```
-
-#### filtering by rates_tag
-##### Request
-* __Method:__ GET
-* __Path:__ /api/tp-destination-rates?tpid=Koffing
-* __Request headers:__
-```
-accept: application/vnd.api+json
-content-type: application/vnd.api+json
-```
-##### Response
-* __Status__: 200
-* __Response headers:__
-```
-content-type: application/vnd.api+json; charset=utf-8
-cache-control: max-age=0, private, must-revalidate
-x-request-id: eljpda7ucreslquv161vlf94gue98d4f
-vary: Origin
-access-control-allow-origin: 
-access-control-expose-headers: 
-access-control-allow-credentials: true
-```
-* __Response body:__
-```json
-{
-  "meta": {
-    "total_records": 1,
-    "total_pages": 1
-  },
-  "links": {
-    "self": "/api/tp-destination-rates?page[page]=1&page[page-size]=10&tpid=Koffing"
+    "self": "/api/tp-destination-rates?page[page]=1&page[page-size]=10&tpid=Rhyhorn"
   },
   "jsonapi": {
     "version": "1.0"
@@ -3895,25 +3733,25 @@ access-control-allow-credentials: true
       "type": "tp-destination-rate",
       "id": "8",
       "attributes": {
-        "tpid": "Koffing",
-        "tag": "Tangela",
+        "tpid": "Rhyhorn",
+        "tag": "Grimer",
         "rounding-method": "*up",
         "rounding-decimals": 1,
-        "rates-tag": "aa",
+        "rates-tag": "Seel",
         "max-cost-strategy": "*free",
-        "max-cost": 100.0,
-        "destinations-tag": "Lickitung",
-        "created-at": "2017-10-05T11:47:00.000000"
+        "max-cost": 1.0,
+        "destinations-tag": "Exeggutor",
+        "created-at": "2017-10-05T12:42:02.000000"
       }
     }
   ]
 }
 ```
 
-#### filtering by destinations_tag
+#### filtering by rounding_decimals
 ##### Request
 * __Method:__ GET
-* __Path:__ /api/tp-destination-rates?tpid=Dratini
+* __Path:__ /api/tp-destination-rates?tpid=Sandshrew
 * __Request headers:__
 ```
 accept: application/vnd.api+json
@@ -3925,7 +3763,7 @@ content-type: application/vnd.api+json
 ```
 content-type: application/vnd.api+json; charset=utf-8
 cache-control: max-age=0, private, must-revalidate
-x-request-id: 2dkc7l7790r0a7emu3fhdj4rna1folc3
+x-request-id: 2sbe48anmaib8s6lldog26b3at7ruuli
 vary: Origin
 access-control-allow-origin: 
 access-control-expose-headers: 
@@ -3939,115 +3777,7 @@ access-control-allow-credentials: true
     "total_pages": 1
   },
   "links": {
-    "self": "/api/tp-destination-rates?page[page]=1&page[page-size]=10&tpid=Dratini"
-  },
-  "jsonapi": {
-    "version": "1.0"
-  },
-  "data": [
-    {
-      "type": "tp-destination-rate",
-      "id": "4",
-      "attributes": {
-        "tpid": "Dratini",
-        "tag": "Wartortle",
-        "rounding-method": "*up",
-        "rounding-decimals": 1,
-        "rates-tag": "Doduo",
-        "max-cost-strategy": "*free",
-        "max-cost": 100.0,
-        "destinations-tag": "aa",
-        "created-at": "2017-10-05T11:47:00.000000"
-      }
-    }
-  ]
-}
-```
-
-#### filtering by tag
-##### Request
-* __Method:__ GET
-* __Path:__ /api/tp-destination-rates?tpid=Slowpoke
-* __Request headers:__
-```
-accept: application/vnd.api+json
-content-type: application/vnd.api+json
-```
-##### Response
-* __Status__: 200
-* __Response headers:__
-```
-content-type: application/vnd.api+json; charset=utf-8
-cache-control: max-age=0, private, must-revalidate
-x-request-id: 4322arb38fjjjlau14uoet116rgvj2il
-vary: Origin
-access-control-allow-origin: 
-access-control-expose-headers: 
-access-control-allow-credentials: true
-```
-* __Response body:__
-```json
-{
-  "meta": {
-    "total_records": 1,
-    "total_pages": 1
-  },
-  "links": {
-    "self": "/api/tp-destination-rates?page[page]=1&page[page-size]=10&tpid=Slowpoke"
-  },
-  "jsonapi": {
-    "version": "1.0"
-  },
-  "data": [
-    {
-      "type": "tp-destination-rate",
-      "id": "13",
-      "attributes": {
-        "tpid": "Slowpoke",
-        "tag": "aa",
-        "rounding-method": "*up",
-        "rounding-decimals": 1,
-        "rates-tag": "Seaking",
-        "max-cost-strategy": "*free",
-        "max-cost": 100.0,
-        "destinations-tag": "Seel",
-        "created-at": "2017-10-05T11:47:00.000000"
-      }
-    }
-  ]
-}
-```
-
-#### lists all entries related tariff plan on index
-##### Request
-* __Method:__ GET
-* __Path:__ /api/tp-destination-rates?tpid=Caterpie
-* __Request headers:__
-```
-accept: application/vnd.api+json
-content-type: application/vnd.api+json
-```
-##### Response
-* __Status__: 200
-* __Response headers:__
-```
-content-type: application/vnd.api+json; charset=utf-8
-cache-control: max-age=0, private, must-revalidate
-x-request-id: cr8e2ef5rnnv38q79dkr0gvtjaj9unrd
-vary: Origin
-access-control-allow-origin: 
-access-control-expose-headers: 
-access-control-allow-credentials: true
-```
-* __Response body:__
-```json
-{
-  "meta": {
-    "total_records": 1,
-    "total_pages": 1
-  },
-  "links": {
-    "self": "/api/tp-destination-rates?page[page]=1&page[page-size]=10&tpid=Caterpie"
+    "self": "/api/tp-destination-rates?page[page]=1&page[page-size]=10&tpid=Sandshrew"
   },
   "jsonapi": {
     "version": "1.0"
@@ -4057,15 +3787,285 @@ access-control-allow-credentials: true
       "type": "tp-destination-rate",
       "id": "20",
       "attributes": {
-        "tpid": "Caterpie",
-        "tag": "Metapod",
+        "tpid": "Sandshrew",
+        "tag": "Tentacruel",
         "rounding-method": "*up",
         "rounding-decimals": 1,
-        "rates-tag": "Oddish",
+        "rates-tag": "Bellsprout",
         "max-cost-strategy": "*free",
         "max-cost": 100.0,
-        "destinations-tag": "Victreebel",
-        "created-at": "2017-10-05T11:47:00.000000"
+        "destinations-tag": "Hitmonlee",
+        "created-at": "2017-10-05T12:42:02.000000"
+      }
+    }
+  ]
+}
+```
+
+#### filtering by rounding_method
+##### Request
+* __Method:__ GET
+* __Path:__ /api/tp-destination-rates?tpid=Jigglypuff
+* __Request headers:__
+```
+accept: application/vnd.api+json
+content-type: application/vnd.api+json
+```
+##### Response
+* __Status__: 200
+* __Response headers:__
+```
+content-type: application/vnd.api+json; charset=utf-8
+cache-control: max-age=0, private, must-revalidate
+x-request-id: 7rg4j9l19r1k90h9mqt795g9lofd5e22
+vary: Origin
+access-control-allow-origin: 
+access-control-expose-headers: 
+access-control-allow-credentials: true
+```
+* __Response body:__
+```json
+{
+  "meta": {
+    "total_records": 1,
+    "total_pages": 1
+  },
+  "links": {
+    "self": "/api/tp-destination-rates?page[page]=1&page[page-size]=10&tpid=Jigglypuff"
+  },
+  "jsonapi": {
+    "version": "1.0"
+  },
+  "data": [
+    {
+      "type": "tp-destination-rate",
+      "id": "12",
+      "attributes": {
+        "tpid": "Jigglypuff",
+        "tag": "Weezing",
+        "rounding-method": "*up",
+        "rounding-decimals": 1,
+        "rates-tag": "Lapras",
+        "max-cost-strategy": "*free",
+        "max-cost": 100.0,
+        "destinations-tag": "Arcanine",
+        "created-at": "2017-10-05T12:42:02.000000"
+      }
+    }
+  ]
+}
+```
+
+#### filtering by rates_tag
+##### Request
+* __Method:__ GET
+* __Path:__ /api/tp-destination-rates?tpid=Hitmonchan
+* __Request headers:__
+```
+accept: application/vnd.api+json
+content-type: application/vnd.api+json
+```
+##### Response
+* __Status__: 200
+* __Response headers:__
+```
+content-type: application/vnd.api+json; charset=utf-8
+cache-control: max-age=0, private, must-revalidate
+x-request-id: m926rrsran2vgvsgr287u3il0u0fic5a
+vary: Origin
+access-control-allow-origin: 
+access-control-expose-headers: 
+access-control-allow-credentials: true
+```
+* __Response body:__
+```json
+{
+  "meta": {
+    "total_records": 1,
+    "total_pages": 1
+  },
+  "links": {
+    "self": "/api/tp-destination-rates?page[page]=1&page[page-size]=10&tpid=Hitmonchan"
+  },
+  "jsonapi": {
+    "version": "1.0"
+  },
+  "data": [
+    {
+      "type": "tp-destination-rate",
+      "id": "10",
+      "attributes": {
+        "tpid": "Hitmonchan",
+        "tag": "Charmander",
+        "rounding-method": "*up",
+        "rounding-decimals": 1,
+        "rates-tag": "aa",
+        "max-cost-strategy": "*free",
+        "max-cost": 100.0,
+        "destinations-tag": "Cloyster",
+        "created-at": "2017-10-05T12:42:02.000000"
+      }
+    }
+  ]
+}
+```
+
+#### filtering by destinations_tag
+##### Request
+* __Method:__ GET
+* __Path:__ /api/tp-destination-rates?tpid=Poliwrath
+* __Request headers:__
+```
+accept: application/vnd.api+json
+content-type: application/vnd.api+json
+```
+##### Response
+* __Status__: 200
+* __Response headers:__
+```
+content-type: application/vnd.api+json; charset=utf-8
+cache-control: max-age=0, private, must-revalidate
+x-request-id: a4vo8cg2qpf92m6ipdivlbb6jlef5b05
+vary: Origin
+access-control-allow-origin: 
+access-control-expose-headers: 
+access-control-allow-credentials: true
+```
+* __Response body:__
+```json
+{
+  "meta": {
+    "total_records": 1,
+    "total_pages": 1
+  },
+  "links": {
+    "self": "/api/tp-destination-rates?page[page]=1&page[page-size]=10&tpid=Poliwrath"
+  },
+  "jsonapi": {
+    "version": "1.0"
+  },
+  "data": [
+    {
+      "type": "tp-destination-rate",
+      "id": "6",
+      "attributes": {
+        "tpid": "Poliwrath",
+        "tag": "Goldeen",
+        "rounding-method": "*up",
+        "rounding-decimals": 1,
+        "rates-tag": "Charmeleon",
+        "max-cost-strategy": "*free",
+        "max-cost": 100.0,
+        "destinations-tag": "aa",
+        "created-at": "2017-10-05T12:42:02.000000"
+      }
+    }
+  ]
+}
+```
+
+#### filtering by tag
+##### Request
+* __Method:__ GET
+* __Path:__ /api/tp-destination-rates?tpid=Magneton
+* __Request headers:__
+```
+accept: application/vnd.api+json
+content-type: application/vnd.api+json
+```
+##### Response
+* __Status__: 200
+* __Response headers:__
+```
+content-type: application/vnd.api+json; charset=utf-8
+cache-control: max-age=0, private, must-revalidate
+x-request-id: cjil7g4l39g98cko39ln6ot0dj4u1ctl
+vary: Origin
+access-control-allow-origin: 
+access-control-expose-headers: 
+access-control-allow-credentials: true
+```
+* __Response body:__
+```json
+{
+  "meta": {
+    "total_records": 1,
+    "total_pages": 1
+  },
+  "links": {
+    "self": "/api/tp-destination-rates?page[page]=1&page[page-size]=10&tpid=Magneton"
+  },
+  "jsonapi": {
+    "version": "1.0"
+  },
+  "data": [
+    {
+      "type": "tp-destination-rate",
+      "id": "2",
+      "attributes": {
+        "tpid": "Magneton",
+        "tag": "aa",
+        "rounding-method": "*up",
+        "rounding-decimals": 1,
+        "rates-tag": "Charmander",
+        "max-cost-strategy": "*free",
+        "max-cost": 100.0,
+        "destinations-tag": "Zubat",
+        "created-at": "2017-10-05T12:42:02.000000"
+      }
+    }
+  ]
+}
+```
+
+#### lists all entries related tariff plan on index
+##### Request
+* __Method:__ GET
+* __Path:__ /api/tp-destination-rates?tpid=Nidoran
+* __Request headers:__
+```
+accept: application/vnd.api+json
+content-type: application/vnd.api+json
+```
+##### Response
+* __Status__: 200
+* __Response headers:__
+```
+content-type: application/vnd.api+json; charset=utf-8
+cache-control: max-age=0, private, must-revalidate
+x-request-id: pbdqj61qg4dpn87q2eip7gjvu0t0tust
+vary: Origin
+access-control-allow-origin: 
+access-control-expose-headers: 
+access-control-allow-credentials: true
+```
+* __Response body:__
+```json
+{
+  "meta": {
+    "total_records": 1,
+    "total_pages": 1
+  },
+  "links": {
+    "self": "/api/tp-destination-rates?page[page]=1&page[page-size]=10&tpid=Nidoran"
+  },
+  "jsonapi": {
+    "version": "1.0"
+  },
+  "data": [
+    {
+      "type": "tp-destination-rate",
+      "id": "4",
+      "attributes": {
+        "tpid": "Nidoran",
+        "tag": "Haunter",
+        "rounding-method": "*up",
+        "rounding-decimals": 1,
+        "rates-tag": "Slowbro",
+        "max-cost-strategy": "*free",
+        "max-cost": 100.0,
+        "destinations-tag": "Voltorb",
+        "created-at": "2017-10-05T12:42:02.000000"
       }
     }
   ]
@@ -4076,7 +4076,7 @@ access-control-allow-credentials: true
 #### shows chosen resource
 ##### Request
 * __Method:__ GET
-* __Path:__ /api/tp-destination-rates/6
+* __Path:__ /api/tp-destination-rates/18
 * __Request headers:__
 ```
 accept: application/vnd.api+json
@@ -4088,7 +4088,7 @@ content-type: application/vnd.api+json
 ```
 content-type: application/vnd.api+json; charset=utf-8
 cache-control: max-age=0, private, must-revalidate
-x-request-id: rda98ga58m1n0u3c5b8o1buq99adsjb4
+x-request-id: 0s7o70jf6qngmq32flh0bq92asfme3ad
 vary: Origin
 access-control-allow-origin: 
 access-control-expose-headers: 
@@ -4102,17 +4102,17 @@ access-control-allow-credentials: true
   },
   "data": {
     "type": "tp-destination-rate",
-    "id": "6",
+    "id": "18",
     "attributes": {
-      "tpid": "Psyduck",
-      "tag": "Rhyhorn",
+      "tpid": "Machop",
+      "tag": "Goldeen",
       "rounding-method": "*up",
       "rounding-decimals": 1,
-      "rates-tag": "Gengar",
+      "rates-tag": "Haunter",
       "max-cost-strategy": "*free",
       "max-cost": 100.0,
-      "destinations-tag": "Voltorb",
-      "created-at": "2017-10-05T11:47:00.000000"
+      "destinations-tag": "Bulbasaur",
+      "created-at": "2017-10-05T12:42:02.000000"
     }
   }
 }
@@ -4122,7 +4122,7 @@ access-control-allow-credentials: true
 #### does not update chosen resource and renders errors when data is invalid
 ##### Request
 * __Method:__ PUT
-* __Path:__ /api/tp-destination-rates/10
+* __Path:__ /api/tp-destination-rates/1
 * __Request headers:__
 ```
 accept: application/vnd.api+json
@@ -4134,7 +4134,7 @@ content-type: application/vnd.api+json
 ```
 content-type: application/vnd.api+json; charset=utf-8
 cache-control: max-age=0, private, must-revalidate
-x-request-id: 9shbgse5pntqg7rblf05gc6uq8q9sv20
+x-request-id: rf7he7g71t4vj3bia51rdu7muvuc1h3c
 vary: Origin
 access-control-allow-origin: 
 access-control-expose-headers: 
@@ -4161,7 +4161,7 @@ access-control-allow-credentials: true
 #### updates and renders chosen resource when data is valid
 ##### Request
 * __Method:__ PUT
-* __Path:__ /api/tp-destination-rates/3
+* __Path:__ /api/tp-destination-rates/16
 * __Request headers:__
 ```
 accept: application/vnd.api+json
@@ -4173,7 +4173,7 @@ content-type: application/vnd.api+json
 ```
 content-type: application/vnd.api+json; charset=utf-8
 cache-control: max-age=0, private, must-revalidate
-x-request-id: ddl45pdrec6h53floj7f6t13glnul7e2
+x-request-id: 2h1clemujo1fr2d8jdthpelrlim01rsj
 vary: Origin
 access-control-allow-origin: 
 access-control-expose-headers: 
@@ -4187,17 +4187,17 @@ access-control-allow-credentials: true
   },
   "data": {
     "type": "tp-destination-rate",
-    "id": "3",
+    "id": "16",
     "attributes": {
-      "tpid": "Lickitung",
-      "tag": "Nidorina",
+      "tpid": "Koffing",
+      "tag": "Kangaskhan",
       "rounding-method": "*up",
       "rounding-decimals": 1,
-      "rates-tag": "Aerodactyl",
+      "rates-tag": "Voltorb",
       "max-cost-strategy": "*free",
       "max-cost": 100.0,
-      "destinations-tag": "Muk",
-      "created-at": "2017-10-05T11:47:00.000000"
+      "destinations-tag": "Magnemite",
+      "created-at": "2017-10-05T12:42:02.000000"
     }
   }
 }
@@ -4220,7 +4220,7 @@ content-type: application/vnd.api+json
 ```
 content-type: application/vnd.api+json; charset=utf-8
 cache-control: max-age=0, private, must-revalidate
-x-request-id: if955g1aav7mtq4iq33gtfmu5bs7lm1p
+x-request-id: 8cj3dt3bov5fccts6r91fo08tf4o5v0g
 vary: Origin
 access-control-allow-origin: 
 access-control-expose-headers: 
@@ -4234,10 +4234,10 @@ access-control-allow-credentials: true
   },
   "data": {
     "type": "tp-rate",
-    "id": "7",
+    "id": "15",
     "attributes": {
-      "tpid": "Lapras",
-      "tag": "Trappistes Rochefort 10",
+      "tpid": "Scyther",
+      "tag": "Samuel Smith’s Oatmeal Stout",
       "rate-unit": "60s",
       "rate-increment": "60s",
       "rate": 0.01,
@@ -4264,7 +4264,7 @@ content-type: application/vnd.api+json
 * __Response headers:__
 ```
 cache-control: max-age=0, private, must-revalidate
-x-request-id: bi8hhjpkf28hl40orti7v9lmhon9dtn3
+x-request-id: 8ab6fhu168u300vfn5jp89l3mc9rhelt
 vary: Origin
 access-control-allow-origin: 
 access-control-expose-headers: 
@@ -4280,7 +4280,7 @@ content-type: application/vnd.api+json
 #### filtering by group_interval_start
 ##### Request
 * __Method:__ GET
-* __Path:__ /api/tp-rates?tpid=Clefable
+* __Path:__ /api/tp-rates?tpid=Porygon
 * __Request headers:__
 ```
 accept: application/vnd.api+json
@@ -4292,7 +4292,7 @@ content-type: application/vnd.api+json
 ```
 content-type: application/vnd.api+json; charset=utf-8
 cache-control: max-age=0, private, must-revalidate
-x-request-id: tp0tkdcbb3rvgmj7op4u6cuba7ra8lhu
+x-request-id: s3olv7lou68s08ke3ooucuicml2uid2k
 vary: Origin
 access-control-allow-origin: 
 access-control-expose-headers: 
@@ -4306,7 +4306,7 @@ access-control-allow-credentials: true
     "total_pages": 1
   },
   "links": {
-    "self": "/api/tp-rates?page[page]=1&page[page-size]=10&tpid=Clefable"
+    "self": "/api/tp-rates?page[page]=1&page[page-size]=10&tpid=Porygon"
   },
   "jsonapi": {
     "version": "1.0"
@@ -4314,15 +4314,15 @@ access-control-allow-credentials: true
   "data": [
     {
       "type": "tp-rate",
-      "id": "1",
+      "id": "8",
       "attributes": {
-        "tpid": "Clefable",
-        "tag": "Samuel Smith’s Imperial IPA",
+        "tpid": "Porygon",
+        "tag": "Sierra Nevada Bigfoot Barleywine Style Ale",
         "rate-unit": "60s",
         "rate-increment": "60s",
         "rate": 0.01,
         "group-interval-start": "60s",
-        "created-at": "2017-10-05T11:46:59.000000",
+        "created-at": "2017-10-05T12:42:01.000000",
         "connect-fee": 0.01
       }
     }
@@ -4333,7 +4333,7 @@ access-control-allow-credentials: true
 #### filtering by rate_increment
 ##### Request
 * __Method:__ GET
-* __Path:__ /api/tp-rates?tpid=Geodude
+* __Path:__ /api/tp-rates?tpid=Blastoise
 * __Request headers:__
 ```
 accept: application/vnd.api+json
@@ -4345,7 +4345,7 @@ content-type: application/vnd.api+json
 ```
 content-type: application/vnd.api+json; charset=utf-8
 cache-control: max-age=0, private, must-revalidate
-x-request-id: kju2l9h50lb3cro4u4vi7qbn3d994t3t
+x-request-id: pg0t2hcrna99sg493ld4g2cumvatnsfm
 vary: Origin
 access-control-allow-origin: 
 access-control-expose-headers: 
@@ -4359,7 +4359,7 @@ access-control-allow-credentials: true
     "total_pages": 1
   },
   "links": {
-    "self": "/api/tp-rates?page[page]=1&page[page-size]=10&tpid=Geodude"
+    "self": "/api/tp-rates?page[page]=1&page[page-size]=10&tpid=Blastoise"
   },
   "jsonapi": {
     "version": "1.0"
@@ -4367,15 +4367,15 @@ access-control-allow-credentials: true
   "data": [
     {
       "type": "tp-rate",
-      "id": "15",
+      "id": "18",
       "attributes": {
-        "tpid": "Geodude",
-        "tag": "Racer 5 India Pale Ale, Bear Republic Bre",
+        "tpid": "Blastoise",
+        "tag": "Trappistes Rochefort 8",
         "rate-unit": "60s",
         "rate-increment": "60s",
         "rate": 0.01,
         "group-interval-start": "60s",
-        "created-at": "2017-10-05T11:46:59.000000",
+        "created-at": "2017-10-05T12:42:01.000000",
         "connect-fee": 0.01
       }
     }
@@ -4386,7 +4386,7 @@ access-control-allow-credentials: true
 #### filtering by rate_unit
 ##### Request
 * __Method:__ GET
-* __Path:__ /api/tp-rates?tpid=Magneton
+* __Path:__ /api/tp-rates?tpid=Weedle
 * __Request headers:__
 ```
 accept: application/vnd.api+json
@@ -4398,7 +4398,7 @@ content-type: application/vnd.api+json
 ```
 content-type: application/vnd.api+json; charset=utf-8
 cache-control: max-age=0, private, must-revalidate
-x-request-id: p5js9tr74k8icpb5tt5cgaiudr81sroc
+x-request-id: i8dul4j07p5j750f57gk2sjg738rvlh0
 vary: Origin
 access-control-allow-origin: 
 access-control-expose-headers: 
@@ -4412,7 +4412,7 @@ access-control-allow-credentials: true
     "total_pages": 1
   },
   "links": {
-    "self": "/api/tp-rates?page[page]=1&page[page-size]=10&tpid=Magneton"
+    "self": "/api/tp-rates?page[page]=1&page[page-size]=10&tpid=Weedle"
   },
   "jsonapi": {
     "version": "1.0"
@@ -4420,15 +4420,15 @@ access-control-allow-credentials: true
   "data": [
     {
       "type": "tp-rate",
-      "id": "13",
+      "id": "12",
       "attributes": {
-        "tpid": "Magneton",
-        "tag": "Hennepin",
+        "tpid": "Weedle",
+        "tag": "Yeti Imperial Stout",
         "rate-unit": "60s",
         "rate-increment": "60s",
         "rate": 0.01,
         "group-interval-start": "60s",
-        "created-at": "2017-10-05T11:46:59.000000",
+        "created-at": "2017-10-05T12:42:01.000000",
         "connect-fee": 0.01
       }
     }
@@ -4439,7 +4439,7 @@ access-control-allow-credentials: true
 #### filtering by tag
 ##### Request
 * __Method:__ GET
-* __Path:__ /api/tp-rates?tpid=Butterfree
+* __Path:__ /api/tp-rates?tpid=Rapidash
 * __Request headers:__
 ```
 accept: application/vnd.api+json
@@ -4451,7 +4451,7 @@ content-type: application/vnd.api+json
 ```
 content-type: application/vnd.api+json; charset=utf-8
 cache-control: max-age=0, private, must-revalidate
-x-request-id: d6fvihhbqc70hl86rmfs4c7u06iirsgu
+x-request-id: oiispesr3olvv3ekadire8rei248ado5
 vary: Origin
 access-control-allow-origin: 
 access-control-expose-headers: 
@@ -4465,7 +4465,7 @@ access-control-allow-credentials: true
     "total_pages": 1
   },
   "links": {
-    "self": "/api/tp-rates?page[page]=1&page[page-size]=10&tpid=Butterfree"
+    "self": "/api/tp-rates?page[page]=1&page[page-size]=10&tpid=Rapidash"
   },
   "jsonapi": {
     "version": "1.0"
@@ -4473,15 +4473,15 @@ access-control-allow-credentials: true
   "data": [
     {
       "type": "tp-rate",
-      "id": "8",
+      "id": "10",
       "attributes": {
-        "tpid": "Butterfree",
-        "tag": "Samuel Smith’s Imperial IPA",
+        "tpid": "Rapidash",
+        "tag": "Old Rasputin Russian Imperial Stout",
         "rate-unit": "60s",
         "rate-increment": "60s",
         "rate": 0.01,
         "group-interval-start": "60s",
-        "created-at": "2017-10-05T11:46:59.000000",
+        "created-at": "2017-10-05T12:42:01.000000",
         "connect-fee": 0.01
       }
     }
@@ -4492,7 +4492,7 @@ access-control-allow-credentials: true
 #### filtering by connect_fee
 ##### Request
 * __Method:__ GET
-* __Path:__ /api/tp-rates?tpid=Ivysaur
+* __Path:__ /api/tp-rates?tpid=Venomoth
 * __Request headers:__
 ```
 accept: application/vnd.api+json
@@ -4504,7 +4504,7 @@ content-type: application/vnd.api+json
 ```
 content-type: application/vnd.api+json; charset=utf-8
 cache-control: max-age=0, private, must-revalidate
-x-request-id: mgfuk0civg4ftoekau2720bicvp175s5
+x-request-id: 3l0v093gf1sr61katbvpg1c3fb0801hu
 vary: Origin
 access-control-allow-origin: 
 access-control-expose-headers: 
@@ -4518,7 +4518,7 @@ access-control-allow-credentials: true
     "total_pages": 1
   },
   "links": {
-    "self": "/api/tp-rates?page[page]=1&page[page-size]=10&tpid=Ivysaur"
+    "self": "/api/tp-rates?page[page]=1&page[page-size]=10&tpid=Venomoth"
   },
   "jsonapi": {
     "version": "1.0"
@@ -4526,15 +4526,15 @@ access-control-allow-credentials: true
   "data": [
     {
       "type": "tp-rate",
-      "id": "4",
+      "id": "6",
       "attributes": {
-        "tpid": "Ivysaur",
-        "tag": "Stone Imperial Russian Stout",
+        "tpid": "Venomoth",
+        "tag": "Yeti Imperial Stout",
         "rate-unit": "60s",
         "rate-increment": "60s",
         "rate": 0.01,
         "group-interval-start": "60s",
-        "created-at": "2017-10-05T11:46:59.000000",
+        "created-at": "2017-10-05T12:42:01.000000",
         "connect-fee": 0.01
       }
     }
@@ -4545,7 +4545,7 @@ access-control-allow-credentials: true
 #### filtering by rate
 ##### Request
 * __Method:__ GET
-* __Path:__ /api/tp-rates?tpid=Cubone
+* __Path:__ /api/tp-rates?tpid=Venonat
 * __Request headers:__
 ```
 accept: application/vnd.api+json
@@ -4557,7 +4557,7 @@ content-type: application/vnd.api+json
 ```
 content-type: application/vnd.api+json; charset=utf-8
 cache-control: max-age=0, private, must-revalidate
-x-request-id: u29caog1alvi4qt99tk5prm8cnkr3vhm
+x-request-id: 51ask6mg7n9j2j0ia555147ss0k2s0pq
 vary: Origin
 access-control-allow-origin: 
 access-control-expose-headers: 
@@ -4571,7 +4571,7 @@ access-control-allow-credentials: true
     "total_pages": 1
   },
   "links": {
-    "self": "/api/tp-rates?page[page]=1&page[page-size]=10&tpid=Cubone"
+    "self": "/api/tp-rates?page[page]=1&page[page-size]=10&tpid=Venonat"
   },
   "jsonapi": {
     "version": "1.0"
@@ -4579,15 +4579,15 @@ access-control-allow-credentials: true
   "data": [
     {
       "type": "tp-rate",
-      "id": "11",
+      "id": "2",
       "attributes": {
-        "tpid": "Cubone",
-        "tag": "Shakespeare Oatmeal",
+        "tpid": "Venonat",
+        "tag": "Trois Pistoles",
         "rate-unit": "60s",
         "rate-increment": "60s",
         "rate": 0.01,
         "group-interval-start": "60s",
-        "created-at": "2017-10-05T11:46:59.000000",
+        "created-at": "2017-10-05T12:42:01.000000",
         "connect-fee": 0.01
       }
     }
@@ -4598,7 +4598,7 @@ access-control-allow-credentials: true
 #### lists all entries related tariff plan on index
 ##### Request
 * __Method:__ GET
-* __Path:__ /api/tp-rates?tpid=Bulbasaur
+* __Path:__ /api/tp-rates?tpid=Krabby
 * __Request headers:__
 ```
 accept: application/vnd.api+json
@@ -4610,7 +4610,7 @@ content-type: application/vnd.api+json
 ```
 content-type: application/vnd.api+json; charset=utf-8
 cache-control: max-age=0, private, must-revalidate
-x-request-id: fhi5flviedp4le16tau16p6eqn13rp3h
+x-request-id: la4bhpoaqbgb6hqfk915ptqpo7lkqrcn
 vary: Origin
 access-control-allow-origin: 
 access-control-expose-headers: 
@@ -4624,7 +4624,7 @@ access-control-allow-credentials: true
     "total_pages": 1
   },
   "links": {
-    "self": "/api/tp-rates?page[page]=1&page[page-size]=10&tpid=Bulbasaur"
+    "self": "/api/tp-rates?page[page]=1&page[page-size]=10&tpid=Krabby"
   },
   "jsonapi": {
     "version": "1.0"
@@ -4632,15 +4632,15 @@ access-control-allow-credentials: true
   "data": [
     {
       "type": "tp-rate",
-      "id": "18",
+      "id": "4",
       "attributes": {
-        "tpid": "Bulbasaur",
-        "tag": "Racer 5 India Pale Ale, Bear Republic Bre",
+        "tpid": "Krabby",
+        "tag": "Trappistes Rochefort 8",
         "rate-unit": "60s",
         "rate-increment": "60s",
         "rate": 0.01,
         "group-interval-start": "60s",
-        "created-at": "2017-10-05T11:46:59.000000",
+        "created-at": "2017-10-05T12:42:01.000000",
         "connect-fee": 0.01
       }
     }
@@ -4652,7 +4652,7 @@ access-control-allow-credentials: true
 #### shows chosen resource
 ##### Request
 * __Method:__ GET
-* __Path:__ /api/tp-rates/6
+* __Path:__ /api/tp-rates/16
 * __Request headers:__
 ```
 accept: application/vnd.api+json
@@ -4664,7 +4664,7 @@ content-type: application/vnd.api+json
 ```
 content-type: application/vnd.api+json; charset=utf-8
 cache-control: max-age=0, private, must-revalidate
-x-request-id: c8itpcfgs9b2iukd178dqccr36fvkp7n
+x-request-id: 6agn047hoe5vk787q204q6a06cs89v9v
 vary: Origin
 access-control-allow-origin: 
 access-control-expose-headers: 
@@ -4678,15 +4678,15 @@ access-control-allow-credentials: true
   },
   "data": {
     "type": "tp-rate",
-    "id": "6",
+    "id": "16",
     "attributes": {
-      "tpid": "Psyduck",
-      "tag": "Maudite",
+      "tpid": "Kakuna",
+      "tag": "90 Minute IPA",
       "rate-unit": "60s",
       "rate-increment": "60s",
       "rate": 0.01,
       "group-interval-start": "60s",
-      "created-at": "2017-10-05T11:46:59.000000",
+      "created-at": "2017-10-05T12:42:01.000000",
       "connect-fee": 0.01
     }
   }
@@ -4697,7 +4697,7 @@ access-control-allow-credentials: true
 #### does not update chosen resource and renders errors when data is invalid
 ##### Request
 * __Method:__ PUT
-* __Path:__ /api/tp-rates/10
+* __Path:__ /api/tp-rates/1
 * __Request headers:__
 ```
 accept: application/vnd.api+json
@@ -4709,7 +4709,7 @@ content-type: application/vnd.api+json
 ```
 content-type: application/vnd.api+json; charset=utf-8
 cache-control: max-age=0, private, must-revalidate
-x-request-id: tq8e48c2hjp2kd8f5ha0j5rd5d4s5en9
+x-request-id: barikkf49bgf672gt70c83ffmn8j40ug
 vary: Origin
 access-control-allow-origin: 
 access-control-expose-headers: 
@@ -4750,7 +4750,7 @@ access-control-allow-credentials: true
 #### updates and renders chosen resource when data is valid
 ##### Request
 * __Method:__ PUT
-* __Path:__ /api/tp-rates/3
+* __Path:__ /api/tp-rates/14
 * __Request headers:__
 ```
 accept: application/vnd.api+json
@@ -4762,7 +4762,7 @@ content-type: application/vnd.api+json
 ```
 content-type: application/vnd.api+json; charset=utf-8
 cache-control: max-age=0, private, must-revalidate
-x-request-id: 4g1rh74kqh466v31cbhopq391dch31pd
+x-request-id: g4m3elkb83jgnn5up6jokg8mta1phj5j
 vary: Origin
 access-control-allow-origin: 
 access-control-expose-headers: 
@@ -4776,15 +4776,15 @@ access-control-allow-credentials: true
   },
   "data": {
     "type": "tp-rate",
-    "id": "3",
+    "id": "14",
     "attributes": {
-      "tpid": "Venomoth",
-      "tag": "Orval Trappist Ale",
+      "tpid": "Marowak",
+      "tag": "Bourbon County Stout",
       "rate-unit": "60s",
       "rate-increment": "60s",
       "rate": 0.01,
       "group-interval-start": "60s",
-      "created-at": "2017-10-05T11:46:59.000000",
+      "created-at": "2017-10-05T12:42:01.000000",
       "connect-fee": 0.01
     }
   }
@@ -4808,7 +4808,7 @@ content-type: application/vnd.api+json
 ```
 content-type: application/vnd.api+json; charset=utf-8
 cache-control: max-age=0, private, must-revalidate
-x-request-id: 84srojd9nld930854u7dmvum3u3mmjqi
+x-request-id: v3st8v978pkjld6nv914dj7604juuoqh
 vary: Origin
 access-control-allow-origin: 
 access-control-expose-headers: 
@@ -4875,7 +4875,7 @@ content-type: application/vnd.api+json
 ```
 content-type: application/vnd.api+json; charset=utf-8
 cache-control: max-age=0, private, must-revalidate
-x-request-id: om24i1v26c3jfrepmdai5ktk695a0j71
+x-request-id: 5ua3gifajpu16k939nfkvoso0l4bgl9g
 vary: Origin
 access-control-allow-origin: 
 access-control-expose-headers: 
@@ -4889,13 +4889,13 @@ access-control-allow-credentials: true
   },
   "data": {
     "type": "tp-rating-plan",
-    "id": "5",
+    "id": "11",
     "attributes": {
       "weight": 12.1,
-      "tpid": "Lapras",
-      "timing-tag": "Edmund Fitzgerald Porter",
-      "tag": "Hennepin",
-      "destrates-tag": "Sierra Nevada Celebration Ale",
+      "tpid": "Pidgeotto",
+      "timing-tag": "Westmalle Trappist Tripel",
+      "tag": "Schneider Aventinus",
+      "destrates-tag": "Hercules Double IPA",
       "created-at": null
     }
   }
@@ -4906,7 +4906,7 @@ access-control-allow-credentials: true
 #### deletes chosen resource
 ##### Request
 * __Method:__ DELETE
-* __Path:__ /api/tp-rating-plans/15
+* __Path:__ /api/tp-rating-plans/13
 * __Request headers:__
 ```
 accept: application/vnd.api+json
@@ -4917,7 +4917,7 @@ content-type: application/vnd.api+json
 * __Response headers:__
 ```
 cache-control: max-age=0, private, must-revalidate
-x-request-id: kjairfpuvdjib2a0iv5bo2bgt5g86t5r
+x-request-id: ktoftp8u3eq22tk2ahculpne066vqvg9
 vary: Origin
 access-control-allow-origin: 
 access-control-expose-headers: 
@@ -4933,7 +4933,7 @@ content-type: application/vnd.api+json
 #### filtering by weight
 ##### Request
 * __Method:__ GET
-* __Path:__ /api/tp-rating-plans?tpid=Articuno
+* __Path:__ /api/tp-rating-plans?tpid=Meowth
 * __Request headers:__
 ```
 accept: application/vnd.api+json
@@ -4945,7 +4945,7 @@ content-type: application/vnd.api+json
 ```
 content-type: application/vnd.api+json; charset=utf-8
 cache-control: max-age=0, private, must-revalidate
-x-request-id: dbk3foffpts716mph1pq3pq7jplh27b3
+x-request-id: 5kr23b91qeb0dc5kncqbegu7oe9r0ig3
 vary: Origin
 access-control-allow-origin: 
 access-control-expose-headers: 
@@ -4959,7 +4959,7 @@ access-control-allow-credentials: true
     "total_pages": 1
   },
   "links": {
-    "self": "/api/tp-rating-plans?page[page]=1&page[page-size]=10&tpid=Articuno"
+    "self": "/api/tp-rating-plans?page[page]=1&page[page-size]=10&tpid=Meowth"
   },
   "jsonapi": {
     "version": "1.0"
@@ -4967,14 +4967,14 @@ access-control-allow-credentials: true
   "data": [
     {
       "type": "tp-rating-plan",
-      "id": "9",
+      "id": "8",
       "attributes": {
         "weight": 1.0,
-        "tpid": "Articuno",
-        "timing-tag": "Ten FIDY",
-        "tag": "Celebrator Doppelbock",
-        "destrates-tag": "Samuel Smith’s Imperial IPA",
-        "created-at": "2017-10-05T11:46:59.000000"
+        "tpid": "Meowth",
+        "timing-tag": "Two Hearted Ale",
+        "tag": "Schneider Aventinus",
+        "destrates-tag": "Racer 5 India Pale Ale, Bear Republic Bre",
+        "created-at": "2017-10-05T12:42:01.000000"
       }
     }
   ]
@@ -4984,7 +4984,7 @@ access-control-allow-credentials: true
 #### filtering by timing_tag
 ##### Request
 * __Method:__ GET
-* __Path:__ /api/tp-rating-plans?tpid=Machoke
+* __Path:__ /api/tp-rating-plans?tpid=Marowak
 * __Request headers:__
 ```
 accept: application/vnd.api+json
@@ -4996,7 +4996,7 @@ content-type: application/vnd.api+json
 ```
 content-type: application/vnd.api+json; charset=utf-8
 cache-control: max-age=0, private, must-revalidate
-x-request-id: j0out4r02urfrbtovidh60tavhoigak4
+x-request-id: mg611jg7of07f7m90o7jo1o1plbtv1k2
 vary: Origin
 access-control-allow-origin: 
 access-control-expose-headers: 
@@ -5010,7 +5010,7 @@ access-control-allow-credentials: true
     "total_pages": 1
   },
   "links": {
-    "self": "/api/tp-rating-plans?page[page]=1&page[page-size]=10&tpid=Machoke"
+    "self": "/api/tp-rating-plans?page[page]=1&page[page-size]=10&tpid=Marowak"
   },
   "jsonapi": {
     "version": "1.0"
@@ -5018,14 +5018,14 @@ access-control-allow-credentials: true
   "data": [
     {
       "type": "tp-rating-plan",
-      "id": "1",
+      "id": "2",
       "attributes": {
         "weight": 12.1,
-        "tpid": "Machoke",
-        "timing-tag": "La Fin Du Monde",
-        "tag": "Maudite",
-        "destrates-tag": "Maharaj",
-        "created-at": "2017-10-05T11:46:59.000000"
+        "tpid": "Marowak",
+        "timing-tag": "Celebrator Doppelbock",
+        "tag": "Sublimely Self-Righteous Ale",
+        "destrates-tag": "Bell’s Expedition",
+        "created-at": "2017-10-05T12:42:01.000000"
       }
     }
   ]
@@ -5035,7 +5035,7 @@ access-control-allow-credentials: true
 #### filtering by destrates_tag
 ##### Request
 * __Method:__ GET
-* __Path:__ /api/tp-rating-plans?tpid=Cubone
+* __Path:__ /api/tp-rating-plans?tpid=Scyther
 * __Request headers:__
 ```
 accept: application/vnd.api+json
@@ -5047,7 +5047,7 @@ content-type: application/vnd.api+json
 ```
 content-type: application/vnd.api+json; charset=utf-8
 cache-control: max-age=0, private, must-revalidate
-x-request-id: 7ahgo2nhlvrrft2vtf8tv3gm17b4ndt8
+x-request-id: g9p0f9v90htntkct95ucmaaio74vcqeh
 vary: Origin
 access-control-allow-origin: 
 access-control-expose-headers: 
@@ -5061,7 +5061,7 @@ access-control-allow-credentials: true
     "total_pages": 1
   },
   "links": {
-    "self": "/api/tp-rating-plans?page[page]=1&page[page-size]=10&tpid=Cubone"
+    "self": "/api/tp-rating-plans?page[page]=1&page[page-size]=10&tpid=Scyther"
   },
   "jsonapi": {
     "version": "1.0"
@@ -5069,14 +5069,14 @@ access-control-allow-credentials: true
   "data": [
     {
       "type": "tp-rating-plan",
-      "id": "13",
+      "id": "14",
       "attributes": {
         "weight": 12.1,
-        "tpid": "Cubone",
-        "timing-tag": "Duvel",
-        "tag": "Samuel Smith’s Oatmeal Stout",
-        "destrates-tag": "Maharaj",
-        "created-at": "2017-10-05T11:46:59.000000"
+        "tpid": "Scyther",
+        "timing-tag": "Old Rasputin Russian Imperial Stout",
+        "tag": "Stone IPA",
+        "destrates-tag": "Nugget Nectar",
+        "created-at": "2017-10-05T12:42:01.000000"
       }
     }
   ]
@@ -5086,7 +5086,7 @@ access-control-allow-credentials: true
 #### filtering by tag
 ##### Request
 * __Method:__ GET
-* __Path:__ /api/tp-rating-plans?tpid=Jigglypuff
+* __Path:__ /api/tp-rating-plans?tpid=Pidgeot
 * __Request headers:__
 ```
 accept: application/vnd.api+json
@@ -5098,7 +5098,7 @@ content-type: application/vnd.api+json
 ```
 content-type: application/vnd.api+json; charset=utf-8
 cache-control: max-age=0, private, must-revalidate
-x-request-id: s091jk36o1t199gosnjp4n1vi37tdeh2
+x-request-id: gpgevq9lc9man5g35uujgit6vlu46ihf
 vary: Origin
 access-control-allow-origin: 
 access-control-expose-headers: 
@@ -5112,58 +5112,7 @@ access-control-allow-credentials: true
     "total_pages": 1
   },
   "links": {
-    "self": "/api/tp-rating-plans?page[page]=1&page[page-size]=10&tpid=Jigglypuff"
-  },
-  "jsonapi": {
-    "version": "1.0"
-  },
-  "data": [
-    {
-      "type": "tp-rating-plan",
-      "id": "11",
-      "attributes": {
-        "weight": 12.1,
-        "tpid": "Jigglypuff",
-        "timing-tag": "Dreadnaught IPA",
-        "tag": "Double Bastard Ale",
-        "destrates-tag": "Trappistes Rochefort 8",
-        "created-at": "2017-10-05T11:46:59.000000"
-      }
-    }
-  ]
-}
-```
-
-#### lists all entries related tariff plan on index
-##### Request
-* __Method:__ GET
-* __Path:__ /api/tp-rating-plans?tpid=Raticate
-* __Request headers:__
-```
-accept: application/vnd.api+json
-content-type: application/vnd.api+json
-```
-##### Response
-* __Status__: 200
-* __Response headers:__
-```
-content-type: application/vnd.api+json; charset=utf-8
-cache-control: max-age=0, private, must-revalidate
-x-request-id: 3niovpor25urane6ipih7ikobs70ho28
-vary: Origin
-access-control-allow-origin: 
-access-control-expose-headers: 
-access-control-allow-credentials: true
-```
-* __Response body:__
-```json
-{
-  "meta": {
-    "total_records": 1,
-    "total_pages": 1
-  },
-  "links": {
-    "self": "/api/tp-rating-plans?page[page]=1&page[page-size]=10&tpid=Raticate"
+    "self": "/api/tp-rating-plans?page[page]=1&page[page-size]=10&tpid=Pidgeot"
   },
   "jsonapi": {
     "version": "1.0"
@@ -5174,22 +5123,21 @@ access-control-allow-credentials: true
       "id": "6",
       "attributes": {
         "weight": 12.1,
-        "tpid": "Raticate",
-        "timing-tag": "Hennepin",
-        "tag": "Hop Rod Rye",
-        "destrates-tag": "Maharaj",
-        "created-at": "2017-10-05T11:46:59.000000"
+        "tpid": "Pidgeot",
+        "timing-tag": "La Fin Du Monde",
+        "tag": "HopSlam Ale",
+        "destrates-tag": "Péché Mortel",
+        "created-at": "2017-10-05T12:42:01.000000"
       }
     }
   ]
 }
 ```
 
-### CgratesWebJsonapi.TpRatingPlanController.show
-#### shows chosen resource
+#### lists all entries related tariff plan on index
 ##### Request
 * __Method:__ GET
-* __Path:__ /api/tp-rating-plans/4
+* __Path:__ /api/tp-rating-plans?tpid=Wigglytuff
 * __Request headers:__
 ```
 accept: application/vnd.api+json
@@ -5201,7 +5149,59 @@ content-type: application/vnd.api+json
 ```
 content-type: application/vnd.api+json; charset=utf-8
 cache-control: max-age=0, private, must-revalidate
-x-request-id: r28dcg5ultksivo8rk8s2piu4iigmnrf
+x-request-id: nlugb1b0vehvtnsetf5rbf52iqe6cg5v
+vary: Origin
+access-control-allow-origin: 
+access-control-expose-headers: 
+access-control-allow-credentials: true
+```
+* __Response body:__
+```json
+{
+  "meta": {
+    "total_records": 1,
+    "total_pages": 1
+  },
+  "links": {
+    "self": "/api/tp-rating-plans?page[page]=1&page[page-size]=10&tpid=Wigglytuff"
+  },
+  "jsonapi": {
+    "version": "1.0"
+  },
+  "data": [
+    {
+      "type": "tp-rating-plan",
+      "id": "4",
+      "attributes": {
+        "weight": 12.1,
+        "tpid": "Wigglytuff",
+        "timing-tag": "Sierra Nevada Bigfoot Barleywine Style Ale",
+        "tag": "Celebrator Doppelbock",
+        "destrates-tag": "Sierra Nevada Bigfoot Barleywine Style Ale",
+        "created-at": "2017-10-05T12:42:01.000000"
+      }
+    }
+  ]
+}
+```
+
+### CgratesWebJsonapi.TpRatingPlanController.show
+#### shows chosen resource
+##### Request
+* __Method:__ GET
+* __Path:__ /api/tp-rating-plans/12
+* __Request headers:__
+```
+accept: application/vnd.api+json
+content-type: application/vnd.api+json
+```
+##### Response
+* __Status__: 200
+* __Response headers:__
+```
+content-type: application/vnd.api+json; charset=utf-8
+cache-control: max-age=0, private, must-revalidate
+x-request-id: b05ccmene89m05lo7jb53b30aosho41n
 vary: Origin
 access-control-allow-origin: 
 access-control-expose-headers: 
@@ -5215,14 +5215,14 @@ access-control-allow-credentials: true
   },
   "data": {
     "type": "tp-rating-plan",
-    "id": "4",
+    "id": "12",
     "attributes": {
       "weight": 12.1,
-      "tpid": "Machamp",
-      "timing-tag": "Storm King Stout",
-      "tag": "Founders Kentucky Breakfast",
-      "destrates-tag": "Bell’s Expedition",
-      "created-at": "2017-10-05T11:46:59.000000"
+      "tpid": "Porygon",
+      "timing-tag": "Bell’s Expedition",
+      "tag": "Chimay Grande Réserve",
+      "destrates-tag": "Shakespeare Oatmeal",
+      "created-at": "2017-10-05T12:42:01.000000"
     }
   }
 }
@@ -5232,7 +5232,7 @@ access-control-allow-credentials: true
 #### does not update chosen resource and renders errors when data is invalid
 ##### Request
 * __Method:__ PUT
-* __Path:__ /api/tp-rating-plans/8
+* __Path:__ /api/tp-rating-plans/1
 * __Request headers:__
 ```
 accept: application/vnd.api+json
@@ -5244,7 +5244,7 @@ content-type: application/vnd.api+json
 ```
 content-type: application/vnd.api+json; charset=utf-8
 cache-control: max-age=0, private, must-revalidate
-x-request-id: aac1i0j1609rtcbf4s2t1394ck1ri0ig
+x-request-id: olds4i9ngp6in94fap8j71lua7tur3ng
 vary: Origin
 access-control-allow-origin: 
 access-control-expose-headers: 
@@ -5271,7 +5271,7 @@ access-control-allow-credentials: true
 #### updates and renders chosen resource when data is valid
 ##### Request
 * __Method:__ PUT
-* __Path:__ /api/tp-rating-plans/3
+* __Path:__ /api/tp-rating-plans/10
 * __Request headers:__
 ```
 accept: application/vnd.api+json
@@ -5283,7 +5283,7 @@ content-type: application/vnd.api+json
 ```
 content-type: application/vnd.api+json; charset=utf-8
 cache-control: max-age=0, private, must-revalidate
-x-request-id: 8bk3omgiupr1selhcjduv3e0scsbdgf0
+x-request-id: m8bli9c1jhs6bjqb434ccqquvu1g7nj4
 vary: Origin
 access-control-allow-origin: 
 access-control-expose-headers: 
@@ -5297,14 +5297,14 @@ access-control-allow-credentials: true
   },
   "data": {
     "type": "tp-rating-plan",
-    "id": "3",
+    "id": "10",
     "attributes": {
       "weight": 12.1,
-      "tpid": "Two Hearted Ale",
-      "timing-tag": "Brooklyn Black",
-      "tag": "Samuel Smith’s Oatmeal Stout",
-      "destrates-tag": "Maudite",
-      "created-at": "2017-10-05T11:46:59.000000"
+      "tpid": "Sierra Nevada Bigfoot Barleywine Style Ale",
+      "timing-tag": "Chimay Grande Réserve",
+      "tag": "Yeti Imperial Stout",
+      "destrates-tag": "Stone Imperial Russian Stout",
+      "created-at": "2017-10-05T12:42:01.000000"
     }
   }
 }
@@ -5327,7 +5327,7 @@ content-type: application/vnd.api+json
 ```
 content-type: application/vnd.api+json; charset=utf-8
 cache-control: max-age=0, private, must-revalidate
-x-request-id: o5utseth091kmeetg7t8il4827kq2suq
+x-request-id: akfvpsnrbruonqug2o7cfph9jta1gfqp
 vary: Origin
 access-control-allow-origin: 
 access-control-expose-headers: 
@@ -5429,7 +5429,7 @@ content-type: application/vnd.api+json
 ```
 content-type: application/vnd.api+json; charset=utf-8
 cache-control: max-age=0, private, must-revalidate
-x-request-id: 7qp7mi3bhkdbg42ih4rsba2cv1diu1uf
+x-request-id: k6v7adonualk8aj8994mjk9j8tkl7v71
 vary: Origin
 access-control-allow-origin: 
 access-control-expose-headers: 
@@ -5443,19 +5443,19 @@ access-control-allow-credentials: true
   },
   "data": {
     "type": "tp-rating-profile",
-    "id": "7",
+    "id": "19",
     "attributes": {
-      "tpid": "Kabuto",
-      "tenant": "Hennepin",
-      "subject": "La Fin Du Monde",
-      "rating-plan-tag": "Edmund Fitzgerald Porter",
-      "loadid": "Trois Pistoles",
-      "fallback-subjects": "Ruination IPA",
+      "tpid": "Pidgey",
+      "tenant": "Péché Mortel",
+      "subject": "Edmund Fitzgerald Porter",
+      "rating-plan-tag": "Trois Pistoles",
+      "loadid": "Oaked Arrogant Bastard Ale",
+      "fallback-subjects": "90 Minute IPA",
       "direction": "up",
       "created-at": null,
-      "cdr-stat-queue-ids": "Oaked Arrogant Bastard Ale",
-      "category": "sed",
-      "activation-time": "enim"
+      "cdr-stat-queue-ids": "Celebrator Doppelbock",
+      "category": "in",
+      "activation-time": "sit"
     }
   }
 }
@@ -5476,7 +5476,7 @@ content-type: application/vnd.api+json
 * __Response headers:__
 ```
 cache-control: max-age=0, private, must-revalidate
-x-request-id: 9vb4srn9c1f96qo3ms5kk5j66pbvck0s
+x-request-id: ijc1hj5idpsksp1kbrm75043n3dgqqjn
 vary: Origin
 access-control-allow-origin: 
 access-control-expose-headers: 
@@ -5492,7 +5492,7 @@ content-type: application/vnd.api+json
 #### GET index filtering by fallback_subjects
 ##### Request
 * __Method:__ GET
-* __Path:__ /api/tp-rating-profiles?tpid=Raticate
+* __Path:__ /api/tp-rating-profiles?tpid=Paras
 * __Request headers:__
 ```
 accept: application/vnd.api+json
@@ -5504,7 +5504,7 @@ content-type: application/vnd.api+json
 ```
 content-type: application/vnd.api+json; charset=utf-8
 cache-control: max-age=0, private, must-revalidate
-x-request-id: um4l9js2h1a71817i9fdrtmd8n59nqks
+x-request-id: 6vk8f8j1akcfrauktkptlbr2ruartqgk
 vary: Origin
 access-control-allow-origin: 
 access-control-expose-headers: 
@@ -5518,7 +5518,7 @@ access-control-allow-credentials: true
     "total_pages": 1
   },
   "links": {
-    "self": "/api/tp-rating-profiles?page[page]=1&page[page-size]=10&tpid=Raticate"
+    "self": "/api/tp-rating-profiles?page[page]=1&page[page-size]=10&tpid=Paras"
   },
   "jsonapi": {
     "version": "1.0"
@@ -5526,19 +5526,19 @@ access-control-allow-credentials: true
   "data": [
     {
       "type": "tp-rating-profile",
-      "id": "11",
+      "id": "16",
       "attributes": {
-        "tpid": "Raticate",
-        "tenant": "Bell’s Expedition",
-        "subject": "St. Bernardus Abt 12",
-        "rating-plan-tag": "Founders Kentucky Breakfast",
-        "loadid": "Bourbon County Stout",
-        "fallback-subjects": "Racer 5 India Pale Ale, Bear Republic Bre",
+        "tpid": "Paras",
+        "tenant": "La Fin Du Monde",
+        "subject": "Pliny The Elder",
+        "rating-plan-tag": "Westmalle Trappist Tripel",
+        "loadid": "Samuel Smith’s Imperial IPA",
+        "fallback-subjects": "Stone Imperial Russian Stout",
         "direction": "up",
-        "created-at": "2017-10-05T11:46:59.000000",
-        "cdr-stat-queue-ids": "Oaked Arrogant Bastard Ale",
-        "category": "omnis",
-        "activation-time": "eos"
+        "created-at": "2017-10-05T12:42:01.000000",
+        "cdr-stat-queue-ids": "Storm King Stout",
+        "category": "quaerat",
+        "activation-time": "similique"
       }
     }
   ]
@@ -5548,7 +5548,7 @@ access-control-allow-credentials: true
 #### GET index filtering by rating_plan_tag
 ##### Request
 * __Method:__ GET
-* __Path:__ /api/tp-rating-profiles?tpid=Krabby
+* __Path:__ /api/tp-rating-profiles?tpid=Hitmonchan
 * __Request headers:__
 ```
 accept: application/vnd.api+json
@@ -5560,7 +5560,7 @@ content-type: application/vnd.api+json
 ```
 content-type: application/vnd.api+json; charset=utf-8
 cache-control: max-age=0, private, must-revalidate
-x-request-id: nh2t0benq5s2ck31ngh4nbti6riej2vc
+x-request-id: um530sk8i3k781jbub4bv0i84rtl4i15
 vary: Origin
 access-control-allow-origin: 
 access-control-expose-headers: 
@@ -5574,7 +5574,7 @@ access-control-allow-credentials: true
     "total_pages": 1
   },
   "links": {
-    "self": "/api/tp-rating-profiles?page[page]=1&page[page-size]=10&tpid=Krabby"
+    "self": "/api/tp-rating-profiles?page[page]=1&page[page-size]=10&tpid=Hitmonchan"
   },
   "jsonapi": {
     "version": "1.0"
@@ -5582,19 +5582,19 @@ access-control-allow-credentials: true
   "data": [
     {
       "type": "tp-rating-profile",
-      "id": "1",
+      "id": "10",
       "attributes": {
-        "tpid": "Krabby",
+        "tpid": "Hitmonchan",
         "tenant": "Edmund Fitzgerald Porter",
-        "subject": "Oaked Arrogant Bastard Ale",
-        "rating-plan-tag": "Péché Mortel",
-        "loadid": "HopSlam Ale",
-        "fallback-subjects": "Westmalle Trappist Tripel",
+        "subject": "Samuel Smith’s Oatmeal Stout",
+        "rating-plan-tag": "90 Minute IPA",
+        "loadid": "Arrogant Bastard Ale",
+        "fallback-subjects": "Sublimely Self-Righteous Ale",
         "direction": "up",
-        "created-at": "2017-10-05T11:46:59.000000",
-        "cdr-stat-queue-ids": "Maudite",
-        "category": "laborum",
-        "activation-time": "explicabo"
+        "created-at": "2017-10-05T12:42:01.000000",
+        "cdr-stat-queue-ids": "Stone IPA",
+        "category": "id",
+        "activation-time": "commodi"
       }
     }
   ]
@@ -5604,7 +5604,7 @@ access-control-allow-credentials: true
 #### GET index filtering by activation_time
 ##### Request
 * __Method:__ GET
-* __Path:__ /api/tp-rating-profiles?tpid=Articuno
+* __Path:__ /api/tp-rating-profiles?tpid=Fearow
 * __Request headers:__
 ```
 accept: application/vnd.api+json
@@ -5616,7 +5616,7 @@ content-type: application/vnd.api+json
 ```
 content-type: application/vnd.api+json; charset=utf-8
 cache-control: max-age=0, private, must-revalidate
-x-request-id: ub1qgs7s6mohav3k5nvt046g4l53f0qv
+x-request-id: 3m0al6k0405g57jm2ssrlfvimrchf37o
 vary: Origin
 access-control-allow-origin: 
 access-control-expose-headers: 
@@ -5630,287 +5630,7 @@ access-control-allow-credentials: true
     "total_pages": 1
   },
   "links": {
-    "self": "/api/tp-rating-profiles?page[page]=1&page[page-size]=10&tpid=Articuno"
-  },
-  "jsonapi": {
-    "version": "1.0"
-  },
-  "data": [
-    {
-      "type": "tp-rating-profile",
-      "id": "19",
-      "attributes": {
-        "tpid": "Articuno",
-        "tenant": "Orval Trappist Ale",
-        "subject": "Samuel Smith’s Oatmeal Stout",
-        "rating-plan-tag": "Chocolate St",
-        "loadid": "Nugget Nectar",
-        "fallback-subjects": "Samuel Smith’s Oatmeal Stout",
-        "direction": "up",
-        "created-at": "2017-10-05T11:46:59.000000",
-        "cdr-stat-queue-ids": "Duvel",
-        "category": "minus",
-        "activation-time": "nesciunt"
-      }
-    }
-  ]
-}
-```
-
-#### GET index filtering by subject
-##### Request
-* __Method:__ GET
-* __Path:__ /api/tp-rating-profiles?tpid=Spearow
-* __Request headers:__
-```
-accept: application/vnd.api+json
-content-type: application/vnd.api+json
-```
-##### Response
-* __Status__: 200
-* __Response headers:__
-```
-content-type: application/vnd.api+json; charset=utf-8
-cache-control: max-age=0, private, must-revalidate
-x-request-id: 7pp513hh04mgq6d2m9mehtfsu2942dbi
-vary: Origin
-access-control-allow-origin: 
-access-control-expose-headers: 
-access-control-allow-credentials: true
-```
-* __Response body:__
-```json
-{
-  "meta": {
-    "total_records": 1,
-    "total_pages": 1
-  },
-  "links": {
-    "self": "/api/tp-rating-profiles?page[page]=1&page[page-size]=10&tpid=Spearow"
-  },
-  "jsonapi": {
-    "version": "1.0"
-  },
-  "data": [
-    {
-      "type": "tp-rating-profile",
-      "id": "17",
-      "attributes": {
-        "tpid": "Spearow",
-        "tenant": "Bourbon County Stout",
-        "subject": "Stone IPA",
-        "rating-plan-tag": "Shakespeare Oatmeal",
-        "loadid": "Brooklyn Black",
-        "fallback-subjects": "Chimay Grande Réserve",
-        "direction": "up",
-        "created-at": "2017-10-05T11:46:59.000000",
-        "cdr-stat-queue-ids": "Chimay Grande Réserve",
-        "category": "in",
-        "activation-time": "quod"
-      }
-    }
-  ]
-}
-```
-
-#### GET index filtering by category
-##### Request
-* __Method:__ GET
-* __Path:__ /api/tp-rating-profiles?tpid=Wartortle
-* __Request headers:__
-```
-accept: application/vnd.api+json
-content-type: application/vnd.api+json
-```
-##### Response
-* __Status__: 200
-* __Response headers:__
-```
-content-type: application/vnd.api+json; charset=utf-8
-cache-control: max-age=0, private, must-revalidate
-x-request-id: p4u5fmlfjjbpfk0o40ih5t86e1godujp
-vary: Origin
-access-control-allow-origin: 
-access-control-expose-headers: 
-access-control-allow-credentials: true
-```
-* __Response body:__
-```json
-{
-  "meta": {
-    "total_records": 1,
-    "total_pages": 1
-  },
-  "links": {
-    "self": "/api/tp-rating-profiles?page[page]=1&page[page-size]=10&tpid=Wartortle"
-  },
-  "jsonapi": {
-    "version": "1.0"
-  },
-  "data": [
-    {
-      "type": "tp-rating-profile",
-      "id": "8",
-      "attributes": {
-        "tpid": "Wartortle",
-        "tenant": "Trois Pistoles",
-        "subject": "Sierra Nevada Celebration Ale",
-        "rating-plan-tag": "Founders Kentucky Breakfast",
-        "loadid": "Samuel Smith’s Oatmeal Stout",
-        "fallback-subjects": "Trappistes Rochefort 8",
-        "direction": "up",
-        "created-at": "2017-10-05T11:46:59.000000",
-        "cdr-stat-queue-ids": "Hop Rod Rye",
-        "category": "at",
-        "activation-time": "labore"
-      }
-    }
-  ]
-}
-```
-
-#### GET index filtering by tenant
-##### Request
-* __Method:__ GET
-* __Path:__ /api/tp-rating-profiles?tpid=Shellder
-* __Request headers:__
-```
-accept: application/vnd.api+json
-content-type: application/vnd.api+json
-```
-##### Response
-* __Status__: 200
-* __Response headers:__
-```
-content-type: application/vnd.api+json; charset=utf-8
-cache-control: max-age=0, private, must-revalidate
-x-request-id: gejdmuk7c6k2ds7i8kq56nf1cun2mmvo
-vary: Origin
-access-control-allow-origin: 
-access-control-expose-headers: 
-access-control-allow-credentials: true
-```
-* __Response body:__
-```json
-{
-  "meta": {
-    "total_records": 1,
-    "total_pages": 1
-  },
-  "links": {
-    "self": "/api/tp-rating-profiles?page[page]=1&page[page-size]=10&tpid=Shellder"
-  },
-  "jsonapi": {
-    "version": "1.0"
-  },
-  "data": [
-    {
-      "type": "tp-rating-profile",
-      "id": "4",
-      "attributes": {
-        "tpid": "Shellder",
-        "tenant": "Ruination IPA",
-        "subject": "Stone Imperial Russian Stout",
-        "rating-plan-tag": "Shakespeare Oatmeal",
-        "loadid": "Sierra Nevada Celebration Ale",
-        "fallback-subjects": "HopSlam Ale",
-        "direction": "up",
-        "created-at": "2017-10-05T11:46:59.000000",
-        "cdr-stat-queue-ids": "Pliny The Elder",
-        "category": "recusandae",
-        "activation-time": "culpa"
-      }
-    }
-  ]
-}
-```
-
-#### GET index filtering by direction
-##### Request
-* __Method:__ GET
-* __Path:__ /api/tp-rating-profiles?tpid=Onix
-* __Request headers:__
-```
-accept: application/vnd.api+json
-content-type: application/vnd.api+json
-```
-##### Response
-* __Status__: 200
-* __Response headers:__
-```
-content-type: application/vnd.api+json; charset=utf-8
-cache-control: max-age=0, private, must-revalidate
-x-request-id: ime40mv9b7j1vvl9ke2gh3m2o9s3cctl
-vary: Origin
-access-control-allow-origin: 
-access-control-expose-headers: 
-access-control-allow-credentials: true
-```
-* __Response body:__
-```json
-{
-  "meta": {
-    "total_records": 1,
-    "total_pages": 1
-  },
-  "links": {
-    "self": "/api/tp-rating-profiles?page[page]=1&page[page-size]=10&tpid=Onix"
-  },
-  "jsonapi": {
-    "version": "1.0"
-  },
-  "data": [
-    {
-      "type": "tp-rating-profile",
-      "id": "15",
-      "attributes": {
-        "tpid": "Onix",
-        "tenant": "90 Minute IPA",
-        "subject": "Chocolate St",
-        "rating-plan-tag": "Samuel Smith’s Oatmeal Stout",
-        "loadid": "Nugget Nectar",
-        "fallback-subjects": "Maudite",
-        "direction": "up",
-        "created-at": "2017-10-05T11:46:59.000000",
-        "cdr-stat-queue-ids": "Stone IPA",
-        "category": "aut",
-        "activation-time": "beatae"
-      }
-    }
-  ]
-}
-```
-
-#### GET index filtering by loadid
-##### Request
-* __Method:__ GET
-* __Path:__ /api/tp-rating-profiles?tpid=Golduck
-* __Request headers:__
-```
-accept: application/vnd.api+json
-content-type: application/vnd.api+json
-```
-##### Response
-* __Status__: 200
-* __Response headers:__
-```
-content-type: application/vnd.api+json; charset=utf-8
-cache-control: max-age=0, private, must-revalidate
-x-request-id: 0fvnfq4tslmhlfhegink5heqegbjaasi
-vary: Origin
-access-control-allow-origin: 
-access-control-expose-headers: 
-access-control-allow-credentials: true
-```
-* __Response body:__
-```json
-{
-  "meta": {
-    "total_records": 1,
-    "total_pages": 1
-  },
-  "links": {
-    "self": "/api/tp-rating-profiles?page[page]=1&page[page-size]=10&tpid=Golduck"
+    "self": "/api/tp-rating-profiles?page[page]=1&page[page-size]=10&tpid=Fearow"
   },
   "jsonapi": {
     "version": "1.0"
@@ -5920,27 +5640,27 @@ access-control-allow-credentials: true
       "type": "tp-rating-profile",
       "id": "22",
       "attributes": {
-        "tpid": "Golduck",
-        "tenant": "Chimay Grande Réserve",
-        "subject": "Chimay Grande Réserve",
-        "rating-plan-tag": "Hercules Double IPA",
-        "loadid": "Stone Imperial Russian Stout",
-        "fallback-subjects": "Double Bastard Ale",
+        "tpid": "Fearow",
+        "tenant": "Stone Imperial Russian Stout",
+        "subject": "Ten FIDY",
+        "rating-plan-tag": "Alpha King Pale Ale",
+        "loadid": "Stone IPA",
+        "fallback-subjects": "HopSlam Ale",
         "direction": "up",
-        "created-at": "2017-10-05T11:46:59.000000",
-        "cdr-stat-queue-ids": "Edmund Fitzgerald Porter",
-        "category": "laborum",
-        "activation-time": "ab"
+        "created-at": "2017-10-05T12:42:01.000000",
+        "cdr-stat-queue-ids": "Brooklyn Black",
+        "category": "aliquam",
+        "activation-time": "est"
       }
     }
   ]
 }
 ```
 
-#### GET index lists all entries related tariff plan on index
+#### GET index filtering by subject
 ##### Request
 * __Method:__ GET
-* __Path:__ /api/tp-rating-profiles?tpid=Farfetch%27d
+* __Path:__ /api/tp-rating-profiles?tpid=Mankey
 * __Request headers:__
 ```
 accept: application/vnd.api+json
@@ -5952,7 +5672,7 @@ content-type: application/vnd.api+json
 ```
 content-type: application/vnd.api+json; charset=utf-8
 cache-control: max-age=0, private, must-revalidate
-x-request-id: 0nlqfuhpneuiareljae9mr5216697iur
+x-request-id: 8vgkgm7egrcsgse2agndgrih9vln8huf
 vary: Origin
 access-control-allow-origin: 
 access-control-expose-headers: 
@@ -5966,7 +5686,7 @@ access-control-allow-credentials: true
     "total_pages": 1
   },
   "links": {
-    "self": "/api/tp-rating-profiles?page[page]=1&page[page-size]=10&tpid=Farfetch%27d"
+    "self": "/api/tp-rating-profiles?page[page]=1&page[page-size]=10&tpid=Mankey"
   },
   "jsonapi": {
     "version": "1.0"
@@ -5974,19 +5694,299 @@ access-control-allow-credentials: true
   "data": [
     {
       "type": "tp-rating-profile",
-      "id": "13",
+      "id": "14",
       "attributes": {
-        "tpid": "Farfetch'd",
-        "tenant": "St. Bernardus Abt 12",
-        "subject": "Sublimely Self-Righteous Ale",
-        "rating-plan-tag": "Bell’s Expedition",
-        "loadid": "Duvel",
-        "fallback-subjects": "Ten FIDY",
+        "tpid": "Mankey",
+        "tenant": "Edmund Fitzgerald Porter",
+        "subject": "Storm King Stout",
+        "rating-plan-tag": "Sierra Nevada Bigfoot Barleywine Style Ale",
+        "loadid": "Trappistes Rochefort 8",
+        "fallback-subjects": "Chimay Grande Réserve",
         "direction": "up",
-        "created-at": "2017-10-05T11:46:59.000000",
-        "cdr-stat-queue-ids": "Old Rasputin Russian Imperial Stout",
-        "category": "aperiam",
-        "activation-time": "dolorum"
+        "created-at": "2017-10-05T12:42:01.000000",
+        "cdr-stat-queue-ids": "Maudite",
+        "category": "omnis",
+        "activation-time": "earum"
+      }
+    }
+  ]
+}
+```
+
+#### GET index filtering by category
+##### Request
+* __Method:__ GET
+* __Path:__ /api/tp-rating-profiles?tpid=Gyarados
+* __Request headers:__
+```
+accept: application/vnd.api+json
+content-type: application/vnd.api+json
+```
+##### Response
+* __Status__: 200
+* __Response headers:__
+```
+content-type: application/vnd.api+json; charset=utf-8
+cache-control: max-age=0, private, must-revalidate
+x-request-id: 9avappi8seeqjl6ghb3auggioup3s424
+vary: Origin
+access-control-allow-origin: 
+access-control-expose-headers: 
+access-control-allow-credentials: true
+```
+* __Response body:__
+```json
+{
+  "meta": {
+    "total_records": 1,
+    "total_pages": 1
+  },
+  "links": {
+    "self": "/api/tp-rating-profiles?page[page]=1&page[page-size]=10&tpid=Gyarados"
+  },
+  "jsonapi": {
+    "version": "1.0"
+  },
+  "data": [
+    {
+      "type": "tp-rating-profile",
+      "id": "12",
+      "attributes": {
+        "tpid": "Gyarados",
+        "tenant": "Old Rasputin Russian Imperial Stout",
+        "subject": "Two Hearted Ale",
+        "rating-plan-tag": "Chocolate St",
+        "loadid": "Oak Aged Yeti Imperial Stout",
+        "fallback-subjects": "Storm King Stout",
+        "direction": "up",
+        "created-at": "2017-10-05T12:42:01.000000",
+        "cdr-stat-queue-ids": "Ten FIDY",
+        "category": "omnis",
+        "activation-time": "ipsa"
+      }
+    }
+  ]
+}
+```
+
+#### GET index filtering by tenant
+##### Request
+* __Method:__ GET
+* __Path:__ /api/tp-rating-profiles?tpid=Tentacruel
+* __Request headers:__
+```
+accept: application/vnd.api+json
+content-type: application/vnd.api+json
+```
+##### Response
+* __Status__: 200
+* __Response headers:__
+```
+content-type: application/vnd.api+json; charset=utf-8
+cache-control: max-age=0, private, must-revalidate
+x-request-id: up9o82smtao9imbdbh1v2u52564r414b
+vary: Origin
+access-control-allow-origin: 
+access-control-expose-headers: 
+access-control-allow-credentials: true
+```
+* __Response body:__
+```json
+{
+  "meta": {
+    "total_records": 1,
+    "total_pages": 1
+  },
+  "links": {
+    "self": "/api/tp-rating-profiles?page[page]=1&page[page-size]=10&tpid=Tentacruel"
+  },
+  "jsonapi": {
+    "version": "1.0"
+  },
+  "data": [
+    {
+      "type": "tp-rating-profile",
+      "id": "6",
+      "attributes": {
+        "tpid": "Tentacruel",
+        "tenant": "Sierra Nevada Bigfoot Barleywine Style Ale",
+        "subject": "Edmund Fitzgerald Porter",
+        "rating-plan-tag": "Sierra Nevada Bigfoot Barleywine Style Ale",
+        "loadid": "Trappistes Rochefort 10",
+        "fallback-subjects": "Alpha King Pale Ale",
+        "direction": "up",
+        "created-at": "2017-10-05T12:42:01.000000",
+        "cdr-stat-queue-ids": "Hercules Double IPA",
+        "category": "aut",
+        "activation-time": "magnam"
+      }
+    }
+  ]
+}
+```
+
+#### GET index filtering by direction
+##### Request
+* __Method:__ GET
+* __Path:__ /api/tp-rating-profiles?tpid=Tauros
+* __Request headers:__
+```
+accept: application/vnd.api+json
+content-type: application/vnd.api+json
+```
+##### Response
+* __Status__: 200
+* __Response headers:__
+```
+content-type: application/vnd.api+json; charset=utf-8
+cache-control: max-age=0, private, must-revalidate
+x-request-id: b82o8p50927hedkemo2bd2l703co2j96
+vary: Origin
+access-control-allow-origin: 
+access-control-expose-headers: 
+access-control-allow-credentials: true
+```
+* __Response body:__
+```json
+{
+  "meta": {
+    "total_records": 1,
+    "total_pages": 1
+  },
+  "links": {
+    "self": "/api/tp-rating-profiles?page[page]=1&page[page-size]=10&tpid=Tauros"
+  },
+  "jsonapi": {
+    "version": "1.0"
+  },
+  "data": [
+    {
+      "type": "tp-rating-profile",
+      "id": "2",
+      "attributes": {
+        "tpid": "Tauros",
+        "tenant": "Samuel Smith’s Imperial IPA",
+        "subject": "Celebrator Doppelbock",
+        "rating-plan-tag": "La Fin Du Monde",
+        "loadid": "Founders Breakfast Stout",
+        "fallback-subjects": "Alpha King Pale Ale",
+        "direction": "up",
+        "created-at": "2017-10-05T12:42:01.000000",
+        "cdr-stat-queue-ids": "Two Hearted Ale",
+        "category": "debitis",
+        "activation-time": "rem"
+      }
+    }
+  ]
+}
+```
+
+#### GET index filtering by loadid
+##### Request
+* __Method:__ GET
+* __Path:__ /api/tp-rating-profiles?tpid=Gastly
+* __Request headers:__
+```
+accept: application/vnd.api+json
+content-type: application/vnd.api+json
+```
+##### Response
+* __Status__: 200
+* __Response headers:__
+```
+content-type: application/vnd.api+json; charset=utf-8
+cache-control: max-age=0, private, must-revalidate
+x-request-id: jpe1heeb50a2daqn39ognpaq49j17rtr
+vary: Origin
+access-control-allow-origin: 
+access-control-expose-headers: 
+access-control-allow-credentials: true
+```
+* __Response body:__
+```json
+{
+  "meta": {
+    "total_records": 1,
+    "total_pages": 1
+  },
+  "links": {
+    "self": "/api/tp-rating-profiles?page[page]=1&page[page-size]=10&tpid=Gastly"
+  },
+  "jsonapi": {
+    "version": "1.0"
+  },
+  "data": [
+    {
+      "type": "tp-rating-profile",
+      "id": "4",
+      "attributes": {
+        "tpid": "Gastly",
+        "tenant": "Oak Aged Yeti Imperial Stout",
+        "subject": "Racer 5 India Pale Ale, Bear Republic Bre",
+        "rating-plan-tag": "Stone IPA",
+        "loadid": "Celebrator Doppelbock",
+        "fallback-subjects": "St. Bernardus Abt 12",
+        "direction": "up",
+        "created-at": "2017-10-05T12:42:01.000000",
+        "cdr-stat-queue-ids": "Two Hearted Ale",
+        "category": "maxime",
+        "activation-time": "exercitationem"
+      }
+    }
+  ]
+}
+```
+
+#### GET index lists all entries related tariff plan on index
+##### Request
+* __Method:__ GET
+* __Path:__ /api/tp-rating-profiles?tpid=Pidgey
+* __Request headers:__
+```
+accept: application/vnd.api+json
+content-type: application/vnd.api+json
+```
+##### Response
+* __Status__: 200
+* __Response headers:__
+```
+content-type: application/vnd.api+json; charset=utf-8
+cache-control: max-age=0, private, must-revalidate
+x-request-id: pser0f7f96ojt19m28o3iajnv2c0o00j
+vary: Origin
+access-control-allow-origin: 
+access-control-expose-headers: 
+access-control-allow-credentials: true
+```
+* __Response body:__
+```json
+{
+  "meta": {
+    "total_records": 1,
+    "total_pages": 1
+  },
+  "links": {
+    "self": "/api/tp-rating-profiles?page[page]=1&page[page-size]=10&tpid=Pidgey"
+  },
+  "jsonapi": {
+    "version": "1.0"
+  },
+  "data": [
+    {
+      "type": "tp-rating-profile",
+      "id": "8",
+      "attributes": {
+        "tpid": "Pidgey",
+        "tenant": "Racer 5 India Pale Ale, Bear Republic Bre",
+        "subject": "Old Rasputin Russian Imperial Stout",
+        "rating-plan-tag": "Nugget Nectar",
+        "loadid": "Trois Pistoles",
+        "fallback-subjects": "Trois Pistoles",
+        "direction": "up",
+        "created-at": "2017-10-05T12:42:01.000000",
+        "cdr-stat-queue-ids": "Celebrator Doppelbock",
+        "category": "sint",
+        "activation-time": "maiores"
       }
     }
   ]
@@ -5997,7 +5997,7 @@ access-control-allow-credentials: true
 #### GET show shows chosen resource
 ##### Request
 * __Method:__ GET
-* __Path:__ /api/tp-rating-profiles/6
+* __Path:__ /api/tp-rating-profiles/20
 * __Request headers:__
 ```
 accept: application/vnd.api+json
@@ -6009,7 +6009,7 @@ content-type: application/vnd.api+json
 ```
 content-type: application/vnd.api+json; charset=utf-8
 cache-control: max-age=0, private, must-revalidate
-x-request-id: ivib3d634p6309u6pvatesaligo5spr7
+x-request-id: 339prtpf0mlvp8ea7loujact8teurd7b
 vary: Origin
 access-control-allow-origin: 
 access-control-expose-headers: 
@@ -6023,19 +6023,19 @@ access-control-allow-credentials: true
   },
   "data": {
     "type": "tp-rating-profile",
-    "id": "6",
+    "id": "20",
     "attributes": {
-      "tpid": "Cloyster",
-      "tenant": "Westmalle Trappist Tripel",
-      "subject": "Chocolate St",
-      "rating-plan-tag": "Hercules Double IPA",
-      "loadid": "Weihenstephaner Hefeweissbier",
-      "fallback-subjects": "Duvel",
+      "tpid": "Koffing",
+      "tenant": "Samuel Smith’s Oatmeal Stout",
+      "subject": "Pliny The Elder",
+      "rating-plan-tag": "Alpha King Pale Ale",
+      "loadid": "La Fin Du Monde",
+      "fallback-subjects": "Maudite",
       "direction": "up",
-      "created-at": "2017-10-05T11:46:59.000000",
-      "cdr-stat-queue-ids": "Maudite",
-      "category": "laboriosam",
-      "activation-time": "voluptas"
+      "created-at": "2017-10-05T12:42:01.000000",
+      "cdr-stat-queue-ids": "Storm King Stout",
+      "category": "quis",
+      "activation-time": "atque"
     }
   }
 }
@@ -6045,7 +6045,7 @@ access-control-allow-credentials: true
 #### PATCH/PUT update does not update chosen resource and renders errors when data is invalid
 ##### Request
 * __Method:__ PUT
-* __Path:__ /api/tp-rating-profiles/10
+* __Path:__ /api/tp-rating-profiles/1
 * __Request headers:__
 ```
 accept: application/vnd.api+json
@@ -6057,7 +6057,7 @@ content-type: application/vnd.api+json
 ```
 content-type: application/vnd.api+json; charset=utf-8
 cache-control: max-age=0, private, must-revalidate
-x-request-id: rdpa6l5ar4ra41s3eta17dalo9aq51el
+x-request-id: lnf5jnvne33itrkb4g4hl7obg6ogh9bs
 vary: Origin
 access-control-allow-origin: 
 access-control-expose-headers: 
@@ -6084,7 +6084,7 @@ access-control-allow-credentials: true
 #### PATCH/PUT update updates and renders chosen resource when data is valid
 ##### Request
 * __Method:__ PUT
-* __Path:__ /api/tp-rating-profiles/3
+* __Path:__ /api/tp-rating-profiles/18
 * __Request headers:__
 ```
 accept: application/vnd.api+json
@@ -6096,7 +6096,7 @@ content-type: application/vnd.api+json
 ```
 content-type: application/vnd.api+json; charset=utf-8
 cache-control: max-age=0, private, must-revalidate
-x-request-id: pn7m7q5u3rn9th6af7vvo6kiemvepf63
+x-request-id: 329imvgr3ofkt23873lgg0l45hf7sfhg
 vary: Origin
 access-control-allow-origin: 
 access-control-expose-headers: 
@@ -6110,19 +6110,19 @@ access-control-allow-credentials: true
   },
   "data": {
     "type": "tp-rating-profile",
-    "id": "3",
+    "id": "18",
     "attributes": {
-      "tpid": "Maudite",
-      "tenant": "Brooklyn Black",
-      "subject": "Samuel Smith’s Oatmeal Stout",
-      "rating-plan-tag": "Pliny The Elder",
-      "loadid": "Oak Aged Yeti Imperial Stout",
-      "fallback-subjects": "Trappistes Rochefort 8",
+      "tpid": "90 Minute IPA",
+      "tenant": "Samuel Smith’s Imperial IPA",
+      "subject": "Ruination IPA",
+      "rating-plan-tag": "Westmalle Trappist Tripel",
+      "loadid": "Two Hearted Ale",
+      "fallback-subjects": "Chocolate St",
       "direction": "up",
-      "created-at": "2017-10-05T11:46:59.000000",
-      "cdr-stat-queue-ids": "Schneider Aventinus",
-      "category": "ipsa",
-      "activation-time": "sapiente"
+      "created-at": "2017-10-05T12:42:01.000000",
+      "cdr-stat-queue-ids": "Old Rasputin Russian Imperial Stout",
+      "category": "voluptatibus",
+      "activation-time": "vero"
     }
   }
 }
@@ -6145,7 +6145,7 @@ content-type: application/vnd.api+json
 ```
 content-type: application/vnd.api+json; charset=utf-8
 cache-control: max-age=0, private, must-revalidate
-x-request-id: i32sgrrp813ap9rgt8i0kosi84gkuonr
+x-request-id: bk3njb4egff15ab7125vp4lopa6dmgq3
 vary: Origin
 access-control-allow-origin: 
 access-control-expose-headers: 
@@ -6226,7 +6226,7 @@ content-type: application/vnd.api+json
 ```
 content-type: application/vnd.api+json; charset=utf-8
 cache-control: max-age=0, private, must-revalidate
-x-request-id: iolr780ikgoe38fmpie1livu84n4fvqh
+x-request-id: prm17mfcvkd9l0qkjejon5tv95b13udg
 vary: Origin
 access-control-allow-origin: 
 access-control-expose-headers: 
@@ -6240,13 +6240,13 @@ access-control-allow-credentials: true
   },
   "data": {
     "type": "tp-timing",
-    "id": "5",
+    "id": "7",
     "attributes": {
       "years": "2017",
       "week-days": "14",
-      "tpid": "Slowbro",
+      "tpid": "Kangaskhan",
       "time": "8",
-      "tag": "Samuel Smith’s Imperial IPA",
+      "tag": "Storm King Stout",
       "months": "10",
       "month-days": "30",
       "created-at": null
@@ -6270,7 +6270,7 @@ content-type: application/vnd.api+json
 * __Response headers:__
 ```
 cache-control: max-age=0, private, must-revalidate
-x-request-id: ffftgv87v06hef5sdjv0iei093js90l5
+x-request-id: 61bv89usarbdergkpd7hfj822l7qk270
 vary: Origin
 access-control-allow-origin: 
 access-control-expose-headers: 
@@ -6286,7 +6286,7 @@ content-type: application/vnd.api+json
 #### filtering by tag
 ##### Request
 * __Method:__ GET
-* __Path:__ /api/tp-timings?tpid=Muk
+* __Path:__ /api/tp-timings?tpid=Dragonite
 * __Request headers:__
 ```
 accept: application/vnd.api+json
@@ -6298,7 +6298,7 @@ content-type: application/vnd.api+json
 ```
 content-type: application/vnd.api+json; charset=utf-8
 cache-control: max-age=0, private, must-revalidate
-x-request-id: 0v69hjngtmvl3b9fovukel8ng9cshttu
+x-request-id: le9rn8qhgufn3p6qhlqdfatdc8itrhkn
 vary: Origin
 access-control-allow-origin: 
 access-control-expose-headers: 
@@ -6312,7 +6312,7 @@ access-control-allow-credentials: true
     "total_pages": 1
   },
   "links": {
-    "self": "/api/tp-timings?page[page]=1&page[page-size]=10&tpid=Muk"
+    "self": "/api/tp-timings?page[page]=1&page[page-size]=10&tpid=Dragonite"
   },
   "jsonapi": {
     "version": "1.0"
@@ -6320,16 +6320,16 @@ access-control-allow-credentials: true
   "data": [
     {
       "type": "tp-timing",
-      "id": "7",
+      "id": "4",
       "attributes": {
         "years": "2017",
         "week-days": "14",
-        "tpid": "Muk",
+        "tpid": "Dragonite",
         "time": "8",
-        "tag": "Ten FIDY",
+        "tag": "Trappistes Rochefort 8",
         "months": "10",
         "month-days": "30",
-        "created-at": "2017-10-05T11:46:59.000000"
+        "created-at": "2017-10-05T12:42:01.000000"
       }
     }
   ]
@@ -6339,7 +6339,7 @@ access-control-allow-credentials: true
 #### lists all entries related tariff plan on index
 ##### Request
 * __Method:__ GET
-* __Path:__ /api/tp-timings?tpid=Exeggutor
+* __Path:__ /api/tp-timings?tpid=Psyduck
 * __Request headers:__
 ```
 accept: application/vnd.api+json
@@ -6351,7 +6351,7 @@ content-type: application/vnd.api+json
 ```
 content-type: application/vnd.api+json; charset=utf-8
 cache-control: max-age=0, private, must-revalidate
-x-request-id: kmep5qsmqvi1o4su5r9p3r6oepmhvhmv
+x-request-id: 27e0k635ba3g6lju0rjtot4ksrestpkh
 vary: Origin
 access-control-allow-origin: 
 access-control-expose-headers: 
@@ -6365,7 +6365,7 @@ access-control-allow-credentials: true
     "total_pages": 1
   },
   "links": {
-    "self": "/api/tp-timings?page[page]=1&page[page-size]=10&tpid=Exeggutor"
+    "self": "/api/tp-timings?page[page]=1&page[page-size]=10&tpid=Psyduck"
   },
   "jsonapi": {
     "version": "1.0"
@@ -6373,16 +6373,16 @@ access-control-allow-credentials: true
   "data": [
     {
       "type": "tp-timing",
-      "id": "1",
+      "id": "2",
       "attributes": {
         "years": "2017",
         "week-days": "14",
-        "tpid": "Exeggutor",
+        "tpid": "Psyduck",
         "time": "8",
-        "tag": "Weihenstephaner Hefeweissbier",
+        "tag": "Brooklyn Black",
         "months": "10",
         "month-days": "30",
-        "created-at": "2017-10-05T11:46:59.000000"
+        "created-at": "2017-10-05T12:42:01.000000"
       }
     }
   ]
@@ -6393,7 +6393,7 @@ access-control-allow-credentials: true
 #### shows chosen resource
 ##### Request
 * __Method:__ GET
-* __Path:__ /api/tp-timings/4
+* __Path:__ /api/tp-timings/8
 * __Request headers:__
 ```
 accept: application/vnd.api+json
@@ -6405,7 +6405,7 @@ content-type: application/vnd.api+json
 ```
 content-type: application/vnd.api+json; charset=utf-8
 cache-control: max-age=0, private, must-revalidate
-x-request-id: udv1pufc26k7vs9ire0emqsq1mg9n8ij
+x-request-id: pnnfa62a99jvaoq0l48r4pko1hhjlvo5
 vary: Origin
 access-control-allow-origin: 
 access-control-expose-headers: 
@@ -6419,16 +6419,16 @@ access-control-allow-credentials: true
   },
   "data": {
     "type": "tp-timing",
-    "id": "4",
+    "id": "8",
     "attributes": {
       "years": "2017",
       "week-days": "14",
-      "tpid": "Persian",
+      "tpid": "Omastar",
       "time": "8",
-      "tag": "Brooklyn Black",
+      "tag": "Hennepin",
       "months": "10",
       "month-days": "30",
-      "created-at": "2017-10-05T11:46:59.000000"
+      "created-at": "2017-10-05T12:42:01.000000"
     }
   }
 }
@@ -6438,7 +6438,7 @@ access-control-allow-credentials: true
 #### does not update chosen resource and renders errors when data is invalid
 ##### Request
 * __Method:__ PUT
-* __Path:__ /api/tp-timings/6
+* __Path:__ /api/tp-timings/1
 * __Request headers:__
 ```
 accept: application/vnd.api+json
@@ -6450,7 +6450,7 @@ content-type: application/vnd.api+json
 ```
 content-type: application/vnd.api+json; charset=utf-8
 cache-control: max-age=0, private, must-revalidate
-x-request-id: ffpqf66bsil072s9ph0drsku3hij95gg
+x-request-id: r8m9gcj1361fn93s8hghff157dcnh7n6
 vary: Origin
 access-control-allow-origin: 
 access-control-expose-headers: 
@@ -6477,7 +6477,7 @@ access-control-allow-credentials: true
 #### updates and renders chosen resource when data is valid
 ##### Request
 * __Method:__ PUT
-* __Path:__ /api/tp-timings/3
+* __Path:__ /api/tp-timings/6
 * __Request headers:__
 ```
 accept: application/vnd.api+json
@@ -6489,7 +6489,7 @@ content-type: application/vnd.api+json
 ```
 content-type: application/vnd.api+json; charset=utf-8
 cache-control: max-age=0, private, must-revalidate
-x-request-id: effsl93o1mib7gfogbv8sb05lju5ccui
+x-request-id: igudrseg8b8pk8buavn7hbjh1p6ekv3l
 vary: Origin
 access-control-allow-origin: 
 access-control-expose-headers: 
@@ -6503,16 +6503,16 @@ access-control-allow-credentials: true
   },
   "data": {
     "type": "tp-timing",
-    "id": "3",
+    "id": "6",
     "attributes": {
       "years": "2017",
       "week-days": "14",
-      "tpid": "90 Minute IPA",
+      "tpid": "Bourbon County Stout",
       "time": "8",
-      "tag": "Founders Breakfast Stout",
+      "tag": "Hop Rod Rye",
       "months": "10",
       "month-days": "30",
-      "created-at": "2017-10-05T11:46:59.000000"
+      "created-at": "2017-10-05T12:42:01.000000"
     }
   }
 }
@@ -6535,7 +6535,7 @@ content-type: application/vnd.api+json
 ```
 content-type: application/vnd.api+json; charset=utf-8
 cache-control: max-age=0, private, must-revalidate
-x-request-id: spcdspladcfgff5p4r15c8aahbbnlem9
+x-request-id: e9cait4dsdtc6roddv26c1j2k9ka3sjf
 vary: Origin
 access-control-allow-origin: 
 access-control-expose-headers: 
@@ -6574,7 +6574,7 @@ content-type: application/vnd.api+json
 ```
 content-type: application/vnd.api+json; charset=utf-8
 cache-control: max-age=0, private, must-revalidate
-x-request-id: t3193a3969dh6dq4s2hiso8tmr9bgu99
+x-request-id: p5rm6064vkuc1dtsfbn8s9saoo7bohla
 vary: Origin
 access-control-allow-origin: 
 access-control-expose-headers: 
@@ -6590,8 +6590,8 @@ access-control-allow-credentials: true
     "type": "user",
     "id": "24",
     "attributes": {
-      "updated-at": "2017-10-05T04:46:59.812026",
-      "inserted-at": "2017-10-05T04:46:59.812015",
+      "updated-at": "2017-10-05T05:42:01.765713",
+      "inserted-at": "2017-10-05T05:42:01.765702",
       "email": "email@example.com"
     }
   }
@@ -6602,7 +6602,7 @@ access-control-allow-credentials: true
 #### deletes chosen resource
 ##### Request
 * __Method:__ DELETE
-* __Path:__ /api/users/29
+* __Path:__ /api/users/28
 * __Request headers:__
 ```
 accept: application/vnd.api+json
@@ -6613,7 +6613,7 @@ content-type: application/vnd.api+json
 * __Response headers:__
 ```
 cache-control: max-age=0, private, must-revalidate
-x-request-id: a2m10psjnjppf7d32ej9ac369u47rsf8
+x-request-id: sum16pvq4svjqftdcl6jbkrrgrc4fm2r
 vary: Origin
 access-control-allow-origin: 
 access-control-expose-headers: 
@@ -6641,7 +6641,7 @@ content-type: application/vnd.api+json
 ```
 content-type: application/vnd.api+json; charset=utf-8
 cache-control: max-age=0, private, must-revalidate
-x-request-id: isuv2jo63pi0ubkogjnpltk7mp4b11i2
+x-request-id: bbn0dj2vfvtv7juon38qrtp89o9hos0b
 vary: Origin
 access-control-allow-origin: 
 access-control-expose-headers: 
@@ -6656,11 +6656,11 @@ access-control-allow-credentials: true
   "data": [
     {
       "type": "user",
-      "id": "27",
+      "id": "20",
       "attributes": {
-        "updated-at": "2017-10-05T04:47:00.000000",
-        "inserted-at": "2017-10-05T04:47:00.000000",
-        "email": "linwood1941@brown.net"
+        "updated-at": "2017-10-05T05:42:01.000000",
+        "inserted-at": "2017-10-05T05:42:01.000000",
+        "email": "delfina.hagenes@labadie.com"
       }
     }
   ]
@@ -6671,7 +6671,7 @@ access-control-allow-credentials: true
 #### shows chosen resource
 ##### Request
 * __Method:__ GET
-* __Path:__ /api/users/20
+* __Path:__ /api/users/26
 * __Request headers:__
 ```
 accept: application/vnd.api+json
@@ -6683,7 +6683,7 @@ content-type: application/vnd.api+json
 ```
 content-type: application/vnd.api+json; charset=utf-8
 cache-control: max-age=0, private, must-revalidate
-x-request-id: eu24prv5va8j5osti6gft1189baorf7i
+x-request-id: 3bob3oo5toih0qmcgja0r3elg8dta8os
 vary: Origin
 access-control-allow-origin: 
 access-control-expose-headers: 
@@ -6697,11 +6697,11 @@ access-control-allow-credentials: true
   },
   "data": {
     "type": "user",
-    "id": "20",
+    "id": "26",
     "attributes": {
-      "updated-at": "2017-10-05T04:46:59.000000",
-      "inserted-at": "2017-10-05T04:46:59.000000",
-      "email": "eden1926@gislason.biz"
+      "updated-at": "2017-10-05T05:42:02.000000",
+      "inserted-at": "2017-10-05T05:42:02.000000",
+      "email": "joy_howe@altenwerth.info"
     }
   }
 }
@@ -6711,7 +6711,7 @@ access-control-allow-credentials: true
 #### does not update chosen resource and renders errors when data is invalid
 ##### Request
 * __Method:__ PUT
-* __Path:__ /api/users/26
+* __Path:__ /api/users/18
 * __Request headers:__
 ```
 accept: application/vnd.api+json
@@ -6723,7 +6723,7 @@ content-type: application/vnd.api+json
 ```
 content-type: application/vnd.api+json; charset=utf-8
 cache-control: max-age=0, private, must-revalidate
-x-request-id: fol6345qohh8avcpgj3i7oqjfdt8b6dh
+x-request-id: bu05eg4mtmit0k9t0h94g65r3r7mh3qp
 vary: Origin
 access-control-allow-origin: 
 access-control-expose-headers: 
@@ -6750,7 +6750,7 @@ access-control-allow-credentials: true
 #### updates and renders chosen resource when data is valid
 ##### Request
 * __Method:__ PUT
-* __Path:__ /api/users/18
+* __Path:__ /api/users/22
 * __Request headers:__
 ```
 accept: application/vnd.api+json
@@ -6762,7 +6762,7 @@ content-type: application/vnd.api+json
 ```
 content-type: application/vnd.api+json; charset=utf-8
 cache-control: max-age=0, private, must-revalidate
-x-request-id: 9neft0hv6srcsu5qs4j54s1jo20m6moa
+x-request-id: eg6kuqu9ni1jsj6dpn4hoqpm6pfsp4u0
 vary: Origin
 access-control-allow-origin: 
 access-control-expose-headers: 
@@ -6776,10 +6776,10 @@ access-control-allow-credentials: true
   },
   "data": {
     "type": "user",
-    "id": "18",
+    "id": "22",
     "attributes": {
-      "updated-at": "2017-10-05T04:46:59.491683",
-      "inserted-at": "2017-10-05T04:46:59.000000",
+      "updated-at": "2017-10-05T05:42:01.447708",
+      "inserted-at": "2017-10-05T05:42:01.000000",
       "email": "email@example.com"
     }
   }
