@@ -15,7 +15,7 @@ defmodule CgratesWebJsonapi.Cgrates.AccountsRepo do
 
   def all(%{page: page, per_page: per_page}) do
     limit = per_page
-    offset = (page - 1) / per_page
+    offset = (page - 1) * per_page
     Adapter.execute(%{method: "ApierV2.GetAccounts", params: %{limit: limit, offset: offset}})
     |> process_list_resources(Account)
   end
