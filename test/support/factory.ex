@@ -39,6 +39,15 @@ defmodule CgratesWebJsonapi.Factory do
     }
   end
 
+  def tp_action_plan_factory do
+    %CgratesWebJsonapi.TpActionPlan{
+      tag: Faker.Beer.name,
+      actions_tag: Faker.Beer.name,
+      timing_tag: Faker.Beer.name,
+      weight: 10.0
+    }
+  end
+
   def tp_destination_factory do
     %CgratesWebJsonapi.TpDestination{
       prefix: "+44",
