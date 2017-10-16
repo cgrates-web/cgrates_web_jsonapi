@@ -8,6 +8,36 @@ defmodule CgratesWebJsonapi.Factory do
     }
   end
 
+  def cdr_factory do
+    %CgratesWebJsonapi.Cdr{
+      cgrid: Faker.Pokemon.name,
+      run_id: Faker.Pokemon.name,
+      origin_host: Faker.Beer.name,
+      source: Faker.Pokemon.name,
+      origin_id: Faker.Beer.name,
+      tor: Faker.Pokemon.name,
+      request_type: Faker.Pokemon.name,
+      direction: "*up",
+      tenant: Faker.Beer.name,
+      category: Faker.Pokemon.name,
+      account: Faker.Pokemon.name,
+      subject: Faker.Beer.name,
+      destination: Faker.Beer.name,
+      setup_time: %{day: 17, hour: 14, min: 0, month: 4, sec: 0, year: 2010},
+      pdd: 10.0,
+      answer_time: %{day: 17, hour: 14, min: 0, month: 4, sec: 0, year: 2010},
+      usage: 10.0,
+      supplier: Faker.Beer.name,
+      disconnect_cause: Faker.Beer.name,
+      extra_fields: Faker.Beer.name,
+      cost_source: Faker.Beer.name,
+      cost: 10.0,
+      cost_details: Faker.Beer.name,
+      account_summary: Faker.Beer.name,
+      extra_info: Faker.Beer.name
+    }
+  end
+
   def tariff_plan_factory do
     %CgratesWebJsonapi.TariffPlan{
       name: Faker.Beer.name,
