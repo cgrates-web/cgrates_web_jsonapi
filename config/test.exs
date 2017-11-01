@@ -19,6 +19,7 @@ config :logger, level: :warn
 config :cgrates_web_jsonapi, CgratesWebJsonapi.Repo,
   adapter: Ecto.Adapters.MySQL,
   username: "root",
+  password: "root",
   database: "cgrates_web_jsonapi_test",
   hostname: "localhost",
   pool: Ecto.Adapters.SQL.Sandbox
