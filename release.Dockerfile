@@ -1,4 +1,4 @@
-FROM elixir:1.4.4
+FROM elixir:1.5.1
 ENV DEBIAN_FRONTEND=noninteractive
 EXPOSE 8000
 ENV PORT=8000 MIX_ENV=prod REPLACE_OS_VARS=true SHELL=/bin/bash
