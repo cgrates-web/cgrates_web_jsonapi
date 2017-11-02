@@ -17,24 +17,37 @@ defmodule CgratesWebJsonapi.Router do
     plug Guardian.Plug.EnsureAuthenticated
   end
 
+  pipeline :uploaders do
+    plug :accepts, ["json-api"]
+    plug Guardian.Plug.VerifyHeader, realm: "Bearer"
+    plug Guardian.Plug.LoadResource
+    plug Guardian.Plug.EnsureAuthenticated
+  end
+
   scope "/api", CgratesWebJsonapi do
     pipe_through :private_api
 
-    resources "/accounts",             AccountController,           except: [:new, :edit]
-    resources "/add-balance",          AddBalanceController,        only:   [:create]
-    resources "/cdrs",                 CdrController,               only:   [:index, :show]
-    resources "/destinations",         DestinationController,       except: [:new, :edit]
-    resources "/load-tariff-plan",     LoadTariffPlanController,    only:   [:create]
-    resources "/tariff-plans",         TariffPlanController,        except: [:new, :edit]
-    resources "/tp-actions",           TpActionController,          except: [:new, :edit]
-    resources "/tp-action-plans",      TpActionPlanController,      except: [:new, :edit]
-    resources "/tp-destinations",      TpDestinationController,     except: [:new, :edit]
-    resources "/tp-destination-rates", TpDestinationRateController, except: [:new, :edit]
-    resources "/tp-rates",             TpRateController,            except: [:new, :edit]
-    resources "/tp-rating-plans",      TpRatingPlanController,      except: [:new, :edit]
-    resources "/tp-rating-profiles",   TpRatingProfileController,   except: [:new, :edit]
-    resources "/tp-timings",           TpTimingController,          except: [:new, :edit]
-    resources "/users",                UserController,              except: [:new, :edit]
+    resources "/accounts",                  AccountController,              except: [:new, :edit]
+    resources "/add-balance",               AddBalanceController,           only:   [:create]
+    resources "/cdrs",                      CdrController,                  only:   [:index, :show]
+    resources "/destinations",              DestinationController,          except: [:new, :edit]
+    resources "/load-tariff-plan",          LoadTariffPlanController,       only:   [:create]
+    resources "/tariff-plans",              TariffPlanController,           except: [:new, :edit]
+    resources "/tp-actions",                TpActionController,             except: [:new, :edit]
+    resources "/tp-action-plans",           TpActionPlanController,         except: [:new, :edit]
+    resources "/tp-bulk-insert",            TpBulkInsertController,         only:   [:create]
+    resources "/tp-destinations",           TpDestinationController,        except: [:new, :edit]
+    resources "/tp-destination-rates",      TpDestinationRateController,    except: [:new, :edit]
+    resources "/tp-rates",                  TpRateController,               except: [:new, :edit]
+    resources "/tp-rating-plans",           TpRatingPlanController,         except: [:new, :edit]
+    resources "/tp-rating-profiles",        TpRatingProfileController,      except: [:new, :edit]
+    resources "/tp-smart-rates",            TpSmartRateController,          only:   [:create]
+    resources "/tp-timings",                TpTimingController,             except: [:new, :edit]
+    resources "/users",                     UserController,                 except: [:new, :edit]
+  end
+
+  scope "/uploaders", CgratesWebJsonapi do
+    resources "/tp-smart-rate-import-jobs", TpSmartRateImportJobController, only:   [:create, :show]
   end
 
   scope "/", CgratesWebJsonapi do

@@ -83,8 +83,8 @@ defmodule CgratesWebJsonapi.CdrControllerTest do
     end
 
     test "filtering by tenant", %{conn: conn} do
-      cdr1 = insert :cdr
-      cdr2 = insert :cdr
+      cdr1 = insert :cdr, tenant: "A"
+      cdr2 = insert :cdr, tenant: "B"
 
       conn = get(conn, cdr_path(conn, :index), filter: %{tenant: cdr1.tenant})
       |> doc

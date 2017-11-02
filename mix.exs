@@ -21,7 +21,7 @@ defmodule CgratesWebJsonapi.Mixfile do
     [mod: {CgratesWebJsonapi, []},
      applications: [:phoenix, :phoenix_pubsub, :cowboy, :logger, :gettext, :scrivener_ecto,
                     :phoenix_ecto, :mariaex, :ja_resource, :ja_serializer, :hackney, :mapail, :comeonin,
-                    :cors_plug, :guardian, :httpoison, :proper_case
+                    :cors_plug, :guardian, :httpoison, :proper_case, :csv
                     ]
                   ]
   end
@@ -45,6 +45,7 @@ defmodule CgratesWebJsonapi.Mixfile do
      {:comeonin, "~> 2.0"},
      {:cors_plug, "~> 1.2"},
      {:coverex, "~> 1.4.10", only: :test},
+     {:csv, "~> 2.0.0"},
      {:distillery, "~> 1.4", runtime: false},
      {:ex_machina, "~> 2.1", only: :test},
      {:faker, "~> 0.8", only: :test},
