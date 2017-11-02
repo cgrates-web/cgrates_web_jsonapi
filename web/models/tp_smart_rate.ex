@@ -72,12 +72,12 @@ defmodule CgratesWebJsonapi.TpSmartRate do
   def insert(changeset) do
     if changeset.valid? do
       changes = changeset.changes
-      dst = Repo.get_by TpDestination, %{prefix: changes.prefix}
+      dst = Repo.get_by TpDestination, %{prefix: changes.prefix, tpid: changes.tpid}
 
       if is_nil(dst) do
         %TpDestination{} |> TpDestination.changeset(changes |> destination_attrs) |> Repo.insert!
       else
-        changes = changes |> Map.replace(%{destination_tag: dst.tag})
+        changes = changes |> Map.replace(:destination_tag, dst.tag)
       end
 
       rate_cs =      %TpRate{} |> TpRate.changeset(changes |> rate_attrs)
@@ -95,6 +95,14 @@ defmodule CgratesWebJsonapi.TpSmartRate do
     else
       {:error, changeset}
     end
+  end
+
+  def from_csv(path, tpid) do
+    path |> File.stream! |> CSV.decode!(headers: true) |> Enum.each(fn (data) ->
+      %CgratesWebJsonapi.TpSmartRate{}
+      |> changeset(data |> Map.merge(%{"tpid" => tpid}))
+      |> insert()
+    end)
   end
 
   defp build_rate_tag(struct) do

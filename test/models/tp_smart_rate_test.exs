@@ -9,6 +9,8 @@ defmodule CgratesWebJsonapi.TpSmartRateTest do
   alias CgratesWebJsonapi.TpRate
   alias CgratesWebJsonapi.TpRatingPlan
 
+  import CgratesWebJsonapi.Factory
+
 
   @valid_attrs %{connect_fee: "120.5", destination_tag: "DST_EU", group_interval_start: "60s", max_cost: "0",
                  max_cost_strategy: "*free", prefix: "44", rate: "120.5", rate_increment: "60s", rate_unit: "60s",
@@ -96,6 +98,74 @@ defmodule CgratesWebJsonapi.TpSmartRateTest do
       destrates_tag: "RETAIL_DST_EU_44",
       timing_tag: "PEAK",
       weight: "120.5"
+    })
+  end
+
+  test "#from_csv inserts destination, rate, destination rate and rating profile from csv data" do
+    path = Path.expand("../fixtures/csv/smart-rates.csv", __DIR__)
+    TpSmartRate.from_csv(path, "MY_NEW_TARIFF")
+
+    assert Repo.get_by(TpRate, %{
+      tpid: "MY_NEW_TARIFF",
+      tag: "RETAIL_DST_EU_44",
+      group_interval_start: "60s",
+      rate: "120.5",
+      rate_increment: "60s",
+      rate_unit: "60s",
+      connect_fee: "120.5"
+    })
+    assert Repo.get_by(TpDestination, %{ tag: "DST_EU", prefix: "44", tpid: "MY_NEW_TARIFF", })
+    assert Repo.get_by(TpDestinationRate, %{
+      tpid: "MY_NEW_TARIFF",
+      tag: "RETAIL_DST_EU_44",
+      destinations_tag: "DST_EU",
+      rates_tag: "RETAIL_DST_EU_44",
+      rounding_method: "*up",
+      max_cost_strategy: "*free",
+      max_cost: "0",
+      rounding_decimals: "4"
+    })
+    assert Repo.get_by(TpRatingPlan, %{
+      tpid: "MY_NEW_TARIFF",
+      tag: "RETAIL",
+      destrates_tag: "RETAIL_DST_EU_44",
+      timing_tag: "PEAK",
+      weight: "100.0"
+    })
+  end
+
+  test "#from_csv should not create destination if it is exisitng in DB" do
+    insert :tp_destination, prefix: "44", tpid: "MY_NEW_TARIFF", tag: "OLD_UK"
+    path = Path.expand("../fixtures/csv/smart-rates.csv", __DIR__)
+    TpSmartRate.from_csv(path, "MY_NEW_TARIFF")
+
+    assert Repo.get_by(TpRate, %{
+      tpid: "MY_NEW_TARIFF",
+      tag: "RETAIL_OLD_UK_44",
+      group_interval_start: "60s",
+      rate: "120.5",
+      rate_increment: "60s",
+      rate_unit: "60s",
+      connect_fee: "120.5"
+    })
+    refute Repo.get_by(TpDestination, %{ tag: "DST_EU", prefix: "44", tpid: "MY_NEW_TARIFF", })
+    assert Repo.get_by(TpDestination, %{ tag: "OLD_UK", prefix: "44", tpid: "MY_NEW_TARIFF", })
+    assert Repo.get_by(TpDestinationRate, %{
+      tpid: "MY_NEW_TARIFF",
+      tag: "RETAIL_OLD_UK_44",
+      destinations_tag: "OLD_UK",
+      rates_tag: "RETAIL_OLD_UK_44",
+      rounding_method: "*up",
+      max_cost_strategy: "*free",
+      max_cost: "0",
+      rounding_decimals: "4"
+    })
+    assert Repo.get_by(TpRatingPlan, %{
+      tpid: "MY_NEW_TARIFF",
+      tag: "RETAIL",
+      destrates_tag: "RETAIL_OLD_UK_44",
+      timing_tag: "PEAK",
+      weight: "100.0"
     })
   end
 end
