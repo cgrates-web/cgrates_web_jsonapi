@@ -97,6 +97,23 @@ defmodule CgratesWebJsonapi.Factory do
     }
   end
 
+  def tp_lcr_rule_factory do
+    %CgratesWebJsonapi.TpLcrRule{
+      tpid: Faker.Pokemon.name,
+      direction: "*out",
+      tenant: Faker.Pokemon.name,
+      category: "call",
+      account: Faker.Pokemon.name,
+      subject: Faker.Pokemon.name,
+      destination_tag: Faker.Pokemon.name,
+      rp_category: Faker.Pokemon.name,
+      strategy: "*static",
+      strategy_params: Faker.Pokemon.name,
+      activation_time: "2017-11-11",
+      weight: 10
+    }
+  end
+
   def tp_rate_factory do
     %CgratesWebJsonapi.TpRate{
       tag: Faker.Beer.name,
