@@ -108,7 +108,6 @@ defmodule CgratesWebJsonapi.Factory do
       destination_tag: Faker.Pokemon.name,
       rp_category: Faker.Pokemon.name,
       strategy: "*static",
-      strategy_params: Faker.Pokemon.name,
       activation_time: "2017-11-11",
       weight: 10
     }

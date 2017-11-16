@@ -7,6 +7,8 @@ defmodule CgratesWebJsonapi.TpSmartRate do
   alias CgratesWebJsonapi.TpRate
   alias CgratesWebJsonapi.TpRatingPlan
 
+  use EctoConditionals, repo: CgratesWebJsonapi.Repo
+
   schema "tp-smart-rate" do
     field :tpid, :string
     field :timing_tag, :string
@@ -85,9 +87,9 @@ defmodule CgratesWebJsonapi.TpSmartRate do
       rp_cs =        %TpRatingPlan{} |> TpRatingPlan.changeset(changes |> rating_plan_attrs)
 
       if rate_cs.valid? && dst_rates_cs.valid? && rp_cs.valid? do
-        Repo.insert! rate_cs
-        Repo.insert! dst_rates_cs
-        Repo.insert! rp_cs
+        rate_cs |> apply_changes() |> upsert_by(:tag)
+        dst_rates_cs |> apply_changes() |> upsert_by(:tag)
+        rp_cs |> apply_changes() |> upsert_by(:tag)
         {:ok, changes}
       else
         {:error, changeset}
@@ -108,4 +110,6 @@ defmodule CgratesWebJsonapi.TpSmartRate do
   defp build_rate_tag(struct) do
     "#{struct[:rating_plan_tag]}_#{struct[:destination_tag]}_#{struct[:prefix]}"
   end
+
+  defp f
 end

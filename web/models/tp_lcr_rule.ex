@@ -14,7 +14,7 @@ defmodule CgratesWebJsonapi.TpLcrRule do
     field :destination_tag, :string
     field :rp_category, :string
     field :strategy, :string
-    field :strategy_params, :string
+    field :strategy_params, :string, default: ""
     field :activation_time, :string
     field :weight, :float
 
@@ -29,7 +29,7 @@ defmodule CgratesWebJsonapi.TpLcrRule do
     |> cast(params, [:tpid, :direction, :tenant, :category, :account, :subject, :destination_tag, :rp_category,
                      :strategy, :strategy_params, :activation_time, :weight])
     |> validate_required([:tpid, :direction, :tenant, :category, :account, :subject, :destination_tag, :rp_category,
-                          :strategy, :strategy_params, :activation_time, :weight])
+                          :strategy, :activation_time, :weight])
     |> validate_length(:tpid, max: 64)
     |> validate_length(:direction, max: 8)
     |> validate_length(:tenant, max: 64)

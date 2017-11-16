@@ -10,8 +10,8 @@ defmodule CgratesWebJsonapi.TpRatingProfile do
     field :subject, :string
     field :activation_time, :string
     field :rating_plan_tag, :string
-    field :fallback_subjects, :string
-    field :cdr_stat_queue_ids, :string
+    field :fallback_subjects, :string, default: ""
+    field :cdr_stat_queue_ids, :string, default: ""
 
     field :created_at, :naive_datetime
   end
@@ -23,8 +23,7 @@ defmodule CgratesWebJsonapi.TpRatingProfile do
     struct
     |> cast(params, [:tpid, :loadid, :direction, :tenant, :category, :subject, :activation_time, :rating_plan_tag,
                      :fallback_subjects, :cdr_stat_queue_ids])
-    |> validate_required([:tpid, :loadid, :direction, :tenant, :category, :subject, :activation_time, :rating_plan_tag,
-                          :fallback_subjects, :cdr_stat_queue_ids])
+    |> validate_required([:tpid, :loadid, :direction, :tenant, :category, :subject, :activation_time, :rating_plan_tag])
     |> validate_length(:tpid, max: 64)
     |> validate_length(:loadid, max: 64)
     |> validate_length(:direction, max: 8)
