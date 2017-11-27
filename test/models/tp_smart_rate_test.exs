@@ -36,7 +36,7 @@ defmodule CgratesWebJsonapi.TpSmartRateTest do
 
   test "#rate_attrs returns attrs for rate record" do
     actual = TpSmartRate.rate_attrs @valid_attrs
-    expected = %{tpid: "MY_NEW_TARIFF", tag: "RETAIL_DST_EU_44", group_interval_start: "60s",
+    expected = %{tpid: "MY_NEW_TARIFF", tag: "RETAIL_DST_EU", group_interval_start: "60s",
                  rate: "120.5", rate_increment: "60s", rate_unit: "60s", connect_fee: "120.5"}
     assert actual == expected
   end
@@ -45,9 +45,9 @@ defmodule CgratesWebJsonapi.TpSmartRateTest do
     actual = TpSmartRate.destination_rate_attrs @valid_attrs
     expected = %{
       tpid: "MY_NEW_TARIFF",
-      tag: "RETAIL_DST_EU_44",
+      tag: "RETAIL_DST_EU",
       destinations_tag: "DST_EU",
-      rates_tag: "RETAIL_DST_EU_44",
+      rates_tag: "RETAIL_DST_EU",
       rounding_method: "*up",
       max_cost_strategy: "*free",
       max_cost: "0",
@@ -61,7 +61,7 @@ defmodule CgratesWebJsonapi.TpSmartRateTest do
     expected = %{
       tpid: "MY_NEW_TARIFF",
       tag: "RETAIL",
-      destrates_tag: "RETAIL_DST_EU_44",
+      destrates_tag: "RETAIL_DST_EU",
       timing_tag: "PEAK",
       weight: "120.5"
     }
@@ -74,7 +74,7 @@ defmodule CgratesWebJsonapi.TpSmartRateTest do
 
     assert Repo.get_by(TpRate, %{
       tpid: "MY_NEW_TARIFF",
-      tag: "RETAIL_DST_EU_44",
+      tag: "RETAIL_DST_EU",
       group_interval_start: "60s",
       rate: "120.5",
       rate_increment: "60s",
@@ -84,9 +84,9 @@ defmodule CgratesWebJsonapi.TpSmartRateTest do
     assert Repo.get_by(TpDestination, %{ tag: "DST_EU", prefix: "44", tpid: "MY_NEW_TARIFF", })
     assert Repo.get_by(TpDestinationRate, %{
       tpid: "MY_NEW_TARIFF",
-      tag: "RETAIL_DST_EU_44",
+      tag: "RETAIL_DST_EU",
       destinations_tag: "DST_EU",
-      rates_tag: "RETAIL_DST_EU_44",
+      rates_tag: "RETAIL_DST_EU",
       rounding_method: "*up",
       max_cost_strategy: "*free",
       max_cost: "0",
@@ -95,7 +95,7 @@ defmodule CgratesWebJsonapi.TpSmartRateTest do
     assert Repo.get_by(TpRatingPlan, %{
       tpid: "MY_NEW_TARIFF",
       tag: "RETAIL",
-      destrates_tag: "RETAIL_DST_EU_44",
+      destrates_tag: "RETAIL_DST_EU",
       timing_tag: "PEAK",
       weight: "120.5"
     })
@@ -104,7 +104,7 @@ defmodule CgratesWebJsonapi.TpSmartRateTest do
   test "#insert should update rate if it is exist" do
     %TpRate{
       tpid: "MY_NEW_TARIFF",
-      tag: "RETAIL_DST_EU_44",
+      tag: "RETAIL_DST_EU",
       group_interval_start: "60s",
       rate: 100.5,
       rate_increment: "60s",
@@ -117,7 +117,7 @@ defmodule CgratesWebJsonapi.TpSmartRateTest do
 
     assert Repo.get_by(TpRate, %{
       tpid: "MY_NEW_TARIFF",
-      tag: "RETAIL_DST_EU_44",
+      tag: "RETAIL_DST_EU",
       group_interval_start: "60s",
       rate: "120.5",
       rate_increment: "60s",
@@ -127,9 +127,9 @@ defmodule CgratesWebJsonapi.TpSmartRateTest do
     assert Repo.get_by(TpDestination, %{ tag: "DST_EU", prefix: "44", tpid: "MY_NEW_TARIFF", })
     assert Repo.get_by(TpDestinationRate, %{
       tpid: "MY_NEW_TARIFF",
-      tag: "RETAIL_DST_EU_44",
+      tag: "RETAIL_DST_EU",
       destinations_tag: "DST_EU",
-      rates_tag: "RETAIL_DST_EU_44",
+      rates_tag: "RETAIL_DST_EU",
       rounding_method: "*up",
       max_cost_strategy: "*free",
       max_cost: "0",
@@ -138,7 +138,7 @@ defmodule CgratesWebJsonapi.TpSmartRateTest do
     assert Repo.get_by(TpRatingPlan, %{
       tpid: "MY_NEW_TARIFF",
       tag: "RETAIL",
-      destrates_tag: "RETAIL_DST_EU_44",
+      destrates_tag: "RETAIL_DST_EU",
       timing_tag: "PEAK",
       weight: "120.5"
     })
@@ -150,7 +150,7 @@ defmodule CgratesWebJsonapi.TpSmartRateTest do
 
     assert Repo.get_by(TpRate, %{
       tpid: "MY_NEW_TARIFF",
-      tag: "RETAIL_DST_EU_44",
+      tag: "RETAIL_DST_EU",
       group_interval_start: "60s",
       rate: "120.5",
       rate_increment: "60s",
@@ -160,9 +160,9 @@ defmodule CgratesWebJsonapi.TpSmartRateTest do
     assert Repo.get_by(TpDestination, %{ tag: "DST_EU", prefix: "44", tpid: "MY_NEW_TARIFF", })
     assert Repo.get_by(TpDestinationRate, %{
       tpid: "MY_NEW_TARIFF",
-      tag: "RETAIL_DST_EU_44",
+      tag: "RETAIL_DST_EU",
       destinations_tag: "DST_EU",
-      rates_tag: "RETAIL_DST_EU_44",
+      rates_tag: "RETAIL_DST_EU",
       rounding_method: "*up",
       max_cost_strategy: "*free",
       max_cost: "0",
@@ -171,7 +171,7 @@ defmodule CgratesWebJsonapi.TpSmartRateTest do
     assert Repo.get_by(TpRatingPlan, %{
       tpid: "MY_NEW_TARIFF",
       tag: "RETAIL",
-      destrates_tag: "RETAIL_DST_EU_44",
+      destrates_tag: "RETAIL_DST_EU",
       timing_tag: "PEAK",
       weight: "100.0"
     })
@@ -184,7 +184,7 @@ defmodule CgratesWebJsonapi.TpSmartRateTest do
 
     assert Repo.get_by(TpRate, %{
       tpid: "MY_NEW_TARIFF",
-      tag: "RETAIL_OLD_UK_44",
+      tag: "RETAIL_OLD_UK",
       group_interval_start: "60s",
       rate: "120.5",
       rate_increment: "60s",
@@ -195,9 +195,9 @@ defmodule CgratesWebJsonapi.TpSmartRateTest do
     assert Repo.get_by(TpDestination, %{ tag: "OLD_UK", prefix: "44", tpid: "MY_NEW_TARIFF", })
     assert Repo.get_by(TpDestinationRate, %{
       tpid: "MY_NEW_TARIFF",
-      tag: "RETAIL_OLD_UK_44",
+      tag: "RETAIL_OLD_UK",
       destinations_tag: "OLD_UK",
-      rates_tag: "RETAIL_OLD_UK_44",
+      rates_tag: "RETAIL_OLD_UK",
       rounding_method: "*up",
       max_cost_strategy: "*free",
       max_cost: "0",
@@ -206,7 +206,7 @@ defmodule CgratesWebJsonapi.TpSmartRateTest do
     assert Repo.get_by(TpRatingPlan, %{
       tpid: "MY_NEW_TARIFF",
       tag: "RETAIL",
-      destrates_tag: "RETAIL_OLD_UK_44",
+      destrates_tag: "RETAIL_OLD_UK",
       timing_tag: "PEAK",
       weight: "100.0"
     })

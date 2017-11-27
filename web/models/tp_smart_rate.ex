@@ -82,18 +82,10 @@ defmodule CgratesWebJsonapi.TpSmartRate do
         changes = changes |> Map.replace(:destination_tag, dst.tag)
       end
 
-      rate_cs =      %TpRate{} |> TpRate.changeset(changes |> rate_attrs)
-      dst_rates_cs = %TpDestinationRate{} |> TpDestinationRate.changeset(changes |> destination_rate_attrs)
-      rp_cs =        %TpRatingPlan{} |> TpRatingPlan.changeset(changes |> rating_plan_attrs)
-
-      if rate_cs.valid? && dst_rates_cs.valid? && rp_cs.valid? do
-        rate_cs |> apply_changes() |> upsert_by(:tag)
-        dst_rates_cs |> apply_changes() |> upsert_by(:tag)
-        rp_cs |> apply_changes() |> upsert_by(:tag)
-        {:ok, changes}
-      else
-        {:error, changeset}
-      end
+      %TpRate{} |> Map.merge(changes |> rate_attrs()) |> upsert_by([:tag, :tpid])
+      %TpDestinationRate{} |> Map.merge(changes |> destination_rate_attrs()) |> upsert_by([:tag, :tpid])
+      %TpRatingPlan{} |> Map.merge(changes |> rating_plan_attrs()) |> upsert_by([:tag, :destrates_tag, :tpid])
+      {:ok, changes}
     else
       {:error, changeset}
     end
@@ -108,8 +100,6 @@ defmodule CgratesWebJsonapi.TpSmartRate do
   end
 
   defp build_rate_tag(struct) do
-    "#{struct[:rating_plan_tag]}_#{struct[:destination_tag]}_#{struct[:prefix]}"
+    "#{struct[:rating_plan_tag]}_#{struct[:destination_tag]}"
   end
-
-  defp f
 end
