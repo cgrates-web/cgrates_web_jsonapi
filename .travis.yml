@@ -3,10 +3,5 @@ elixir:
   - 1.5.1
 services:
   - postgresql
-
-before_script:
-  - mix ecto.create --quiet
-  - mix ecto.load
-
 addons:
   postgresql: "9.5"
