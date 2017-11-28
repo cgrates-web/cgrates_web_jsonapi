@@ -3,3 +3,5 @@ elixir:
   - 1.5.1
 services:
   - postgresql
+addons:
+  postgresql: "9.5"
