@@ -237,7 +237,7 @@ defmodule CgratesWebJsonapi.TpActionControllerTest do
       assert data["attributes"]["balance-disabled"] == tp_action.balance_disabled
       assert data["attributes"]["extra-parameters"] == tp_action.extra_parameters
       assert data["attributes"]["filter"] == tp_action.filter
-      assert data["attributes"]["weight"] == tp_action.weight
+      assert data["attributes"]["weight"] == "10.00"
     end
 
     test "does not show resource and instead throw error when id is nonexistent", %{conn: conn} do

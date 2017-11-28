@@ -6,7 +6,7 @@ defmodule CgratesWebJsonapi.TpActionPlan do
     field :tag, :string
     field :actions_tag, :string
     field :timing_tag, :string
-    field :weight, :float
+    field :weight, :decimal
 
     field :created_at, :naive_datetime
   end

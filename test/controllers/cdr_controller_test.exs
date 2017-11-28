@@ -132,6 +132,7 @@ defmodule CgratesWebJsonapi.CdrControllerTest do
   describe "GET show" do
     test "shows chosen resource", %{conn: conn} do
       cdr = insert :cdr
+      cdr = Repo.get Cdr, cdr.id
 
       conn = get(conn, cdr_path(conn, :show, cdr)) |> doc
 
@@ -151,13 +152,13 @@ defmodule CgratesWebJsonapi.CdrControllerTest do
       assert data["attributes"]["account"] == cdr.account
       assert data["attributes"]["subject"] == cdr.subject
       assert data["attributes"]["destination"] == cdr.destination
-      assert data["attributes"]["pdd"] == cdr.pdd
-      assert data["attributes"]["usage"] == cdr.usage
+      assert data["attributes"]["pdd"] == "10.000000000"
+      assert data["attributes"]["usage"] == "10"
       assert data["attributes"]["supplier"] == cdr.supplier
       assert data["attributes"]["disconnect-cause"] == cdr.disconnect_cause
       assert data["attributes"]["extra-fields"] == cdr.extra_fields
       assert data["attributes"]["cost-source"] == cdr.cost_source
-      assert data["attributes"]["cost"] == cdr.cost
+      assert data["attributes"]["cost"] == "10.0000"
       assert data["attributes"]["cost-details"] == cdr.cost_details
       assert data["attributes"]["account-summary"] == cdr.account_summary
       assert data["attributes"]["extra-info"] == cdr.extra_info

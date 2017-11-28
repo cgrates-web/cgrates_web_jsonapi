@@ -20,7 +20,7 @@ defmodule CgratesWebJsonapi.Mixfile do
   def application do
     [mod: {CgratesWebJsonapi, []},
      applications: [:phoenix, :phoenix_pubsub, :cowboy, :logger, :gettext, :scrivener_ecto,
-                    :phoenix_ecto, :mariaex, :ja_resource, :ja_serializer, :hackney, :mapail, :comeonin,
+                    :phoenix_ecto, :postgrex, :ja_resource, :ja_serializer, :hackney, :mapail, :comeonin,
                     :cors_plug, :guardian, :httpoison, :proper_case, :csv, :ecto_conditionals
                     ]
                   ]
@@ -55,8 +55,8 @@ defmodule CgratesWebJsonapi.Mixfile do
      {:ja_resource, "~> 0.3"},
      {:ja_serializer, "~> 0.12.0"},
      {:mapail, "~> 1.0"},
-     {:mariaex, "~> 0.1"},
      {:mock, "~> 0.2.0", only: :test},
+     {:postgrex, ">= 0.0.0"},
      {:proper_case, github: "max-konin/proper_case", branch: "upper-case"},
      {:scrivener_ecto, "~> 1.0"},
      {:uuid, "~> 1.1"}

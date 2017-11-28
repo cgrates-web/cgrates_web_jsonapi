@@ -1,637 +1,1881 @@
--- MySQL dump 10.13  Distrib 5.7.19, for Linux (x86_64)
 --
--- Host: localhost    Database: cgrates_web_jsonapi_dev
--- ------------------------------------------------------
--- Server version	5.7.19-0ubuntu0.16.04.1
-
-/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
-/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
-/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8 */;
-/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
-/*!40103 SET TIME_ZONE='+00:00' */;
-/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
-/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
-/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
-/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
-
---
--- Table structure for table `cdrs`
+-- PostgreSQL database dump
 --
 
-DROP TABLE IF EXISTS `cdrs`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `cdrs` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `cgrid` char(40) NOT NULL,
-  `run_id` varchar(64) NOT NULL,
-  `origin_host` varchar(64) NOT NULL,
-  `source` varchar(64) NOT NULL,
-  `origin_id` varchar(64) NOT NULL,
-  `tor` varchar(16) NOT NULL,
-  `request_type` varchar(24) NOT NULL,
-  `direction` varchar(8) NOT NULL,
-  `tenant` varchar(64) NOT NULL,
-  `category` varchar(32) NOT NULL,
-  `account` varchar(128) NOT NULL,
-  `subject` varchar(128) NOT NULL,
-  `destination` varchar(128) NOT NULL,
-  `setup_time` datetime NOT NULL,
-  `pdd` decimal(12,9) NOT NULL,
-  `answer_time` datetime NOT NULL,
-  `usage` decimal(30,9) NOT NULL,
-  `supplier` varchar(128) NOT NULL,
-  `disconnect_cause` varchar(64) NOT NULL,
-  `extra_fields` text NOT NULL,
-  `cost_source` varchar(64) NOT NULL,
-  `cost` decimal(20,4) NOT NULL,
-  `cost_details` text,
-  `account_summary` text,
-  `extra_info` text,
-  `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL,
-  `deleted_at` timestamp NULL DEFAULT NULL,
-  PRIMARY KEY (`id`),
-  UNIQUE KEY `cdrrun` (`cgrid`,`run_id`,`origin_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-/*!40101 SET character_set_client = @saved_cs_client */;
+-- Dumped from database version 9.4.14
+-- Dumped by pg_dump version 9.5.10
+
+SET statement_timeout = 0;
+SET lock_timeout = 0;
+SET client_encoding = 'UTF8';
+SET standard_conforming_strings = on;
+SET check_function_bodies = false;
+SET client_min_messages = warning;
+SET row_security = off;
 
 --
--- Table structure for table `schema_migrations`
+-- Name: plpgsql; Type: EXTENSION; Schema: -; Owner: -
 --
 
-DROP TABLE IF EXISTS `schema_migrations`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `schema_migrations` (
-  `version` bigint(20) NOT NULL,
-  `inserted_at` datetime DEFAULT NULL,
-  PRIMARY KEY (`version`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-/*!40101 SET character_set_client = @saved_cs_client */;
+CREATE EXTENSION IF NOT EXISTS plpgsql WITH SCHEMA pg_catalog;
+
 
 --
--- Table structure for table `sm_costs`
+-- Name: EXTENSION plpgsql; Type: COMMENT; Schema: -; Owner: -
 --
 
-DROP TABLE IF EXISTS `sm_costs`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `sm_costs` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `cgrid` char(40) NOT NULL,
-  `run_id` varchar(64) NOT NULL,
-  `origin_host` varchar(64) NOT NULL,
-  `origin_id` varchar(64) NOT NULL,
-  `cost_source` varchar(64) NOT NULL,
-  `usage` decimal(30,9) NOT NULL,
-  `cost_details` text,
-  `created_at` timestamp NULL DEFAULT NULL,
-  `deleted_at` timestamp NULL DEFAULT NULL,
-  PRIMARY KEY (`id`),
-  UNIQUE KEY `costid` (`cgrid`,`run_id`),
-  KEY `origin_idx` (`origin_host`,`origin_id`),
-  KEY `run_origin_idx` (`run_id`,`origin_id`),
-  KEY `deleted_at_idx` (`deleted_at`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-/*!40101 SET character_set_client = @saved_cs_client */;
+COMMENT ON EXTENSION plpgsql IS 'PL/pgSQL procedural language';
+
+
+SET search_path = public, pg_catalog;
+
+SET default_tablespace = '';
+
+SET default_with_oids = false;
 
 --
--- Table structure for table `tariff_plans`
+-- Name: cdrs; Type: TABLE; Schema: public; Owner: -
 --
 
-DROP TABLE IF EXISTS `tariff_plans`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `tariff_plans` (
-  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
-  `alias` varchar(255) DEFAULT NULL,
-  `name` varchar(255) DEFAULT NULL,
-  `description` varchar(255) DEFAULT NULL,
-  `inserted_at` datetime NOT NULL,
-  `updated_at` datetime NOT NULL,
-  PRIMARY KEY (`id`),
-  UNIQUE KEY `tariff_plans_alias_index` (`alias`),
-  UNIQUE KEY `tariff_plans_name_index` (`name`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-/*!40101 SET character_set_client = @saved_cs_client */;
+CREATE TABLE cdrs (
+    id integer NOT NULL,
+    cgrid character(40) NOT NULL,
+    run_id character varying(64) NOT NULL,
+    origin_host character varying(64) NOT NULL,
+    source character varying(64) NOT NULL,
+    origin_id character varying(64) NOT NULL,
+    tor character varying(16) NOT NULL,
+    request_type character varying(24) NOT NULL,
+    direction character varying(8) NOT NULL,
+    tenant character varying(64) NOT NULL,
+    category character varying(32) NOT NULL,
+    account character varying(128) NOT NULL,
+    subject character varying(128) NOT NULL,
+    destination character varying(128) NOT NULL,
+    setup_time timestamp with time zone NOT NULL,
+    pdd numeric(12,9) NOT NULL,
+    answer_time timestamp with time zone NOT NULL,
+    supplier character varying(128) NOT NULL,
+    disconnect_cause character varying(64) NOT NULL,
+    extra_fields jsonb NOT NULL,
+    cost_source character varying(64) NOT NULL,
+    cost numeric(20,4) DEFAULT NULL::numeric,
+    cost_details jsonb,
+    account_summary jsonb,
+    extra_info text,
+    created_at timestamp with time zone,
+    updated_at timestamp with time zone,
+    deleted_at timestamp with time zone,
+    usage numeric(30,0)
+);
+
 
 --
--- Table structure for table `tp_account_actions`
+-- Name: cdrs_id_seq; Type: SEQUENCE; Schema: public; Owner: -
 --
 
-DROP TABLE IF EXISTS `tp_account_actions`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `tp_account_actions` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `tpid` varchar(64) NOT NULL,
-  `loadid` varchar(64) NOT NULL,
-  `tenant` varchar(64) NOT NULL,
-  `account` varchar(64) NOT NULL,
-  `action_plan_tag` varchar(64) DEFAULT NULL,
-  `action_triggers_tag` varchar(64) DEFAULT NULL,
-  `allow_negative` tinyint(1) NOT NULL,
-  `disabled` tinyint(1) NOT NULL,
-  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  PRIMARY KEY (`id`),
-  UNIQUE KEY `unique_tp_account` (`tpid`,`loadid`,`tenant`,`account`),
-  KEY `tpid` (`tpid`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-/*!40101 SET character_set_client = @saved_cs_client */;
+CREATE SEQUENCE cdrs_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
 
 --
--- Table structure for table `tp_action_plans`
+-- Name: cdrs_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
 --
 
-DROP TABLE IF EXISTS `tp_action_plans`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `tp_action_plans` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `tpid` varchar(64) NOT NULL,
-  `tag` varchar(64) NOT NULL,
-  `actions_tag` varchar(64) NOT NULL,
-  `timing_tag` varchar(64) NOT NULL,
-  `weight` decimal(8,2) NOT NULL,
-  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  PRIMARY KEY (`id`),
-  UNIQUE KEY `unique_action_schedule` (`tpid`,`tag`,`actions_tag`),
-  KEY `tpid` (`tpid`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-/*!40101 SET character_set_client = @saved_cs_client */;
+ALTER SEQUENCE cdrs_id_seq OWNED BY cdrs.id;
+
 
 --
--- Table structure for table `tp_action_triggers`
+-- Name: schema_migrations; Type: TABLE; Schema: public; Owner: -
 --
 
-DROP TABLE IF EXISTS `tp_action_triggers`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `tp_action_triggers` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `tpid` varchar(64) NOT NULL,
-  `tag` varchar(64) NOT NULL,
-  `unique_id` varchar(64) NOT NULL,
-  `threshold_type` char(64) NOT NULL,
-  `threshold_value` decimal(20,4) NOT NULL,
-  `recurrent` tinyint(1) NOT NULL,
-  `min_sleep` varchar(16) NOT NULL,
-  `expiry_time` varchar(24) NOT NULL,
-  `activation_time` varchar(24) NOT NULL,
-  `balance_tag` varchar(64) NOT NULL,
-  `balance_type` varchar(24) NOT NULL,
-  `balance_directions` varchar(8) NOT NULL,
-  `balance_categories` varchar(32) NOT NULL,
-  `balance_destination_tags` varchar(64) NOT NULL,
-  `balance_rating_subject` varchar(64) NOT NULL,
-  `balance_shared_groups` varchar(64) NOT NULL,
-  `balance_expiry_time` varchar(24) NOT NULL,
-  `balance_timing_tags` varchar(128) NOT NULL,
-  `balance_weight` varchar(10) NOT NULL,
-  `balance_blocker` varchar(5) NOT NULL,
-  `balance_disabled` varchar(5) NOT NULL,
-  `min_queued_items` int(11) NOT NULL,
-  `actions_tag` varchar(64) NOT NULL,
-  `weight` decimal(8,2) NOT NULL,
-  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  PRIMARY KEY (`id`),
-  UNIQUE KEY `unique_trigger_definition` (`tpid`,`tag`,`balance_tag`,`balance_type`,`balance_directions`,`threshold_type`,`threshold_value`,`balance_destination_tags`,`actions_tag`),
-  KEY `tpid` (`tpid`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-/*!40101 SET character_set_client = @saved_cs_client */;
+CREATE TABLE schema_migrations (
+    version bigint NOT NULL,
+    inserted_at timestamp without time zone
+);
+
 
 --
--- Table structure for table `tp_actions`
+-- Name: sm_costs; Type: TABLE; Schema: public; Owner: -
 --
 
-DROP TABLE IF EXISTS `tp_actions`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `tp_actions` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `tpid` varchar(64) NOT NULL,
-  `tag` varchar(64) NOT NULL,
-  `action` varchar(24) NOT NULL,
-  `balance_tag` varchar(64) NOT NULL,
-  `balance_type` varchar(24) NOT NULL,
-  `directions` varchar(8) NOT NULL,
-  `units` varchar(256) NOT NULL,
-  `expiry_time` varchar(24) NOT NULL,
-  `timing_tags` varchar(128) NOT NULL,
-  `destination_tags` varchar(64) NOT NULL,
-  `rating_subject` varchar(64) NOT NULL,
-  `categories` varchar(32) NOT NULL,
-  `shared_groups` varchar(64) NOT NULL,
-  `balance_weight` varchar(10) NOT NULL,
-  `balance_blocker` varchar(5) NOT NULL,
-  `balance_disabled` varchar(24) NOT NULL,
-  `extra_parameters` varchar(256) NOT NULL,
-  `filter` varchar(256) NOT NULL,
-  `weight` decimal(8,2) NOT NULL,
-  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  PRIMARY KEY (`id`),
-  UNIQUE KEY `unique_action` (`tpid`,`tag`,`action`,`balance_tag`,`balance_type`,`directions`,`expiry_time`,`timing_tags`,`destination_tags`,`shared_groups`,`balance_weight`,`weight`),
-  KEY `tpid` (`tpid`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-/*!40101 SET character_set_client = @saved_cs_client */;
+CREATE TABLE sm_costs (
+    id integer NOT NULL,
+    cgrid character(40) NOT NULL,
+    run_id character varying(64) NOT NULL,
+    origin_host character varying(64) NOT NULL,
+    origin_id character varying(64) NOT NULL,
+    cost_source character varying(64) NOT NULL,
+    usage numeric(30,9) NOT NULL,
+    cost_details jsonb,
+    created_at timestamp with time zone,
+    deleted_at timestamp with time zone
+);
+
 
 --
--- Table structure for table `tp_aliases`
+-- Name: sm_costs_id_seq; Type: SEQUENCE; Schema: public; Owner: -
 --
 
-DROP TABLE IF EXISTS `tp_aliases`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `tp_aliases` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `tpid` varchar(64) NOT NULL,
-  `direction` varchar(8) NOT NULL,
-  `tenant` varchar(64) NOT NULL,
-  `category` varchar(64) NOT NULL,
-  `account` varchar(64) NOT NULL,
-  `subject` varchar(64) NOT NULL,
-  `destination_id` varchar(64) NOT NULL,
-  `context` varchar(64) NOT NULL,
-  `target` varchar(64) NOT NULL,
-  `original` varchar(64) NOT NULL,
-  `alias` varchar(64) NOT NULL,
-  `weight` decimal(8,2) NOT NULL,
-  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  PRIMARY KEY (`id`),
-  UNIQUE KEY `unique_tp_aliases` (`tpid`,`direction`,`tenant`,`category`,`account`,`subject`,`context`,`target`),
-  KEY `tpid` (`tpid`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-/*!40101 SET character_set_client = @saved_cs_client */;
+CREATE SEQUENCE sm_costs_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
 
 --
--- Table structure for table `tp_cdr_stats`
+-- Name: sm_costs_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
 --
 
-DROP TABLE IF EXISTS `tp_cdr_stats`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `tp_cdr_stats` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `tpid` varchar(64) NOT NULL,
-  `tag` varchar(64) NOT NULL,
-  `queue_length` int(11) NOT NULL,
-  `time_window` varchar(8) NOT NULL,
-  `save_interval` varchar(8) NOT NULL,
-  `metrics` varchar(64) NOT NULL,
-  `setup_interval` varchar(64) NOT NULL,
-  `tors` varchar(64) NOT NULL,
-  `cdr_hosts` varchar(64) NOT NULL,
-  `cdr_sources` varchar(64) NOT NULL,
-  `req_types` varchar(64) NOT NULL,
-  `directions` varchar(8) NOT NULL,
-  `tenants` varchar(64) NOT NULL,
-  `categories` varchar(32) NOT NULL,
-  `accounts` varchar(255) NOT NULL,
-  `subjects` varchar(64) NOT NULL,
-  `destination_ids` varchar(64) NOT NULL,
-  `pdd_interval` varchar(64) NOT NULL,
-  `usage_interval` varchar(64) NOT NULL,
-  `suppliers` varchar(64) NOT NULL,
-  `disconnect_causes` varchar(64) NOT NULL,
-  `mediation_runids` varchar(64) NOT NULL,
-  `rated_accounts` varchar(255) NOT NULL,
-  `rated_subjects` varchar(64) NOT NULL,
-  `cost_interval` varchar(24) NOT NULL,
-  `action_triggers` varchar(64) NOT NULL,
-  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  PRIMARY KEY (`id`),
-  KEY `tpid` (`tpid`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-/*!40101 SET character_set_client = @saved_cs_client */;
+ALTER SEQUENCE sm_costs_id_seq OWNED BY sm_costs.id;
+
 
 --
--- Table structure for table `tp_derived_chargers`
+-- Name: tariff_plans; Type: TABLE; Schema: public; Owner: -
 --
 
-DROP TABLE IF EXISTS `tp_derived_chargers`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `tp_derived_chargers` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `tpid` varchar(64) NOT NULL,
-  `loadid` varchar(64) NOT NULL,
-  `direction` varchar(8) NOT NULL,
-  `tenant` varchar(64) NOT NULL,
-  `category` varchar(32) NOT NULL,
-  `account` varchar(64) NOT NULL,
-  `subject` varchar(64) NOT NULL,
-  `destination_ids` varchar(64) NOT NULL,
-  `runid` varchar(24) NOT NULL,
-  `run_filters` varchar(256) NOT NULL,
-  `req_type_field` varchar(64) NOT NULL,
-  `direction_field` varchar(64) NOT NULL,
-  `tenant_field` varchar(64) NOT NULL,
-  `category_field` varchar(64) NOT NULL,
-  `account_field` varchar(64) NOT NULL,
-  `subject_field` varchar(64) NOT NULL,
-  `destination_field` varchar(64) NOT NULL,
-  `setup_time_field` varchar(64) NOT NULL,
-  `pdd_field` varchar(64) NOT NULL,
-  `answer_time_field` varchar(64) NOT NULL,
-  `usage_field` varchar(64) NOT NULL,
-  `supplier_field` varchar(64) NOT NULL,
-  `disconnect_cause_field` varchar(64) NOT NULL,
-  `rated_field` varchar(64) NOT NULL,
-  `cost_field` varchar(64) NOT NULL,
-  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  PRIMARY KEY (`id`),
-  KEY `tpid` (`tpid`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-/*!40101 SET character_set_client = @saved_cs_client */;
+CREATE TABLE tariff_plans (
+    id bigint NOT NULL,
+    alias character varying(255),
+    name character varying(255),
+    description character varying(255),
+    inserted_at timestamp without time zone NOT NULL,
+    updated_at timestamp without time zone NOT NULL
+);
+
 
 --
--- Table structure for table `tp_destination_rates`
+-- Name: tariff_plans_id_seq; Type: SEQUENCE; Schema: public; Owner: -
 --
 
-DROP TABLE IF EXISTS `tp_destination_rates`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `tp_destination_rates` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `tpid` varchar(64) NOT NULL,
-  `tag` varchar(64) NOT NULL,
-  `destinations_tag` varchar(64) NOT NULL,
-  `rates_tag` varchar(64) NOT NULL,
-  `rounding_method` varchar(255) NOT NULL,
-  `rounding_decimals` tinyint(4) NOT NULL,
-  `max_cost` decimal(7,4) NOT NULL,
-  `max_cost_strategy` varchar(16) NOT NULL,
-  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  PRIMARY KEY (`id`),
-  UNIQUE KEY `tpid_drid_dstid` (`tpid`,`tag`,`destinations_tag`),
-  KEY `tpid` (`tpid`),
-  KEY `tpid_drid` (`tpid`,`tag`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-/*!40101 SET character_set_client = @saved_cs_client */;
+CREATE SEQUENCE tariff_plans_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
 
 --
--- Table structure for table `tp_destinations`
+-- Name: tariff_plans_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
 --
 
-DROP TABLE IF EXISTS `tp_destinations`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `tp_destinations` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `tpid` varchar(64) NOT NULL,
-  `tag` varchar(64) NOT NULL,
-  `prefix` varchar(24) NOT NULL,
-  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  PRIMARY KEY (`id`),
-  UNIQUE KEY `tpid_dest_prefix` (`tpid`,`tag`,`prefix`),
-  KEY `tpid` (`tpid`),
-  KEY `tpid_dstid` (`tpid`,`tag`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-/*!40101 SET character_set_client = @saved_cs_client */;
+ALTER SEQUENCE tariff_plans_id_seq OWNED BY tariff_plans.id;
+
 
 --
--- Table structure for table `tp_lcr_rules`
+-- Name: tp_account_actions; Type: TABLE; Schema: public; Owner: -
 --
 
-DROP TABLE IF EXISTS `tp_lcr_rules`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `tp_lcr_rules` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `tpid` varchar(64) NOT NULL,
-  `direction` varchar(8) NOT NULL,
-  `tenant` varchar(64) NOT NULL,
-  `category` varchar(32) NOT NULL,
-  `account` varchar(64) NOT NULL,
-  `subject` varchar(64) NOT NULL,
-  `destination_tag` varchar(64) NOT NULL,
-  `rp_category` varchar(32) NOT NULL,
-  `strategy` varchar(18) NOT NULL,
-  `strategy_params` varchar(256) NOT NULL,
-  `activation_time` varchar(24) NOT NULL,
-  `weight` decimal(8,2) NOT NULL,
-  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  PRIMARY KEY (`id`),
-  KEY `tpid` (`tpid`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-/*!40101 SET character_set_client = @saved_cs_client */;
+CREATE TABLE tp_account_actions (
+    id integer NOT NULL,
+    tpid character varying(64) NOT NULL,
+    loadid character varying(64) NOT NULL,
+    tenant character varying(64) NOT NULL,
+    account character varying(64) NOT NULL,
+    action_plan_tag character varying(64),
+    action_triggers_tag character varying(64),
+    allow_negative boolean NOT NULL,
+    disabled boolean NOT NULL,
+    created_at timestamp with time zone
+);
+
 
 --
--- Table structure for table `tp_rates`
+-- Name: tp_account_actions_id_seq; Type: SEQUENCE; Schema: public; Owner: -
 --
 
-DROP TABLE IF EXISTS `tp_rates`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `tp_rates` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `tpid` varchar(64) NOT NULL,
-  `tag` varchar(64) NOT NULL,
-  `connect_fee` decimal(7,4) NOT NULL,
-  `rate` decimal(7,4) NOT NULL,
-  `rate_unit` varchar(16) NOT NULL,
-  `rate_increment` varchar(16) NOT NULL,
-  `group_interval_start` varchar(16) NOT NULL,
-  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  PRIMARY KEY (`id`),
-  UNIQUE KEY `unique_tprate` (`tpid`,`tag`,`group_interval_start`),
-  KEY `tpid` (`tpid`),
-  KEY `tpid_rtid` (`tpid`,`tag`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-/*!40101 SET character_set_client = @saved_cs_client */;
+CREATE SEQUENCE tp_account_actions_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
 
 --
--- Table structure for table `tp_rating_plans`
+-- Name: tp_account_actions_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
 --
 
-DROP TABLE IF EXISTS `tp_rating_plans`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `tp_rating_plans` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `tpid` varchar(64) NOT NULL,
-  `tag` varchar(64) NOT NULL,
-  `destrates_tag` varchar(64) NOT NULL,
-  `timing_tag` varchar(64) NOT NULL,
-  `weight` decimal(8,2) NOT NULL,
-  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  PRIMARY KEY (`id`),
-  UNIQUE KEY `tpid_rplid_destrates_timings_weight` (`tpid`,`tag`,`destrates_tag`,`timing_tag`),
-  KEY `tpid` (`tpid`),
-  KEY `tpid_rpl` (`tpid`,`tag`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-/*!40101 SET character_set_client = @saved_cs_client */;
+ALTER SEQUENCE tp_account_actions_id_seq OWNED BY tp_account_actions.id;
+
 
 --
--- Table structure for table `tp_rating_profiles`
+-- Name: tp_action_plans; Type: TABLE; Schema: public; Owner: -
 --
 
-DROP TABLE IF EXISTS `tp_rating_profiles`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `tp_rating_profiles` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `tpid` varchar(64) NOT NULL,
-  `loadid` varchar(64) NOT NULL,
-  `direction` varchar(8) NOT NULL,
-  `tenant` varchar(64) NOT NULL,
-  `category` varchar(32) NOT NULL,
-  `subject` varchar(64) NOT NULL,
-  `activation_time` varchar(24) NOT NULL,
-  `rating_plan_tag` varchar(64) NOT NULL,
-  `fallback_subjects` varchar(64) DEFAULT NULL,
-  `cdr_stat_queue_ids` varchar(64) DEFAULT NULL,
-  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  PRIMARY KEY (`id`),
-  UNIQUE KEY `tpid_loadid_tenant_category_dir_subj_atime` (`tpid`,`loadid`,`tenant`,`category`,`direction`,`subject`,`activation_time`),
-  KEY `tpid` (`tpid`),
-  KEY `tpid_loadid` (`tpid`,`loadid`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-/*!40101 SET character_set_client = @saved_cs_client */;
+CREATE TABLE tp_action_plans (
+    id integer NOT NULL,
+    tpid character varying(64) NOT NULL,
+    tag character varying(64) NOT NULL,
+    actions_tag character varying(64) NOT NULL,
+    timing_tag character varying(64) NOT NULL,
+    weight numeric(8,2) NOT NULL,
+    created_at timestamp with time zone
+);
+
 
 --
--- Table structure for table `tp_resource_limits`
+-- Name: tp_action_plans_id_seq; Type: SEQUENCE; Schema: public; Owner: -
 --
 
-DROP TABLE IF EXISTS `tp_resource_limits`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `tp_resource_limits` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `tpid` varchar(64) NOT NULL,
-  `tag` varchar(64) NOT NULL,
-  `filter_type` varchar(16) NOT NULL,
-  `filter_field_name` varchar(64) NOT NULL,
-  `filter_field_values` varchar(256) NOT NULL,
-  `activation_interval` varchar(64) NOT NULL,
-  `usage_ttl` varchar(32) NOT NULL,
-  `limit` varchar(64) NOT NULL,
-  `allocation_message` varchar(64) NOT NULL,
-  `weight` decimal(8,2) NOT NULL,
-  `action_trigger_ids` varchar(64) NOT NULL,
-  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  PRIMARY KEY (`id`),
-  UNIQUE KEY `unique_tp_resource_limits` (`tpid`,`tag`,`filter_type`,`filter_field_name`),
-  KEY `tpid` (`tpid`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-/*!40101 SET character_set_client = @saved_cs_client */;
+CREATE SEQUENCE tp_action_plans_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
 
 --
--- Table structure for table `tp_shared_groups`
+-- Name: tp_action_plans_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
 --
 
-DROP TABLE IF EXISTS `tp_shared_groups`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `tp_shared_groups` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `tpid` varchar(64) NOT NULL,
-  `tag` varchar(64) NOT NULL,
-  `account` varchar(64) NOT NULL,
-  `strategy` varchar(24) NOT NULL,
-  `rating_subject` varchar(24) NOT NULL,
-  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  PRIMARY KEY (`id`),
-  UNIQUE KEY `unique_shared_group` (`tpid`,`tag`,`account`,`strategy`,`rating_subject`),
-  KEY `tpid` (`tpid`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-/*!40101 SET character_set_client = @saved_cs_client */;
+ALTER SEQUENCE tp_action_plans_id_seq OWNED BY tp_action_plans.id;
+
 
 --
--- Table structure for table `tp_timings`
+-- Name: tp_action_triggers; Type: TABLE; Schema: public; Owner: -
 --
 
-DROP TABLE IF EXISTS `tp_timings`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `tp_timings` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `tpid` varchar(64) NOT NULL,
-  `tag` varchar(64) NOT NULL,
-  `years` varchar(255) NOT NULL,
-  `months` varchar(255) NOT NULL,
-  `month_days` varchar(255) NOT NULL,
-  `week_days` varchar(255) NOT NULL,
-  `time` varchar(32) NOT NULL,
-  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  PRIMARY KEY (`id`),
-  UNIQUE KEY `tpid_tag` (`tpid`,`tag`),
-  KEY `tpid` (`tpid`),
-  KEY `tpid_tmid` (`tpid`,`tag`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-/*!40101 SET character_set_client = @saved_cs_client */;
+CREATE TABLE tp_action_triggers (
+    id integer NOT NULL,
+    tpid character varying(64) NOT NULL,
+    tag character varying(64) NOT NULL,
+    unique_id character varying(64) NOT NULL,
+    threshold_type character varying(64) NOT NULL,
+    threshold_value numeric(20,4) NOT NULL,
+    recurrent boolean NOT NULL,
+    min_sleep character varying(16) NOT NULL,
+    expiry_time character varying(24) NOT NULL,
+    activation_time character varying(24) NOT NULL,
+    balance_tag character varying(64) NOT NULL,
+    balance_type character varying(24) NOT NULL,
+    balance_directions character varying(8) NOT NULL,
+    balance_categories character varying(32) NOT NULL,
+    balance_destination_tags character varying(64) NOT NULL,
+    balance_rating_subject character varying(64) NOT NULL,
+    balance_shared_groups character varying(64) NOT NULL,
+    balance_expiry_time character varying(24) NOT NULL,
+    balance_timing_tags character varying(128) NOT NULL,
+    balance_weight character varying(10) NOT NULL,
+    balance_blocker character varying(5) NOT NULL,
+    balance_disabled character varying(5) NOT NULL,
+    min_queued_items integer NOT NULL,
+    actions_tag character varying(64) NOT NULL,
+    weight numeric(8,2) NOT NULL,
+    created_at timestamp with time zone
+);
+
 
 --
--- Table structure for table `tp_users`
+-- Name: tp_action_triggers_id_seq; Type: SEQUENCE; Schema: public; Owner: -
 --
 
-DROP TABLE IF EXISTS `tp_users`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `tp_users` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `tpid` varchar(64) NOT NULL,
-  `tenant` varchar(64) NOT NULL,
-  `user_name` varchar(64) NOT NULL,
-  `masked` tinyint(1) NOT NULL,
-  `attribute_name` varchar(64) NOT NULL,
-  `attribute_value` varchar(64) NOT NULL,
-  `weight` decimal(8,2) NOT NULL,
-  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  PRIMARY KEY (`id`),
-  KEY `tpid` (`tpid`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-/*!40101 SET character_set_client = @saved_cs_client */;
+CREATE SEQUENCE tp_action_triggers_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
 
 --
--- Table structure for table `users`
+-- Name: tp_action_triggers_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
 --
 
-DROP TABLE IF EXISTS `users`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `users` (
-  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
-  `email` varchar(255) DEFAULT NULL,
-  `password_encrypted` varchar(255) DEFAULT NULL,
-  `inserted_at` datetime NOT NULL,
-  `updated_at` datetime NOT NULL,
-  PRIMARY KEY (`id`),
-  UNIQUE KEY `users_email_index` (`email`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-/*!40101 SET character_set_client = @saved_cs_client */;
+ALTER SEQUENCE tp_action_triggers_id_seq OWNED BY tp_action_triggers.id;
+
 
 --
--- Table structure for table `versions`
+-- Name: tp_actions; Type: TABLE; Schema: public; Owner: -
 --
 
-DROP TABLE IF EXISTS `versions`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `versions` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `item` varchar(64) NOT NULL,
-  `version` int(11) NOT NULL,
-  PRIMARY KEY (`id`),
-  UNIQUE KEY `item` (`item`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-/*!40101 SET character_set_client = @saved_cs_client */;
+CREATE TABLE tp_actions (
+    id integer NOT NULL,
+    tpid character varying(64) NOT NULL,
+    tag character varying(64) NOT NULL,
+    action character varying(24) NOT NULL,
+    balance_tag character varying(64) NOT NULL,
+    balance_type character varying(24) NOT NULL,
+    directions character varying(8) NOT NULL,
+    units character varying(256) NOT NULL,
+    expiry_time character varying(24) NOT NULL,
+    timing_tags character varying(128) NOT NULL,
+    destination_tags character varying(64) NOT NULL,
+    rating_subject character varying(64) NOT NULL,
+    categories character varying(32) NOT NULL,
+    shared_groups character varying(64) NOT NULL,
+    balance_weight character varying(10) NOT NULL,
+    balance_blocker character varying(5) NOT NULL,
+    balance_disabled character varying(5) NOT NULL,
+    extra_parameters character varying(256) NOT NULL,
+    filter character varying(256) NOT NULL,
+    weight numeric(8,2) NOT NULL,
+    created_at timestamp with time zone
+);
+
 
 --
--- Dumping routines for database 'cgrates_web_jsonapi_dev'
+-- Name: tp_actions_id_seq; Type: SEQUENCE; Schema: public; Owner: -
 --
-/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
-/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
-/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
-/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
-/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
+CREATE SEQUENCE tp_actions_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
 
--- Dump completed on 2017-09-14 12:51:53
-INSERT INTO `schema_migrations` (version) VALUES (20170905093653), (20170908061508);
+
+--
+-- Name: tp_actions_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+--
+
+ALTER SEQUENCE tp_actions_id_seq OWNED BY tp_actions.id;
+
+
+--
+-- Name: tp_aliases; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE tp_aliases (
+    id integer NOT NULL,
+    tpid character varying(64) NOT NULL,
+    direction character varying(8) NOT NULL,
+    tenant character varying(64) NOT NULL,
+    category character varying(64) NOT NULL,
+    account character varying(64) NOT NULL,
+    subject character varying(64) NOT NULL,
+    destination_id character varying(64) NOT NULL,
+    context character varying(64) NOT NULL,
+    target character varying(64) NOT NULL,
+    original character varying(64) NOT NULL,
+    alias character varying(64) NOT NULL,
+    weight numeric(8,2) NOT NULL,
+    created_at timestamp with time zone
+);
+
+
+--
+-- Name: tp_aliases_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+CREATE SEQUENCE tp_aliases_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+--
+-- Name: tp_aliases_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+--
+
+ALTER SEQUENCE tp_aliases_id_seq OWNED BY tp_aliases.id;
+
+
+--
+-- Name: tp_cdr_stats; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE tp_cdr_stats (
+    id integer NOT NULL,
+    tpid character varying(64) NOT NULL,
+    tag character varying(64) NOT NULL,
+    queue_length integer NOT NULL,
+    time_window character varying(8) NOT NULL,
+    save_interval character varying(8) NOT NULL,
+    metrics character varying(64) NOT NULL,
+    setup_interval character varying(64) NOT NULL,
+    tors character varying(64) NOT NULL,
+    cdr_hosts character varying(64) NOT NULL,
+    cdr_sources character varying(64) NOT NULL,
+    req_types character varying(64) NOT NULL,
+    directions character varying(8) NOT NULL,
+    tenants character varying(64) NOT NULL,
+    categories character varying(32) NOT NULL,
+    accounts character varying(255) NOT NULL,
+    subjects character varying(64) NOT NULL,
+    destination_ids character varying(64) NOT NULL,
+    pdd_interval character varying(64) NOT NULL,
+    usage_interval character varying(64) NOT NULL,
+    suppliers character varying(64) NOT NULL,
+    disconnect_causes character varying(64) NOT NULL,
+    mediation_runids character varying(64) NOT NULL,
+    rated_accounts character varying(255) NOT NULL,
+    rated_subjects character varying(64) NOT NULL,
+    cost_interval character varying(24) NOT NULL,
+    action_triggers character varying(64) NOT NULL,
+    created_at timestamp with time zone
+);
+
+
+--
+-- Name: tp_cdr_stats_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+CREATE SEQUENCE tp_cdr_stats_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+--
+-- Name: tp_cdr_stats_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+--
+
+ALTER SEQUENCE tp_cdr_stats_id_seq OWNED BY tp_cdr_stats.id;
+
+
+--
+-- Name: tp_derived_chargers; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE tp_derived_chargers (
+    id integer NOT NULL,
+    tpid character varying(64) NOT NULL,
+    loadid character varying(64) NOT NULL,
+    direction character varying(8) NOT NULL,
+    tenant character varying(64) NOT NULL,
+    category character varying(32) NOT NULL,
+    account character varying(64) NOT NULL,
+    subject character varying(64) NOT NULL,
+    destination_ids character varying(64) NOT NULL,
+    runid character varying(24) NOT NULL,
+    run_filters character varying(256) NOT NULL,
+    req_type_field character varying(64) NOT NULL,
+    direction_field character varying(64) NOT NULL,
+    tenant_field character varying(64) NOT NULL,
+    category_field character varying(64) NOT NULL,
+    account_field character varying(64) NOT NULL,
+    subject_field character varying(64) NOT NULL,
+    destination_field character varying(64) NOT NULL,
+    setup_time_field character varying(64) NOT NULL,
+    pdd_field character varying(64) NOT NULL,
+    answer_time_field character varying(64) NOT NULL,
+    usage_field character varying(64) NOT NULL,
+    supplier_field character varying(64) NOT NULL,
+    disconnect_cause_field character varying(64) NOT NULL,
+    rated_field character varying(64) NOT NULL,
+    cost_field character varying(64) NOT NULL,
+    created_at timestamp with time zone
+);
+
+
+--
+-- Name: tp_derived_chargers_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+CREATE SEQUENCE tp_derived_chargers_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+--
+-- Name: tp_derived_chargers_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+--
+
+ALTER SEQUENCE tp_derived_chargers_id_seq OWNED BY tp_derived_chargers.id;
+
+
+--
+-- Name: tp_destination_rates; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE tp_destination_rates (
+    id integer NOT NULL,
+    tpid character varying(64) NOT NULL,
+    tag character varying(64) NOT NULL,
+    destinations_tag character varying(64) NOT NULL,
+    rates_tag character varying(64) NOT NULL,
+    rounding_method character varying(255) NOT NULL,
+    rounding_decimals smallint NOT NULL,
+    max_cost numeric(7,4) NOT NULL,
+    max_cost_strategy character varying(16) NOT NULL,
+    created_at timestamp with time zone
+);
+
+
+--
+-- Name: tp_destination_rates_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+CREATE SEQUENCE tp_destination_rates_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+--
+-- Name: tp_destination_rates_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+--
+
+ALTER SEQUENCE tp_destination_rates_id_seq OWNED BY tp_destination_rates.id;
+
+
+--
+-- Name: tp_destinations; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE tp_destinations (
+    id integer NOT NULL,
+    tpid character varying(64) NOT NULL,
+    tag character varying(64) NOT NULL,
+    prefix character varying(24) NOT NULL,
+    created_at timestamp with time zone
+);
+
+
+--
+-- Name: tp_destinations_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+CREATE SEQUENCE tp_destinations_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+--
+-- Name: tp_destinations_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+--
+
+ALTER SEQUENCE tp_destinations_id_seq OWNED BY tp_destinations.id;
+
+
+--
+-- Name: tp_filters; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE tp_filters (
+    pk integer NOT NULL,
+    tpid character varying(64) NOT NULL,
+    tenant character varying(64) NOT NULL,
+    id character varying(64) NOT NULL,
+    filter_type character varying(16) NOT NULL,
+    filter_field_name character varying(64) NOT NULL,
+    filter_field_values character varying(256) NOT NULL,
+    activation_interval character varying(64) NOT NULL,
+    created_at timestamp with time zone
+);
+
+
+--
+-- Name: tp_filters_pk_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+CREATE SEQUENCE tp_filters_pk_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+--
+-- Name: tp_filters_pk_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+--
+
+ALTER SEQUENCE tp_filters_pk_seq OWNED BY tp_filters.pk;
+
+
+--
+-- Name: tp_lcr_rules; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE tp_lcr_rules (
+    id integer NOT NULL,
+    tpid character varying(64) NOT NULL,
+    direction character varying(8) NOT NULL,
+    tenant character varying(64) NOT NULL,
+    category character varying(32) NOT NULL,
+    account character varying(64) NOT NULL,
+    subject character varying(64) NOT NULL,
+    destination_tag character varying(64) NOT NULL,
+    rp_category character varying(32) NOT NULL,
+    strategy character varying(18) NOT NULL,
+    strategy_params character varying(256) NOT NULL,
+    activation_time character varying(24) NOT NULL,
+    weight numeric(8,2) NOT NULL,
+    created_at timestamp with time zone
+);
+
+
+--
+-- Name: tp_lcr_rules_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+CREATE SEQUENCE tp_lcr_rules_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+--
+-- Name: tp_lcr_rules_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+--
+
+ALTER SEQUENCE tp_lcr_rules_id_seq OWNED BY tp_lcr_rules.id;
+
+
+--
+-- Name: tp_rates; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE tp_rates (
+    id integer NOT NULL,
+    tpid character varying(64) NOT NULL,
+    tag character varying(64) NOT NULL,
+    connect_fee numeric(7,4) NOT NULL,
+    rate numeric(7,4) NOT NULL,
+    rate_unit character varying(16) NOT NULL,
+    rate_increment character varying(16) NOT NULL,
+    group_interval_start character varying(16) NOT NULL,
+    created_at timestamp with time zone
+);
+
+
+--
+-- Name: tp_rates_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+CREATE SEQUENCE tp_rates_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+--
+-- Name: tp_rates_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+--
+
+ALTER SEQUENCE tp_rates_id_seq OWNED BY tp_rates.id;
+
+
+--
+-- Name: tp_rating_plans; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE tp_rating_plans (
+    id integer NOT NULL,
+    tpid character varying(64) NOT NULL,
+    tag character varying(64) NOT NULL,
+    destrates_tag character varying(64) NOT NULL,
+    timing_tag character varying(64) NOT NULL,
+    weight numeric(8,2) NOT NULL,
+    created_at timestamp with time zone
+);
+
+
+--
+-- Name: tp_rating_plans_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+CREATE SEQUENCE tp_rating_plans_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+--
+-- Name: tp_rating_plans_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+--
+
+ALTER SEQUENCE tp_rating_plans_id_seq OWNED BY tp_rating_plans.id;
+
+
+--
+-- Name: tp_rating_profiles; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE tp_rating_profiles (
+    id integer NOT NULL,
+    tpid character varying(64) NOT NULL,
+    loadid character varying(64) NOT NULL,
+    direction character varying(8) NOT NULL,
+    tenant character varying(64) NOT NULL,
+    category character varying(32) NOT NULL,
+    subject character varying(64) NOT NULL,
+    activation_time character varying(24) NOT NULL,
+    rating_plan_tag character varying(64) NOT NULL,
+    fallback_subjects character varying(64),
+    cdr_stat_queue_ids character varying(64),
+    created_at timestamp with time zone
+);
+
+
+--
+-- Name: tp_rating_profiles_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+CREATE SEQUENCE tp_rating_profiles_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+--
+-- Name: tp_rating_profiles_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+--
+
+ALTER SEQUENCE tp_rating_profiles_id_seq OWNED BY tp_rating_profiles.id;
+
+
+--
+-- Name: tp_resources; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE tp_resources (
+    pk integer NOT NULL,
+    tpid character varying(64) NOT NULL,
+    tenant character varying(64) NOT NULL,
+    id character varying(64) NOT NULL,
+    filter_type character varying(16) NOT NULL,
+    filter_field_name character varying(64) NOT NULL,
+    filter_field_values character varying(256) NOT NULL,
+    activation_interval character varying(64) NOT NULL,
+    usage_ttl character varying(32) NOT NULL,
+    "limit" character varying(64) NOT NULL,
+    allocation_message character varying(64) NOT NULL,
+    blocker boolean NOT NULL,
+    stored boolean NOT NULL,
+    weight numeric(8,2) NOT NULL,
+    thresholds character varying(64) NOT NULL,
+    created_at timestamp with time zone
+);
+
+
+--
+-- Name: tp_resources_pk_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+CREATE SEQUENCE tp_resources_pk_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+--
+-- Name: tp_resources_pk_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+--
+
+ALTER SEQUENCE tp_resources_pk_seq OWNED BY tp_resources.pk;
+
+
+--
+-- Name: tp_shared_groups; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE tp_shared_groups (
+    id integer NOT NULL,
+    tpid character varying(64) NOT NULL,
+    tag character varying(64) NOT NULL,
+    account character varying(64) NOT NULL,
+    strategy character varying(24) NOT NULL,
+    rating_subject character varying(24) NOT NULL,
+    created_at timestamp with time zone
+);
+
+
+--
+-- Name: tp_shared_groups_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+CREATE SEQUENCE tp_shared_groups_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+--
+-- Name: tp_shared_groups_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+--
+
+ALTER SEQUENCE tp_shared_groups_id_seq OWNED BY tp_shared_groups.id;
+
+
+--
+-- Name: tp_stats; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE tp_stats (
+    pk integer NOT NULL,
+    tpid character varying(64) NOT NULL,
+    tenant character varying(64) NOT NULL,
+    id character varying(64) NOT NULL,
+    filter_type character varying(16) NOT NULL,
+    filter_field_name character varying(64) NOT NULL,
+    filter_field_values character varying(256) NOT NULL,
+    activation_interval character varying(64) NOT NULL,
+    queue_length integer NOT NULL,
+    ttl character varying(32) NOT NULL,
+    metrics character varying(64) NOT NULL,
+    blocker boolean NOT NULL,
+    stored boolean NOT NULL,
+    weight numeric(8,2) NOT NULL,
+    min_items integer NOT NULL,
+    thresholds character varying(64) NOT NULL,
+    created_at timestamp with time zone
+);
+
+
+--
+-- Name: tp_stats_pk_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+CREATE SEQUENCE tp_stats_pk_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+--
+-- Name: tp_stats_pk_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+--
+
+ALTER SEQUENCE tp_stats_pk_seq OWNED BY tp_stats.pk;
+
+
+--
+-- Name: tp_thresholds; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE tp_thresholds (
+    pk integer NOT NULL,
+    tpid character varying(64) NOT NULL,
+    tenant character varying(64) NOT NULL,
+    id character varying(64) NOT NULL,
+    filter_ids character varying(64) NOT NULL,
+    activation_interval character varying(64) NOT NULL,
+    recurrent boolean NOT NULL,
+    min_hits integer NOT NULL,
+    min_sleep character varying(16) NOT NULL,
+    blocker boolean NOT NULL,
+    weight numeric(8,2) NOT NULL,
+    action_ids character varying(64) NOT NULL,
+    async boolean NOT NULL,
+    created_at timestamp with time zone
+);
+
+
+--
+-- Name: tp_thresholds_pk_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+CREATE SEQUENCE tp_thresholds_pk_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+--
+-- Name: tp_thresholds_pk_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+--
+
+ALTER SEQUENCE tp_thresholds_pk_seq OWNED BY tp_thresholds.pk;
+
+
+--
+-- Name: tp_timings; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE tp_timings (
+    id integer NOT NULL,
+    tpid character varying(64) NOT NULL,
+    tag character varying(64) NOT NULL,
+    years character varying(255) NOT NULL,
+    months character varying(255) NOT NULL,
+    month_days character varying(255) NOT NULL,
+    week_days character varying(255) NOT NULL,
+    "time" character varying(32) NOT NULL,
+    created_at timestamp with time zone
+);
+
+
+--
+-- Name: tp_timings_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+CREATE SEQUENCE tp_timings_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+--
+-- Name: tp_timings_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+--
+
+ALTER SEQUENCE tp_timings_id_seq OWNED BY tp_timings.id;
+
+
+--
+-- Name: tp_users; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE tp_users (
+    id integer NOT NULL,
+    tpid character varying(64) NOT NULL,
+    tenant character varying(64) NOT NULL,
+    user_name character varying(64) NOT NULL,
+    masked boolean NOT NULL,
+    attribute_name character varying(64) NOT NULL,
+    attribute_value character varying(64) NOT NULL,
+    weight numeric(8,2) NOT NULL,
+    created_at timestamp with time zone
+);
+
+
+--
+-- Name: tp_users_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+CREATE SEQUENCE tp_users_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+--
+-- Name: tp_users_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+--
+
+ALTER SEQUENCE tp_users_id_seq OWNED BY tp_users.id;
+
+
+--
+-- Name: users; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE users (
+    id bigint NOT NULL,
+    email character varying(255),
+    password_encrypted character varying(255),
+    inserted_at timestamp without time zone NOT NULL,
+    updated_at timestamp without time zone NOT NULL
+);
+
+
+--
+-- Name: users_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+CREATE SEQUENCE users_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+--
+-- Name: users_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+--
+
+ALTER SEQUENCE users_id_seq OWNED BY users.id;
+
+
+--
+-- Name: versions; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE versions (
+    id integer NOT NULL,
+    item character varying(64) NOT NULL,
+    version integer NOT NULL
+);
+
+
+--
+-- Name: versions_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+CREATE SEQUENCE versions_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+--
+-- Name: versions_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+--
+
+ALTER SEQUENCE versions_id_seq OWNED BY versions.id;
+
+
+--
+-- Name: id; Type: DEFAULT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY cdrs ALTER COLUMN id SET DEFAULT nextval('cdrs_id_seq'::regclass);
+
+
+--
+-- Name: id; Type: DEFAULT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY sm_costs ALTER COLUMN id SET DEFAULT nextval('sm_costs_id_seq'::regclass);
+
+
+--
+-- Name: id; Type: DEFAULT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY tariff_plans ALTER COLUMN id SET DEFAULT nextval('tariff_plans_id_seq'::regclass);
+
+
+--
+-- Name: id; Type: DEFAULT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY tp_account_actions ALTER COLUMN id SET DEFAULT nextval('tp_account_actions_id_seq'::regclass);
+
+
+--
+-- Name: id; Type: DEFAULT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY tp_action_plans ALTER COLUMN id SET DEFAULT nextval('tp_action_plans_id_seq'::regclass);
+
+
+--
+-- Name: id; Type: DEFAULT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY tp_action_triggers ALTER COLUMN id SET DEFAULT nextval('tp_action_triggers_id_seq'::regclass);
+
+
+--
+-- Name: id; Type: DEFAULT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY tp_actions ALTER COLUMN id SET DEFAULT nextval('tp_actions_id_seq'::regclass);
+
+
+--
+-- Name: id; Type: DEFAULT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY tp_aliases ALTER COLUMN id SET DEFAULT nextval('tp_aliases_id_seq'::regclass);
+
+
+--
+-- Name: id; Type: DEFAULT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY tp_cdr_stats ALTER COLUMN id SET DEFAULT nextval('tp_cdr_stats_id_seq'::regclass);
+
+
+--
+-- Name: id; Type: DEFAULT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY tp_derived_chargers ALTER COLUMN id SET DEFAULT nextval('tp_derived_chargers_id_seq'::regclass);
+
+
+--
+-- Name: id; Type: DEFAULT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY tp_destination_rates ALTER COLUMN id SET DEFAULT nextval('tp_destination_rates_id_seq'::regclass);
+
+
+--
+-- Name: id; Type: DEFAULT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY tp_destinations ALTER COLUMN id SET DEFAULT nextval('tp_destinations_id_seq'::regclass);
+
+
+--
+-- Name: pk; Type: DEFAULT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY tp_filters ALTER COLUMN pk SET DEFAULT nextval('tp_filters_pk_seq'::regclass);
+
+
+--
+-- Name: id; Type: DEFAULT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY tp_lcr_rules ALTER COLUMN id SET DEFAULT nextval('tp_lcr_rules_id_seq'::regclass);
+
+
+--
+-- Name: id; Type: DEFAULT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY tp_rates ALTER COLUMN id SET DEFAULT nextval('tp_rates_id_seq'::regclass);
+
+
+--
+-- Name: id; Type: DEFAULT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY tp_rating_plans ALTER COLUMN id SET DEFAULT nextval('tp_rating_plans_id_seq'::regclass);
+
+
+--
+-- Name: id; Type: DEFAULT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY tp_rating_profiles ALTER COLUMN id SET DEFAULT nextval('tp_rating_profiles_id_seq'::regclass);
+
+
+--
+-- Name: pk; Type: DEFAULT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY tp_resources ALTER COLUMN pk SET DEFAULT nextval('tp_resources_pk_seq'::regclass);
+
+
+--
+-- Name: id; Type: DEFAULT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY tp_shared_groups ALTER COLUMN id SET DEFAULT nextval('tp_shared_groups_id_seq'::regclass);
+
+
+--
+-- Name: pk; Type: DEFAULT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY tp_stats ALTER COLUMN pk SET DEFAULT nextval('tp_stats_pk_seq'::regclass);
+
+
+--
+-- Name: pk; Type: DEFAULT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY tp_thresholds ALTER COLUMN pk SET DEFAULT nextval('tp_thresholds_pk_seq'::regclass);
+
+
+--
+-- Name: id; Type: DEFAULT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY tp_timings ALTER COLUMN id SET DEFAULT nextval('tp_timings_id_seq'::regclass);
+
+
+--
+-- Name: id; Type: DEFAULT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY tp_users ALTER COLUMN id SET DEFAULT nextval('tp_users_id_seq'::regclass);
+
+
+--
+-- Name: id; Type: DEFAULT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY users ALTER COLUMN id SET DEFAULT nextval('users_id_seq'::regclass);
+
+
+--
+-- Name: id; Type: DEFAULT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY versions ALTER COLUMN id SET DEFAULT nextval('versions_id_seq'::regclass);
+
+
+--
+-- Name: cdrs_cgrid_run_id_origin_id_key; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY cdrs
+    ADD CONSTRAINT cdrs_cgrid_run_id_origin_id_key UNIQUE (cgrid, run_id, origin_id);
+
+
+--
+-- Name: cdrs_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY cdrs
+    ADD CONSTRAINT cdrs_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: schema_migrations_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY schema_migrations
+    ADD CONSTRAINT schema_migrations_pkey PRIMARY KEY (version);
+
+
+--
+-- Name: sm_costs_cgrid_run_id_key; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY sm_costs
+    ADD CONSTRAINT sm_costs_cgrid_run_id_key UNIQUE (cgrid, run_id);
+
+
+--
+-- Name: sm_costs_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY sm_costs
+    ADD CONSTRAINT sm_costs_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: tariff_plans_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY tariff_plans
+    ADD CONSTRAINT tariff_plans_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: tp_account_actions_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY tp_account_actions
+    ADD CONSTRAINT tp_account_actions_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: tp_account_actions_tpid_loadid_tenant_account_key; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY tp_account_actions
+    ADD CONSTRAINT tp_account_actions_tpid_loadid_tenant_account_key UNIQUE (tpid, loadid, tenant, account);
+
+
+--
+-- Name: tp_action_plans_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY tp_action_plans
+    ADD CONSTRAINT tp_action_plans_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: tp_action_plans_tpid_tag_actions_tag_key; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY tp_action_plans
+    ADD CONSTRAINT tp_action_plans_tpid_tag_actions_tag_key UNIQUE (tpid, tag, actions_tag);
+
+
+--
+-- Name: tp_action_triggers_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY tp_action_triggers
+    ADD CONSTRAINT tp_action_triggers_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: tp_action_triggers_tpid_tag_balance_tag_balance_type_balanc_key; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY tp_action_triggers
+    ADD CONSTRAINT tp_action_triggers_tpid_tag_balance_tag_balance_type_balanc_key UNIQUE (tpid, tag, balance_tag, balance_type, balance_directions, threshold_type, threshold_value, balance_destination_tags, actions_tag);
+
+
+--
+-- Name: tp_actions_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY tp_actions
+    ADD CONSTRAINT tp_actions_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: tp_actions_tpid_tag_action_balance_tag_balance_type_directi_key; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY tp_actions
+    ADD CONSTRAINT tp_actions_tpid_tag_action_balance_tag_balance_type_directi_key UNIQUE (tpid, tag, action, balance_tag, balance_type, directions, expiry_time, timing_tags, destination_tags, shared_groups, balance_weight, weight);
+
+
+--
+-- Name: tp_aliases_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY tp_aliases
+    ADD CONSTRAINT tp_aliases_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: tp_cdr_stats_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY tp_cdr_stats
+    ADD CONSTRAINT tp_cdr_stats_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: tp_derived_chargers_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY tp_derived_chargers
+    ADD CONSTRAINT tp_derived_chargers_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: tp_destination_rates_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY tp_destination_rates
+    ADD CONSTRAINT tp_destination_rates_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: tp_destination_rates_tpid_tag_destinations_tag_key; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY tp_destination_rates
+    ADD CONSTRAINT tp_destination_rates_tpid_tag_destinations_tag_key UNIQUE (tpid, tag, destinations_tag);
+
+
+--
+-- Name: tp_destinations_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY tp_destinations
+    ADD CONSTRAINT tp_destinations_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: tp_destinations_tpid_tag_prefix_key; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY tp_destinations
+    ADD CONSTRAINT tp_destinations_tpid_tag_prefix_key UNIQUE (tpid, tag, prefix);
+
+
+--
+-- Name: tp_filters_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY tp_filters
+    ADD CONSTRAINT tp_filters_pkey PRIMARY KEY (pk);
+
+
+--
+-- Name: tp_lcr_rules_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY tp_lcr_rules
+    ADD CONSTRAINT tp_lcr_rules_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: tp_rates_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY tp_rates
+    ADD CONSTRAINT tp_rates_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: tp_rates_tpid_tag_group_interval_start_key; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY tp_rates
+    ADD CONSTRAINT tp_rates_tpid_tag_group_interval_start_key UNIQUE (tpid, tag, group_interval_start);
+
+
+--
+-- Name: tp_rating_plans_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY tp_rating_plans
+    ADD CONSTRAINT tp_rating_plans_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: tp_rating_plans_tpid_tag_destrates_tag_timing_tag_key; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY tp_rating_plans
+    ADD CONSTRAINT tp_rating_plans_tpid_tag_destrates_tag_timing_tag_key UNIQUE (tpid, tag, destrates_tag, timing_tag);
+
+
+--
+-- Name: tp_rating_profiles_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY tp_rating_profiles
+    ADD CONSTRAINT tp_rating_profiles_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: tp_rating_profiles_tpid_loadid_tenant_category_direction_su_key; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY tp_rating_profiles
+    ADD CONSTRAINT tp_rating_profiles_tpid_loadid_tenant_category_direction_su_key UNIQUE (tpid, loadid, tenant, category, direction, subject, activation_time);
+
+
+--
+-- Name: tp_resources_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY tp_resources
+    ADD CONSTRAINT tp_resources_pkey PRIMARY KEY (pk);
+
+
+--
+-- Name: tp_shared_groups_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY tp_shared_groups
+    ADD CONSTRAINT tp_shared_groups_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: tp_shared_groups_tpid_tag_account_strategy_rating_subject_key; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY tp_shared_groups
+    ADD CONSTRAINT tp_shared_groups_tpid_tag_account_strategy_rating_subject_key UNIQUE (tpid, tag, account, strategy, rating_subject);
+
+
+--
+-- Name: tp_stats_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY tp_stats
+    ADD CONSTRAINT tp_stats_pkey PRIMARY KEY (pk);
+
+
+--
+-- Name: tp_thresholds_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY tp_thresholds
+    ADD CONSTRAINT tp_thresholds_pkey PRIMARY KEY (pk);
+
+
+--
+-- Name: tp_timings_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY tp_timings
+    ADD CONSTRAINT tp_timings_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: tp_timings_tpid_tag_key; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY tp_timings
+    ADD CONSTRAINT tp_timings_tpid_tag_key UNIQUE (tpid, tag);
+
+
+--
+-- Name: tp_users_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY tp_users
+    ADD CONSTRAINT tp_users_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: users_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY users
+    ADD CONSTRAINT users_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: versions_item_key; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY versions
+    ADD CONSTRAINT versions_item_key UNIQUE (item);
+
+
+--
+-- Name: versions_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY versions
+    ADD CONSTRAINT versions_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: cgrid_smcost_idx; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX cgrid_smcost_idx ON sm_costs USING btree (cgrid, run_id);
+
+
+--
+-- Name: deleted_at_cp_idx; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX deleted_at_cp_idx ON cdrs USING btree (deleted_at);
+
+
+--
+-- Name: deleted_at_smcost_idx; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX deleted_at_smcost_idx ON sm_costs USING btree (deleted_at);
+
+
+--
+-- Name: origin_smcost_idx; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX origin_smcost_idx ON sm_costs USING btree (origin_host, origin_id);
+
+
+--
+-- Name: run_origin_smcost_idx; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX run_origin_smcost_idx ON sm_costs USING btree (run_id, origin_id);
+
+
+--
+-- Name: tariff_plans_alias_index; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE UNIQUE INDEX tariff_plans_alias_index ON tariff_plans USING btree (alias);
+
+
+--
+-- Name: tariff_plans_name_index; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE UNIQUE INDEX tariff_plans_name_index ON tariff_plans USING btree (name);
+
+
+--
+-- Name: tp_filters_idx; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX tp_filters_idx ON tp_filters USING btree (tpid);
+
+
+--
+-- Name: tp_filters_unique; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX tp_filters_unique ON tp_filters USING btree (tpid, tenant, id, filter_type, filter_field_name);
+
+
+--
+-- Name: tp_resources_idx; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX tp_resources_idx ON tp_resources USING btree (tpid);
+
+
+--
+-- Name: tp_resources_unique; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX tp_resources_unique ON tp_resources USING btree (tpid, tenant, id, filter_type, filter_field_name);
+
+
+--
+-- Name: tp_stats_idx; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX tp_stats_idx ON tp_stats USING btree (tpid);
+
+
+--
+-- Name: tp_stats_unique; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX tp_stats_unique ON tp_stats USING btree (tpid, tenant, id, filter_type, filter_field_name);
+
+
+--
+-- Name: tp_thresholds_idx; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX tp_thresholds_idx ON tp_thresholds USING btree (tpid);
+
+
+--
+-- Name: tp_thresholds_unique; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX tp_thresholds_unique ON tp_thresholds USING btree (tpid, tenant, id, filter_ids, action_ids);
+
+
+--
+-- Name: tpaccountactions_idx; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX tpaccountactions_idx ON tp_account_actions USING btree (tpid, loadid, tenant, account);
+
+
+--
+-- Name: tpaccountactions_tpid_idx; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX tpaccountactions_tpid_idx ON tp_account_actions USING btree (tpid);
+
+
+--
+-- Name: tpactionplans_idx; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX tpactionplans_idx ON tp_action_plans USING btree (tpid, tag);
+
+
+--
+-- Name: tpactionplans_tpid_idx; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX tpactionplans_tpid_idx ON tp_action_plans USING btree (tpid);
+
+
+--
+-- Name: tpactions_idx; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX tpactions_idx ON tp_actions USING btree (tpid, tag);
+
+
+--
+-- Name: tpactions_tpid_idx; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX tpactions_tpid_idx ON tp_actions USING btree (tpid);
+
+
+--
+-- Name: tpactiontrigers_idx; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX tpactiontrigers_idx ON tp_action_triggers USING btree (tpid, tag);
+
+
+--
+-- Name: tpactiontrigers_tpid_idx; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX tpactiontrigers_tpid_idx ON tp_action_triggers USING btree (tpid);
+
+
+--
+-- Name: tpaliases_idx; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX tpaliases_idx ON tp_aliases USING btree (tpid, direction, tenant, category, account, subject, context, target);
+
+
+--
+-- Name: tpaliases_tpid_idx; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX tpaliases_tpid_idx ON tp_aliases USING btree (tpid);
+
+
+--
+-- Name: tpcdrstats_idx; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX tpcdrstats_idx ON tp_cdr_stats USING btree (tpid, tag);
+
+
+--
+-- Name: tpcdrstats_tpid_idx; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX tpcdrstats_tpid_idx ON tp_cdr_stats USING btree (tpid);
+
+
+--
+-- Name: tpderivedchargers_idx; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX tpderivedchargers_idx ON tp_derived_chargers USING btree (tpid, loadid, direction, tenant, category, account, subject);
+
+
+--
+-- Name: tpderivedchargers_tpid_idx; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX tpderivedchargers_tpid_idx ON tp_derived_chargers USING btree (tpid);
+
+
+--
+-- Name: tpdestrates_idx; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX tpdestrates_idx ON tp_destination_rates USING btree (tpid, tag);
+
+
+--
+-- Name: tpdestrates_tpid_idx; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX tpdestrates_tpid_idx ON tp_destination_rates USING btree (tpid);
+
+
+--
+-- Name: tpdests_idx; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX tpdests_idx ON tp_destinations USING btree (tpid, tag);
+
+
+--
+-- Name: tpdests_tpid_idx; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX tpdests_tpid_idx ON tp_destinations USING btree (tpid);
+
+
+--
+-- Name: tplcr_idx; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX tplcr_idx ON tp_lcr_rules USING btree (tpid, tenant, category, direction, account, subject, destination_tag);
+
+
+--
+-- Name: tplcr_tpid_idx; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX tplcr_tpid_idx ON tp_lcr_rules USING btree (tpid);
+
+
+--
+-- Name: tprates_idx; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX tprates_idx ON tp_rates USING btree (tpid, tag);
+
+
+--
+-- Name: tprates_tpid_idx; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX tprates_tpid_idx ON tp_rates USING btree (tpid);
+
+
+--
+-- Name: tpratingplans_idx; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX tpratingplans_idx ON tp_rating_plans USING btree (tpid, tag);
+
+
+--
+-- Name: tpratingplans_tpid_idx; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX tpratingplans_tpid_idx ON tp_rating_plans USING btree (tpid);
+
+
+--
+-- Name: tpratingprofiles_idx; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX tpratingprofiles_idx ON tp_rating_profiles USING btree (tpid, loadid, direction, tenant, category, subject);
+
+
+--
+-- Name: tpratingprofiles_tpid_idx; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX tpratingprofiles_tpid_idx ON tp_rating_profiles USING btree (tpid);
+
+
+--
+-- Name: tpsharedgroups_idx; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX tpsharedgroups_idx ON tp_shared_groups USING btree (tpid, tag);
+
+
+--
+-- Name: tpsharedgroups_tpid_idx; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX tpsharedgroups_tpid_idx ON tp_shared_groups USING btree (tpid);
+
+
+--
+-- Name: tptimings_idx; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX tptimings_idx ON tp_timings USING btree (tpid, tag);
+
+
+--
+-- Name: tptimings_tpid_idx; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX tptimings_tpid_idx ON tp_timings USING btree (tpid);
+
+
+--
+-- Name: tpusers_idx; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX tpusers_idx ON tp_users USING btree (tpid, tenant, user_name);
+
+
+--
+-- Name: tpusers_tpid_idx; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX tpusers_tpid_idx ON tp_users USING btree (tpid);
+
+
+--
+-- Name: users_email_index; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE UNIQUE INDEX users_email_index ON users USING btree (email);
+
+
+--
+-- PostgreSQL database dump complete
+--
+
+INSERT INTO "schema_migrations" (version) VALUES (20170905093653), (20170908061508);
 

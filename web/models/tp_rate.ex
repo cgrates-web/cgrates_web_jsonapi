@@ -6,8 +6,8 @@ defmodule CgratesWebJsonapi.TpRate do
   schema "tp_rates" do
     field :tpid, :string
     field :tag, :string
-    field :rate, :float
-    field :connect_fee, :float
+    field :rate, :decimal
+    field :connect_fee, :decimal
     field :rate_unit, :string
     field :rate_increment, :string
     field :group_interval_start, :string

@@ -15,16 +15,16 @@ defmodule CgratesWebJsonapi.TpSmartRate do
     field :prefix, :string
     field :destination_tag, :string
     field :rating_plan_tag, :string
-    field :rate, :float
-    field :connect_fee, :float
+    field :rate, :decimal
+    field :connect_fee, :decimal
     field :rate_unit, :string
     field :rate_increment, :string
     field :group_interval_start, :string
     field :rounding_method, :string
     field :max_cost_strategy, :string
-    field :max_cost, :float,default: 0.0
+    field :max_cost, :decimal,default: 0.0
     field :rounding_decimals, :integer
-    field :weight, :float
+    field :weight, :decimal
   end
 
   @doc """

@@ -133,7 +133,7 @@ defmodule CgratesWebJsonapi.TpDestinationRateControllerTest do
     assert data["attributes"]["rates-tag"] == tp_destination_rate.rates_tag
     assert data["attributes"]["rounding-method"] == tp_destination_rate.rounding_method
     assert data["attributes"]["rounding-decimals"] == tp_destination_rate.rounding_decimals
-    assert data["attributes"]["max-cost"] == tp_destination_rate.max_cost
+    assert data["attributes"]["max-cost"] == "100.0000"
     assert data["attributes"]["max-cost-strategy"] == tp_destination_rate.max_cost_strategy
   end
 

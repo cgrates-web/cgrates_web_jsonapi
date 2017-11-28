@@ -29,11 +29,11 @@ defmodule CgratesWebJsonapi.Factory do
       usage: 10.0,
       supplier: Faker.Beer.name,
       disconnect_cause: Faker.Beer.name,
-      extra_fields: Faker.Beer.name,
+      extra_fields: %{cost: Faker.Beer.name},
       cost_source: Faker.Beer.name,
       cost: 10.0,
-      cost_details: Faker.Beer.name,
-      account_summary: Faker.Beer.name,
+      cost_details: %{cost: Faker.Beer.name},
+      account_summary: %{account: Faker.Beer.name},
       extra_info: Faker.Beer.name
     }
   end

@@ -88,7 +88,7 @@ defmodule CgratesWebJsonapi.TpRatingPlanControllerTest do
     assert data["attributes"]["tag"] == tp_rating_plan.tag
     assert data["attributes"]["destrates-tag"] == tp_rating_plan.destrates_tag
     assert data["attributes"]["timing-tag"] == tp_rating_plan.timing_tag
-    assert data["attributes"]["weight"] == tp_rating_plan.weight
+    assert data["attributes"]["weight"] == "12.10"
   end
 
   test "does not show resource and instead throw error when id is nonexistent", %{conn: conn} do

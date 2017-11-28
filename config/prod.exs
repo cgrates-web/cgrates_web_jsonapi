@@ -21,12 +21,13 @@ config :cgrates_web_jsonapi, CgratesWebJsonapi.Endpoint,
 # Do not print debug messages in production
 config :logger, level: :info
 
+# Configure your database
 config :cgrates_web_jsonapi, CgratesWebJsonapi.Repo,
-  adapter: Ecto.Adapters.MySQL,
-  username: "${MYSQL_USER}",
-  password: "${MYSQL_PASSWORD}",
-  database: "${MYSQL_DATABASE}",
-  hostname: "${MYSQL_HOST}",
+  adapter: Ecto.Adapters.Postgres,
+  username: "${DB_USER}",
+  password: "${DB_PASSWORD}",
+  database: "${DB_DATABASE}",
+  hostname: "${DB_HOST}",
   pool_size: 10
 
 config :guardian, Guardian,

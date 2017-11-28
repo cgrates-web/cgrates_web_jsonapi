@@ -9,7 +9,7 @@ defmodule CgratesWebJsonapi.TpBulkInsertController do
     valid_payloads = data
     |> Enum.map(fn (attributes) -> model.__struct__ |> model.changeset(attributes) end)
     |> Enum.filter(fn (changeset) -> changeset.valid? end)
-    |> Enum.map(fn(cs) -> cs |> Ecto.Changeset.apply_changes() |> Map.from_struct |> Map.delete(:__meta__) end)
+    |> Enum.map(fn(cs) -> cs |> Ecto.Changeset.apply_changes() |> Map.from_struct |> Map.drop([:__meta__, :id]) end)
 
     Repo.insert_all  model, valid_payloads
 

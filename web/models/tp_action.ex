@@ -20,7 +20,7 @@ defmodule CgratesWebJsonapi.TpAction do
     field :balance_disabled, :string
     field :extra_parameters, :string
     field :filter, :string
-    field :weight, :float
+    field :weight, :decimal
 
     field :created_at, :naive_datetime
   end

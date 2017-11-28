@@ -16,7 +16,7 @@ defmodule CgratesWebJsonapi.TpLcrRule do
     field :strategy, :string
     field :strategy_params, :string, default: ""
     field :activation_time, :string
-    field :weight, :float
+    field :weight, :decimal
 
     field :created_at, :naive_datetime
   end

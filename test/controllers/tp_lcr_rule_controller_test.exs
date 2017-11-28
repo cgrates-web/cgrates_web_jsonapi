@@ -154,7 +154,7 @@ defmodule CgratesWebJsonapi.TpLcrRuleControllerTest do
     assert data["attributes"]["strategy"] == tp_lcr_rule.strategy
     assert data["attributes"]["strategy-params"] == tp_lcr_rule.strategy_params
     assert data["attributes"]["activation-time"] == tp_lcr_rule.activation_time
-    assert data["attributes"]["weight"] == tp_lcr_rule.weight
+    assert data["attributes"]["weight"] == "10.00"
   end
 
   test "does not show resource and instead throw error when id is nonexistent", %{conn: conn} do

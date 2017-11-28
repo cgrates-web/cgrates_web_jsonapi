@@ -16,16 +16,16 @@ defmodule CgratesWebJsonapi.Cdr do
     field :subject, :string
     field :destination, :string
     field :setup_time, Ecto.DateTime
-    field :pdd, :float
+    field :pdd, :decimal
     field :answer_time, Ecto.DateTime
-    field :usage, :float
+    field :usage, :decimal
     field :supplier, :string
     field :disconnect_cause, :string
-    field :extra_fields, :string
+    field :extra_fields, :map
     field :cost_source, :string
-    field :cost, :float
-    field :cost_details, :string
-    field :account_summary, :string
+    field :cost, :decimal
+    field :cost_details, :map
+    field :account_summary, :map
     field :extra_info, :string
 
     field :created_at, :naive_datetime
@@ -44,7 +44,6 @@ defmodule CgratesWebJsonapi.Cdr do
                      :extra_info])
     |> validate_required([:cgrid, :run_id, :origin_host, :source, :origin_id, :tor, :request_type, :direction,
                           :tenant, :category, :account, :subject, :destination, :setup_time, :pdd, :answer_time,
-                          :usage, :supplier, :disconnect_cause, :extra_fields, :cost_source, :cost, :cost_details,
-                          :account_summary, :extra_info])
+                          :usage, :supplier, :disconnect_cause, :extra_fields, :cost_source, :cost, :extra_info])
   end
 end

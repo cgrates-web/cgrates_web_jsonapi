@@ -121,8 +121,8 @@ defmodule CgratesWebJsonapi.TpRateControllerTest do
     assert data["type"] == "tp-rate"
     assert data["attributes"]["tpid"] == tp_rate.tpid
     assert data["attributes"]["tag"] == tp_rate.tag
-    assert data["attributes"]["connect-fee"] == tp_rate.connect_fee
-    assert data["attributes"]["rate"] == tp_rate.rate
+    assert data["attributes"]["connect-fee"] == "0.0100"
+    assert data["attributes"]["rate"] == "0.0100"
     assert data["attributes"]["rate-unit"] == tp_rate.rate_unit
     assert data["attributes"]["rate-increment"] == tp_rate.rate_increment
     assert data["attributes"]["group-interval-start"] == tp_rate.group_interval_start

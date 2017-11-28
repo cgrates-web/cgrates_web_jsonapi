@@ -11,7 +11,7 @@ defmodule CgratesWebJsonapi.TpDestinationRate do
     field :rates_tag, :string
     field :rounding_method, :string
     field :rounding_decimals, :integer
-    field :max_cost, :float, default: 0.0
+    field :max_cost, :decimal, default: 0.0
     field :max_cost_strategy, :string, default: ""
 
     field :created_at, :naive_datetime
