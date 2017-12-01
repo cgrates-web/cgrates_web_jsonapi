@@ -8,13 +8,13 @@ defmodule CgratesWebJsonapi.AddBalance do
     field :balance_id,      :string
     field :balance_type,    :string
     field :directions,      :string
-    field :value,           :decimal
+    field :value,           :float
     field :expiry_time,     :string
     field :rating_subject,  :string
     field :categories,      :string
     field :destination_ids, :string
     field :timing_ids,      :string
-    field :weight,          :decimal
+    field :weight,          :float
     field :shared_groups,   :string
     field :overwrite,       :boolean
     field :blocker,         :boolean
