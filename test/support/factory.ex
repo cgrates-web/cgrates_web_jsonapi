@@ -97,6 +97,17 @@ defmodule CgratesWebJsonapi.Factory do
     }
   end
 
+  def tp_filter_factory do
+    %CgratesWebJsonapi.TpFilter{
+      filter_field_name: Faker.Beer.name,
+      filter_field_values: Faker.Beer.name, 
+      filter_type: "*string",
+      tenant: Faker.Pokemon.name,
+      id: Faker.Pokemon.name,
+      tpid: Faker.Pokemon.name
+    }
+  end
+
   def tp_lcr_rule_factory do
     %CgratesWebJsonapi.TpLcrRule{
       tpid: Faker.Pokemon.name,
