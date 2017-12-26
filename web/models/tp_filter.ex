@@ -15,7 +15,7 @@ defmodule CgratesWebJsonapi.TpFilter do
     field :filter_field_values, :string
     field :activation_interval, :string, default: ""
 
-    timestamps(inserted_at: :created_at, updated_at: false)
+    field :created_at, :naive_datetime
   end
 
   @doc """
