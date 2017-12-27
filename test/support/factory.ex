@@ -100,7 +100,7 @@ defmodule CgratesWebJsonapi.Factory do
   def tp_filter_factory do
     %CgratesWebJsonapi.TpFilter{
       filter_field_name: Faker.Beer.name,
-      filter_field_values: Faker.Beer.name, 
+      filter_field_values: Faker.Beer.name,
       filter_type: "*string",
       tenant: Faker.Pokemon.name,
       id: Faker.Pokemon.name,
@@ -157,6 +157,17 @@ defmodule CgratesWebJsonapi.Factory do
       rating_plan_tag: Faker.Beer.name,
       fallback_subjects: Faker.Beer.name,
       cdr_stat_queue_ids: Faker.Beer.name,
+    }
+  end
+
+  def tp_supplier_factory do
+    %CgratesWebJsonapi.TpSupplier{
+      tpid: Faker.Beer.name,
+      tenant: Faker.Beer.name,
+      supplier_id: Faker.Pokemon.name,
+      supplier_weight: 100,
+      weight: 100,
+      id: Faker.Pokemon.name
     }
   end
 

@@ -2,7 +2,7 @@
 -- PostgreSQL database dump
 --
 
--- Dumped from database version 9.4.14
+-- Dumped from database version 9.4.15
 -- Dumped by pg_dump version 9.5.10
 
 SET statement_timeout = 0;
@@ -868,6 +868,51 @@ ALTER SEQUENCE tp_stats_pk_seq OWNED BY tp_stats.pk;
 
 
 --
+-- Name: tp_suppliers; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE tp_suppliers (
+    pk integer NOT NULL,
+    tpid character varying(64),
+    tenant character varying(64),
+    id character varying(64),
+    filter_ids character varying(64),
+    activation_interval character varying(64),
+    sorting character varying(32),
+    sorting_params character varying(64),
+    supplier_id character varying(32),
+    supplier_filter_ids character varying(64),
+    supplier_account_ids character varying(64),
+    supplier_ratingplan_ids character varying(64),
+    supplier_resource_ids character varying(64),
+    supplier_stat_ids character varying(64),
+    supplier_weight numeric(8,2),
+    blocker boolean,
+    weight numeric(8,2),
+    created_at timestamp without time zone NOT NULL
+);
+
+
+--
+-- Name: tp_suppliers_pk_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+CREATE SEQUENCE tp_suppliers_pk_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+--
+-- Name: tp_suppliers_pk_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+--
+
+ALTER SEQUENCE tp_suppliers_pk_seq OWNED BY tp_suppliers.pk;
+
+
+--
 -- Name: tp_thresholds; Type: TABLE; Schema: public; Owner: -
 --
 
@@ -1186,6 +1231,13 @@ ALTER TABLE ONLY tp_stats ALTER COLUMN pk SET DEFAULT nextval('tp_stats_pk_seq':
 -- Name: pk; Type: DEFAULT; Schema: public; Owner: -
 --
 
+ALTER TABLE ONLY tp_suppliers ALTER COLUMN pk SET DEFAULT nextval('tp_suppliers_pk_seq'::regclass);
+
+
+--
+-- Name: pk; Type: DEFAULT; Schema: public; Owner: -
+--
+
 ALTER TABLE ONLY tp_thresholds ALTER COLUMN pk SET DEFAULT nextval('tp_thresholds_pk_seq'::regclass);
 
 
@@ -1479,6 +1531,14 @@ ALTER TABLE ONLY tp_shared_groups
 
 ALTER TABLE ONLY tp_stats
     ADD CONSTRAINT tp_stats_pkey PRIMARY KEY (pk);
+
+
+--
+-- Name: tp_suppliers_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY tp_suppliers
+    ADD CONSTRAINT tp_suppliers_pkey PRIMARY KEY (pk);
 
 
 --
@@ -1877,5 +1937,4 @@ CREATE UNIQUE INDEX users_email_index ON users USING btree (email);
 -- PostgreSQL database dump complete
 --
 
-INSERT INTO "schema_migrations" (version) VALUES (20170905093653), (20170908061508);
-
+INSERT INTO "schema_migrations" (version) VALUES (20170905093653), (20170908061508), (20171227032914);
