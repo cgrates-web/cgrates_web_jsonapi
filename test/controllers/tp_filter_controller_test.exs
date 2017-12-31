@@ -61,10 +61,10 @@ defmodule CgratesWebJsonapi.TpFilterControllerTest do
     test "filtering by id", %{conn: conn} do
       tariff_plan = insert :tariff_plan
 
-      f1 = insert :tp_filter, tpid: tariff_plan.alias, id: "a"
-      f2 = insert :tp_filter, tpid: tariff_plan.alias, id: "b"
+      f1 = insert :tp_filter, tpid: tariff_plan.alias, custom_id: "a"
+      f2 = insert :tp_filter, tpid: tariff_plan.alias, custom_id: "b"
 
-      conn = get(conn, tp_filter_path(conn, :index, tpid: tariff_plan.alias), filter: %{id: "a"})
+      conn = get(conn, tp_filter_path(conn, :index, tpid: tariff_plan.alias), filter: %{custom_id: "a"})
       |> doc()
       assert length(json_response(conn, 200)["data"]) == 1
     end
@@ -77,7 +77,7 @@ defmodule CgratesWebJsonapi.TpFilterControllerTest do
 
       conn = get(conn, tp_filter_path(conn, :show, tp_filter)) |> doc()
       data = json_response(conn, 200)["data"]
-      assert data["id"] == "#{tp_filter.id}"
+      assert data["id"] == "#{tp_filter.pk}"
       assert data["type"] == "tp-filter"
       assert data["attributes"]["tpid"] == tp_filter.tpid
       assert data["attributes"]["tenant"] == tp_filter.tenant
@@ -133,14 +133,14 @@ defmodule CgratesWebJsonapi.TpFilterControllerTest do
         "meta" => %{},
         "data" => %{
           "type" => "tp_filter",
-          "id" => tp_filter.id,
-          "attributes" => %{id: "new_id"},
+          "id" => tp_filter.pk,
+          "attributes" => %{custom_id: "new_id"},
           "relationships" => relationships
         }
       }) |> doc()
 
       assert json_response(conn, 200)["data"]["id"]
-      assert Repo.get_by(TpFilter, %{id: "new_id"})
+      assert Repo.get_by(TpFilter, %{custom_id: "new_id"})
     end
 
     test "does not update chosen resource and renders errors when data is invalid", %{conn: conn} do
@@ -149,7 +149,7 @@ defmodule CgratesWebJsonapi.TpFilterControllerTest do
         "meta" => %{},
         "data" => %{
           "type" => "tp_filter",
-          "id" => tp_filter.id,
+          "id" => tp_filter.pk,
           "attributes" => %{filter_type: "fake"},
           "relationships" => relationships
         }

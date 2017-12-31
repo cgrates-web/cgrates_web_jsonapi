@@ -103,7 +103,7 @@ defmodule CgratesWebJsonapi.Factory do
       filter_field_values: Faker.Beer.name,
       filter_type: "*string",
       tenant: Faker.Pokemon.name,
-      id: Faker.Pokemon.name,
+      custom_id: Faker.Pokemon.name,
       tpid: Faker.Pokemon.name
     }
   end
