@@ -38,11 +38,13 @@ defmodule CgratesWebJsonapi.Router do
     resources "/tp-bulk-insert",            TpBulkInsertController,         only:   [:create]
     resources "/tp-destinations",           TpDestinationController,        except: [:new, :edit]
     resources "/tp-destination-rates",      TpDestinationRateController,    except: [:new, :edit]
+    resources "/tp-filters",                TpFilterController,             except: [:new, :edit]
     resources "/tp-lcr-rules",              TpLcrRuleController,            except: [:new, :edit]
     resources "/tp-rates",                  TpRateController,               except: [:new, :edit]
     resources "/tp-rating-plans",           TpRatingPlanController,         except: [:new, :edit]
     resources "/tp-rating-profiles",        TpRatingProfileController,      except: [:new, :edit]
     resources "/tp-smart-rates",            TpSmartRateController,          only:   [:create]
+    resources "/tp-suppliers",              TpSupplierController,           except: [:new, :edit]
     resources "/tp-timings",                TpTimingController,             except: [:new, :edit]
     resources "/users",                     UserController,                 except: [:new, :edit]
   end

@@ -96,7 +96,7 @@ defmodule CgratesWebJsonapi.TpActionPlanControllerTest do
 
     test "does not show resource and instead throw error when id is nonexistent", %{conn: conn} do
       assert_error_sent 404, fn ->
-        get(conn, tp_action_plan_path(conn, :show, -1)) |> doc
+        get(conn, tp_action_plan_path(conn, :show, -1)) |> doc()
       end
     end
   end
@@ -113,7 +113,7 @@ defmodule CgratesWebJsonapi.TpActionPlanControllerTest do
           "type" => "tp_action_plan",
           "attributes" => params,
         }
-      }) |> doc
+      }) |> doc()
 
       assert json_response(conn, 201)["data"]["id"]
       assert Repo.get_by(TpActionPlan, params)
@@ -126,7 +126,7 @@ defmodule CgratesWebJsonapi.TpActionPlanControllerTest do
           "type" => "tp_action_plan",
           "attributes" => %{tag: nil},
         }
-      }) |> doc
+      }) |> doc()
 
       assert json_response(conn, 422)["errors"] != %{}
     end
@@ -145,7 +145,7 @@ defmodule CgratesWebJsonapi.TpActionPlanControllerTest do
           "id" => tp_action_plan.id,
           "attributes" => params,
         }
-      }) |> doc
+      }) |> doc()
 
       assert json_response(conn, 200)["data"]["id"]
       assert Repo.get_by(TpActionPlan, params)
