@@ -8,7 +8,7 @@ defmodule CgratesWebJsonapi.TpSupplierTest do
                  supplier_filter_ids: "some content", supplier_id: "some content",
                  supplier_ratingplan_ids: "some content", supplier_resource_ids: "some content",
                  supplier_stat_ids: "some content", supplier_weight: 10.10, tenant: "some content",
-                 tpid: "some content", weight: 100, id: "1"}
+                 tpid: "some content", weight: 100, custom_id: "1"}
   @invalid_attrs %{}
 
   test "changeset with valid attributes" do

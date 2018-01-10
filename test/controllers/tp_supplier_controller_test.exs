@@ -36,13 +36,13 @@ defmodule CgratesWebJsonapi.TpSupplierControllerTest do
       assert length(json_response(conn, 200)["data"]) == 1
     end
 
-    test "filtering by id", %{conn: conn} do
+    test "filtering by custom_id", %{conn: conn} do
       tariff_plan = insert :tariff_plan
 
-      insert :tp_supplier, tpid: tariff_plan.alias, id: "a"
-      insert :tp_supplier, tpid: tariff_plan.alias, id: "b"
+      insert :tp_supplier, tpid: tariff_plan.alias, custom_id: "a"
+      insert :tp_supplier, tpid: tariff_plan.alias, custom_id: "b"
 
-      conn = get(conn, tp_supplier_path(conn, :index, tpid: tariff_plan.alias), filter: %{id: "a"})
+      conn = get(conn, tp_supplier_path(conn, :index, tpid: tariff_plan.alias), filter: %{custom_id: "a"})
       |> doc()
       assert length(json_response(conn, 200)["data"]) == 1
     end
@@ -187,9 +187,10 @@ defmodule CgratesWebJsonapi.TpSupplierControllerTest do
 
       conn = get(conn, tp_supplier_path(conn, :show, tp_supplier)) |> doc()
       data = json_response(conn, 200)["data"]
-      assert data["id"] == "#{tp_supplier.id}"
+      assert data["id"] == "#{tp_supplier.pk}"
       assert data["type"] == "tp-supplier"
       assert data["attributes"]["tpid"] == tp_supplier.tpid
+      assert data["attributes"]["custom-id"] == tp_supplier.custom_id
       assert data["attributes"]["tenant"] == tp_supplier.tenant
       assert data["attributes"]["filter-ids"] == tp_supplier.filter_ids
       assert data["attributes"]["activation-interval"] == tp_supplier.activation_interval
@@ -252,14 +253,14 @@ defmodule CgratesWebJsonapi.TpSupplierControllerTest do
         "meta" => %{},
         "data" => %{
           "type" => "tp_supplier",
-          "id" => tp_supplier.id,
-          "attributes" => %{id: "new_id"},
+          "id" => tp_supplier.pk,
+          "attributes" => %{custom_id: "new_id"},
           "relationships" => relationships
         }
       }) |> doc()
 
       assert json_response(conn, 200)["data"]["id"]
-      assert Repo.get_by(TpSupplier, %{id: "new_id"})
+      assert Repo.get_by(TpSupplier, %{custom_id: "new_id"})
     end
 
     test "does not update chosen resource and renders errors when data is invalid", %{conn: conn} do
@@ -268,8 +269,8 @@ defmodule CgratesWebJsonapi.TpSupplierControllerTest do
         "meta" => %{},
         "data" => %{
           "type" => "tp_supplier",
-          "id" => tp_supplier.id,
-          "attributes" => %{id: ""},
+          "id" => tp_supplier.pk,
+          "attributes" => %{custom_id: ""},
           "relationships" => relationships
         }
       }) |> doc()

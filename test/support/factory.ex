@@ -167,7 +167,7 @@ defmodule CgratesWebJsonapi.Factory do
       supplier_id: Faker.Pokemon.name,
       supplier_weight: 100,
       weight: 100,
-      id: Faker.Pokemon.name
+      custom_id: Faker.Pokemon.name
     }
   end
 
