@@ -18,7 +18,6 @@ defmodule CgratesWebJsonapi.TpSupplier do
     field :supplier_resource_ids, :string, default: ""
     field :supplier_stat_ids, :string, default: ""
     field :supplier_weight, :decimal
-    field :blocker, :boolean, default: false
     field :weight, :decimal
 
     timestamps(inserted_at: :created_at, updated_at: false)
@@ -31,7 +30,7 @@ defmodule CgratesWebJsonapi.TpSupplier do
     struct
     |> cast(params, [:tpid, :tenant, :filter_ids, :activation_interval, :sorting, :sorting_params, :supplier_id,
                      :supplier_filter_ids, :supplier_account_ids, :supplier_ratingplan_ids, :supplier_resource_ids,
-                     :supplier_stat_ids, :supplier_weight, :blocker, :weight, :custom_id])
+                     :supplier_stat_ids, :supplier_weight, :weight, :custom_id])
     |> validate_required([:tpid, :tenant, :supplier_id, :supplier_weight, :weight, :custom_id])
     |> validate_length(:tpid, max: 64)
     |> validate_length(:tenant, max: 64)

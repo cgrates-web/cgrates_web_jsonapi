@@ -203,7 +203,6 @@ defmodule CgratesWebJsonapi.TpSupplierControllerTest do
       assert data["attributes"]["supplier-resource-ids"] == tp_supplier.supplier_resource_ids
       assert data["attributes"]["supplier-stat-ids"] == tp_supplier.supplier_stat_ids
       assert data["attributes"]["supplier-weight"] == "100.00"
-      assert data["attributes"]["blocker"] == tp_supplier.blocker
       assert data["attributes"]["weight"] == "100.00"
     end
 

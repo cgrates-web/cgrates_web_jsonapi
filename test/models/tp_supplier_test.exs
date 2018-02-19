@@ -3,7 +3,7 @@ defmodule CgratesWebJsonapi.TpSupplierTest do
 
   alias CgratesWebJsonapi.TpSupplier
 
-  @valid_attrs %{activation_interval: "some content", blocker: true, filter_ids: "some content",
+  @valid_attrs %{activation_interval: "some content", filter_ids: "some content",
                  sorting: "some content", sorting_params: "some content", supplier_account_ids: "some content",
                  supplier_filter_ids: "some content", supplier_id: "some content",
                  supplier_ratingplan_ids: "some content", supplier_resource_ids: "some content",
