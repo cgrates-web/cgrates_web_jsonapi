@@ -51,7 +51,8 @@ defmodule CgratesWebJsonapi.Router do
   end
 
   scope "/uploaders", CgratesWebJsonapi do
-    resources "/tp-smart-rate-import-jobs", TpSmartRateImportJobController, only:   [:create, :show]
+    resources "/tp-smart-rate-import-jobs", TpSmartRateImportJobController, only: [:create]
+    resources "/raw-supplier-rate-import-jobs", RawSupplierRateImportJobController, only: [:create]
   end
 
   scope "/", CgratesWebJsonapi do
