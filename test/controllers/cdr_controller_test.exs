@@ -29,8 +29,8 @@ defmodule CgratesWebJsonapi.CdrControllerTest do
     end
 
     test "filtering by cgrid", %{conn: conn} do
-      cdr1 = insert :cdr
-      cdr2 = insert :cdr
+      cdr1 = insert :cdr, cgrid: "1"
+      cdr2 = insert :cdr, cgrid: "2"
 
       conn = get(conn, cdr_path(conn, :index), filter: %{cgrid: cdr1.cgrid})
       |> doc
@@ -110,8 +110,8 @@ defmodule CgratesWebJsonapi.CdrControllerTest do
     end
 
     test "filtering by destination", %{conn: conn} do
-      cdr1 = insert :cdr
-      cdr2 = insert :cdr
+      cdr1 = insert :cdr, destination: "123"
+      cdr2 = insert :cdr, destination: "987"
 
       conn = get(conn, cdr_path(conn, :index), filter: %{destination: cdr1.destination})
       |> doc

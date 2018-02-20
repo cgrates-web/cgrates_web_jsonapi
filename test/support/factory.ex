@@ -38,6 +38,14 @@ defmodule CgratesWebJsonapi.Factory do
     }
   end
 
+  def raw_supplier_rate_factory do
+    %CgratesWebJsonapi.RawSupplierRate{
+      supplier_name: Faker.Beer.name,
+      rate: 100.5,
+      prefix: "7913"
+    }
+  end
+
   def tariff_plan_factory do
     %CgratesWebJsonapi.TariffPlan{
       name: Faker.Beer.name,
