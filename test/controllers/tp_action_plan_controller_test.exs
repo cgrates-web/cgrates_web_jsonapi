@@ -46,8 +46,8 @@ defmodule CgratesWebJsonapi.TpActionPlanControllerTest do
     test "filtering by actions_tag", %{conn: conn} do
       tariff_plan = insert :tariff_plan
 
-      t1 = insert :tp_action_plan, tpid: tariff_plan.alias
-      t2 = insert :tp_action_plan, tpid: tariff_plan.alias
+      t1 = insert :tp_action_plan, tpid: tariff_plan.alias, actions_tag: "a"
+      t2 = insert :tp_action_plan, tpid: tariff_plan.alias, actions_tag: "b"
 
       conn = get(conn, tp_action_plan_path(conn, :index, tpid: tariff_plan.alias), filter: %{actions_tag: t1.actions_tag})
       |> doc

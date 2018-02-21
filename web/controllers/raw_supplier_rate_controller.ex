@@ -4,13 +4,14 @@ defmodule CgratesWebJsonapi.RawSupplierRateController do
   use CgratesWebJsonapi.DefaultSorting
 
   alias CgratesWebJsonapi.RawSupplierRate
+  alias CgratesWebJsonapi.RawSupplierRate.Resolver
 
   plug JaResource
 
-  def handle_show(conn, id), do: Repo.get!(RawSupplierRate, id)
+  def handle_show(_, id), do: Repo.get!(RawSupplierRate, id)
 
-  def handle_index(conn, %{"tpid" => tpid}), do: model |> where(tariff_plan_id: ^tpid)
-  def handle_index(conn, _params), do: raise CgratesWebJsonapi.TpidIsNotPassedError
+  def handle_index(_, %{"tpid" => tpid}), do: model() |> where(tariff_plan_id: ^tpid)
+  def handle_index(_, _params), do: raise CgratesWebJsonapi.TpidIsNotPassedError
 
   def handle_index_query(%{query_params: qp}, query) do
     paginator = if qp["page"] |> is_nil, do: %{"page" => 1}, else: qp["page"]
@@ -30,5 +31,5 @@ defmodule CgratesWebJsonapi.RawSupplierRateController do
 
   def filter(_conn, query, "rate", val),           do: query |> where(rate: ^val)
   def filter(_conn, query, "supplier_name", val),  do: query |> where([r], like(r.supplier_name, ^"%#{val}%"))
-  def filter(_conn, query, "prefix", val),         do: query |> where([r], like(r.prefix, ^"%#{val}%"))
+  def filter(_conn, query, "prefix", val),         do: query |> where(prefix: ^val)
 end

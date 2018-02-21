@@ -55,7 +55,7 @@ defmodule CgratesWebJsonapi.RawSupplierRateControllerTest do
       r1 = insert :raw_supplier_rate, tariff_plan: tariff_plan, prefix: "123"
       r2 = insert :raw_supplier_rate, tariff_plan: tariff_plan, prefix: "987"
 
-      conn = get(conn, raw_supplier_rate_path(conn, :index, tpid: tariff_plan.id), filter: %{prefix: "12"})
+      conn = get(conn, raw_supplier_rate_path(conn, :index, tpid: tariff_plan.id), filter: %{prefix: "123"})
       |> doc
       assert length(json_response(conn, 200)["data"]) == 1
     end

@@ -6,6 +6,7 @@ defmodule CgratesWebJsonapi.RawSupplierRate do
     field :rate, :float
     field :supplier_name, :string
     field :prefix, :string
+    field :description, :string
     belongs_to :tariff_plan, CgratesWebJsonapi.TariffPlan
 
     timestamps()

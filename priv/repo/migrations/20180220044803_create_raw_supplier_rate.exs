@@ -6,6 +6,7 @@ defmodule CgratesWebJsonapi.Repo.Migrations.CreateRawSupplierRate do
       add :rate, :float
       add :supplier_name, :string
       add :prefix, :string
+      add :description, :string
       add :tariff_plan_id, references(:tariff_plans, on_delete: :nothing)
 
       timestamps()
