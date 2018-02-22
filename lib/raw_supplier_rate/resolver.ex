@@ -40,7 +40,7 @@ defmodule CgratesWebJsonapi.RawSupplierRate.Resolver do
 
   defp insert_missing_prefix(prototype, prefix) do
     %RawSupplierRate{prefix: prefix}
-    |> Map.merge(prototype |> Map.take([:supplier_name, :tariff_plan_id, :rate]))
+    |> Map.merge(prototype |> Map.take([:supplier_name, :tariff_plan_id, :rate, :description]))
     |> Repo.insert()
   end
 

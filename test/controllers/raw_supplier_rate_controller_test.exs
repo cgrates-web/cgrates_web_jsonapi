@@ -34,7 +34,7 @@ defmodule CgratesWebJsonapi.RawSupplierRateControllerTest do
       insert :raw_supplier_rate, tariff_plan: tariff_plan_1
       insert :raw_supplier_rate, tariff_plan: tariff_plan_2
 
-      conn = get(conn, raw_supplier_rate_path(conn, :index, tpid: tariff_plan_1.id)) |> doc
+      conn = get(conn, raw_supplier_rate_path(conn, :index, tpid: tariff_plan_1.id)) |> doc()
       assert length(json_response(conn, 200)["data"]) == 1
     end
 
@@ -44,8 +44,33 @@ defmodule CgratesWebJsonapi.RawSupplierRateControllerTest do
       r1 = insert :raw_supplier_rate, tariff_plan: tariff_plan, rate: 0.01
       r2 = insert :raw_supplier_rate, tariff_plan: tariff_plan, rate: 0.02
 
-      conn = get(conn, raw_supplier_rate_path(conn, :index, tpid: tariff_plan.id), filter: %{rate: r1.rate})
-      |> doc
+      conn = conn
+      |> get(raw_supplier_rate_path(:index, tpid: tariff_plan.id), filter: %{rate: r1.rate})
+      |> doc()
+      assert length(json_response(conn, 200)["data"]) == 1
+    end
+
+    test "filtering by inserted_at_gt", %{conn: conn} do
+      tariff_plan = insert :tariff_plan
+
+      r1 = insert :raw_supplier_rate, tariff_plan: tariff_plan
+      r2 = insert :raw_supplier_rate, tariff_plan: tariff_plan
+
+      conn = conn
+      |> get(raw_supplier_rate_path(:index, tpid: tariff_plan.id), filter: %{inserted_at_gt: r1.rate})
+      |> doc()
+      assert length(json_response(conn, 200)["data"]) == 1
+    end
+
+    test "filtering by inserted_at_lt", %{conn: conn} do
+      tariff_plan = insert :tariff_plan
+
+      r1 = insert :raw_supplier_rate, tariff_plan: tariff_plan
+      r2 = insert :raw_supplier_rate, tariff_plan: tariff_plan
+
+      conn = conn
+      |> get(raw_supplier_rate_path(:index, tpid: tariff_plan.id), filter: %{inserted_at_lt: r2.rate})
+      |> doc()
       assert length(json_response(conn, 200)["data"]) == 1
     end
 
@@ -55,8 +80,8 @@ defmodule CgratesWebJsonapi.RawSupplierRateControllerTest do
       r1 = insert :raw_supplier_rate, tariff_plan: tariff_plan, prefix: "123"
       r2 = insert :raw_supplier_rate, tariff_plan: tariff_plan, prefix: "987"
 
-      conn = get(conn, raw_supplier_rate_path(conn, :index, tpid: tariff_plan.id), filter: %{prefix: "123"})
-      |> doc
+      conn = conn |> get(raw_supplier_rate_path(:index, tpid: tariff_plan.id), filter: %{prefix: "123"})
+      |> doc()
       assert length(json_response(conn, 200)["data"]) == 1
     end
 
@@ -66,14 +91,14 @@ defmodule CgratesWebJsonapi.RawSupplierRateControllerTest do
       r1 = insert :raw_supplier_rate, tariff_plan: tariff_plan, supplier_name: "123"
       r2 = insert :raw_supplier_rate, tariff_plan: tariff_plan, supplier_name: "987"
 
-      conn = get(conn, raw_supplier_rate_path(conn, :index, tpid: tariff_plan.id), filter: %{supplier_name: "12"})
-      |> doc
+      conn = conn |> get(raw_supplier_rate_path(:index, tpid: tariff_plan.id), filter: %{supplier_name: "12"})
+      |> doc()
       assert length(json_response(conn, 200)["data"]) == 1
     end
 
     test "returns bad request status if tpid option wasn't pass", %{conn: conn} do
       assert_error_sent 400, fn ->
-        conn = get(conn, raw_supplier_rate_path(conn, :index)) |> doc
+        conn = get(conn, raw_supplier_rate_path(conn, :index)) |> doc()
       end
     end
   end
@@ -83,7 +108,7 @@ defmodule CgratesWebJsonapi.RawSupplierRateControllerTest do
       tariff_plan = insert :tariff_plan
       raw_supplier_rate = insert :raw_supplier_rate, tariff_plan: tariff_plan
 
-      conn = get(conn, raw_supplier_rate_path(conn, :show, raw_supplier_rate)) |> doc
+      conn = get(conn, raw_supplier_rate_path(conn, :show, raw_supplier_rate)) |> doc()
 
       data = json_response(conn, 200)["data"]
       assert data["id"] == "#{raw_supplier_rate.id}"
@@ -95,7 +120,7 @@ defmodule CgratesWebJsonapi.RawSupplierRateControllerTest do
 
     test "does not show resource and instead throw error when id is nonexistent", %{conn: conn} do
       assert_error_sent 404, fn ->
-        get(conn, raw_supplier_rate_path(conn, :show, -1)) |> doc
+        get(conn, raw_supplier_rate_path(conn, :show, -1)) |> doc()
       end
     end
   end
@@ -111,7 +136,7 @@ defmodule CgratesWebJsonapi.RawSupplierRateControllerTest do
           "type" => "raw-supplier-rates",
           "attributes" => params,
         }
-      }) |> doc
+      }) |> doc()
   
       assert json_response(conn, 201)["data"]["id"]
       assert Repo.get_by(RawSupplierRate, params)
@@ -144,7 +169,7 @@ defmodule CgratesWebJsonapi.RawSupplierRateControllerTest do
           "id" => raw_supplier_rate.id,
           "attributes" => params,
         }
-      }) |> doc
+      }) |> doc()
 
       assert json_response(conn, 200)["data"]["id"]
       assert Repo.get_by(RawSupplierRate, params)
@@ -161,7 +186,7 @@ defmodule CgratesWebJsonapi.RawSupplierRateControllerTest do
           "id" => raw_supplier_rate.id,
           "attributes" => @invalid_attrs,
         }
-      }) |> doc
+      }) |> doc()
 
       assert json_response(conn, 422)["errors"] != %{}
     end
@@ -171,7 +196,7 @@ defmodule CgratesWebJsonapi.RawSupplierRateControllerTest do
     tariff_plan = insert :tariff_plan
     raw_supplier_rate = insert :raw_supplier_rate, tariff_plan: tariff_plan
 
-    conn = delete(conn, raw_supplier_rate_path(conn, :delete, raw_supplier_rate)) |> doc
+    conn = delete(conn, raw_supplier_rate_path(conn, :delete, raw_supplier_rate)) |> doc()
     assert response(conn, 204)
     refute Repo.get(RawSupplierRate, raw_supplier_rate.id)
   end

@@ -4,7 +4,6 @@ defmodule CgratesWebJsonapi.RawSupplierRateController do
   use CgratesWebJsonapi.DefaultSorting
 
   alias CgratesWebJsonapi.RawSupplierRate
-  alias CgratesWebJsonapi.RawSupplierRate.Resolver
 
   plug JaResource
 
@@ -32,4 +31,6 @@ defmodule CgratesWebJsonapi.RawSupplierRateController do
   def filter(_conn, query, "rate", val),           do: query |> where(rate: ^val)
   def filter(_conn, query, "supplier_name", val),  do: query |> where([r], like(r.supplier_name, ^"%#{val}%"))
   def filter(_conn, query, "prefix", val),         do: query |> where(prefix: ^val)
+  def filter(_conn, query, "inserted_at_lt", val), do: query |> where([r], r.inserted_at < ^val)
+  def filter(_conn, query, "inserted_at_gt", val), do: query |> where([r], r.inserted_at > ^val)
 end
