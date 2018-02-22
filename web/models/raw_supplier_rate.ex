@@ -17,7 +17,7 @@ defmodule CgratesWebJsonapi.RawSupplierRate do
   """
   def changeset(struct, params \\ %{}) do
     struct
-    |> cast(params, [:rate, :supplier_name, :prefix, :tariff_plan_id])
+    |> cast(params, [:rate, :supplier_name, :prefix, :tariff_plan_id, :description])
     |> validate_required([:rate, :supplier_name, :prefix])
   end
 
