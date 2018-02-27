@@ -24,15 +24,13 @@ defmodule CgratesWebJsonapi.RawSupplierRate.Resolver do
 
   defp resolve_supplier(supplier, prefixes, tp_id) do
     supplier_prefixes = supplier_prefixes supplier, tp_id
-    missing_prefixs = prefixes -- supplier_prefixes
+    missing_prefixs = prefixes -- Enum.map(supplier_prefixes, fn (x) -> x.prefix end)
     Logger.info "RAW_RATE_RESOLVER: missing prefixes count for #{supplier} - #{length(missing_prefixs)}"
     missing_prefixs
     |> ParallelStream.map(fn (missing_prefix) ->
-      suitable_prefix = Enum.find supplier_prefixes, fn(x) -> missing_prefix |> String.match?(~r/^#{x}/) end
+      suitable_prefix = Enum.find supplier_prefixes, fn(x) -> missing_prefix |> String.match?(~r/^#{x.prefix}/) end
       unless suitable_prefix |> is_nil() do
-        suitable_prefix
-        |> select_prototype(tp_id, supplier)
-        |> insert_missing_prefix(missing_prefix)
+        insert_missing_prefix suitable_prefix, missing_prefix
       end
     end)
     |> Enum.into([])
@@ -44,18 +42,11 @@ defmodule CgratesWebJsonapi.RawSupplierRate.Resolver do
     |> Repo.insert()
   end
 
-  defp select_prototype(prefix, tp_id, supplier) do
-    RawSupplierRate
-    |> where(tariff_plan_id: ^tp_id, supplier_name: ^supplier, prefix: ^prefix)
-    |> select([:tariff_plan_id, :supplier_name, :rate])
-    |> Repo.one()
-  end
-
   defp supplier_prefixes(supplier, tp_id) do
     RawSupplierRate
     |> where(tariff_plan_id: ^tp_id, supplier_name: ^supplier)
-    |> select([r], r.prefix)
     |> distinct(true)
+    |> order_by(desc: :prefix)
     |> Repo.all()
   end
 end

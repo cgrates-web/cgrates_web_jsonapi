@@ -11,6 +11,7 @@ defmodule CgratesWebJsonapi.RawSupplierRate.ResolverTest do
     tp = insert :tariff_plan
     insert :raw_supplier_rate, %{supplier_name: "A", tariff_plan: tp, rate: 100, prefix: "123"}
     insert :raw_supplier_rate, %{supplier_name: "B", tariff_plan: tp, rate: 100, prefix: "12"}
+    insert :raw_supplier_rate, %{supplier_name: "B", tariff_plan: tp, rate: 300, prefix: "1"}
 
     Resolver.resolve(tp.id) |> Enum.into([])
 

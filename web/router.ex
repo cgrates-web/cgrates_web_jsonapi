@@ -33,6 +33,7 @@ defmodule CgratesWebJsonapi.Router do
     resources "/destinations",              DestinationController,           except: [:new, :edit]
     resources "/load-tariff-plan",          LoadTariffPlanController,        only:   [:create]
     resources "/raw-supplier-rates",        RawSupplierRateController,       except: [:new, :edit]
+    post "/raw-supplier-rates/delete_all",  RawSupplierRateController, :delete_all
     resources "/raw-supplier-resolve-jobs", RawSupplierResolveJobController, expect: [:new]
     resources "/tariff-plans",              TariffPlanController,            except: [:new, :edit]
     resources "/tp-actions",                TpActionController,              except: [:new, :edit]

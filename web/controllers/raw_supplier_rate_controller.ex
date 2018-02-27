@@ -4,6 +4,7 @@ defmodule CgratesWebJsonapi.RawSupplierRateController do
   use CgratesWebJsonapi.DefaultSorting
 
   alias CgratesWebJsonapi.RawSupplierRate
+  alias CgratesWebJsonapi.Repo
 
   plug JaResource
 
@@ -26,6 +27,16 @@ defmodule CgratesWebJsonapi.RawSupplierRateController do
         }
       }
     end
+  end
+
+  def delete_all(conn, params) do
+    conn
+    |> handle_index(params)
+    |> JaResource.Index.filter(conn, __MODULE__)
+    |> IO.inspect
+    |> Repo.delete_all()
+
+    send_resp(conn, :no_content, "")
   end
 
   def filter(_conn, query, "rate", val),           do: query |> where(rate: ^val)
