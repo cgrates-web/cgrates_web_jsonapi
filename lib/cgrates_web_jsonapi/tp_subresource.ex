@@ -5,7 +5,7 @@ defmodule CgratesWebJsonapi.TpSubresource do
       def handle_index(conn, _params), do: raise CgratesWebJsonapi.TpidIsNotPassedError
 
       def handle_index_query(%{query_params: qp}, query) do
-        paginator = if (qp["page"] |> is_nil), do: %{"page" => 1}, else: qp["page"]
+        paginator = if qp["page"] |> is_nil, do: %{"page" => 1}, else: qp["page"]
         query |> repo().paginate(page: paginator["page"], page_size: paginator["page-size"])
       end
 

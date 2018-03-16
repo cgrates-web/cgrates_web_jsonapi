@@ -24,25 +24,25 @@ defmodule CgratesWebJsonapi.CdrControllerTest do
     test "lists all entries related tariff plan on index", %{conn: conn} do
       insert :cdr
 
-      conn = get(conn, cdr_path(conn, :index)) |> doc
+      conn = conn |> get(cdr_path(conn, :index)) |> doc()
       assert length(json_response(conn, 200)["data"]) == 1
     end
 
     test "filtering by cgrid", %{conn: conn} do
-      cdr1 = insert :cdr
-      cdr2 = insert :cdr
+      cdr1 = insert :cdr, cgrid: "1"
+      cdr2 = insert :cdr, cgrid: "2"
 
       conn = get(conn, cdr_path(conn, :index), filter: %{cgrid: cdr1.cgrid})
-      |> doc
+      |> doc()
       assert length(json_response(conn, 200)["data"]) == 1
     end
 
     test "filtering by run_id", %{conn: conn} do
-      cdr1 = insert :cdr
-      cdr2 = insert :cdr
+      cdr1 = insert :cdr, run_id: "1"
+      cdr2 = insert :cdr, run_id: "2"
 
       conn = get(conn, cdr_path(conn, :index), filter: %{run_id: cdr1.run_id})
-      |> doc
+      |> doc()
       assert length(json_response(conn, 200)["data"]) == 1
     end
 
@@ -51,22 +51,22 @@ defmodule CgratesWebJsonapi.CdrControllerTest do
       cdr2 = insert :cdr, origin_host: "h2"
 
       conn = get(conn, cdr_path(conn, :index), filter: %{origin_host: cdr1.origin_host})
-      |> doc
+      |> doc()
       assert length(json_response(conn, 200)["data"]) == 1
     end
 
     test "filtering by source", %{conn: conn} do
-      cdr1 = insert :cdr
-      cdr2 = insert :cdr
+      cdr1 = insert :cdr, source: "1"
+      cdr2 = insert :cdr, source: "2"
 
       conn = get(conn, cdr_path(conn, :index), filter: %{source: cdr1.source})
-      |> doc
+      |> doc(())
       assert length(json_response(conn, 200)["data"]) == 1
     end
 
     test "filtering by origin_id", %{conn: conn} do
-      cdr1 = insert :cdr
-      cdr2 = insert :cdr
+      cdr1 = insert :cdr, origin_id: "1"
+      cdr2 = insert :cdr, origin_id: "2"
 
       conn = get(conn, cdr_path(conn, :index), filter: %{origin_id: cdr1.origin_id})
       |> doc
@@ -92,8 +92,8 @@ defmodule CgratesWebJsonapi.CdrControllerTest do
     end
 
     test "filtering by category", %{conn: conn} do
-      cdr1 = insert :cdr
-      cdr2 = insert :cdr
+      cdr1 = insert :cdr, category: "1"
+      cdr2 = insert :cdr, category: "2"
 
       conn = get(conn, cdr_path(conn, :index), filter: %{category: cdr1.category})
       |> doc
@@ -101,8 +101,8 @@ defmodule CgratesWebJsonapi.CdrControllerTest do
     end
 
     test "filtering by account", %{conn: conn} do
-      cdr1 = insert :cdr
-      cdr2 = insert :cdr
+      cdr1 = insert :cdr, account: "1"
+      cdr2 = insert :cdr, account: "2"
 
       conn = get(conn, cdr_path(conn, :index), filter: %{account: cdr1.account})
       |> doc
@@ -110,8 +110,8 @@ defmodule CgratesWebJsonapi.CdrControllerTest do
     end
 
     test "filtering by destination", %{conn: conn} do
-      cdr1 = insert :cdr
-      cdr2 = insert :cdr
+      cdr1 = insert :cdr, destination: "123"
+      cdr2 = insert :cdr, destination: "987"
 
       conn = get(conn, cdr_path(conn, :index), filter: %{destination: cdr1.destination})
       |> doc
