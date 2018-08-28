@@ -887,7 +887,7 @@ CREATE TABLE tp_suppliers (
     supplier_resource_ids character varying(64),
     supplier_stat_ids character varying(64),
     supplier_weight numeric(8,2),
-    blocker boolean,
+    supplier_blocker boolean,
     weight numeric(8,2),
     created_at timestamp without time zone NOT NULL
 );

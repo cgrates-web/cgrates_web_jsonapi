@@ -45,6 +45,7 @@ defmodule CgratesWebJsonapi.Mixfile do
      {:comeonin, "~> 2.0"},
      {:cors_plug, "~> 1.2"},
      {:coverex, "~> 1.4.10", only: :test},
+     {:credo, "~> 0.9.0-rc1", only: [:dev, :test], runtime: false},
      {:csv, "~> 2.0.0"},
      {:distillery, "~> 1.4", runtime: false},
      {:ecto_conditionals, "~> 0.1.0"},
@@ -56,7 +57,8 @@ defmodule CgratesWebJsonapi.Mixfile do
      {:ja_serializer, "~> 0.12.0"},
      {:mapail, "~> 1.0"},
      {:mock, "~> 0.2.0", only: :test},
-     {:postgrex, ">= 0.0.0"},
+     {:parallel_stream, "~> 1.0.5"},
+     {:postgrex, "~> 0.13.5"},
      {:proper_case, github: "max-konin/proper_case", branch: "upper-case"},
      {:scrivener_ecto, "~> 1.0"},
      {:uuid, "~> 1.1"}
