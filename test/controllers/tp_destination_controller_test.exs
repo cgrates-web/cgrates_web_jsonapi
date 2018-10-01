@@ -147,6 +147,21 @@ defmodule CgratesWebJsonapi.TpDestinationControllerTest do
     assert json_response(conn, 422)["errors"] != %{}
   end
 
+  test "does not create resource and renders errors when tag is not unique", %{conn: conn} do
+    tariff_plan    = insert :tariff_plan
+    tp_destination = insert :tp_destination, tpid: tariff_plan.alias, tag: "DST"
+    conn = post conn, tp_destination_path(conn, :create), %{
+      "meta" => %{},
+      "data" => %{
+        "type" => "tp-destinations",
+        "attributes" => %{tag: "DST", tpid: tariff_plan.alias},
+        "relationships" => relationships
+      }
+    }
+
+    assert json_response(conn, 422)["errors"] != %{}
+  end
+
   test "updates and renders chosen resource when data is valid", %{conn: conn} do
     tariff_plan    = insert :tariff_plan
     tp_destination = insert :tp_destination, tpid: tariff_plan.alias

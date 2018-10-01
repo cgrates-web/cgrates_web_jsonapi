@@ -20,7 +20,6 @@ defmodule CgratesWebJsonapi.TpRatingPlanControllerTest do
     {:ok, conn: conn}
   end
 
-
   test "lists all entries related tariff plan on index", %{conn: conn} do
     tariff_plan_1 = insert :tariff_plan
     tariff_plan_2 = insert :tariff_plan

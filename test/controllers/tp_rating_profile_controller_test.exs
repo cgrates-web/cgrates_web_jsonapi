@@ -22,8 +22,8 @@ defmodule CgratesWebJsonapi.TpRatingProfileControllerTest do
 
   describe "GET index" do
     test "lists all entries related tariff plan on index", %{conn: conn} do
-      tariff_plan_1 = insert :tariff_plan
-      tariff_plan_2 = insert :tariff_plan
+      tariff_plan_1 = insert :tariff_plan, name: "A", alias: "A"
+      tariff_plan_2 = insert :tariff_plan, name: "B", alias: "B"
 
       insert :tp_rating_profile, tpid: tariff_plan_1.alias
       insert :tp_rating_profile, tpid: tariff_plan_2.alias
