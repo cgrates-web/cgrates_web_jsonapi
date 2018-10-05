@@ -35,7 +35,7 @@ defmodule CgratesWebJsonapi.Cdr do
     struct
     |> cast(params, [:cgrid, :run_id, :origin_host, :source, :origin_id, :tor, :request_type, :tenant,
                      :category, :account, :subject, :destination, :setup_time, :answer_time, :usage,
-                     :extra_fields, :cost_source, :cost, :cost_details,
+                     :extra_fields, :cost_source, :cost, :cost_details, :id,
                      :extra_info])
     |> validate_required([:cgrid, :run_id, :origin_host, :source, :origin_id, :tor, :request_type,
                           :tenant, :category, :account, :subject, :destination, :setup_time, :answer_time,
