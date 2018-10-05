@@ -80,13 +80,13 @@ defmodule CgratesWebJsonapi.TpSupplierControllerTest do
       assert length(json_response(conn, 200)["data"]) == 1
     end
 
-    test "filtering by sorting_params", %{conn: conn} do
+    test "filtering by sorting_parameters", %{conn: conn} do
       tariff_plan = insert :tariff_plan
 
-      insert :tp_supplier, tpid: tariff_plan.alias, sorting_params: "a"
-      insert :tp_supplier, tpid: tariff_plan.alias, sorting_params: "b"
+      insert :tp_supplier, tpid: tariff_plan.alias, sorting_parameters: "a"
+      insert :tp_supplier, tpid: tariff_plan.alias, sorting_parameters: "b"
 
-      conn = get(conn, tp_supplier_path(conn, :index, tpid: tariff_plan.alias), filter: %{sorting_params: "a"})
+      conn = get(conn, tp_supplier_path(conn, :index, tpid: tariff_plan.alias), filter: %{sorting_parameters: "a"})
       |> doc()
       assert length(json_response(conn, 200)["data"]) == 1
     end
@@ -195,7 +195,7 @@ defmodule CgratesWebJsonapi.TpSupplierControllerTest do
       assert data["attributes"]["filter-ids"] == tp_supplier.filter_ids
       assert data["attributes"]["activation-interval"] == tp_supplier.activation_interval
       assert data["attributes"]["sorting"] == tp_supplier.sorting
-      assert data["attributes"]["sorting-params"] == tp_supplier.sorting_params
+      assert data["attributes"]["sorting-parameters"] == tp_supplier.sorting_parameters
       assert data["attributes"]["supplier-id"] == tp_supplier.supplier_id
       assert data["attributes"]["supplier-filter-ids"] == tp_supplier.supplier_filter_ids
       assert data["attributes"]["supplier-account-ids"] == tp_supplier.supplier_account_ids

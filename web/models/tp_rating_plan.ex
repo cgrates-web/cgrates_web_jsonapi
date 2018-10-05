@@ -22,6 +22,6 @@ defmodule CgratesWebJsonapi.TpRatingPlan do
     |> validate_length(:tag, max: 64)
     |> validate_length(:destrates_tag, max: 64)
     |> validate_length(:timing_tag, max: 64)
-    |> unique_constraint(:tag, name: :tpid_rplid_destrates_timings_weight)
+    |> unique_constraint(:tag, name: :tp_rating_plans_tpid_tag_destrates_tag_timing_tag_key)
   end
 end

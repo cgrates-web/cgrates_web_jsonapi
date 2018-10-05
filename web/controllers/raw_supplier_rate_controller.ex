@@ -33,7 +33,6 @@ defmodule CgratesWebJsonapi.RawSupplierRateController do
     conn
     |> handle_index(params)
     |> JaResource.Index.filter(conn, __MODULE__)
-    |> IO.inspect
     |> Repo.delete_all()
 
     send_resp(conn, :no_content, "")

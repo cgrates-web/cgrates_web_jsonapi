@@ -22,6 +22,6 @@ defmodule CgratesWebJsonapi.TpActionPlan do
     |> validate_length(:tpid, max: 64)
     |> validate_length(:actions_tag, max: 64)
     |> validate_length(:timing_tag, max: 64)
-    |> unique_constraint(:tag, name: :unique_action_schedule)
+    |> unique_constraint(:tag, name: :tp_action_plans_tpid_tag_actions_tag_key)
   end
 end

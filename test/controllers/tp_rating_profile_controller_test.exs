@@ -28,7 +28,9 @@ defmodule CgratesWebJsonapi.TpRatingProfileControllerTest do
       insert :tp_rating_profile, tpid: tariff_plan_1.alias
       insert :tp_rating_profile, tpid: tariff_plan_2.alias
 
-      conn = get(conn, tp_rating_profile_path(conn, :index, tpid: tariff_plan_1.alias)) |> doc
+      conn = conn
+      |> get(tp_rating_profile_path(conn, :index, tpid: tariff_plan_1.alias))
+      |> doc
       assert length(json_response(conn, 200)["data"]) == 1
     end
 
@@ -38,7 +40,8 @@ defmodule CgratesWebJsonapi.TpRatingProfileControllerTest do
       t1 = insert :tp_rating_profile, tpid: tariff_plan.alias
       t2 = insert :tp_rating_profile, tpid: tariff_plan.alias
 
-      conn = get(conn, tp_rating_profile_path(conn, :index, tpid: tariff_plan.alias), filter: %{loadid: t1.loadid})
+      conn = conn
+      |> get(tp_rating_profile_path(conn, :index, tpid: tariff_plan.alias), filter: %{loadid: t1.loadid})
       |> doc
       assert length(json_response(conn, 200)["data"]) == 1
     end
@@ -49,7 +52,8 @@ defmodule CgratesWebJsonapi.TpRatingProfileControllerTest do
       t1 = insert :tp_rating_profile, tpid: tariff_plan.alias, direction: "up"
       t2 = insert :tp_rating_profile, tpid: tariff_plan.alias, direction: "down"
 
-      conn = get(conn, tp_rating_profile_path(conn, :index, tpid: tariff_plan.alias), filter: %{direction: t1.direction})
+      conn = conn
+      |> get(tp_rating_profile_path(conn, :index, tpid: tariff_plan.alias), filter: %{direction: t1.direction})
       |> doc
       assert length(json_response(conn, 200)["data"]) == 1
     end
@@ -60,7 +64,8 @@ defmodule CgratesWebJsonapi.TpRatingProfileControllerTest do
       t1 = insert :tp_rating_profile, tpid: tariff_plan.alias
       t2 = insert :tp_rating_profile, tpid: tariff_plan.alias
 
-      conn = get(conn, tp_rating_profile_path(conn, :index, tpid: tariff_plan.alias), filter: %{tenant: t1.tenant})
+      conn = conn
+      |> get(tp_rating_profile_path(conn, :index, tpid: tariff_plan.alias), filter: %{tenant: t1.tenant})
       |> doc
       assert length(json_response(conn, 200)["data"]) == 1
     end
@@ -71,7 +76,8 @@ defmodule CgratesWebJsonapi.TpRatingProfileControllerTest do
       t1 = insert :tp_rating_profile, tpid: tariff_plan.alias
       t2 = insert :tp_rating_profile, tpid: tariff_plan.alias
 
-      conn = get(conn, tp_rating_profile_path(conn, :index, tpid: tariff_plan.alias), filter: %{category: t1.category})
+      conn = conn
+      |> get(tp_rating_profile_path(conn, :index, tpid: tariff_plan.alias), filter: %{category: t1.category})
       |> doc
       assert length(json_response(conn, 200)["data"]) == 1
     end
@@ -82,7 +88,8 @@ defmodule CgratesWebJsonapi.TpRatingProfileControllerTest do
       t1 = insert :tp_rating_profile, tpid: tariff_plan.alias
       t2 = insert :tp_rating_profile, tpid: tariff_plan.alias
 
-      conn = get(conn, tp_rating_profile_path(conn, :index, tpid: tariff_plan.alias), filter: %{subject: t1.subject})
+      conn = conn
+      |> get(tp_rating_profile_path(conn, :index, tpid: tariff_plan.alias), filter: %{subject: t1.subject})
       |> doc
       assert length(json_response(conn, 200)["data"]) == 1
     end
@@ -93,8 +100,12 @@ defmodule CgratesWebJsonapi.TpRatingProfileControllerTest do
       t1 = insert :tp_rating_profile, tpid: tariff_plan.alias
       t2 = insert :tp_rating_profile, tpid: tariff_plan.alias
 
-      conn = get(conn, tp_rating_profile_path(conn, :index, tpid: tariff_plan.alias), filter: %{activation_time: t1.activation_time})
-      |> doc
+      conn = conn
+      |> get(
+        tp_rating_profile_path(conn, :index, tpid: tariff_plan.alias),
+        filter: %{activation_time: t1.activation_time}
+      )
+      |> doc()
       assert length(json_response(conn, 200)["data"]) == 1
     end
 
@@ -104,30 +115,39 @@ defmodule CgratesWebJsonapi.TpRatingProfileControllerTest do
       t1 = insert :tp_rating_profile, tpid: tariff_plan.alias
       t2 = insert :tp_rating_profile, tpid: tariff_plan.alias
 
-      conn = get(conn, tp_rating_profile_path(conn, :index, tpid: tariff_plan.alias), filter: %{rating_plan_tag: t1.rating_plan_tag})
-      |> doc
+      conn = conn
+      |> get(
+        tp_rating_profile_path(conn, :index, tpid: tariff_plan.alias),
+        filter: %{rating_plan_tag: t1.rating_plan_tag}
+      )
+      |> doc()
       assert length(json_response(conn, 200)["data"]) == 1
     end
 
     test "filtering by fallback_subjects", %{conn: conn} do
       tariff_plan = insert :tariff_plan
 
-      t1 = insert :tp_rating_profile, tpid: tariff_plan.alias
-      t2 = insert :tp_rating_profile, tpid: tariff_plan.alias
+      t1 = insert :tp_rating_profile, tpid: tariff_plan.alias, fallback_subjects: "A"
+      t2 = insert :tp_rating_profile, tpid: tariff_plan.alias, fallback_subjects: "B"
 
-      conn = get(conn, tp_rating_profile_path(conn, :index, tpid: tariff_plan.alias), filter: %{fallback_subjects: t1.fallback_subjects})
-      |> doc
+      conn = conn
+      |> get(
+        tp_rating_profile_path(conn, :index, tpid: tariff_plan.alias),
+        filter: %{fallback_subjects: t1.fallback_subjects}
+      )
+      |> doc()
       assert length(json_response(conn, 200)["data"]) == 1
     end
   end
-
 
   describe "GET show" do
     test "shows chosen resource", %{conn: conn} do
       tariff_plan = insert :tariff_plan
       tp_rating_profile = insert :tp_rating_profile, tpid: tariff_plan.alias
 
-      conn = get(conn, tp_rating_profile_path(conn, :show, tp_rating_profile)) |> doc
+      conn = conn
+      |> get(tp_rating_profile_path(conn, :show, tp_rating_profile))
+      |> doc()
       data = json_response(conn, 200)["data"]
       assert data["id"] == "#{tp_rating_profile.id}"
       assert data["type"] == "tp-rating-profile"
@@ -149,7 +169,6 @@ defmodule CgratesWebJsonapi.TpRatingProfileControllerTest do
       end
     end
   end
-
 
   describe "POST create" do
     test "creates and renders resource when data is valid", %{conn: conn} do

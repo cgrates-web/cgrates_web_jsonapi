@@ -9,23 +9,18 @@ defmodule CgratesWebJsonapi.Cdr do
     field :origin_id, :string
     field :tor, :string
     field :request_type, :string
-    field :direction, :string
     field :tenant, :string
     field :category, :string
     field :account, :string
     field :subject, :string
     field :destination, :string
     field :setup_time, Ecto.DateTime
-    field :pdd, :decimal
     field :answer_time, Ecto.DateTime
-    field :usage, :decimal
-    field :supplier, :string
-    field :disconnect_cause, :string
+    field :usage, :integer
     field :extra_fields, :map
     field :cost_source, :string
     field :cost, :decimal
     field :cost_details, :map
-    field :account_summary, :map
     field :extra_info, :string
 
     field :created_at, :naive_datetime
@@ -38,12 +33,12 @@ defmodule CgratesWebJsonapi.Cdr do
   """
   def changeset(struct, params \\ %{}) do
     struct
-    |> cast(params, [:cgrid, :run_id, :origin_host, :source, :origin_id, :tor, :request_type, :direction, :tenant,
-                     :category, :account, :subject, :destination, :setup_time, :pdd, :answer_time, :usage, :supplier,
-                     :disconnect_cause, :extra_fields, :cost_source, :cost, :cost_details, :account_summary,
+    |> cast(params, [:cgrid, :run_id, :origin_host, :source, :origin_id, :tor, :request_type, :tenant,
+                     :category, :account, :subject, :destination, :setup_time, :answer_time, :usage,
+                     :extra_fields, :cost_source, :cost, :cost_details,
                      :extra_info])
-    |> validate_required([:cgrid, :run_id, :origin_host, :source, :origin_id, :tor, :request_type, :direction,
-                          :tenant, :category, :account, :subject, :destination, :setup_time, :pdd, :answer_time,
-                          :usage, :supplier, :disconnect_cause, :extra_fields, :cost_source, :cost, :extra_info])
+    |> validate_required([:cgrid, :run_id, :origin_host, :source, :origin_id, :tor, :request_type,
+                          :tenant, :category, :account, :subject, :destination, :setup_time, :answer_time,
+                          :usage, :extra_fields, :cost_source, :cost, :extra_info])
   end
 end
