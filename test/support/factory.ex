@@ -10,6 +10,7 @@ defmodule CgratesWebJsonapi.Factory do
 
   def cdr_factory do
     %CgratesWebJsonapi.Cdr{
+      id: sequence(:id, fn (n) -> n end),
       cgrid: Faker.Pokemon.name,
       run_id: Faker.Pokemon.name,
       origin_host: Faker.Beer.name,
@@ -17,23 +18,18 @@ defmodule CgratesWebJsonapi.Factory do
       origin_id: Faker.Beer.name,
       tor: Faker.Pokemon.name,
       request_type: Faker.Pokemon.name,
-      direction: "*up",
       tenant: Faker.Beer.name,
       category: Faker.Pokemon.name,
       account: Faker.Pokemon.name,
       subject: Faker.Beer.name,
       destination: Faker.Beer.name,
       setup_time: %{day: 17, hour: 14, min: 0, month: 4, sec: 0, year: 2010},
-      pdd: 10.0,
       answer_time: %{day: 17, hour: 14, min: 0, month: 4, sec: 0, year: 2010},
-      usage: 10.0,
-      supplier: Faker.Beer.name,
-      disconnect_cause: Faker.Beer.name,
+      usage: 10_000,
       extra_fields: %{cost: Faker.Beer.name},
       cost_source: Faker.Beer.name,
       cost: 10.0,
       cost_details: %{cost: Faker.Beer.name},
-      account_summary: %{account: Faker.Beer.name},
       extra_info: Faker.Beer.name
     }
   end
@@ -48,15 +44,15 @@ defmodule CgratesWebJsonapi.Factory do
 
   def tariff_plan_factory do
     %CgratesWebJsonapi.TariffPlan{
-      name: Faker.Beer.name,
-      alias: Faker.Pokemon.name,
+      name: Faker.UUID.v4(),
+      alias: Faker.UUID.v4(),
       description: Faker.Lorem.sentence
     }
   end
 
   def tp_action_factory do
     %CgratesWebJsonapi.TpAction{
-      tag: Faker.Beer.name,
+      tag: Faker.UUID.v4(),
       action: Faker.Pokemon.name,
       balance_tag: Faker.Pokemon.name,
       balance_type: "*monetary",
@@ -79,9 +75,9 @@ defmodule CgratesWebJsonapi.Factory do
 
   def tp_action_plan_factory do
     %CgratesWebJsonapi.TpActionPlan{
-      tag: Faker.Beer.name,
-      actions_tag: Faker.Beer.name,
-      timing_tag: Faker.Beer.name,
+      tag: Faker.UUID.v4(),
+      actions_tag: Faker.UUID.v4(),
+      timing_tag: Faker.UUID.v4(),
       weight: 10.0
     }
   end
@@ -134,7 +130,7 @@ defmodule CgratesWebJsonapi.Factory do
 
   def tp_rate_factory do
     %CgratesWebJsonapi.TpRate{
-      tag: Faker.Beer.name,
+      tag: Faker.UUID.v4(),
       connect_fee: 0.01,
       rate: 0.01,
       rate_unit: "60s",
@@ -146,9 +142,9 @@ defmodule CgratesWebJsonapi.Factory do
   def tp_rating_plan_factory do
     %CgratesWebJsonapi.TpRatingPlan{
       tpid: Faker.Beer.name,
-      tag: Faker.Beer.name,
-      timing_tag: Faker.Beer.name,
-      destrates_tag: Faker.Beer.name,
+      tag: Faker.UUID.v4(),
+      timing_tag: Faker.UUID.v4(),
+      destrates_tag: Faker.UUID.v4(),
       weight: 12.1
     }
   end
@@ -162,7 +158,7 @@ defmodule CgratesWebJsonapi.Factory do
       category: Faker.Lorem.word,
       subject: Faker.Beer.name,
       activation_time: Faker.Lorem.word,
-      rating_plan_tag: Faker.Beer.name,
+      rating_plan_tag: Faker.UUID.v4(),
       fallback_subjects: Faker.Beer.name,
       cdr_stat_queue_ids: Faker.Beer.name,
     }
@@ -174,6 +170,7 @@ defmodule CgratesWebJsonapi.Factory do
       tenant: Faker.Beer.name,
       supplier_id: Faker.Pokemon.name,
       supplier_weight: 100,
+      supplier_blocker: true,
       weight: 100,
       custom_id: Faker.Pokemon.name
     }
@@ -182,7 +179,7 @@ defmodule CgratesWebJsonapi.Factory do
   def tp_timing_factory do
     %CgratesWebJsonapi.TpTiming{
       tpid: Faker.Beer.name,
-      tag: Faker.Beer.name,
+      tag: Faker.UUID.v4(),
       years: "2017",
       months: "10",
       month_days: "30",

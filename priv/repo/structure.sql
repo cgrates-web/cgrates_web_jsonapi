@@ -2,11 +2,12 @@
 -- PostgreSQL database dump
 --
 
--- Dumped from database version 9.4.15
--- Dumped by pg_dump version 9.5.10
+-- Dumped from database version 10.2
+-- Dumped by pg_dump version 10.2
 
 SET statement_timeout = 0;
 SET lock_timeout = 0;
+SET idle_in_transaction_session_timeout = 0;
 SET client_encoding = 'UTF8';
 SET standard_conforming_strings = on;
 SET check_function_bodies = false;
@@ -39,34 +40,29 @@ SET default_with_oids = false;
 
 CREATE TABLE cdrs (
     id integer NOT NULL,
-    cgrid character(40) NOT NULL,
+    cgrid character varying(40) NOT NULL,
     run_id character varying(64) NOT NULL,
     origin_host character varying(64) NOT NULL,
     source character varying(64) NOT NULL,
-    origin_id character varying(64) NOT NULL,
+    origin_id character varying(128) NOT NULL,
     tor character varying(16) NOT NULL,
     request_type character varying(24) NOT NULL,
-    direction character varying(8) NOT NULL,
     tenant character varying(64) NOT NULL,
-    category character varying(32) NOT NULL,
+    category character varying(64) NOT NULL,
     account character varying(128) NOT NULL,
     subject character varying(128) NOT NULL,
     destination character varying(128) NOT NULL,
     setup_time timestamp with time zone NOT NULL,
-    pdd numeric(12,9) NOT NULL,
     answer_time timestamp with time zone NOT NULL,
-    supplier character varying(128) NOT NULL,
-    disconnect_cause character varying(64) NOT NULL,
+    usage bigint NOT NULL,
     extra_fields jsonb NOT NULL,
     cost_source character varying(64) NOT NULL,
     cost numeric(20,4) DEFAULT NULL::numeric,
     cost_details jsonb,
-    account_summary jsonb,
     extra_info text,
     created_at timestamp with time zone,
     updated_at timestamp with time zone,
-    deleted_at timestamp with time zone,
-    usage numeric(30,0)
+    deleted_at timestamp with time zone
 );
 
 
@@ -75,6 +71,7 @@ CREATE TABLE cdrs (
 --
 
 CREATE SEQUENCE cdrs_id_seq
+    AS integer
     START WITH 1
     INCREMENT BY 1
     NO MINVALUE
@@ -90,6 +87,41 @@ ALTER SEQUENCE cdrs_id_seq OWNED BY cdrs.id;
 
 
 --
+-- Name: raw_supplier_rates; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE raw_supplier_rates (
+    id bigint NOT NULL,
+    rate double precision,
+    supplier_name character varying(255),
+    prefix character varying(255),
+    description character varying(255),
+    tariff_plan_id bigint,
+    inserted_at timestamp without time zone NOT NULL,
+    updated_at timestamp without time zone NOT NULL
+);
+
+
+--
+-- Name: raw_supplier_rates_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+CREATE SEQUENCE raw_supplier_rates_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+--
+-- Name: raw_supplier_rates_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+--
+
+ALTER SEQUENCE raw_supplier_rates_id_seq OWNED BY raw_supplier_rates.id;
+
+
+--
 -- Name: schema_migrations; Type: TABLE; Schema: public; Owner: -
 --
 
@@ -100,17 +132,17 @@ CREATE TABLE schema_migrations (
 
 
 --
--- Name: sm_costs; Type: TABLE; Schema: public; Owner: -
+-- Name: sessions_costs; Type: TABLE; Schema: public; Owner: -
 --
 
-CREATE TABLE sm_costs (
+CREATE TABLE sessions_costs (
     id integer NOT NULL,
-    cgrid character(40) NOT NULL,
+    cgrid character varying(40) NOT NULL,
     run_id character varying(64) NOT NULL,
     origin_host character varying(64) NOT NULL,
-    origin_id character varying(64) NOT NULL,
+    origin_id character varying(128) NOT NULL,
     cost_source character varying(64) NOT NULL,
-    usage numeric(30,9) NOT NULL,
+    usage bigint NOT NULL,
     cost_details jsonb,
     created_at timestamp with time zone,
     deleted_at timestamp with time zone
@@ -118,10 +150,11 @@ CREATE TABLE sm_costs (
 
 
 --
--- Name: sm_costs_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+-- Name: sessions_costs_id_seq; Type: SEQUENCE; Schema: public; Owner: -
 --
 
-CREATE SEQUENCE sm_costs_id_seq
+CREATE SEQUENCE sessions_costs_id_seq
+    AS integer
     START WITH 1
     INCREMENT BY 1
     NO MINVALUE
@@ -130,10 +163,10 @@ CREATE SEQUENCE sm_costs_id_seq
 
 
 --
--- Name: sm_costs_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+-- Name: sessions_costs_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
 --
 
-ALTER SEQUENCE sm_costs_id_seq OWNED BY sm_costs.id;
+ALTER SEQUENCE sessions_costs_id_seq OWNED BY sessions_costs.id;
 
 
 --
@@ -192,6 +225,7 @@ CREATE TABLE tp_account_actions (
 --
 
 CREATE SEQUENCE tp_account_actions_id_seq
+    AS integer
     START WITH 1
     INCREMENT BY 1
     NO MINVALUE
@@ -226,6 +260,7 @@ CREATE TABLE tp_action_plans (
 --
 
 CREATE SEQUENCE tp_action_plans_id_seq
+    AS integer
     START WITH 1
     INCREMENT BY 1
     NO MINVALUE
@@ -279,6 +314,7 @@ CREATE TABLE tp_action_triggers (
 --
 
 CREATE SEQUENCE tp_action_triggers_id_seq
+    AS integer
     START WITH 1
     INCREMENT BY 1
     NO MINVALUE
@@ -327,6 +363,7 @@ CREATE TABLE tp_actions (
 --
 
 CREATE SEQUENCE tp_actions_id_seq
+    AS integer
     START WITH 1
     INCREMENT BY 1
     NO MINVALUE
@@ -368,6 +405,7 @@ CREATE TABLE tp_aliases (
 --
 
 CREATE SEQUENCE tp_aliases_id_seq
+    AS integer
     START WITH 1
     INCREMENT BY 1
     NO MINVALUE
@@ -380,6 +418,48 @@ CREATE SEQUENCE tp_aliases_id_seq
 --
 
 ALTER SEQUENCE tp_aliases_id_seq OWNED BY tp_aliases.id;
+
+
+--
+-- Name: tp_attributes; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE tp_attributes (
+    pk integer NOT NULL,
+    tpid character varying(64) NOT NULL,
+    tenant character varying(64) NOT NULL,
+    id character varying(64) NOT NULL,
+    contexts character varying(64) NOT NULL,
+    filter_ids character varying(64) NOT NULL,
+    activation_interval character varying(64) NOT NULL,
+    field_name character varying(64) NOT NULL,
+    initial character varying(64) NOT NULL,
+    substitute character varying(64) NOT NULL,
+    append boolean NOT NULL,
+    blocker boolean NOT NULL,
+    weight numeric(8,2) NOT NULL,
+    created_at timestamp with time zone
+);
+
+
+--
+-- Name: tp_attributes_pk_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+CREATE SEQUENCE tp_attributes_pk_seq
+    AS integer
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+--
+-- Name: tp_attributes_pk_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+--
+
+ALTER SEQUENCE tp_attributes_pk_seq OWNED BY tp_attributes.pk;
 
 
 --
@@ -423,6 +503,7 @@ CREATE TABLE tp_cdr_stats (
 --
 
 CREATE SEQUENCE tp_cdr_stats_id_seq
+    AS integer
     START WITH 1
     INCREMENT BY 1
     NO MINVALUE
@@ -435,6 +516,44 @@ CREATE SEQUENCE tp_cdr_stats_id_seq
 --
 
 ALTER SEQUENCE tp_cdr_stats_id_seq OWNED BY tp_cdr_stats.id;
+
+
+--
+-- Name: tp_chargers; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE tp_chargers (
+    pk integer NOT NULL,
+    tpid character varying(64) NOT NULL,
+    tenant character varying(64) NOT NULL,
+    id character varying(64) NOT NULL,
+    filter_ids character varying(64) NOT NULL,
+    activation_interval character varying(64) NOT NULL,
+    run_id character varying(64) NOT NULL,
+    attribute_ids character varying(64) NOT NULL,
+    weight numeric(8,2) NOT NULL,
+    created_at timestamp with time zone
+);
+
+
+--
+-- Name: tp_chargers_pk_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+CREATE SEQUENCE tp_chargers_pk_seq
+    AS integer
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+--
+-- Name: tp_chargers_pk_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+--
+
+ALTER SEQUENCE tp_chargers_pk_seq OWNED BY tp_chargers.pk;
 
 
 --
@@ -477,6 +596,7 @@ CREATE TABLE tp_derived_chargers (
 --
 
 CREATE SEQUENCE tp_derived_chargers_id_seq
+    AS integer
     START WITH 1
     INCREMENT BY 1
     NO MINVALUE
@@ -514,6 +634,7 @@ CREATE TABLE tp_destination_rates (
 --
 
 CREATE SEQUENCE tp_destination_rates_id_seq
+    AS integer
     START WITH 1
     INCREMENT BY 1
     NO MINVALUE
@@ -546,6 +667,7 @@ CREATE TABLE tp_destinations (
 --
 
 CREATE SEQUENCE tp_destinations_id_seq
+    AS integer
     START WITH 1
     INCREMENT BY 1
     NO MINVALUE
@@ -582,6 +704,7 @@ CREATE TABLE tp_filters (
 --
 
 CREATE SEQUENCE tp_filters_pk_seq
+    AS integer
     START WITH 1
     INCREMENT BY 1
     NO MINVALUE
@@ -623,6 +746,7 @@ CREATE TABLE tp_lcr_rules (
 --
 
 CREATE SEQUENCE tp_lcr_rules_id_seq
+    AS integer
     START WITH 1
     INCREMENT BY 1
     NO MINVALUE
@@ -646,7 +770,7 @@ CREATE TABLE tp_rates (
     tpid character varying(64) NOT NULL,
     tag character varying(64) NOT NULL,
     connect_fee numeric(7,4) NOT NULL,
-    rate numeric(7,4) NOT NULL,
+    rate numeric(10,4) NOT NULL,
     rate_unit character varying(16) NOT NULL,
     rate_increment character varying(16) NOT NULL,
     group_interval_start character varying(16) NOT NULL,
@@ -659,6 +783,7 @@ CREATE TABLE tp_rates (
 --
 
 CREATE SEQUENCE tp_rates_id_seq
+    AS integer
     START WITH 1
     INCREMENT BY 1
     NO MINVALUE
@@ -693,6 +818,7 @@ CREATE TABLE tp_rating_plans (
 --
 
 CREATE SEQUENCE tp_rating_plans_id_seq
+    AS integer
     START WITH 1
     INCREMENT BY 1
     NO MINVALUE
@@ -732,6 +858,7 @@ CREATE TABLE tp_rating_profiles (
 --
 
 CREATE SEQUENCE tp_rating_profiles_id_seq
+    AS integer
     START WITH 1
     INCREMENT BY 1
     NO MINVALUE
@@ -755,9 +882,7 @@ CREATE TABLE tp_resources (
     tpid character varying(64) NOT NULL,
     tenant character varying(64) NOT NULL,
     id character varying(64) NOT NULL,
-    filter_type character varying(16) NOT NULL,
-    filter_field_name character varying(64) NOT NULL,
-    filter_field_values character varying(256) NOT NULL,
+    filter_ids character varying(64) NOT NULL,
     activation_interval character varying(64) NOT NULL,
     usage_ttl character varying(32) NOT NULL,
     "limit" character varying(64) NOT NULL,
@@ -765,7 +890,7 @@ CREATE TABLE tp_resources (
     blocker boolean NOT NULL,
     stored boolean NOT NULL,
     weight numeric(8,2) NOT NULL,
-    thresholds character varying(64) NOT NULL,
+    threshold_ids character varying(64) NOT NULL,
     created_at timestamp with time zone
 );
 
@@ -775,6 +900,7 @@ CREATE TABLE tp_resources (
 --
 
 CREATE SEQUENCE tp_resources_pk_seq
+    AS integer
     START WITH 1
     INCREMENT BY 1
     NO MINVALUE
@@ -809,6 +935,7 @@ CREATE TABLE tp_shared_groups (
 --
 
 CREATE SEQUENCE tp_shared_groups_id_seq
+    AS integer
     START WITH 1
     INCREMENT BY 1
     NO MINVALUE
@@ -832,18 +959,17 @@ CREATE TABLE tp_stats (
     tpid character varying(64) NOT NULL,
     tenant character varying(64) NOT NULL,
     id character varying(64) NOT NULL,
-    filter_type character varying(16) NOT NULL,
-    filter_field_name character varying(64) NOT NULL,
-    filter_field_values character varying(256) NOT NULL,
+    filter_ids character varying(64) NOT NULL,
     activation_interval character varying(64) NOT NULL,
     queue_length integer NOT NULL,
     ttl character varying(32) NOT NULL,
-    metrics character varying(64) NOT NULL,
+    metrics character varying(128) NOT NULL,
+    parameters character varying(128) NOT NULL,
     blocker boolean NOT NULL,
     stored boolean NOT NULL,
     weight numeric(8,2) NOT NULL,
     min_items integer NOT NULL,
-    thresholds character varying(64) NOT NULL,
+    threshold_ids character varying(64) NOT NULL,
     created_at timestamp with time zone
 );
 
@@ -853,6 +979,7 @@ CREATE TABLE tp_stats (
 --
 
 CREATE SEQUENCE tp_stats_pk_seq
+    AS integer
     START WITH 1
     INCREMENT BY 1
     NO MINVALUE
@@ -873,23 +1000,24 @@ ALTER SEQUENCE tp_stats_pk_seq OWNED BY tp_stats.pk;
 
 CREATE TABLE tp_suppliers (
     pk integer NOT NULL,
-    tpid character varying(64),
-    tenant character varying(64),
-    id character varying(64),
-    filter_ids character varying(64),
-    activation_interval character varying(64),
-    sorting character varying(32),
-    sorting_params character varying(64),
-    supplier_id character varying(32),
-    supplier_filter_ids character varying(64),
-    supplier_account_ids character varying(64),
-    supplier_ratingplan_ids character varying(64),
-    supplier_resource_ids character varying(64),
-    supplier_stat_ids character varying(64),
-    supplier_weight numeric(8,2),
-    supplier_blocker boolean,
-    weight numeric(8,2),
-    created_at timestamp without time zone NOT NULL
+    tpid character varying(64) NOT NULL,
+    tenant character varying(64) NOT NULL,
+    id character varying(64) NOT NULL,
+    filter_ids character varying(64) NOT NULL,
+    activation_interval character varying(64) NOT NULL,
+    sorting character varying(32) NOT NULL,
+    sorting_parameters character varying(64) NOT NULL,
+    supplier_id character varying(32) NOT NULL,
+    supplier_filter_ids character varying(64) NOT NULL,
+    supplier_account_ids character varying(64) NOT NULL,
+    supplier_ratingplan_ids character varying(64) NOT NULL,
+    supplier_resource_ids character varying(64) NOT NULL,
+    supplier_stat_ids character varying(64) NOT NULL,
+    supplier_weight numeric(8,2) NOT NULL,
+    supplier_blocker boolean NOT NULL,
+    supplier_parameters character varying(64) NOT NULL,
+    weight numeric(8,2) NOT NULL,
+    created_at timestamp with time zone
 );
 
 
@@ -898,6 +1026,7 @@ CREATE TABLE tp_suppliers (
 --
 
 CREATE SEQUENCE tp_suppliers_pk_seq
+    AS integer
     START WITH 1
     INCREMENT BY 1
     NO MINVALUE
@@ -923,7 +1052,7 @@ CREATE TABLE tp_thresholds (
     id character varying(64) NOT NULL,
     filter_ids character varying(64) NOT NULL,
     activation_interval character varying(64) NOT NULL,
-    recurrent boolean NOT NULL,
+    max_hits integer NOT NULL,
     min_hits integer NOT NULL,
     min_sleep character varying(16) NOT NULL,
     blocker boolean NOT NULL,
@@ -939,6 +1068,7 @@ CREATE TABLE tp_thresholds (
 --
 
 CREATE SEQUENCE tp_thresholds_pk_seq
+    AS integer
     START WITH 1
     INCREMENT BY 1
     NO MINVALUE
@@ -975,6 +1105,7 @@ CREATE TABLE tp_timings (
 --
 
 CREATE SEQUENCE tp_timings_id_seq
+    AS integer
     START WITH 1
     INCREMENT BY 1
     NO MINVALUE
@@ -1011,6 +1142,7 @@ CREATE TABLE tp_users (
 --
 
 CREATE SEQUENCE tp_users_id_seq
+    AS integer
     START WITH 1
     INCREMENT BY 1
     NO MINVALUE
@@ -1073,6 +1205,7 @@ CREATE TABLE versions (
 --
 
 CREATE SEQUENCE versions_id_seq
+    AS integer
     START WITH 1
     INCREMENT BY 1
     NO MINVALUE
@@ -1088,189 +1221,210 @@ ALTER SEQUENCE versions_id_seq OWNED BY versions.id;
 
 
 --
--- Name: id; Type: DEFAULT; Schema: public; Owner: -
+-- Name: cdrs id; Type: DEFAULT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY cdrs ALTER COLUMN id SET DEFAULT nextval('cdrs_id_seq'::regclass);
 
 
 --
--- Name: id; Type: DEFAULT; Schema: public; Owner: -
+-- Name: raw_supplier_rates id; Type: DEFAULT; Schema: public; Owner: -
 --
 
-ALTER TABLE ONLY sm_costs ALTER COLUMN id SET DEFAULT nextval('sm_costs_id_seq'::regclass);
+ALTER TABLE ONLY raw_supplier_rates ALTER COLUMN id SET DEFAULT nextval('raw_supplier_rates_id_seq'::regclass);
 
 
 --
--- Name: id; Type: DEFAULT; Schema: public; Owner: -
+-- Name: sessions_costs id; Type: DEFAULT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY sessions_costs ALTER COLUMN id SET DEFAULT nextval('sessions_costs_id_seq'::regclass);
+
+
+--
+-- Name: tariff_plans id; Type: DEFAULT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY tariff_plans ALTER COLUMN id SET DEFAULT nextval('tariff_plans_id_seq'::regclass);
 
 
 --
--- Name: id; Type: DEFAULT; Schema: public; Owner: -
+-- Name: tp_account_actions id; Type: DEFAULT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY tp_account_actions ALTER COLUMN id SET DEFAULT nextval('tp_account_actions_id_seq'::regclass);
 
 
 --
--- Name: id; Type: DEFAULT; Schema: public; Owner: -
+-- Name: tp_action_plans id; Type: DEFAULT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY tp_action_plans ALTER COLUMN id SET DEFAULT nextval('tp_action_plans_id_seq'::regclass);
 
 
 --
--- Name: id; Type: DEFAULT; Schema: public; Owner: -
+-- Name: tp_action_triggers id; Type: DEFAULT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY tp_action_triggers ALTER COLUMN id SET DEFAULT nextval('tp_action_triggers_id_seq'::regclass);
 
 
 --
--- Name: id; Type: DEFAULT; Schema: public; Owner: -
+-- Name: tp_actions id; Type: DEFAULT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY tp_actions ALTER COLUMN id SET DEFAULT nextval('tp_actions_id_seq'::regclass);
 
 
 --
--- Name: id; Type: DEFAULT; Schema: public; Owner: -
+-- Name: tp_aliases id; Type: DEFAULT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY tp_aliases ALTER COLUMN id SET DEFAULT nextval('tp_aliases_id_seq'::regclass);
 
 
 --
--- Name: id; Type: DEFAULT; Schema: public; Owner: -
+-- Name: tp_attributes pk; Type: DEFAULT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY tp_attributes ALTER COLUMN pk SET DEFAULT nextval('tp_attributes_pk_seq'::regclass);
+
+
+--
+-- Name: tp_cdr_stats id; Type: DEFAULT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY tp_cdr_stats ALTER COLUMN id SET DEFAULT nextval('tp_cdr_stats_id_seq'::regclass);
 
 
 --
--- Name: id; Type: DEFAULT; Schema: public; Owner: -
+-- Name: tp_chargers pk; Type: DEFAULT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY tp_chargers ALTER COLUMN pk SET DEFAULT nextval('tp_chargers_pk_seq'::regclass);
+
+
+--
+-- Name: tp_derived_chargers id; Type: DEFAULT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY tp_derived_chargers ALTER COLUMN id SET DEFAULT nextval('tp_derived_chargers_id_seq'::regclass);
 
 
 --
--- Name: id; Type: DEFAULT; Schema: public; Owner: -
+-- Name: tp_destination_rates id; Type: DEFAULT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY tp_destination_rates ALTER COLUMN id SET DEFAULT nextval('tp_destination_rates_id_seq'::regclass);
 
 
 --
--- Name: id; Type: DEFAULT; Schema: public; Owner: -
+-- Name: tp_destinations id; Type: DEFAULT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY tp_destinations ALTER COLUMN id SET DEFAULT nextval('tp_destinations_id_seq'::regclass);
 
 
 --
--- Name: pk; Type: DEFAULT; Schema: public; Owner: -
+-- Name: tp_filters pk; Type: DEFAULT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY tp_filters ALTER COLUMN pk SET DEFAULT nextval('tp_filters_pk_seq'::regclass);
 
 
 --
--- Name: id; Type: DEFAULT; Schema: public; Owner: -
+-- Name: tp_lcr_rules id; Type: DEFAULT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY tp_lcr_rules ALTER COLUMN id SET DEFAULT nextval('tp_lcr_rules_id_seq'::regclass);
 
 
 --
--- Name: id; Type: DEFAULT; Schema: public; Owner: -
+-- Name: tp_rates id; Type: DEFAULT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY tp_rates ALTER COLUMN id SET DEFAULT nextval('tp_rates_id_seq'::regclass);
 
 
 --
--- Name: id; Type: DEFAULT; Schema: public; Owner: -
+-- Name: tp_rating_plans id; Type: DEFAULT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY tp_rating_plans ALTER COLUMN id SET DEFAULT nextval('tp_rating_plans_id_seq'::regclass);
 
 
 --
--- Name: id; Type: DEFAULT; Schema: public; Owner: -
+-- Name: tp_rating_profiles id; Type: DEFAULT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY tp_rating_profiles ALTER COLUMN id SET DEFAULT nextval('tp_rating_profiles_id_seq'::regclass);
 
 
 --
--- Name: pk; Type: DEFAULT; Schema: public; Owner: -
+-- Name: tp_resources pk; Type: DEFAULT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY tp_resources ALTER COLUMN pk SET DEFAULT nextval('tp_resources_pk_seq'::regclass);
 
 
 --
--- Name: id; Type: DEFAULT; Schema: public; Owner: -
+-- Name: tp_shared_groups id; Type: DEFAULT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY tp_shared_groups ALTER COLUMN id SET DEFAULT nextval('tp_shared_groups_id_seq'::regclass);
 
 
 --
--- Name: pk; Type: DEFAULT; Schema: public; Owner: -
+-- Name: tp_stats pk; Type: DEFAULT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY tp_stats ALTER COLUMN pk SET DEFAULT nextval('tp_stats_pk_seq'::regclass);
 
 
 --
--- Name: pk; Type: DEFAULT; Schema: public; Owner: -
+-- Name: tp_suppliers pk; Type: DEFAULT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY tp_suppliers ALTER COLUMN pk SET DEFAULT nextval('tp_suppliers_pk_seq'::regclass);
 
 
 --
--- Name: pk; Type: DEFAULT; Schema: public; Owner: -
+-- Name: tp_thresholds pk; Type: DEFAULT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY tp_thresholds ALTER COLUMN pk SET DEFAULT nextval('tp_thresholds_pk_seq'::regclass);
 
 
 --
--- Name: id; Type: DEFAULT; Schema: public; Owner: -
+-- Name: tp_timings id; Type: DEFAULT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY tp_timings ALTER COLUMN id SET DEFAULT nextval('tp_timings_id_seq'::regclass);
 
 
 --
--- Name: id; Type: DEFAULT; Schema: public; Owner: -
+-- Name: tp_users id; Type: DEFAULT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY tp_users ALTER COLUMN id SET DEFAULT nextval('tp_users_id_seq'::regclass);
 
 
 --
--- Name: id; Type: DEFAULT; Schema: public; Owner: -
+-- Name: users id; Type: DEFAULT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY users ALTER COLUMN id SET DEFAULT nextval('users_id_seq'::regclass);
 
 
 --
--- Name: id; Type: DEFAULT; Schema: public; Owner: -
+-- Name: versions id; Type: DEFAULT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY versions ALTER COLUMN id SET DEFAULT nextval('versions_id_seq'::regclass);
 
 
 --
--- Name: cdrs_cgrid_run_id_origin_id_key; Type: CONSTRAINT; Schema: public; Owner: -
+-- Name: cdrs cdrs_cgrid_run_id_origin_id_key; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY cdrs
@@ -1278,7 +1432,7 @@ ALTER TABLE ONLY cdrs
 
 
 --
--- Name: cdrs_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+-- Name: cdrs cdrs_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY cdrs
@@ -1286,7 +1440,15 @@ ALTER TABLE ONLY cdrs
 
 
 --
--- Name: schema_migrations_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+-- Name: raw_supplier_rates raw_supplier_rates_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY raw_supplier_rates
+    ADD CONSTRAINT raw_supplier_rates_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: schema_migrations schema_migrations_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY schema_migrations
@@ -1294,23 +1456,23 @@ ALTER TABLE ONLY schema_migrations
 
 
 --
--- Name: sm_costs_cgrid_run_id_key; Type: CONSTRAINT; Schema: public; Owner: -
+-- Name: sessions_costs sessions_costs_cgrid_run_id_key; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
-ALTER TABLE ONLY sm_costs
-    ADD CONSTRAINT sm_costs_cgrid_run_id_key UNIQUE (cgrid, run_id);
-
-
---
--- Name: sm_costs_pkey; Type: CONSTRAINT; Schema: public; Owner: -
---
-
-ALTER TABLE ONLY sm_costs
-    ADD CONSTRAINT sm_costs_pkey PRIMARY KEY (id);
+ALTER TABLE ONLY sessions_costs
+    ADD CONSTRAINT sessions_costs_cgrid_run_id_key UNIQUE (cgrid, run_id);
 
 
 --
--- Name: tariff_plans_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+-- Name: sessions_costs sessions_costs_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY sessions_costs
+    ADD CONSTRAINT sessions_costs_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: tariff_plans tariff_plans_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY tariff_plans
@@ -1318,7 +1480,7 @@ ALTER TABLE ONLY tariff_plans
 
 
 --
--- Name: tp_account_actions_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+-- Name: tp_account_actions tp_account_actions_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY tp_account_actions
@@ -1326,7 +1488,7 @@ ALTER TABLE ONLY tp_account_actions
 
 
 --
--- Name: tp_account_actions_tpid_loadid_tenant_account_key; Type: CONSTRAINT; Schema: public; Owner: -
+-- Name: tp_account_actions tp_account_actions_tpid_loadid_tenant_account_key; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY tp_account_actions
@@ -1334,7 +1496,7 @@ ALTER TABLE ONLY tp_account_actions
 
 
 --
--- Name: tp_action_plans_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+-- Name: tp_action_plans tp_action_plans_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY tp_action_plans
@@ -1342,7 +1504,7 @@ ALTER TABLE ONLY tp_action_plans
 
 
 --
--- Name: tp_action_plans_tpid_tag_actions_tag_key; Type: CONSTRAINT; Schema: public; Owner: -
+-- Name: tp_action_plans tp_action_plans_tpid_tag_actions_tag_key; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY tp_action_plans
@@ -1350,7 +1512,7 @@ ALTER TABLE ONLY tp_action_plans
 
 
 --
--- Name: tp_action_triggers_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+-- Name: tp_action_triggers tp_action_triggers_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY tp_action_triggers
@@ -1358,7 +1520,7 @@ ALTER TABLE ONLY tp_action_triggers
 
 
 --
--- Name: tp_action_triggers_tpid_tag_balance_tag_balance_type_balanc_key; Type: CONSTRAINT; Schema: public; Owner: -
+-- Name: tp_action_triggers tp_action_triggers_tpid_tag_balance_tag_balance_type_balanc_key; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY tp_action_triggers
@@ -1366,7 +1528,7 @@ ALTER TABLE ONLY tp_action_triggers
 
 
 --
--- Name: tp_actions_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+-- Name: tp_actions tp_actions_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY tp_actions
@@ -1374,7 +1536,7 @@ ALTER TABLE ONLY tp_actions
 
 
 --
--- Name: tp_actions_tpid_tag_action_balance_tag_balance_type_directi_key; Type: CONSTRAINT; Schema: public; Owner: -
+-- Name: tp_actions tp_actions_tpid_tag_action_balance_tag_balance_type_directi_key; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY tp_actions
@@ -1382,7 +1544,7 @@ ALTER TABLE ONLY tp_actions
 
 
 --
--- Name: tp_aliases_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+-- Name: tp_aliases tp_aliases_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY tp_aliases
@@ -1390,7 +1552,15 @@ ALTER TABLE ONLY tp_aliases
 
 
 --
--- Name: tp_cdr_stats_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+-- Name: tp_attributes tp_attributes_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY tp_attributes
+    ADD CONSTRAINT tp_attributes_pkey PRIMARY KEY (pk);
+
+
+--
+-- Name: tp_cdr_stats tp_cdr_stats_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY tp_cdr_stats
@@ -1398,7 +1568,15 @@ ALTER TABLE ONLY tp_cdr_stats
 
 
 --
--- Name: tp_derived_chargers_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+-- Name: tp_chargers tp_chargers_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY tp_chargers
+    ADD CONSTRAINT tp_chargers_pkey PRIMARY KEY (pk);
+
+
+--
+-- Name: tp_derived_chargers tp_derived_chargers_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY tp_derived_chargers
@@ -1406,7 +1584,7 @@ ALTER TABLE ONLY tp_derived_chargers
 
 
 --
--- Name: tp_destination_rates_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+-- Name: tp_destination_rates tp_destination_rates_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY tp_destination_rates
@@ -1414,7 +1592,7 @@ ALTER TABLE ONLY tp_destination_rates
 
 
 --
--- Name: tp_destination_rates_tpid_tag_destinations_tag_key; Type: CONSTRAINT; Schema: public; Owner: -
+-- Name: tp_destination_rates tp_destination_rates_tpid_tag_destinations_tag_key; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY tp_destination_rates
@@ -1422,7 +1600,7 @@ ALTER TABLE ONLY tp_destination_rates
 
 
 --
--- Name: tp_destinations_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+-- Name: tp_destinations tp_destinations_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY tp_destinations
@@ -1430,7 +1608,7 @@ ALTER TABLE ONLY tp_destinations
 
 
 --
--- Name: tp_destinations_tpid_tag_prefix_key; Type: CONSTRAINT; Schema: public; Owner: -
+-- Name: tp_destinations tp_destinations_tpid_tag_prefix_key; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY tp_destinations
@@ -1438,7 +1616,7 @@ ALTER TABLE ONLY tp_destinations
 
 
 --
--- Name: tp_filters_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+-- Name: tp_filters tp_filters_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY tp_filters
@@ -1446,7 +1624,7 @@ ALTER TABLE ONLY tp_filters
 
 
 --
--- Name: tp_lcr_rules_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+-- Name: tp_lcr_rules tp_lcr_rules_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY tp_lcr_rules
@@ -1454,7 +1632,7 @@ ALTER TABLE ONLY tp_lcr_rules
 
 
 --
--- Name: tp_rates_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+-- Name: tp_rates tp_rates_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY tp_rates
@@ -1462,7 +1640,7 @@ ALTER TABLE ONLY tp_rates
 
 
 --
--- Name: tp_rates_tpid_tag_group_interval_start_key; Type: CONSTRAINT; Schema: public; Owner: -
+-- Name: tp_rates tp_rates_tpid_tag_group_interval_start_key; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY tp_rates
@@ -1470,7 +1648,7 @@ ALTER TABLE ONLY tp_rates
 
 
 --
--- Name: tp_rating_plans_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+-- Name: tp_rating_plans tp_rating_plans_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY tp_rating_plans
@@ -1478,7 +1656,7 @@ ALTER TABLE ONLY tp_rating_plans
 
 
 --
--- Name: tp_rating_plans_tpid_tag_destrates_tag_timing_tag_key; Type: CONSTRAINT; Schema: public; Owner: -
+-- Name: tp_rating_plans tp_rating_plans_tpid_tag_destrates_tag_timing_tag_key; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY tp_rating_plans
@@ -1486,7 +1664,7 @@ ALTER TABLE ONLY tp_rating_plans
 
 
 --
--- Name: tp_rating_profiles_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+-- Name: tp_rating_profiles tp_rating_profiles_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY tp_rating_profiles
@@ -1494,7 +1672,7 @@ ALTER TABLE ONLY tp_rating_profiles
 
 
 --
--- Name: tp_rating_profiles_tpid_loadid_tenant_category_direction_su_key; Type: CONSTRAINT; Schema: public; Owner: -
+-- Name: tp_rating_profiles tp_rating_profiles_tpid_loadid_tenant_category_direction_su_key; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY tp_rating_profiles
@@ -1502,7 +1680,7 @@ ALTER TABLE ONLY tp_rating_profiles
 
 
 --
--- Name: tp_resources_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+-- Name: tp_resources tp_resources_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY tp_resources
@@ -1510,7 +1688,7 @@ ALTER TABLE ONLY tp_resources
 
 
 --
--- Name: tp_shared_groups_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+-- Name: tp_shared_groups tp_shared_groups_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY tp_shared_groups
@@ -1518,7 +1696,7 @@ ALTER TABLE ONLY tp_shared_groups
 
 
 --
--- Name: tp_shared_groups_tpid_tag_account_strategy_rating_subject_key; Type: CONSTRAINT; Schema: public; Owner: -
+-- Name: tp_shared_groups tp_shared_groups_tpid_tag_account_strategy_rating_subject_key; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY tp_shared_groups
@@ -1526,7 +1704,7 @@ ALTER TABLE ONLY tp_shared_groups
 
 
 --
--- Name: tp_stats_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+-- Name: tp_stats tp_stats_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY tp_stats
@@ -1534,7 +1712,7 @@ ALTER TABLE ONLY tp_stats
 
 
 --
--- Name: tp_suppliers_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+-- Name: tp_suppliers tp_suppliers_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY tp_suppliers
@@ -1542,7 +1720,7 @@ ALTER TABLE ONLY tp_suppliers
 
 
 --
--- Name: tp_thresholds_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+-- Name: tp_thresholds tp_thresholds_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY tp_thresholds
@@ -1550,7 +1728,7 @@ ALTER TABLE ONLY tp_thresholds
 
 
 --
--- Name: tp_timings_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+-- Name: tp_timings tp_timings_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY tp_timings
@@ -1558,7 +1736,7 @@ ALTER TABLE ONLY tp_timings
 
 
 --
--- Name: tp_timings_tpid_tag_key; Type: CONSTRAINT; Schema: public; Owner: -
+-- Name: tp_timings tp_timings_tpid_tag_key; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY tp_timings
@@ -1566,7 +1744,7 @@ ALTER TABLE ONLY tp_timings
 
 
 --
--- Name: tp_users_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+-- Name: tp_users tp_users_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY tp_users
@@ -1574,7 +1752,7 @@ ALTER TABLE ONLY tp_users
 
 
 --
--- Name: users_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+-- Name: users users_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY users
@@ -1582,15 +1760,15 @@ ALTER TABLE ONLY users
 
 
 --
--- Name: versions_item_key; Type: CONSTRAINT; Schema: public; Owner: -
+-- Name: versions versions_id_item_key; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY versions
-    ADD CONSTRAINT versions_item_key UNIQUE (item);
+    ADD CONSTRAINT versions_id_item_key UNIQUE (id, item);
 
 
 --
--- Name: versions_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+-- Name: versions versions_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY versions
@@ -1598,10 +1776,10 @@ ALTER TABLE ONLY versions
 
 
 --
--- Name: cgrid_smcost_idx; Type: INDEX; Schema: public; Owner: -
+-- Name: cgrid_sessionscost_idx; Type: INDEX; Schema: public; Owner: -
 --
 
-CREATE INDEX cgrid_smcost_idx ON sm_costs USING btree (cgrid, run_id);
+CREATE INDEX cgrid_sessionscost_idx ON sessions_costs USING btree (cgrid, run_id);
 
 
 --
@@ -1612,24 +1790,31 @@ CREATE INDEX deleted_at_cp_idx ON cdrs USING btree (deleted_at);
 
 
 --
--- Name: deleted_at_smcost_idx; Type: INDEX; Schema: public; Owner: -
+-- Name: deleted_at_sessionscost_idx; Type: INDEX; Schema: public; Owner: -
 --
 
-CREATE INDEX deleted_at_smcost_idx ON sm_costs USING btree (deleted_at);
-
-
---
--- Name: origin_smcost_idx; Type: INDEX; Schema: public; Owner: -
---
-
-CREATE INDEX origin_smcost_idx ON sm_costs USING btree (origin_host, origin_id);
+CREATE INDEX deleted_at_sessionscost_idx ON sessions_costs USING btree (deleted_at);
 
 
 --
--- Name: run_origin_smcost_idx; Type: INDEX; Schema: public; Owner: -
+-- Name: origin_sessionscost_idx; Type: INDEX; Schema: public; Owner: -
 --
 
-CREATE INDEX run_origin_smcost_idx ON sm_costs USING btree (run_id, origin_id);
+CREATE INDEX origin_sessionscost_idx ON sessions_costs USING btree (origin_host, origin_id);
+
+
+--
+-- Name: raw_supplier_rates_tariff_plan_id_index; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX raw_supplier_rates_tariff_plan_id_index ON raw_supplier_rates USING btree (tariff_plan_id);
+
+
+--
+-- Name: run_origin_sessionscost_idx; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX run_origin_sessionscost_idx ON sessions_costs USING btree (run_id, origin_id);
 
 
 --
@@ -1644,6 +1829,34 @@ CREATE UNIQUE INDEX tariff_plans_alias_index ON tariff_plans USING btree (alias)
 --
 
 CREATE UNIQUE INDEX tariff_plans_name_index ON tariff_plans USING btree (name);
+
+
+--
+-- Name: tp_attributes_ids; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX tp_attributes_ids ON tp_attributes USING btree (tpid);
+
+
+--
+-- Name: tp_attributes_unique; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX tp_attributes_unique ON tp_attributes USING btree (tpid, tenant, id, filter_ids, field_name, initial, substitute);
+
+
+--
+-- Name: tp_chargers_ids; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX tp_chargers_ids ON tp_chargers USING btree (tpid);
+
+
+--
+-- Name: tp_chargers_unique; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX tp_chargers_unique ON tp_chargers USING btree (tpid, tenant, id, filter_ids, run_id, attribute_ids);
 
 
 --
@@ -1671,7 +1884,7 @@ CREATE INDEX tp_resources_idx ON tp_resources USING btree (tpid);
 -- Name: tp_resources_unique; Type: INDEX; Schema: public; Owner: -
 --
 
-CREATE INDEX tp_resources_unique ON tp_resources USING btree (tpid, tenant, id, filter_type, filter_field_name);
+CREATE INDEX tp_resources_unique ON tp_resources USING btree (tpid, tenant, id, filter_ids);
 
 
 --
@@ -1685,7 +1898,21 @@ CREATE INDEX tp_stats_idx ON tp_stats USING btree (tpid);
 -- Name: tp_stats_unique; Type: INDEX; Schema: public; Owner: -
 --
 
-CREATE INDEX tp_stats_unique ON tp_stats USING btree (tpid, tenant, id, filter_type, filter_field_name);
+CREATE INDEX tp_stats_unique ON tp_stats USING btree (tpid, tenant, id, filter_ids);
+
+
+--
+-- Name: tp_suppliers_idx; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX tp_suppliers_idx ON tp_suppliers USING btree (tpid);
+
+
+--
+-- Name: tp_suppliers_unique; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX tp_suppliers_unique ON tp_suppliers USING btree (tpid, tenant, id, filter_ids, supplier_id, supplier_filter_ids, supplier_account_ids, supplier_ratingplan_ids, supplier_resource_ids, supplier_stat_ids);
 
 
 --
@@ -1934,7 +2161,16 @@ CREATE UNIQUE INDEX users_email_index ON users USING btree (email);
 
 
 --
+-- Name: raw_supplier_rates raw_supplier_rates_tariff_plan_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY raw_supplier_rates
+    ADD CONSTRAINT raw_supplier_rates_tariff_plan_id_fkey FOREIGN KEY (tariff_plan_id) REFERENCES tariff_plans(id);
+
+
+--
 -- PostgreSQL database dump complete
 --
 
-INSERT INTO "schema_migrations" (version) VALUES (20170905093653), (20170908061508), (20171227032914);
+INSERT INTO "schema_migrations" (version) VALUES (20170905093653), (20170908061508), (20180220044803);
+

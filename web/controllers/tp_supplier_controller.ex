@@ -17,7 +17,7 @@ defmodule CgratesWebJsonapi.TpSupplierController do
   def filter(_conn, query, "custom_id", v),               do: query |> where([f], like(f.custom_id, ^"%#{v}%"))
   def filter(_conn, query, "filter_ids", v),              do: query |> where([s], like(s.filter_ids, ^"%#{v}%"))
   def filter(_conn, query, "activation_interval", v),     do: query |> where([s], like(s.activation_interval, ^"%#{v}%"))
-  def filter(_conn, query, "sorting_params", v),          do: query |> where([s], like(s.sorting_params, ^"%#{v}%"))
+  def filter(_conn, query, "sorting_parameters", v),          do: query |> where([s], like(s.sorting_parameters, ^"%#{v}%"))
   def filter(_conn, query, "supplier_filter_ids", v),     do: query |> where([s], like(s.supplier_filter_ids, ^"%#{v}%"))
   def filter(_conn, query, "supplier_account_ids", v),    do: query |> where([s], like(s.supplier_account_ids, ^"%#{v}%"))
   def filter(_conn, query, "supplier_ratingplan_ids", v), do: query |> where([s], like(s.supplier_ratingplan_ids, ^"%#{v}%"))

@@ -117,15 +117,6 @@ defmodule CgratesWebJsonapi.CdrControllerTest do
       |> doc
       assert length(json_response(conn, 200)["data"]) == 1
     end
-
-    test "filtering by direction", %{conn: conn} do
-      cdr1 = insert :cdr, direction: "up"
-      cdr2 = insert :cdr, direction: "down"
-
-      conn = get(conn, cdr_path(conn, :index), filter: %{direction: cdr1.direction})
-      |> doc
-      assert length(json_response(conn, 200)["data"]) == 1
-    end
   end
 
 
@@ -146,21 +137,16 @@ defmodule CgratesWebJsonapi.CdrControllerTest do
       assert data["attributes"]["origin-id"] == cdr.origin_id
       assert data["attributes"]["tor"] == cdr.tor
       assert data["attributes"]["request-type"] == cdr.request_type
-      assert data["attributes"]["direction"] == cdr.direction
       assert data["attributes"]["tenant"] == cdr.tenant
       assert data["attributes"]["category"] == cdr.category
       assert data["attributes"]["account"] == cdr.account
       assert data["attributes"]["subject"] == cdr.subject
       assert data["attributes"]["destination"] == cdr.destination
-      assert data["attributes"]["pdd"] == "10.000000000"
-      assert data["attributes"]["usage"] == "10"
-      assert data["attributes"]["supplier"] == cdr.supplier
-      assert data["attributes"]["disconnect-cause"] == cdr.disconnect_cause
+      assert data["attributes"]["usage"] == 10000
       assert data["attributes"]["extra-fields"] == cdr.extra_fields
       assert data["attributes"]["cost-source"] == cdr.cost_source
       assert data["attributes"]["cost"] == "10.0000"
       assert data["attributes"]["cost-details"] == cdr.cost_details
-      assert data["attributes"]["account-summary"] == cdr.account_summary
       assert data["attributes"]["extra-info"] == cdr.extra_info
     end
 

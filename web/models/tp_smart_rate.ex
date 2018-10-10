@@ -73,14 +73,7 @@ defmodule CgratesWebJsonapi.TpSmartRate do
 
   def insert(changeset) do
     if changeset.valid? do
-      changes = changeset.changes
-      dst = Repo.get_by TpDestination, %{prefix: changes.prefix, tpid: changes.tpid}
-
-      if is_nil(dst) do
-        %TpDestination{} |> TpDestination.changeset(changes |> destination_attrs) |> Repo.insert!
-      else
-        changes = changes |> Map.replace(:destination_tag, dst.tag)
-      end
+      changes = create_dst(changeset.changes)
 
       %TpRate{} |> Map.merge(changes |> rate_attrs()) |> upsert_by([:tag, :tpid])
       %TpDestinationRate{} |> Map.merge(changes |> destination_rate_attrs()) |> upsert_by([:tag, :tpid])
@@ -97,6 +90,16 @@ defmodule CgratesWebJsonapi.TpSmartRate do
       |> changeset(data |> Map.merge(%{"tpid" => tpid}))
       |> insert()
     end)
+  end
+
+  defp create_dst(changes) do
+    dst = Repo.get_by TpDestination, %{prefix: changes.prefix, tpid: changes.tpid}
+    if is_nil(dst) do
+      %TpDestination{} |> TpDestination.changeset(changes |> destination_attrs) |> Repo.insert!
+      changes
+    else
+      changes |> Map.replace(:destination_tag, dst.tag)
+    end
   end
 
   defp build_rate_tag(struct) do

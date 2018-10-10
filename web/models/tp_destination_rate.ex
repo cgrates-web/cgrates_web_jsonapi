@@ -30,6 +30,6 @@ defmodule CgratesWebJsonapi.TpDestinationRate do
     |> validate_length(:rates_tag, max: 64)
     |> validate_inclusion(:rounding_method, rounding_methods)
     |> validate_inclusion(:max_cost_strategy, max_cost_strategies)
-    |> unique_constraint(:tag, name: :tpid_drid_dstid)
+    |> unique_constraint(:tag, name: :tp_destination_rates_tpid_tag_destinations_tag_key)
   end
 end

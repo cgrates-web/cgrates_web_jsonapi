@@ -10,13 +10,14 @@ defmodule CgratesWebJsonapi.TpSupplier do
     field :filter_ids, :string, default: ""
     field :activation_interval, :string, default: ""
     field :sorting, :string, default: ""
-    field :sorting_params, :string, default: ""
+    field :sorting_parameters, :string, default: ""
     field :supplier_id, :string, default: ""
     field :supplier_filter_ids, :string, default: ""
     field :supplier_account_ids, :string, default: ""
     field :supplier_ratingplan_ids, :string, default: ""
     field :supplier_resource_ids, :string, default: ""
     field :supplier_stat_ids, :string, default: ""
+    field :supplier_parameters, :string, default: ""
     field :supplier_blocker, :boolean, defualt: false
     field :supplier_weight, :decimal
     field :weight, :decimal
@@ -29,17 +30,18 @@ defmodule CgratesWebJsonapi.TpSupplier do
   """
   def changeset(struct, params \\ %{}) do
     struct
-    |> cast(params, [:tpid, :tenant, :filter_ids, :activation_interval, :sorting, :sorting_params, :supplier_id,
+    |> cast(params, [:tpid, :tenant, :filter_ids, :activation_interval, :sorting, :sorting_parameters, :supplier_id,
                      :supplier_filter_ids, :supplier_account_ids, :supplier_ratingplan_ids, :supplier_resource_ids,
-                     :supplier_stat_ids, :supplier_weight, :weight, :custom_id, :supplier_blocker])
-    |> validate_required([:tpid, :tenant, :supplier_id, :supplier_weight, :weight, :custom_id])
+                     :supplier_stat_ids, :supplier_weight, :weight, :custom_id, :supplier_blocker,
+                     :supplier_parameters])
+    |> validate_required([:tpid, :tenant, :supplier_id, :supplier_weight, :weight, :custom_id, :supplier_blocker])
     |> validate_length(:tpid, max: 64)
     |> validate_length(:tenant, max: 64)
     |> validate_length(:custom_id, max: 64)
     |> validate_length(:filter_ids, max: 64)
     |> validate_length(:activation_interval, max: 64)
     |> validate_length(:sorting, max: 32)
-    |> validate_length(:sorting_params, max: 64)
+    |> validate_length(:sorting_parameters, max: 64)
     |> validate_length(:supplier_id, max: 32)
     |> validate_length(:supplier_filter_ids, max: 64)
     |> validate_length(:supplier_account_ids, max: 64)

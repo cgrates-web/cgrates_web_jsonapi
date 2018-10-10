@@ -9,7 +9,7 @@ defmodule CgratesWebJsonapi.TpTiming do
     field :month_days, :string
     field :week_days, :string
     field :time, :string
-    
+
     field :created_at, :naive_datetime
   end
 
@@ -23,6 +23,6 @@ defmodule CgratesWebJsonapi.TpTiming do
     |> validate_length(:tag, max: 64)
     |> validate_length(:tpid, max: 64)
     |> validate_length(:time, max: 64)
-    |> unique_constraint(:tag, name: :tpid_tag)
+    |> unique_constraint(:tag, name: :tp_timings_tpid_tag_key)
   end
 end

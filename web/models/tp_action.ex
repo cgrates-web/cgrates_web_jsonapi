@@ -51,6 +51,6 @@ defmodule CgratesWebJsonapi.TpAction do
     |> validate_length(:balance_weight, max: 10)
     |> validate_length(:balance_blocker, max: 5)
     |> validate_length(:balance_disabled, max: 24)
-    |> unique_constraint(:tag, name: :unique_action)
+    |> unique_constraint(:tag, name: :tp_actions_tpid_tag_action_balance_tag_balance_type_directi_key)
   end
 end
