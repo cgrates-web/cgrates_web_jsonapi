@@ -105,6 +105,20 @@ defmodule CgratesWebJsonapi.RawSupplierRateControllerTest do
     end
   end
 
+  describe "GET export_to_csv" do
+    test "returns status 'ok'", %{conn: conn} do
+      tariff_plan = insert :tariff_plan
+
+      r1 = insert :raw_supplier_rate, tariff_plan: tariff_plan, supplier_name: "123", prefix: "123"
+      r2 = insert :raw_supplier_rate, tariff_plan: tariff_plan, supplier_name: "987"
+
+      conn = conn
+      |> get(raw_supplier_rate_path(conn, :export_to_csv, tariff_plan.id), filter: %{prefix: "123"})
+      |> doc()
+      assert conn.status == 200
+    end
+  end
+
   describe "GET show" do
     test "shows chosen resource", %{conn: conn} do
       tariff_plan = insert :tariff_plan
@@ -119,7 +133,7 @@ defmodule CgratesWebJsonapi.RawSupplierRateControllerTest do
       assert data["type"] == "raw-supplier-rate"
       assert data["attributes"]["rate"] == 100.5
       assert data["attributes"]["supplier-name"] == raw_supplier_rate.supplier_name
-      assert data["attributes"]["prefix"] == raw_supplier_rate.prefix      
+      assert data["attributes"]["prefix"] == raw_supplier_rate.prefix
     end
 
     test "does not show resource and instead throw error when id is nonexistent", %{conn: conn} do
@@ -194,7 +208,7 @@ defmodule CgratesWebJsonapi.RawSupplierRateControllerTest do
           "id" => raw_supplier_rate.id,
           "attributes" => @invalid_attrs,
         }
-      }) 
+      })
       |> doc()
 
       assert json_response(conn, 422)["errors"] != %{}
