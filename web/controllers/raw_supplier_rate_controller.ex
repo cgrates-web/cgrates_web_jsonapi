@@ -5,6 +5,7 @@ defmodule CgratesWebJsonapi.RawSupplierRateController do
 
   alias CgratesWebJsonapi.RawSupplierRate
   alias CgratesWebJsonapi.Repo
+  import CgratesWebJsonapi.CsvExport
 
   plug JaResource
 
@@ -22,9 +23,7 @@ defmodule CgratesWebJsonapi.RawSupplierRateController do
     query = build_query(conn, params)
     {raw_query, values} = Repo.to_sql(:all, query)
 
-    copy_query = 1..length(values)
-      |> query_with_values(raw_query, values)
-      |> build_copy_query
+    copy_query = build_copy_query(raw_query, values)
 
     conn = conn
       |> put_resp_content_type("text/csv")
@@ -53,7 +52,8 @@ defmodule CgratesWebJsonapi.RawSupplierRateController do
   end
 
   def delete_all(conn, params) do
-    build_query(conn, params)
+    conn
+    |> build_query(params)
     |> Repo.delete_all()
 
     send_resp(conn, :no_content, "")
@@ -69,20 +69,5 @@ defmodule CgratesWebJsonapi.RawSupplierRateController do
     conn
     |> handle_index(params)
     |> JaResource.Index.filter(conn, __MODULE__)
-  end
-
-  defp build_copy_query(query) do
-    """
-      COPY (
-        #{query}
-      ) TO STDOUT CSV HEADER
-    """
-  end
-
-  defp query_with_values(range, query, values) do
-    Enum.reduce range, query, fn(n, acc) ->
-      {:ok, value} = Enum.fetch(values, n - 1)
-      String.replace(acc, "$#{n}", "'#{value}'")
-    end
   end
 end
