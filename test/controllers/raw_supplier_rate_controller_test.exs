@@ -113,7 +113,7 @@ defmodule CgratesWebJsonapi.RawSupplierRateControllerTest do
       r2 = insert :raw_supplier_rate, tariff_plan: tariff_plan, supplier_name: "987"
 
       conn = conn
-      |> get(raw_supplier_rate_path(conn, :export_to_csv, tariff_plan.id), filter: %{prefix: "123"})
+      |> get(raw_supplier_rate_path(conn, :export_to_csv), %{tpid: tariff_plan.id, filter: %{prefix: "123"}})
       |> doc()
       assert conn.status == 200
     end
