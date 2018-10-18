@@ -137,4 +137,16 @@ defmodule CgratesWebJsonapi.TpTimingControllerTest do
     refute Repo.get(TpTiming, tp_timing.id)
   end
 
+  test "deletes chosen resource with assosiated resources included", %{conn: conn} do
+    tariff_plan = insert :tariff_plan
+    tp_timing = insert :tp_timing, tpid: tariff_plan.alias
+    tp_action_plan = insert :tp_action_plan, tpid: tariff_plan.alias, timing_tag: tp_timing.tag
+    tp_rating_plan = insert :tp_rating_plan, tpid: tariff_plan.alias, timing_tag: tp_timing.tag
+
+    conn = delete(conn, tp_timing_path(conn, :delete, tp_timing))
+    assert response(conn, 204)
+    refute Repo.get(TpTiming, tp_timing.id)
+    refute Repo.get(CgratesWebJsonapi.TpActionPlan, tp_action_plan.id)
+    refute Repo.get(CgratesWebJsonapi.TpRatingPlan, tp_rating_plan.id)
+  end
 end
