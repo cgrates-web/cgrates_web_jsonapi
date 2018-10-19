@@ -1,5 +1,6 @@
 defmodule CgratesWebJsonapi.TpRate do
   use CgratesWebJsonapi.Web, :model
+  alias CgratesWebJsonapi.TpDestinationRate
 
   def time_format, do: ~r/^\d(\d)*s$/
 
@@ -14,7 +15,8 @@ defmodule CgratesWebJsonapi.TpRate do
 
     field :created_at, :naive_datetime
 
-    has_many :tp_destination_rates, CgratesWebJsonapi.TpDestinationRate, foreign_key: :rates_tag, references: :tag, on_delete: :delete_all
+    has_many :tp_destination_rates, TpDestinationRate, foreign_key: :rates_tag, references: :tag,
+      on_delete: :delete_all
   end
 
   @doc """

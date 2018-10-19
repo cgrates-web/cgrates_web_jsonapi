@@ -7,8 +7,10 @@ defmodule CgratesWebJsonapi.TpDestination do
     field :prefix, :string
     field :created_at, :naive_datetime
 
-    has_many :tp_destination_rates, CgratesWebJsonapi.TpDestinationRate, foreign_key: :destinations_tag, references: :tag, on_delete: :delete_all
-    has_many :tp_lcr_rules, CgratesWebJsonapi.TpLcrRule, foreign_key: :destination_tag, references: :tag, on_delete: :delete_all
+    has_many :tp_destination_rates, CgratesWebJsonapi.TpDestinationRate, foreign_key: :destinations_tag,
+      references: :tag, on_delete: :delete_all
+    has_many :tp_lcr_rules, CgratesWebJsonapi.TpLcrRule, foreign_key: :destination_tag, references: :tag,
+      on_delete: :delete_all
   end
 
   @doc """

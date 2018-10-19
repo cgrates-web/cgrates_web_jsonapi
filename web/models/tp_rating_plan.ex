@@ -10,7 +10,8 @@ defmodule CgratesWebJsonapi.TpRatingPlan do
 
     field :created_at, :naive_datetime
 
-    has_many :tp_rating_profiles, CgratesWebJsonapi.TpRatingProfile, foreign_key: :rating_plan_tag, references: :tag, on_delete: :delete_all
+    has_many :tp_rating_profiles, CgratesWebJsonapi.TpRatingProfile, foreign_key: :rating_plan_tag, references: :tag,
+      on_delete: :delete_all
   end
 
   @doc """
