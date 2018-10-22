@@ -247,6 +247,18 @@ defmodule CgratesWebJsonapi.TpActionControllerTest do
     end
   end
 
+  describe "GET export_to_csv" do
+    test "returns status 'ok'", %{conn: conn} do
+      tariff_plan = insert :tariff_plan
+      insert :tp_action, tpid: tariff_plan.alias, balance_blocker: "true", categories: "c1"
+      insert :tp_action, tpid: tariff_plan.alias, balance_blocker: "false"
+
+      conn = conn
+      |> get(tp_action_path(conn, :export_to_csv), %{tpid: tariff_plan.alias, filter: %{balance_blocker: "true", categories: "c1"}})
+      |> doc()
+      assert conn.status == 200
+    end
+  end
 
   describe "POST create" do
     test "creates and renders resource when data is valid", %{conn: conn} do
@@ -322,6 +334,21 @@ defmodule CgratesWebJsonapi.TpActionControllerTest do
       conn = delete(conn, tp_action_path(conn, :delete, tp_action)) |> doc
       assert response(conn, 204)
       refute Repo.get(TpAction, tp_action.id)
+    end
+  end
+
+  describe "DELETE delete_all" do
+    test "deletes all records by filter", %{conn: conn}  do
+      tariff_plan = insert :tariff_plan
+
+      tp_action1 = insert :tp_action, tpid: tariff_plan.alias, balance_blocker: "true", categories: "c1"
+      tp_action2 = insert :tp_action, tpid: tariff_plan.alias, balance_blocker: "false"
+
+      conn = conn
+      |> post(tp_action_path(conn, :delete_all), %{tpid: tariff_plan.alias, filter: %{balance_blocker: "false"}})
+
+      assert Repo.get(TpAction, tp_action1.id)
+      refute Repo.get(TpAction, tp_action2.id)
     end
   end
 end
