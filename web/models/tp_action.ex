@@ -1,7 +1,11 @@
 defmodule CgratesWebJsonapi.TpAction do
   use CgratesWebJsonapi.Web, :model
   use EctoConditionals, repo: CgratesWebJsonapi.Repo
-
+  use CgratesWebJsonapi.CsvImport, module: __MODULE__, attributes: ~w[tpid tag action balance_tag balance_type
+                                                                      directions units expiry_time timing_tags
+                                                                      destination_tags rating_subject categories
+                                                                      shared_groups balance_weight balance_blocker
+                                                                      balance_disabled extra_parameters filter weight]a
   alias CgratesWebJsonapi.TpAction
 
   schema "tp_actions" do
@@ -57,23 +61,4 @@ defmodule CgratesWebJsonapi.TpAction do
     |> unique_constraint(:tag, name: :tp_actions_tpid_tag_action_balance_tag_balance_type_directi_key)
   end
 
-  @doc """
-  Parses CSV file and inserts records to tp_actions table.
-  """
-  def from_csv(path, tpid) do
-    path |> File.stream! |> CSV.decode!(headers: true) |> ParallelStream.map(fn (data) ->
-      cs = %TpAction{}
-      |> changeset(data |> Map.merge(%{"tpid" => tpid}))
-
-      if cs.valid? do
-        %TpAction{}
-        |> Map.merge(cs |> Map.fetch!(:changes))
-        |> upsert_by([:tpid, :tag, :action, :balance_tag, :balance_type, :directions, :units, :expiry_time,
-                      :timing_tags, :destination_tags, :rating_subject, :categories, :shared_groups,
-                      :balance_weight, :balance_blocker, :balance_disabled, :extra_parameters, :filter, :weight])
-      else
-        cs
-      end
-    end)
-  end
 end

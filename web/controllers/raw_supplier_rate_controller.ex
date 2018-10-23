@@ -2,10 +2,10 @@ defmodule CgratesWebJsonapi.RawSupplierRateController do
   use CgratesWebJsonapi.Web, :controller
   use JaResource
   use CgratesWebJsonapi.DefaultSorting
+  use CgratesWebJsonapi.CsvExport
 
   alias CgratesWebJsonapi.RawSupplierRate
   alias CgratesWebJsonapi.Repo
-  import CgratesWebJsonapi.CsvExport
 
   plug JaResource
 
@@ -17,27 +17,6 @@ defmodule CgratesWebJsonapi.RawSupplierRateController do
   def handle_index_query(%{query_params: qp}, query) do
     paginator = if qp["page"] |> is_nil, do: %{"page" => 1}, else: qp["page"]
     query |> repo().paginate(page: paginator["page"], page_size: paginator["page-size"])
-  end
-
-  def export_to_csv(conn, params) do
-    query = build_query(conn, params)
-    {raw_query, values} = Repo.to_sql(:all, query)
-
-    copy_query = build_copy_query(raw_query, values)
-
-    conn = conn
-      |> put_resp_content_type("text/csv")
-      |> put_resp_header("content-disposition", "attachment; filename=export.csv")
-      |> send_chunked(200)
-
-    Repo.transaction fn ->
-      Repo
-      |> Ecto.Adapters.SQL.stream(copy_query)
-      |> Stream.map(&(chunk(conn, &1.rows)))
-      |> Stream.run
-    end
-
-    conn
   end
 
   def serialization_opts(_conn, _params, models) do

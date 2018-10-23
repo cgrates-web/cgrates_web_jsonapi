@@ -1,6 +1,5 @@
 defmodule CgratesWebJsonapi.TpActionImportJobController do
   use CgratesWebJsonapi.Web, :controller
-
   alias CgratesWebJsonapi.TpAction
 
   require Logger
@@ -9,10 +8,10 @@ defmodule CgratesWebJsonapi.TpActionImportJobController do
     id = DateTime.utc_now() |> DateTime.to_unix()
     Task.async fn ->
       start_time = Time.utc_now()
-      Logger.info "Start Resolve Task"
+      Logger.info "Start Import Task"
       TpAction.from_csv(csv.path, tpid) |> Enum.into([]) |> length() |> Logger.info()
       end_time = Time.utc_now()
-      Logger.info "End Resolve Task. Duration - #{ Time.diff end_time, start_time } sec"
+      Logger.info "End Import Task. Duration - #{ Time.diff end_time, start_time } sec"
     end
     conn
     |> put_status(202)

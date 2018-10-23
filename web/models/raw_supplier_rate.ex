@@ -1,6 +1,10 @@
 defmodule CgratesWebJsonapi.RawSupplierRate do
   use CgratesWebJsonapi.Web, :model
   use EctoConditionals, repo: CgratesWebJsonapi.Repo
+  use CgratesWebJsonapi.CsvImport, module: __MODULE__, tariff_field: "tariff_plan_id", attributes: ~w[tariff_plan_id
+                                                                                                      prefix
+                                                                                                      supplier_name]a
+  alias CgratesWebJsonapi.RawSupplierRate
 
   schema "raw_supplier_rates" do
     field :rate, :float
@@ -21,21 +25,4 @@ defmodule CgratesWebJsonapi.RawSupplierRate do
     |> validate_required([:rate, :supplier_name, :prefix])
   end
 
-  @doc """
-  Parses CSV file and inserts records to raw_supplier_rates table.
-  """
-  def from_csv(path, tpid) do
-    path |> File.stream! |> CSV.decode!(headers: true) |> ParallelStream.map(fn (data) ->
-      cs = %CgratesWebJsonapi.RawSupplierRate{}
-      |> changeset(data |> Map.merge(%{"tariff_plan_id" => tpid}))
-
-      if cs.valid? do
-        %CgratesWebJsonapi.RawSupplierRate{}
-        |> Map.merge(cs |> Map.fetch!(:changes))
-        |> upsert_by([:tariff_plan_id, :prefix, :supplier_name])
-      else
-        cs
-      end
-    end)
-  end
 end

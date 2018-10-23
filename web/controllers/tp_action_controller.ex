@@ -3,7 +3,7 @@ defmodule CgratesWebJsonapi.TpActionController do
   use JaResource
   use CgratesWebJsonapi.TpSubresource
   use CgratesWebJsonapi.DefaultSorting
-  import CgratesWebJsonapi.CsvExport
+  use CgratesWebJsonapi.CsvExport
 
   alias CgratesWebJsonapi.TpAction
 
@@ -27,27 +27,6 @@ defmodule CgratesWebJsonapi.TpActionController do
   def filter(_conn, query, "balance_blocker", val),  do: query |> where(balance_blocker: ^val)
   def filter(_conn, query, "balance_disabled", val), do: query |> where(balance_disabled: ^val)
   def filter(_conn, query, "weight", val),           do: query |> where(weight: ^val)
-
-  def export_to_csv(conn, params) do
-    query = build_query(conn, params)
-    {raw_query, values} = Repo.to_sql(:all, query)
-
-    copy_query = build_copy_query(raw_query, values)
-
-    conn = conn
-      |> put_resp_content_type("text/csv")
-      |> put_resp_header("content-disposition", "attachment; filename=export.csv")
-      |> send_chunked(200)
-
-    Repo.transaction fn ->
-      Repo
-      |> Ecto.Adapters.SQL.stream(copy_query)
-      |> Stream.map(&(chunk(conn, &1.rows)))
-      |> Stream.run
-    end
-
-    conn
-  end
 
   def delete_all(conn, params) do
     Task.async fn ->

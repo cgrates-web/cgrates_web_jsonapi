@@ -1,5 +1,4 @@
 defmodule CgratesWebJsonapi.TpActionTest do
-  require IEx
   use CgratesWebJsonapi.ModelCase
 
   alias CgratesWebJsonapi.TpAction
