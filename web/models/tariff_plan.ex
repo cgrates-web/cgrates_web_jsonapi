@@ -6,13 +6,22 @@ defmodule CgratesWebJsonapi.TariffPlan do
     field :name, :string
     field :description, :string
 
-    has_many :tp_action_plans, CgratesWebJsonapi.TpActionPlan, foreign_key: :tpid, references: :alias, on_delete: :delete_all
+    has_many :tp_action_plans, CgratesWebJsonapi.TpActionPlan, foreign_key: :tpid, references: :alias,
+      on_delete: :delete_all
     has_many :tp_actions, CgratesWebJsonapi.TpAction, foreign_key: :tpid, references: :alias, on_delete: :delete_all
-    has_many :tp_destination_rates, CgratesWebJsonapi.TpDestinationRate, foreign_key: :tpid, references: :alias, on_delete: :delete_all
-    has_many :tp_destinations, CgratesWebJsonapi.TpDestination, foreign_key: :tpid, references: :alias, on_delete: :delete_all
+    has_many :tp_destination_rates, CgratesWebJsonapi.TpDestinationRate, foreign_key: :tpid, references: :alias,
+      on_delete: :delete_all
+    has_many :tp_destinations, CgratesWebJsonapi.TpDestination, foreign_key: :tpid, references: :alias,
+      on_delete: :delete_all
+    has_many :tp_filters, CgratesWebJsonapi.TpFilter, foreign_key: :tpid, references: :alias, on_delete: :delete_all
+    has_many :tp_lcr_rules, CgratesWebJsonapi.TpLcrRule, foreign_key: :tpid, references: :alias, on_delete: :delete_all
     has_many :tp_rates, CgratesWebJsonapi.TpRate, foreign_key: :tpid, references: :alias, on_delete: :delete_all
-    has_many :tp_rating_plans, CgratesWebJsonapi.TpRatingPlan, foreign_key: :tpid, references: :alias, on_delete: :delete_all
-    has_many :tp_rating_profiles, CgratesWebJsonapi.TpRatingProfile, foreign_key: :tpid, references: :alias, on_delete: :delete_all
+    has_many :tp_rating_plans, CgratesWebJsonapi.TpRatingPlan, foreign_key: :tpid, references: :alias,
+      on_delete: :delete_all
+    has_many :tp_rating_profiles, CgratesWebJsonapi.TpRatingProfile, foreign_key: :tpid, references: :alias,
+      on_delete: :delete_all
+    has_many :tp_suppliers, CgratesWebJsonapi.TpSupplier, foreign_key: :tpid, references: :alias,
+      on_delete: :delete_all
     has_many :tp_timing, CgratesWebJsonapi.TpTiming, foreign_key: :tpid, references: :alias, on_delete: :delete_all
 
     timestamps()

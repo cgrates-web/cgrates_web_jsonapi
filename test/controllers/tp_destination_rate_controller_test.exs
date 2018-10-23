@@ -219,4 +219,16 @@ defmodule CgratesWebJsonapi.TpDestinationRateControllerTest do
     refute Repo.get(TpDestinationRate, tp_destination_rate.id)
   end
 
+  test "deletes chosen resource with assosiated resources included", %{conn: conn} do
+    tariff_plan = insert :tariff_plan
+    tp_destination_rate = insert :tp_destination_rate, tpid: tariff_plan.alias
+    tp_rating_plan = insert :tp_rating_plan, tpid: tariff_plan.alias, destrates_tag: tp_destination_rate.tag
+
+    conn = delete(conn, tp_destination_rate_path(conn, :delete, tp_destination_rate))
+    assert response(conn, 204)
+
+    refute Repo.get(TpDestinationRate, tp_destination_rate.id)
+    refute Repo.get(CgratesWebJsonapi.TpRatingPlan, tp_rating_plan.id)
+  end
+
 end

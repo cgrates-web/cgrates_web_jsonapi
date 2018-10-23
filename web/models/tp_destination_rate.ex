@@ -15,6 +15,9 @@ defmodule CgratesWebJsonapi.TpDestinationRate do
     field :max_cost_strategy, :string, default: ""
 
     field :created_at, :naive_datetime
+
+    has_many :tp_rating_plans, CgratesWebJsonapi.TpRatingPlan, foreign_key: :destrates_tag, references: :tag,
+      on_delete: :delete_all
   end
 
   @doc """
