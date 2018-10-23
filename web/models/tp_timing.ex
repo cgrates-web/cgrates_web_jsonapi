@@ -11,6 +11,11 @@ defmodule CgratesWebJsonapi.TpTiming do
     field :time, :string
 
     field :created_at, :naive_datetime
+
+    has_many :tp_action_plans, CgratesWebJsonapi.TpActionPlan, foreign_key: :timing_tag, references: :tag,
+      on_delete: :delete_all
+    has_many :tp_rating_plans, CgratesWebJsonapi.TpRatingPlan, foreign_key: :timing_tag, references: :tag,
+      on_delete: :delete_all
   end
 
   @doc """
