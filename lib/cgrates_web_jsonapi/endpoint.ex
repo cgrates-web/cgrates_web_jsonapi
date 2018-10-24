@@ -30,6 +30,6 @@ defmodule CgratesWebJsonapi.Endpoint do
     signing_salt: "Yjl/cj4Z"
 
   plug CORSPlug, origin: ~r/.*/
-
+  plug Plug.Static, at: "/", from: :cgrates_web_jsonapi, gzip: false, only: ~w(public)
   plug CgratesWebJsonapi.Router
 end

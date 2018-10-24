@@ -1,0 +1,2 @@
+action,balance_blocker,balance_disabled,balance_tag,balance_type,balance_weight,categories,destination_tags,directions,expiry_time,extra_parameters,filter,rating_subject,shared_groups,tag,timing_tags,units,weight
+Onix,true,false,Electabuzz,*monetary,100,c1,DST_2,*up,10s,Shakespeare Oatmeal,Bell’s Expedition,Arbok,xz,74a11544-a4e8-4d92-baf1-7801df5c6c8a,TIMING_3,Hennepin,10

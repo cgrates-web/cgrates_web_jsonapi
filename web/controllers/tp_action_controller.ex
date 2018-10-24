@@ -3,6 +3,7 @@ defmodule CgratesWebJsonapi.TpActionController do
   use JaResource
   use CgratesWebJsonapi.TpSubresource
   use CgratesWebJsonapi.DefaultSorting
+  use CgratesWebJsonapi.CsvExport
 
   alias CgratesWebJsonapi.TpAction
 
@@ -27,4 +28,19 @@ defmodule CgratesWebJsonapi.TpActionController do
   def filter(_conn, query, "balance_disabled", val), do: query |> where(balance_disabled: ^val)
   def filter(_conn, query, "weight", val),           do: query |> where(weight: ^val)
 
+  def delete_all(conn, params) do
+    Task.async fn ->
+      conn
+      |> build_query(params)
+      |> Repo.delete_all()
+    end
+
+    send_resp(conn, :no_content, "")
+  end
+
+  defp build_query(conn, params) do
+    conn
+    |> handle_index(params)
+    |> JaResource.Index.filter(conn, __MODULE__)
+  end
 end
