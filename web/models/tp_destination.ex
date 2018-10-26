@@ -1,5 +1,7 @@
 defmodule CgratesWebJsonapi.TpDestination do
   use CgratesWebJsonapi.Web, :model
+  use EctoConditionals, repo: CgratesWebJsonapi.Repo
+  use CgratesWebJsonapi.CsvImport, module: __MODULE__, attributes: ~w[tpid tag prefix]a
 
   schema "tp_destinations" do
     field :tpid, :string

@@ -1,5 +1,7 @@
 defmodule CgratesWebJsonapi.TpRatingPlan do
   use CgratesWebJsonapi.Web, :model
+  use EctoConditionals, repo: CgratesWebJsonapi.Repo
+  use CgratesWebJsonapi.CsvImport, module: __MODULE__, attributes: ~w[tpid tag destrates_tag timing_tag weight]a
 
   schema "tp_rating_plans" do
     field :tpid, :string

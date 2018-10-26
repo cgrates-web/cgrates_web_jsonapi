@@ -6,7 +6,6 @@ defmodule CgratesWebJsonapi.TpAction do
                                                                       destination_tags rating_subject categories
                                                                       shared_groups balance_weight balance_blocker
                                                                       balance_disabled extra_parameters filter weight]a
-  alias CgratesWebJsonapi.TpAction
 
   schema "tp_actions" do
     field :tpid, :string

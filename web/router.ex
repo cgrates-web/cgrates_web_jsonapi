@@ -32,19 +32,23 @@ defmodule CgratesWebJsonapi.Router do
     resources "/cdrs",                      CdrController,                   only:   [:index, :show]
     resources "/destinations",              DestinationController,           except: [:new, :edit]
     resources "/load-tariff-plan",          LoadTariffPlanController,        only:   [:create]
-    get "/raw-supplier-rates/export-to-csv", RawSupplierRateController, :export_to_csv
+    get "/raw-supplier-rates/export-to-csv", RawSupplierRateController,      :export_to_csv
     resources "/raw-supplier-rates",        RawSupplierRateController,       except: [:new, :edit]
-    post "/raw-supplier-rates/delete_all",  RawSupplierRateController, :delete_all
+    post "/raw-supplier-rates/delete_all",  RawSupplierRateController,       :delete_all
     resources "/raw-supplier-resolve-jobs", RawSupplierResolveJobController, expect: [:new]
     resources "/tariff-plans",              TariffPlanController,            except: [:new, :edit]
     get "/tp-actions/export-to-csv",        TpActionController,              :export_to_csv
     post "/tp-actions/delete_all",          TpActionController,              :delete_all
     resources "/tp-actions",                TpActionController,              except: [:new, :edit]
-    get "/tp-action-plans/export-to-csv",   TpActionPlanController,              :export_to_csv
-    post "/tp-action-plans/delete_all",     TpActionPlanController,              :delete_all
+    get "/tp-action-plans/export-to-csv",   TpActionPlanController,          :export_to_csv
+    post "/tp-action-plans/delete_all",     TpActionPlanController,          :delete_all
     resources "/tp-action-plans",           TpActionPlanController,          except: [:new, :edit]
     resources "/tp-bulk-insert",            TpBulkInsertController,          only:   [:create]
+    get "/tp-denstinations/export-to-csv",  TpDestinationController,         :export_to_csv
+    post "/tp-denstinations/delete_all",    TpDestinationController,         :delete_all
     resources "/tp-destinations",           TpDestinationController,         except: [:new, :edit]
+    get "/tp-denstination-rates/export-to-csv",  TpDestinationRateController,         :export_to_csv
+    post "/tp-denstination-rates/delete_all",    TpDestinationRateController,         :delete_all
     resources "/tp-destination-rates",      TpDestinationRateController,     except: [:new, :edit]
     resources "/tp-filters",                TpFilterController,              except: [:new, :edit]
     resources "/tp-lcr-rules",              TpLcrRuleController,             except: [:new, :edit]
@@ -62,6 +66,8 @@ defmodule CgratesWebJsonapi.Router do
     resources "/raw-supplier-rate-import-jobs", RawSupplierRateImportJobController, only: [:create]
     resources "/tp-action-import-jobs", TpActionImportJobController, only: [:create]
     resources "/tp-action-plan-import-jobs", TpActionPlanImportJobController, only: [:create]
+    resources "/tp-destination-import-jobs", TpDestinationImportJobController, only: [:create]
+    resources "/tp-destination-rate-import-jobs", TpDestinationRateImportJobController, only: [:create]
   end
 
   scope "/", CgratesWebJsonapi do

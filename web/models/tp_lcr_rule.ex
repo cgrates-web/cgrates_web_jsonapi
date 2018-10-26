@@ -1,5 +1,9 @@
 defmodule CgratesWebJsonapi.TpLcrRule do
   use CgratesWebJsonapi.Web, :model
+  use EctoConditionals, repo: CgratesWebJsonapi.Repo
+  use CgratesWebJsonapi.CsvImport, module: __MODULE__, attributes: ~w[tpid direction tenant category account subject
+                                                                      destination_tag rp_category strategy weight
+                                                                      strategy_params activation_time]a
 
   def directions, do: ["*in", "*out"]
   def strategies, do: ["*static", "*highest_cost", "*qos", "*qos_threshold", "*load_distribution", "*lowest_cost"]

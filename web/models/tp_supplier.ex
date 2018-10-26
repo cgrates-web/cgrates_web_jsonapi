@@ -1,5 +1,12 @@
 defmodule CgratesWebJsonapi.TpSupplier do
   use CgratesWebJsonapi.Web, :model
+  use EctoConditionals, repo: CgratesWebJsonapi.Repo
+  use CgratesWebJsonapi.CsvImport, module: __MODULE__, attributes: ~w[tpid tenant custom_id filter_ids sorting weight
+                                                                      activation_interval sorting_parameters
+                                                                      supplier_id supplier_filter_ids supplier_weight
+                                                                      supplier_account_ids supplier_ratingplan_ids
+                                                                      supplier_resource_ids supplier_stat_ids
+                                                                      supplier_parameters supplier_blocker]a
 
   @primary_key {:pk, :id, autogenerate: true}
   @derive {Phoenix.Param, key: :pk}

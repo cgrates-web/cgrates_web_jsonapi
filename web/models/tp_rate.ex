@@ -1,5 +1,8 @@
 defmodule CgratesWebJsonapi.TpRate do
   use CgratesWebJsonapi.Web, :model
+  use EctoConditionals, repo: CgratesWebJsonapi.Repo
+  use CgratesWebJsonapi.CsvImport, module: __MODULE__, attributes: ~w[tpid tag rate connect_fee rate_unit
+                                                                      rate_increment group_interval_start]a
   alias CgratesWebJsonapi.TpDestinationRate
 
   def time_format, do: ~r/^\d(\d)*s$/

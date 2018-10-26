@@ -7,8 +7,7 @@ defmodule CgratesWebJsonapi.CsvImport do
     quote do
       use CgratesWebJsonapi.Web, :model
       use EctoConditionals, repo: CgratesWebJsonapi.Repo
-      import CgratesWebJsonapi.CsvImport
-      alias __MODULE__
+      alias unquote(module)
 
       @doc """
       Parses CSV file and inserts records to raw_supplier_rates table.
