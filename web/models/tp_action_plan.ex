@@ -1,5 +1,8 @@
 defmodule CgratesWebJsonapi.TpActionPlan do
   use CgratesWebJsonapi.Web, :model
+  use EctoConditionals, repo: CgratesWebJsonapi.Repo
+  use CgratesWebJsonapi.CsvImport, module: __MODULE__, attributes: ~w[tpid tag actions_tag timing_tag weight]a
+  alias __MODULE__
 
   schema "tp_action_plans" do
     field :tpid, :string

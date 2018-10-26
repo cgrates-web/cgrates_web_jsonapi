@@ -14,7 +14,7 @@ defmodule CgratesWebJsonapi.CsvImport do
       Parses CSV file and inserts records to raw_supplier_rates table.
       """
       def from_csv(path, tpid) do
-        path |> File.stream! |> CSV.decode!(headers: true) |> ParallelStream.map(fn (data) ->
+        path |> File.stream! |> CSV.decode!(headers: true) |> Enum.map(fn (data) ->
           cs = struct(unquote(module))
           |> changeset(data |> Map.merge(%{unquote(tariff_plan_field) => tpid}))
 
