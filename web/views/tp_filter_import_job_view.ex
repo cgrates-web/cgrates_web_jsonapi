@@ -1,4 +1,4 @@
-defmodule CgratesWebJsonapi.TpFilterImportJobView do
+defmodule CgratesWebJsonapi.TpDestinationRateImportJobView do
   use CgratesWebJsonapi.Web, :view
   use JaSerializer.PhoenixView
 

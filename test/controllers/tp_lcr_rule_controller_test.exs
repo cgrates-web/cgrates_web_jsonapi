@@ -163,6 +163,20 @@ defmodule CgratesWebJsonapi.TpLcrRuleControllerTest do
     end
   end
 
+  describe "GET export_to_csv" do
+    test "returns status 'ok'", %{conn: conn} do
+      tariff_plan = insert :tariff_plan
+
+      insert :tp_lcr_rule, tpid: tariff_plan.alias, direction: "*in", destination_tag: "destination_1"
+      insert :tp_lcr_rule, tpid: tariff_plan.alias, direction: "*in", destination_tag: "destination_2"
+
+      conn = conn
+      |> get(tp_lcr_rule_path(conn, :export_to_csv), %{tpid: tariff_plan.alias, filter: %{direction: "*in", destination_tag: "destination_1"}})
+      |> doc()
+      assert conn.status == 200
+    end
+  end
+
   test "creates and renders resource when data is valid", %{conn: conn} do
     tariff_plan = insert :tariff_plan
     params = Map.merge params_for(:tp_lcr_rule), %{tpid: tariff_plan.alias}
@@ -237,5 +251,20 @@ defmodule CgratesWebJsonapi.TpLcrRuleControllerTest do
     conn = delete(conn, tp_lcr_rule_path(conn, :delete, tp_lcr_rule)) |> doc
     assert response(conn, 204)
     refute Repo.get(TpLcrRule, tp_lcr_rule.id)
+  end
+
+  describe "DELETE delete_all" do
+    test "deletes all records by filter", %{conn: conn}  do
+      tariff_plan = insert :tariff_plan
+
+      l1 = insert :tp_lcr_rule, tpid: tariff_plan.alias, direction: "*in", destination_tag: "destination_1"
+      l2 = insert :tp_lcr_rule, tpid: tariff_plan.alias, direction: "*in", destination_tag: "destination_2"
+
+      conn = conn
+      |> post(tp_lcr_rule_path(conn, :delete_all), %{tpid: tariff_plan.alias, filter: %{destination_tag: "destination_2"}})
+
+      assert Repo.get(TpLcrRule, l1.id)
+      refute Repo.get(TpLcrRule, l2.id)
+    end
   end
 end

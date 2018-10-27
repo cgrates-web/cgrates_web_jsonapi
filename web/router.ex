@@ -47,10 +47,14 @@ defmodule CgratesWebJsonapi.Router do
     get "/tp-denstinations/export-to-csv",  TpDestinationController,         :export_to_csv
     post "/tp-denstinations/delete_all",    TpDestinationController,         :delete_all
     resources "/tp-destinations",           TpDestinationController,         except: [:new, :edit]
-    get "/tp-denstination-rates/export-to-csv",  TpDestinationRateController,         :export_to_csv
-    post "/tp-denstination-rates/delete_all",    TpDestinationRateController,         :delete_all
+    get "/tp-denstination-rates/export-to-csv",  TpDestinationRateController, :export_to_csv
+    post "/tp-denstination-rates/delete_all",    TpDestinationRateController, :delete_all
     resources "/tp-destination-rates",      TpDestinationRateController,     except: [:new, :edit]
+    get "/tp-filters/export-to-csv",        TpFilterController,              :export_to_csv
+    post "/tp-filters/delete_all",          TpFilterController,              :delete_all
     resources "/tp-filters",                TpFilterController,              except: [:new, :edit]
+    get "/tp-lcr-rules/export-to-csv",      TpLcrRuleController,             :export_to_csv
+    post "/tp-lcr-rules/delete_all",        TpLcrRuleController,             :delete_all
     resources "/tp-lcr-rules",              TpLcrRuleController,             except: [:new, :edit]
     resources "/tp-rates",                  TpRateController,                except: [:new, :edit]
     resources "/tp-rating-plans",           TpRatingPlanController,          except: [:new, :edit]
@@ -68,6 +72,8 @@ defmodule CgratesWebJsonapi.Router do
     resources "/tp-action-plan-import-jobs", TpActionPlanImportJobController, only: [:create]
     resources "/tp-destination-import-jobs", TpDestinationImportJobController, only: [:create]
     resources "/tp-destination-rate-import-jobs", TpDestinationRateImportJobController, only: [:create]
+    resources "/tp-filter-import-jobs", TpFilterImportJobController, only: [:create]
+    resources "/tp-lcr-rule-import-jobs", TpLcrRuleImportJobController, only: [:create]
   end
 
   scope "/", CgratesWebJsonapi do

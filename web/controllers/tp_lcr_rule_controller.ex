@@ -3,6 +3,8 @@ defmodule CgratesWebJsonapi.TpLcrRuleController do
   use JaResource
   use CgratesWebJsonapi.TpSubresource
   use CgratesWebJsonapi.DefaultSorting
+  use CgratesWebJsonapi.CsvExport
+  use CgratesWebJsonapi.DeleteAll
 
   alias CgratesWebJsonapi.TpLcrRule
 
@@ -18,4 +20,10 @@ defmodule CgratesWebJsonapi.TpLcrRuleController do
   def filter(_conn, query, "destination_tag", val), do: query |> where([r], like(r.destination_tag, ^"%#{val}%"))
   def filter(_conn, query, "rp_category", val),     do: query |> where([r], like(r.rp_category, ^"%#{val}%"))
   def filter(_conn, query, "strategy", val),        do: query |> where(strategy: ^val)
+
+  defp build_query(conn, params) do
+    conn
+    |> handle_index(params)
+    |> JaResource.Index.filter(conn, __MODULE__)
+  end
 end

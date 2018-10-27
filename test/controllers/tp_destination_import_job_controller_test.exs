@@ -25,7 +25,7 @@ defmodule CgratesWebJsonapi.TpDestinationImportJobControllerTest do
       conn = post(conn, tp_destination_import_job_path(conn, :create), %{
         "meta" => %{},
         "data" => %{
-          "type" => "tp_action_plan_import_job",
+          "type" => "tp_destination_import_job",
           "attributes" => %{"tpid" => tariff_plan.alias, "csv" => csv},
         }
       }) |> doc()

@@ -1,7 +1,9 @@
 defmodule CgratesWebJsonapi.TpFilterTest do
   use CgratesWebJsonapi.ModelCase
-
+  alias CgratesWebJsonapi.Repo
   alias CgratesWebJsonapi.TpFilter
+
+  import CgratesWebJsonapi.Factory
 
   @valid_attrs %{activation_interval: "some content", filter_field_name: "some content",
                  filter_field_values: "some content", filter_type: "*string", tenant: "some content",
@@ -16,5 +18,20 @@ defmodule CgratesWebJsonapi.TpFilterTest do
   test "changeset with invalid attributes" do
     changeset = TpFilter.changeset(%TpFilter{}, @invalid_attrs)
     refute changeset.valid?
+  end
+
+  describe "#from_csv" do
+    test "it parses csv and inerts records to DB" do
+      path = Path.expand("../fixtures/csv/tp-filters.csv", __DIR__)
+      tariff_plan = insert :tariff_plan
+
+      path |> TpFilter.from_csv(tariff_plan.alias) |> Enum.into([])
+
+      assert TpFilter |> Repo.aggregate(:count, :custom_id) == 2
+      assert Repo.get_by(TpFilter, %{
+        filter_type: "*string",
+        tpid: tariff_plan.alias
+      })
+    end
   end
 end
