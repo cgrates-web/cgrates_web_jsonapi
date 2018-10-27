@@ -1,0 +1,3 @@
+tag,rate,connect_fee,rate_unit,rate_increment,group_interval_start
+tprate556er2,0.01,0.01,60s,60s,60s
+tprate901mp8,0.02,0.02,50s,50s,50s
