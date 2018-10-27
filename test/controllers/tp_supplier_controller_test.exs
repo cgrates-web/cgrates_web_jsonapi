@@ -213,6 +213,20 @@ defmodule CgratesWebJsonapi.TpSupplierControllerTest do
     end
   end
 
+  describe "GET export_to_csv" do
+    test "returns status 'ok'", %{conn: conn} do
+      tariff_plan = insert :tariff_plan
+
+      insert :tp_supplier, tpid: tariff_plan.alias, custom_id: "cust_1", supplier_blocker: true
+      insert :tp_supplier, tpid: tariff_plan.alias, custom_id: "cust_2", supplier_blocker: true
+
+      conn = conn
+      |> get(tp_supplier_path(conn, :export_to_csv), %{tpid: tariff_plan.alias, filter: %{custom_id: "cust_1", supplier_blocker: true}})
+      |> doc()
+      assert conn.status == 200
+    end
+  end
+
   describe "POST create" do
     test "creates and renders resource when data is valid", %{conn: conn} do
       tariff_plan = insert :tariff_plan
@@ -284,6 +298,21 @@ defmodule CgratesWebJsonapi.TpSupplierControllerTest do
       conn = delete(conn, tp_supplier_path(conn, :delete, tp_supplier)) |> doc()
       assert response(conn, 204)
       refute Repo.get(TpSupplier, tp_supplier.pk)
+    end
+  end
+
+  describe "DELETE delete_all" do
+    test "deletes all records by filter", %{conn: conn}  do
+      tariff_plan = insert :tariff_plan
+
+      tps1 = insert :tp_supplier, tpid: tariff_plan.alias, custom_id: "cust_1", supplier_blocker: true
+      tps2 = insert :tp_supplier, tpid: tariff_plan.alias, custom_id: "cust_2", supplier_blocker: true
+
+      conn = conn
+      |> post(tp_supplier_path(conn, :delete_all), %{tpid: tariff_plan.alias, filter: %{custom_id: "cust_2"}})
+
+      assert Repo.get(TpSupplier, tps1.pk)
+      refute Repo.get(TpSupplier, tps2.pk)
     end
   end
 end

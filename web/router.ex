@@ -62,8 +62,12 @@ defmodule CgratesWebJsonapi.Router do
     get "/tp-rating-plans/export-to-csv",   TpRatingPlanController,          :export_to_csv
     post "/tp-rating-plans/delete_all",     TpRatingPlanController,          :delete_all
     resources "/tp-rating-plans",           TpRatingPlanController,          except: [:new, :edit]
+    get "/tp-rating-profiles/export-to-csv", TpRatingProfileController,      :export_to_csv
+    post "/tp-rating-profiles/delete_all",   TpRatingProfileController,      :delete_all
     resources "/tp-rating-profiles",        TpRatingProfileController,       except: [:new, :edit]
     resources "/tp-smart-rates",            TpSmartRateController,           only:   [:create]
+    get "/tp-suppliers/export-to-csv",      TpSupplierController,            :export_to_csv
+    post "/tp-suppliers/delete_all",        TpSupplierController,            :delete_all
     resources "/tp-suppliers",              TpSupplierController,            except: [:new, :edit]
     resources "/tp-timings",                TpTimingController,              except: [:new, :edit]
     resources "/users",                     UserController,                  except: [:new, :edit]
@@ -80,6 +84,8 @@ defmodule CgratesWebJsonapi.Router do
     resources "/tp-lcr-rule-import-jobs", TpLcrRuleImportJobController, only: [:create]
     resources "/tp-rate-import-jobs", TpRateImportJobController, only: [:create]
     resources "/tp-rating-plan-import-jobs", TpRatingPlanImportJobController, only: [:create]
+    resources "/tp-rating-profile-import-jobs", TpRatingProfileImportJobController, only: [:create]
+    resources "/tp-supplier-import-jobs", TpSupplierImportJobController, only: [:create]
   end
 
   scope "/", CgratesWebJsonapi do

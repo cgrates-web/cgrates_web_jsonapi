@@ -3,6 +3,8 @@ defmodule CgratesWebJsonapi.TpRatingProfileController do
   use JaResource
   use CgratesWebJsonapi.TpSubresource
   use CgratesWebJsonapi.DefaultSorting
+  use CgratesWebJsonapi.CsvExport
+  use CgratesWebJsonapi.DeleteAll
 
   alias CgratesWebJsonapi.TpRatingProfile
 
@@ -19,4 +21,10 @@ defmodule CgratesWebJsonapi.TpRatingProfileController do
   def filter(_conn, query, "rating_plan_tag", rpt),  do: query |> where([r], like(r.rating_plan_tag, ^"%#{rpt}%"))
   def filter(_conn, query, "fallback_subjects", fs), do: query |> where([r], like(r.fallback_subjects, ^"%#{fs}%"))
   def filter(_conn, query, "cdr_stat_queue_ids", c), do: query |> where([r], like(r.cdr_stat_queue_ids, ^"%#{c}%"))
+
+  defp build_query(conn, params) do
+    conn
+    |> handle_index(params)
+    |> JaResource.Index.filter(conn, __MODULE__)
+  end
 end

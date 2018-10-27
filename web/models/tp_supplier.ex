@@ -25,7 +25,7 @@ defmodule CgratesWebJsonapi.TpSupplier do
     field :supplier_resource_ids, :string, default: ""
     field :supplier_stat_ids, :string, default: ""
     field :supplier_parameters, :string, default: ""
-    field :supplier_blocker, :boolean, defualt: false
+    field :supplier_blocker, :boolean, default: false
     field :supplier_weight, :decimal
     field :weight, :decimal
 
