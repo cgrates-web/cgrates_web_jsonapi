@@ -69,6 +69,8 @@ defmodule CgratesWebJsonapi.Router do
     get "/tp-suppliers/export-to-csv",      TpSupplierController,            :export_to_csv
     post "/tp-suppliers/delete_all",        TpSupplierController,            :delete_all
     resources "/tp-suppliers",              TpSupplierController,            except: [:new, :edit]
+    get "/tp-timings/export-to-csv",        TpTimingController,              :export_to_csv
+    post "/tp-timings/delete_all",          TpTimingController,              :delete_all
     resources "/tp-timings",                TpTimingController,              except: [:new, :edit]
     resources "/users",                     UserController,                  except: [:new, :edit]
   end
@@ -86,6 +88,7 @@ defmodule CgratesWebJsonapi.Router do
     resources "/tp-rating-plan-import-jobs", TpRatingPlanImportJobController, only: [:create]
     resources "/tp-rating-profile-import-jobs", TpRatingProfileImportJobController, only: [:create]
     resources "/tp-supplier-import-jobs", TpSupplierImportJobController, only: [:create]
+    resources "/tp-timing-import-jobs", TpTimingImportJobController, only: [:create]
   end
 
   scope "/", CgratesWebJsonapi do
