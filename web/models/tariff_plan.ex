@@ -9,6 +9,7 @@ defmodule CgratesWebJsonapi.TariffPlan do
     has_many :tp_action_plans, CgratesWebJsonapi.TpActionPlan, foreign_key: :tpid, references: :alias,
       on_delete: :delete_all
     has_many :tp_actions, CgratesWebJsonapi.TpAction, foreign_key: :tpid, references: :alias, on_delete: :delete_all
+    has_many :tp_aliases, CgratesWebJsonapi.TpAlias, foreign_key: :tpid, references: :alias, on_delete: :delete_all
     has_many :tp_destination_rates, CgratesWebJsonapi.TpDestinationRate, foreign_key: :tpid, references: :alias,
       on_delete: :delete_all
     has_many :tp_destinations, CgratesWebJsonapi.TpDestination, foreign_key: :tpid, references: :alias,
