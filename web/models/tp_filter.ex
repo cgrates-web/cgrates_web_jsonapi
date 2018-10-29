@@ -1,5 +1,9 @@
 defmodule CgratesWebJsonapi.TpFilter do
   use CgratesWebJsonapi.Web, :model
+  use EctoConditionals, repo: CgratesWebJsonapi.Repo
+  use CgratesWebJsonapi.CsvImport, module: __MODULE__, attributes: ~w[tpid tenant custom_id filter_type
+                                                                      filter_field_name filter_field_values
+                                                                      activation_interval]a
 
   def filter_types, do: ["*string", "*string_prefix", "*rsr_fields", "*destinations", "*gt", "*gte", "*lt", "*lte",
                          "*cdr_stats"]

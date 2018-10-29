@@ -1,5 +1,7 @@
 defmodule CgratesWebJsonapi.TpTiming do
   use CgratesWebJsonapi.Web, :model
+  use EctoConditionals, repo: CgratesWebJsonapi.Repo
+  use CgratesWebJsonapi.CsvImport, module: __MODULE__, attributes: ~w[tpid tag years months month_days week_days time]a
 
   schema "tp_timings" do
     field :tpid, :string

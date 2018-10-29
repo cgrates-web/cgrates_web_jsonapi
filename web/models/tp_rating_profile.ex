@@ -1,5 +1,9 @@
 defmodule CgratesWebJsonapi.TpRatingProfile do
   use CgratesWebJsonapi.Web, :model
+  use EctoConditionals, repo: CgratesWebJsonapi.Repo
+  use CgratesWebJsonapi.CsvImport, module: __MODULE__, attributes: ~w[tpid loadid direction tenant category subject
+                                                                      activation_time rating_plan_tag
+                                                                      fallback_subjects cdr_stat_queue_ids]a
 
   schema "tp_rating_profiles" do
     field :tpid, :string

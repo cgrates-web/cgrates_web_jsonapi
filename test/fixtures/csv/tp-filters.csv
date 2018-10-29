@@ -1,0 +1,3 @@
+activation_interval,custom_id,filter_type,filter_field_name,filter_field_values,tenant
+,a,*string,field_1,1,tenant_1
+,b,*string_prefix,field_2,2,tenant_2

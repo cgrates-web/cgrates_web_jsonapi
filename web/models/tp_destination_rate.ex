@@ -1,5 +1,9 @@
 defmodule CgratesWebJsonapi.TpDestinationRate do
   use CgratesWebJsonapi.Web, :model
+  use EctoConditionals, repo: CgratesWebJsonapi.Repo
+  use CgratesWebJsonapi.CsvImport, module: __MODULE__, attributes: ~w[tpid tag destinations_tag rates_tag
+                                                                      rounding_method rounding_decimals
+                                                                      max_cost max_cost_strategy]a
 
   def rounding_methods,    do: ["*up", "*down", "*middle"]
   def max_cost_strategies, do: ["*free", "*disconnect"]

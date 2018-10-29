@@ -3,6 +3,8 @@ defmodule CgratesWebJsonapi.TpDestinationRateController do
   use JaResource
   use CgratesWebJsonapi.TpSubresource
   use CgratesWebJsonapi.DefaultSorting
+  use CgratesWebJsonapi.CsvExport
+  use CgratesWebJsonapi.DeleteAll
 
   alias CgratesWebJsonapi.TpDestinationRate
 
@@ -17,4 +19,10 @@ defmodule CgratesWebJsonapi.TpDestinationRateController do
   def filter(_conn, query, "rounding_decimals", rd), do: query |> where(rounding_decimals: ^rd)
   def filter(_conn, query, "max_cost", mc),          do: query |> where(max_cost: ^mc)
   def filter(_conn, query, "max_cost_strategy", mc), do: query |> where(max_cost_strategy: ^mc)
+
+  defp build_query(conn, params) do
+    conn
+    |> handle_index(params)
+    |> JaResource.Index.filter(conn, __MODULE__)
+  end
 end

@@ -3,6 +3,8 @@ defmodule CgratesWebJsonapi.TpRateController do
   use JaResource
   use CgratesWebJsonapi.TpSubresource
   use CgratesWebJsonapi.DefaultSorting
+  use CgratesWebJsonapi.CsvExport
+  use CgratesWebJsonapi.DeleteAll
 
   alias CgratesWebJsonapi.TpRate
 
@@ -16,4 +18,10 @@ defmodule CgratesWebJsonapi.TpRateController do
   def filter(_conn, query, "rate_unit", rate_unit),           do: query |> where(rate_unit: ^rate_unit)
   def filter(_conn, query, "rate_increment", rate_increment), do: query |> where(rate_increment: ^rate_increment)
   def filter(_conn, query, "group_interval_start", gis),      do: query |> where(group_interval_start: ^gis)
+
+  defp build_query(conn, params) do
+    conn
+    |> handle_index(params)
+    |> JaResource.Index.filter(conn, __MODULE__)
+  end
 end

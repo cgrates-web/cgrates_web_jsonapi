@@ -3,6 +3,8 @@ defmodule CgratesWebJsonapi.TpActionPlanController do
   use JaResource
   use CgratesWebJsonapi.TpSubresource
   use CgratesWebJsonapi.DefaultSorting
+  use CgratesWebJsonapi.CsvExport
+  use CgratesWebJsonapi.DeleteAll
 
   alias CgratesWebJsonapi.TpActionPlan
 
@@ -15,4 +17,9 @@ defmodule CgratesWebJsonapi.TpActionPlanController do
   def filter(_conn, query, "timing_tag", val),  do: query |> where(timing_tag: ^val)
   def filter(_conn, query, "weight", val),      do: query |> where(weight: ^val)
 
+  defp build_query(conn, params) do
+    conn
+    |> handle_index(params)
+    |> JaResource.Index.filter(conn, __MODULE__)
+  end
 end

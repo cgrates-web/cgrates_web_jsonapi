@@ -66,6 +66,20 @@ defmodule CgratesWebJsonapi.TpTimingControllerTest do
     end
   end
 
+  describe "GET export_to_csv" do
+    test "returns status 'ok'", %{conn: conn} do
+      tariff_plan = insert :tariff_plan
+
+      insert :tp_timing, tpid: tariff_plan.alias, tag: "timing_tag1"
+      insert :tp_timing, tpid: tariff_plan.alias, tag: "timing_tag2"
+
+      conn = conn
+      |> get(tp_timing_path(conn, :export_to_csv), %{tpid: tariff_plan.alias, filter: %{tag: "timing_tag1"}})
+      |> doc()
+      assert conn.status == 200
+    end
+  end
+
   test "creates and renders resource when data is valid", %{conn: conn} do
     tariff_plan = insert :tariff_plan
     params = Map.merge params_for(:tp_timing), %{tpid: tariff_plan.alias}
@@ -148,5 +162,20 @@ defmodule CgratesWebJsonapi.TpTimingControllerTest do
     refute Repo.get(TpTiming, tp_timing.id)
     refute Repo.get(CgratesWebJsonapi.TpActionPlan, tp_action_plan.id)
     refute Repo.get(CgratesWebJsonapi.TpRatingPlan, tp_rating_plan.id)
+  end
+
+  describe "DELETE delete_all" do
+    test "deletes all records by filter", %{conn: conn}  do
+      tariff_plan = insert :tariff_plan
+
+      tpt1 = insert :tp_timing, tpid: tariff_plan.alias, tag: "timing_tag1"
+      tpt2 = insert :tp_timing, tpid: tariff_plan.alias, tag: "timing_tag2"
+
+      conn = conn
+      |> post(tp_timing_path(conn, :delete_all), %{tpid: tariff_plan.alias, filter: %{tag: "timing_tag2"}})
+
+      assert Repo.get(TpTiming, tpt1.id)
+      refute Repo.get(TpTiming, tpt2.id)
+    end
   end
 end

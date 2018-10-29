@@ -1,7 +1,9 @@
 defmodule CgratesWebJsonapi.TpDestinationRateTest do
   use CgratesWebJsonapi.ModelCase
-
+  alias CgratesWebJsonapi.Repo
   alias CgratesWebJsonapi.TpDestinationRate
+
+  import CgratesWebJsonapi.Factory
 
   @valid_attrs %{
     destinations_tag: "some content",
@@ -47,5 +49,43 @@ defmodule CgratesWebJsonapi.TpDestinationRateTest do
     attrs = Map.merge @valid_attrs, %{max_cost_strategy: "fake"}
     changeset = TpDestinationRate.changeset(%TpDestinationRate{}, attrs)
     refute changeset.valid?
+  end
+
+  describe "#from_csv" do
+    test "it parses csv and inerts records to DB" do
+      path = Path.expand("../fixtures/csv/tp-destination-rates.csv", __DIR__)
+      tariff_plan = insert :tariff_plan
+
+      path |> TpDestinationRate.from_csv(tariff_plan.alias) |> Enum.into([])
+
+      assert Repo.get_by(TpDestinationRate, %{
+        tag: "tdrtag4466ror",
+        destinations_tag: "dt00tr33ew",
+        rates_tag: "rt56310pa",
+        tpid: tariff_plan.alias
+      })
+    end
+
+    test "it does not insert new record" do
+      path = Path.expand("../fixtures/csv/tp-destination-rates.csv", __DIR__)
+      tariff_plan = insert :tariff_plan
+
+      insert :tp_destination_rate, %{
+        tag: "tdrtag4466ror",
+        destinations_tag: "dt00tr33ew",
+        rates_tag: "rt56310pa",
+        tpid: tariff_plan.alias
+      }
+
+      path |> TpDestinationRate.from_csv(tariff_plan.alias) |> Enum.into([])
+
+      assert TpDestinationRate |> Repo.aggregate(:count, :id) == 1
+      assert Repo.get_by(TpDestinationRate, %{
+        tag: "tdrtag4466ror",
+        destinations_tag: "dt00tr33ew",
+        rates_tag: "rt56310pa",
+        tpid: tariff_plan.alias
+      })
+    end
   end
 end

@@ -170,6 +170,20 @@ defmodule CgratesWebJsonapi.TpRatingProfileControllerTest do
     end
   end
 
+  describe "GET export_to_csv" do
+    test "returns status 'ok'", %{conn: conn} do
+      tariff_plan = insert :tariff_plan
+
+      insert :tp_rating_profile, tpid: tariff_plan.alias, subject: "subj1", direction: "up"
+      insert :tp_rating_profile, tpid: tariff_plan.alias, subject: "subj2"
+
+      conn = conn
+      |> get(tp_rating_profile_path(conn, :export_to_csv), %{tpid: tariff_plan.alias, filter: %{subject: "subj1", direction: "up"}})
+      |> doc()
+      assert conn.status == 200
+    end
+  end
+
   describe "POST create" do
     test "creates and renders resource when data is valid", %{conn: conn} do
       tariff_plan = insert :tariff_plan
@@ -244,6 +258,21 @@ defmodule CgratesWebJsonapi.TpRatingProfileControllerTest do
       conn = delete(conn, tp_rating_profile_path(conn, :delete, tp_rating_profile)) |> doc
       assert response(conn, 204)
       refute Repo.get(TpRatingProfile, tp_rating_profile.id)
+    end
+  end
+
+  describe "DELETE delete_all" do
+    test "deletes all records by filter", %{conn: conn}  do
+      tariff_plan = insert :tariff_plan
+
+      tprp1 = insert :tp_rating_profile, tpid: tariff_plan.alias, subject: "subj1", direction: "up"
+      tprp2 = insert :tp_rating_profile, tpid: tariff_plan.alias, subject: "subj2"
+
+      conn = conn
+      |> post(tp_rating_profile_path(conn, :delete_all), %{tpid: tariff_plan.alias, filter: %{subject: "subj2"}})
+
+      assert Repo.get(TpRatingProfile, tprp1.id)
+      refute Repo.get(TpRatingProfile, tprp2.id)
     end
   end
 end

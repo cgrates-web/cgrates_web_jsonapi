@@ -3,6 +3,8 @@ defmodule CgratesWebJsonapi.TpSupplierController do
   use JaResource
   use CgratesWebJsonapi.TpSubresource
   use CgratesWebJsonapi.DefaultSorting
+  use CgratesWebJsonapi.CsvExport
+  use CgratesWebJsonapi.DeleteAll
 
   alias CgratesWebJsonapi.TpSupplier
 
@@ -24,4 +26,9 @@ defmodule CgratesWebJsonapi.TpSupplierController do
   def filter(_conn, query, "supplier_resource_ids", v),   do: query |> where([s], like(s.supplier_resource_ids, ^"%#{v}%"))
   def filter(_conn, query, "supplier_stat_ids", v),       do: query |> where([s], like(s.supplier_stat_ids, ^"%#{v}%"))
 
+  defp build_query(conn, params) do
+    conn
+    |> handle_index(params)
+    |> JaResource.Index.filter(conn, __MODULE__)
+  end
 end

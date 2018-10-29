@@ -1,7 +1,9 @@
 defmodule CgratesWebJsonapi.TpSupplierTest do
   use CgratesWebJsonapi.ModelCase
-
+  alias CgratesWebJsonapi.Repo
   alias CgratesWebJsonapi.TpSupplier
+
+  import CgratesWebJsonapi.Factory
 
   @valid_attrs %{activation_interval: "some content", filter_ids: "some content",
                  sorting: "some content", sorting_parameters: "some content", supplier_account_ids: "some content",
@@ -19,5 +21,21 @@ defmodule CgratesWebJsonapi.TpSupplierTest do
   test "changeset with invalid attributes" do
     changeset = TpSupplier.changeset(%TpSupplier{}, @invalid_attrs)
     refute changeset.valid?
+  end
+
+  describe "#from_csv" do
+    test "it parses csv and inserts records to DB" do
+      path = Path.expand("../fixtures/csv/tp-suppliers.csv", __DIR__)
+      tariff_plan = insert :tariff_plan
+
+      path |> TpSupplier.from_csv(tariff_plan.alias) |> Enum.into([])
+
+      assert TpSupplier |> Repo.aggregate(:count, :id) == 2
+      assert Repo.get_by(TpSupplier, %{
+        tenant: "tenant1",
+        custom_id: "cust1",
+        tpid: tariff_plan.alias
+      })
+    end
   end
 end
