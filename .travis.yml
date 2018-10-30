@@ -4,4 +4,4 @@ elixir:
 services:
   - postgresql
 addons:
-  postgresql: "9.5"
+  postgresql: "10.2"
