@@ -1,10 +1,10 @@
 defmodule CgratesWebJsonapi.TpResource do
   use CgratesWebJsonapi.Web, :model
   use EctoConditionals, repo: CgratesWebJsonapi.Repo
-  use CgratesWebJsonapi.CsvImport, module: __MODULE__, attributes: ~w[tpid tenant custom_id filter_ids usage_ttl
-                                                                      activation_interval threshold_ids stored
-                                                                      allocation_message blocker weight limit]a
-  alias __MODULE__
+  @attributes ~w[tpid tenant custom_id filter_ids usage_ttl activation_interval threshold_ids stored
+                 allocation_message blocker weight limit]a
+
+  use CgratesWebJsonapi.CsvImport, module: __MODULE__, attributes: @attributes
 
   @primary_key {:pk, :id, autogenerate: true}
   @derive {Phoenix.Param, key: :pk}
@@ -30,10 +30,8 @@ defmodule CgratesWebJsonapi.TpResource do
   """
   def changeset(struct, params \\ %{}) do
     struct
-    |> cast(params, ~w[tpid tenant custom_id filter_ids usage_ttl activation_interval threshold_ids
-                       stored allocation_message blocker weight limit]a)
-    |> validate_required(~w[tpid tenant custom_id filter_ids usage_ttl activation_interval threshold_ids
-                            stored allocation_message blocker weight limit]a)
+    |> cast(params, @attributes)
+    |> validate_required(@attributes)
     |> validate_length(:tpid, max: 64)
     |> validate_length(:tenant, max: 64)
     |> validate_length(:custom_id, max: 64)
