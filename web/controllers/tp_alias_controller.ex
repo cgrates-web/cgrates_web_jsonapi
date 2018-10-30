@@ -19,7 +19,7 @@ defmodule CgratesWebJsonapi.TpAliasController do
   def filter(_conn, query, "category", val),         do: query |> where([r], like(r.category, ^"%#{val}%"))
   def filter(_conn, query, "subject", val),          do: query |> where([r], like(r.subject, ^"%#{val}%"))
   def filter(_conn, query, "context", val),          do: query |> where([r], like(r.context, ^"%#{val}%"))
-  def filter(_conn, query, "target", val),           do: query |> where([r], like(r.target, ^"%#{val}%"))
+  def filter(_conn, query, "target_param", val),     do: query |> where([r], like(r.target, ^"%#{val}%"))
   def filter(_conn, query, "original", val),         do: query |> where([r], like(r.original, ^"%#{val}%"))
   def filter(_conn, query, "alias", val),            do: query |> where([r], like(r.alias, ^"%#{val}%"))
   def filter(_conn, query, "weight", val),           do: query |> where(weight: ^val)

@@ -180,6 +180,22 @@ defmodule CgratesWebJsonapi.Factory do
     }
   end
 
+  def tp_resource_factory do
+    %CgratesWebJsonapi.TpResource{
+      tenant: Faker.Beer.name,
+      custom_id: Faker.Pokemon.name,
+      usage_ttl: "20s",
+      filter_ids: Faker.Pokemon.name,
+      limit: Faker.Pokemon.name,
+      blocker: false,
+      allocation_message: Faker.Beer.name,
+      stored: false,
+      threshold_ids: Faker.Beer.name,
+      activation_interval: Faker.Beer.name,
+      weight: 10.0
+    }
+  end
+
   def tp_supplier_factory do
     %CgratesWebJsonapi.TpSupplier{
       tpid: Faker.Beer.name,

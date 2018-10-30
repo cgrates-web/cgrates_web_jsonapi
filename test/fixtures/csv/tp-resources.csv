@@ -1,0 +1,3 @@
+tenant,custom_id,usage_ttl,filter_ids,limit,activation_interval,threshold_ids,allocation_message,stored,blocker,weight
+tenant1,cust1,20s,id1,limit1,interval1,ti1,message1,true,false,10
+tenant2,cust2,30s,id2,limit2,interval2,ti2,message2,false,true,8
