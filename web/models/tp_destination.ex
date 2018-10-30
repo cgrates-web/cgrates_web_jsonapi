@@ -13,6 +13,8 @@ defmodule CgratesWebJsonapi.TpDestination do
       references: :tag, on_delete: :delete_all
     has_many :tp_lcr_rules, CgratesWebJsonapi.TpLcrRule, foreign_key: :destination_tag, references: :tag,
       on_delete: :delete_all
+    has_many :tp_aliases, CgratesWebJsonapi.TpAlias, foreign_key: :destination_id, references: :tag,
+      on_delete: :delete_all
   end
 
   @doc """

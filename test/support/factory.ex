@@ -82,6 +82,22 @@ defmodule CgratesWebJsonapi.Factory do
     }
   end
 
+  def tp_alias_factory do
+    %CgratesWebJsonapi.TpAlias{
+      alias: Faker.Pokemon.name,
+      context: Faker.Pokemon.name,
+      subject: Faker.Pokemon.name,
+      account: Faker.Pokemon.name,
+      tenant: Faker.Pokemon.name,
+      category: Faker.Pokemon.name,
+      original: Faker.Pokemon.name,
+      target: Faker.Pokemon.name,
+      direction: "direct",
+      destination_id: Faker.UUID.v4(),
+      weight: 10.0
+    }
+  end
+
   def tp_destination_factory do
     %CgratesWebJsonapi.TpDestination{
       prefix: "+44",
