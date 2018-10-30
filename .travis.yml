@@ -5,3 +5,6 @@ services:
   - postgresql
 addons:
   postgresql: "10.2"
+env:
+  global:
+  - PGPORT=5432
