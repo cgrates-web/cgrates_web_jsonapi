@@ -1,10 +1,9 @@
 defmodule CgratesWebJsonapi.TpAlias do
   use CgratesWebJsonapi.Web, :model
   use EctoConditionals, repo: CgratesWebJsonapi.Repo
-  use CgratesWebJsonapi.CsvImport, module: __MODULE__, attributes: ~w[tpid direction tenant category account subject
-                                                                      destination_id context target original alias
-                                                                      weight]a
-  alias __MODULE__
+  @attributes ~w[tpid direction tenant category account subject destination_id context target original alias weight]a
+
+  use CgratesWebJsonapi.CsvImport, module: __MODULE__, attributes: @attributes
 
   schema "tp_aliases" do
     field :tpid, :string
@@ -28,10 +27,8 @@ defmodule CgratesWebJsonapi.TpAlias do
   """
   def changeset(struct, params \\ %{}) do
     struct
-    |> cast(params, ~w[tpid direction tenant category account subject destination_id
-                       context target original alias weight]a)
-    |> validate_required(~w[tpid direction tenant category account subject destination_id
-                       context target original alias weight]a)
+    |> cast(params, @attributes)
+    |> validate_required(@attributes)
     |> validate_length(:tpid, max: 64)
     |> validate_length(:direction, max: 8)
     |> validate_length(:tenant, max: 64)

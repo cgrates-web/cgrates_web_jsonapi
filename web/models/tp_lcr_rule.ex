@@ -1,9 +1,10 @@
 defmodule CgratesWebJsonapi.TpLcrRule do
   use CgratesWebJsonapi.Web, :model
   use EctoConditionals, repo: CgratesWebJsonapi.Repo
-  use CgratesWebJsonapi.CsvImport, module: __MODULE__, attributes: ~w[tpid direction tenant category account subject
-                                                                      destination_tag rp_category strategy weight
-                                                                      strategy_params activation_time]a
+  @attributes ~w[tpid direction tenant category account subject destination_tag
+                 rp_category strategy weight strategy_params activation_time]a
+
+  use CgratesWebJsonapi.CsvImport, module: __MODULE__, attributes: @attributes
 
   def directions, do: ["*in", "*out"]
   def strategies, do: ["*static", "*highest_cost", "*qos", "*qos_threshold", "*load_distribution", "*lowest_cost"]
@@ -30,10 +31,8 @@ defmodule CgratesWebJsonapi.TpLcrRule do
   """
   def changeset(struct, params \\ %{}) do
     struct
-    |> cast(params, [:tpid, :direction, :tenant, :category, :account, :subject, :destination_tag, :rp_category,
-                     :strategy, :strategy_params, :activation_time, :weight])
-    |> validate_required([:tpid, :direction, :tenant, :category, :account, :subject, :destination_tag, :rp_category,
-                          :strategy, :activation_time, :weight])
+    |> cast(params, @attributes)
+    |> validate_required(@attributes -- [:strategy_params])
     |> validate_length(:tpid, max: 64)
     |> validate_length(:direction, max: 8)
     |> validate_length(:tenant, max: 64)

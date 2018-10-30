@@ -1,7 +1,9 @@
 defmodule CgratesWebJsonapi.TpActionPlan do
   use CgratesWebJsonapi.Web, :model
   use EctoConditionals, repo: CgratesWebJsonapi.Repo
-  use CgratesWebJsonapi.CsvImport, module: __MODULE__, attributes: ~w[tpid tag actions_tag timing_tag weight]a
+  @attributes ~w[tpid tag actions_tag timing_tag weight]a
+
+  use CgratesWebJsonapi.CsvImport, module: __MODULE__, attributes: @attributes
 
   schema "tp_action_plans" do
     field :tpid, :string
@@ -18,8 +20,8 @@ defmodule CgratesWebJsonapi.TpActionPlan do
   """
   def changeset(struct, params \\ %{}) do
     struct
-    |> cast(params, [:tpid, :tag, :actions_tag, :timing_tag, :weight])
-    |> validate_required([:tpid, :tag, :actions_tag, :timing_tag, :weight])
+    |> cast(params, @attributes)
+    |> validate_required(@attributes)
     |> validate_length(:tag, max: 64)
     |> validate_length(:tpid, max: 64)
     |> validate_length(:actions_tag, max: 64)

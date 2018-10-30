@@ -1,9 +1,10 @@
 defmodule CgratesWebJsonapi.TpThreshold do
   use CgratesWebJsonapi.Web, :model
   use EctoConditionals, repo: CgratesWebJsonapi.Repo
-  use CgratesWebJsonapi.CsvImport, module: __MODULE__, attributes: ~w[tpid tenant custom_id action_ids filter_ids
-                                                                      min_sleep activation_interval max_hits min_hits
-                                                                      async blocker weight]a
+  @attributes ~w[tpid tenant custom_id action_ids filter_ids min_sleep
+                 activation_interval max_hits min_hits async blocker weight]a
+
+  use CgratesWebJsonapi.CsvImport, module: __MODULE__, attributes: @attributes
 
   @primary_key {:pk, :id, autogenerate: true}
   @derive {Phoenix.Param, key: :pk}
@@ -29,10 +30,8 @@ defmodule CgratesWebJsonapi.TpThreshold do
   """
   def changeset(struct, params \\ %{}) do
     struct
-    |> cast(params, ~w[tpid tenant custom_id action_ids filter_ids min_sleep
-                       activation_interval max_hits min_hits async blocker weight]a)
-    |> validate_required(~w[tpid tenant custom_id action_ids filter_ids min_sleep
-                            activation_interval max_hits min_hits async blocker weight]a)
+    |> cast(params, @attributes)
+    |> validate_required(@attributes)
     |> validate_length(:tpid, max: 64)
     |> validate_length(:tenant, max: 64)
     |> validate_length(:custom_id, max: 64)

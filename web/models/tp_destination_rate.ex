@@ -1,9 +1,8 @@
 defmodule CgratesWebJsonapi.TpDestinationRate do
   use CgratesWebJsonapi.Web, :model
   use EctoConditionals, repo: CgratesWebJsonapi.Repo
-  use CgratesWebJsonapi.CsvImport, module: __MODULE__, attributes: ~w[tpid tag destinations_tag rates_tag
-                                                                      rounding_method rounding_decimals
-                                                                      max_cost max_cost_strategy]a
+  @attributes ~w[tpid tag destinations_tag rates_tag rounding_method rounding_decimals max_cost max_cost_strategy]a
+  use CgratesWebJsonapi.CsvImport, module: __MODULE__, attributes: @attributes
 
   def rounding_methods,    do: ["*up", "*down", "*middle"]
   def max_cost_strategies, do: ["*free", "*disconnect"]
@@ -29,9 +28,8 @@ defmodule CgratesWebJsonapi.TpDestinationRate do
   """
   def changeset(struct, params \\ %{}) do
     struct
-    |> cast(params, [:tpid, :tag, :destinations_tag, :rates_tag, :rounding_method, :rounding_decimals, :max_cost,
-                     :max_cost_strategy])
-    |> validate_required([:tpid, :tag, :destinations_tag, :rates_tag, :rounding_method, :rounding_decimals, :max_cost,])
+    |> cast(params, @attributes)
+    |> validate_required(@attributes)
     |> validate_length(:tag, max: 64)
     |> validate_length(:destinations_tag, max: 64)
     |> validate_length(:rates_tag, max: 64)
