@@ -16,3 +16,5 @@ env:
     - PGUSER=postgres
     - PGPASSWORD=''
     - PGHOST=localhost
+before_script:
+  - psql -c 'create database travis_ci_test;' -U postgres
