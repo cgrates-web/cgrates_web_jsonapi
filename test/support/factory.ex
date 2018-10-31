@@ -114,6 +114,17 @@ defmodule CgratesWebJsonapi.Factory do
       weight: 10.0
     }
   end
+  def tp_charger_factory do
+  %CgratesWebJsonapi.TpCharger{
+    tenant: Faker.Beer.name,
+    custom_id: Faker.Pokemon.name,
+    filter_ids: Faker.Pokemon.name,
+    attribute_ids: Faker.Beer.name,
+    run_id: Faker.Pokemon.name,
+    activation_interval: Faker.Beer.name,
+    weight: 10.0
+  }
+end
 
   def tp_destination_factory do
     %CgratesWebJsonapi.TpDestination{

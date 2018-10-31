@@ -1,0 +1,3 @@
+tenant,custom_id,filter_ids,activation_interval,run_id,attribute_ids,weight
+tenant1,cust1,id1,interval1,runid1,atrid1,10
+tenant2,cust2,id2,interval2,runid2,atrid2,8
