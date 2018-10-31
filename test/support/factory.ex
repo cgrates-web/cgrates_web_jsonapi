@@ -208,6 +208,22 @@ defmodule CgratesWebJsonapi.Factory do
     }
   end
 
+  def tp_threshold_factory do
+  %CgratesWebJsonapi.TpThreshold{
+    tenant: Faker.Beer.name,
+    custom_id: Faker.Pokemon.name,
+    filter_ids: Faker.Pokemon.name,
+    max_hits: 10,
+    blocker: false,
+    action_ids: Faker.Beer.name,
+    async: false,
+    min_sleep: Faker.Pokemon.name,
+    min_hits: 1,
+    activation_interval: Faker.Beer.name,
+    weight: 10.0
+  }
+end
+
   def tp_timing_factory do
     %CgratesWebJsonapi.TpTiming{
       tpid: Faker.Beer.name,

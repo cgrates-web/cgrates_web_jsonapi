@@ -1,12 +1,10 @@
 defmodule CgratesWebJsonapi.TpSupplier do
   use CgratesWebJsonapi.Web, :model
   use EctoConditionals, repo: CgratesWebJsonapi.Repo
-  use CgratesWebJsonapi.CsvImport, module: __MODULE__, attributes: ~w[tpid tenant custom_id filter_ids sorting weight
-                                                                      activation_interval sorting_parameters
-                                                                      supplier_id supplier_filter_ids supplier_weight
-                                                                      supplier_account_ids supplier_ratingplan_ids
-                                                                      supplier_resource_ids supplier_stat_ids
-                                                                      supplier_parameters supplier_blocker]a
+  @attributes ~w[tpid tenant custom_id filter_ids sorting weight activation_interval sorting_parameters supplier_id
+                 supplier_filter_ids supplier_weight supplier_account_ids supplier_ratingplan_ids supplier_resource_ids
+                 supplier_stat_ids supplier_parameters supplier_blocker]a
+  use CgratesWebJsonapi.CsvImport, module: __MODULE__, attributes: @attributes
 
   @primary_key {:pk, :id, autogenerate: true}
   @derive {Phoenix.Param, key: :pk}
@@ -37,10 +35,7 @@ defmodule CgratesWebJsonapi.TpSupplier do
   """
   def changeset(struct, params \\ %{}) do
     struct
-    |> cast(params, [:tpid, :tenant, :filter_ids, :activation_interval, :sorting, :sorting_parameters, :supplier_id,
-                     :supplier_filter_ids, :supplier_account_ids, :supplier_ratingplan_ids, :supplier_resource_ids,
-                     :supplier_stat_ids, :supplier_weight, :weight, :custom_id, :supplier_blocker,
-                     :supplier_parameters])
+    |> cast(params, @attributes)
     |> validate_required([:tpid, :tenant, :supplier_id, :supplier_weight, :weight, :custom_id, :supplier_blocker])
     |> validate_length(:tpid, max: 64)
     |> validate_length(:tenant, max: 64)

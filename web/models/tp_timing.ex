@@ -1,8 +1,9 @@
 defmodule CgratesWebJsonapi.TpTiming do
   use CgratesWebJsonapi.Web, :model
   use EctoConditionals, repo: CgratesWebJsonapi.Repo
-  use CgratesWebJsonapi.CsvImport, module: __MODULE__, attributes: ~w[tpid tag years months month_days week_days time]a
+  @attributes ~w[tpid tag years months month_days week_days time]a
 
+  use CgratesWebJsonapi.CsvImport, module: __MODULE__, attributes: @attributes
   schema "tp_timings" do
     field :tpid, :string
     field :tag, :string
@@ -25,8 +26,8 @@ defmodule CgratesWebJsonapi.TpTiming do
   """
   def changeset(struct, params \\ %{}) do
     struct
-    |> cast(params, [:tpid, :tag, :years, :months, :month_days, :week_days, :time])
-    |> validate_required([:tpid, :tag, :years, :months, :month_days, :week_days, :time])
+    |> cast(params, @attributes)
+    |> validate_required(@attributes)
     |> validate_length(:tag, max: 64)
     |> validate_length(:tpid, max: 64)
     |> validate_length(:time, max: 64)

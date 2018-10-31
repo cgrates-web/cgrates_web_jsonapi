@@ -1,9 +1,9 @@
 defmodule CgratesWebJsonapi.TpRatingProfile do
   use CgratesWebJsonapi.Web, :model
   use EctoConditionals, repo: CgratesWebJsonapi.Repo
-  use CgratesWebJsonapi.CsvImport, module: __MODULE__, attributes: ~w[tpid loadid direction tenant category subject
-                                                                      activation_time rating_plan_tag
-                                                                      fallback_subjects cdr_stat_queue_ids]a
+  @attributes ~w[tpid loadid direction tenant category subject activation_time
+                 rating_plan_tag fallback_subjects cdr_stat_queue_ids]a
+  use CgratesWebJsonapi.CsvImport, module: __MODULE__, attributes: @attributes
 
   schema "tp_rating_profiles" do
     field :tpid, :string
@@ -25,8 +25,7 @@ defmodule CgratesWebJsonapi.TpRatingProfile do
   """
   def changeset(struct, params \\ %{}) do
     struct
-    |> cast(params, [:tpid, :loadid, :direction, :tenant, :category, :subject, :activation_time, :rating_plan_tag,
-                     :fallback_subjects, :cdr_stat_queue_ids])
+    |> cast(params, @attributes )
     |> validate_required([:tpid, :loadid, :direction, :tenant, :category, :subject, :activation_time, :rating_plan_tag])
     |> validate_length(:tpid, max: 64)
     |> validate_length(:loadid, max: 64)

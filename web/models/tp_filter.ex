@@ -1,9 +1,8 @@
 defmodule CgratesWebJsonapi.TpFilter do
   use CgratesWebJsonapi.Web, :model
   use EctoConditionals, repo: CgratesWebJsonapi.Repo
-  use CgratesWebJsonapi.CsvImport, module: __MODULE__, attributes: ~w[tpid tenant custom_id filter_type
-                                                                      filter_field_name filter_field_values
-                                                                      activation_interval]a
+  @attributes ~w[tpid tenant custom_id filter_type filter_field_name filter_field_values activation_interval]a
+  use CgratesWebJsonapi.CsvImport, module: __MODULE__, attributes: @attributes
 
   def filter_types, do: ["*string", "*string_prefix", "*rsr_fields", "*destinations", "*gt", "*gte", "*lt", "*lte",
                          "*cdr_stats"]
@@ -27,8 +26,7 @@ defmodule CgratesWebJsonapi.TpFilter do
   """
   def changeset(struct, params \\ %{}) do
     struct
-    |> cast(params, [:tpid, :tenant, :custom_id, :filter_type, :filter_field_name, :filter_field_values,
-                     :activation_interval])
+    |> cast(params, @attributes)
     |> validate_required([:tpid, :tenant, :custom_id, :filter_type, :filter_field_values])
     |> validate_length(:tpid, max: 64)
     |> validate_length(:tenant, max: 64)

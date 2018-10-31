@@ -1,7 +1,8 @@
 defmodule CgratesWebJsonapi.TpDestination do
   use CgratesWebJsonapi.Web, :model
   use EctoConditionals, repo: CgratesWebJsonapi.Repo
-  use CgratesWebJsonapi.CsvImport, module: __MODULE__, attributes: ~w[tpid tag prefix]a
+  @attributes ~w[tpid tag prefix]a
+  use CgratesWebJsonapi.CsvImport, module: __MODULE__, attributes: @attributes
 
   schema "tp_destinations" do
     field :tpid, :string
@@ -22,8 +23,8 @@ defmodule CgratesWebJsonapi.TpDestination do
   """
   def changeset(struct, params \\ %{}) do
     struct
-    |> cast(params, [:tpid, :tag, :prefix])
-    |> validate_required([:tpid, :tag, :prefix])
+    |> cast(params, @attributes)
+    |> validate_required(@attributes)
     |> validate_length(:tag, max: 64)
     |> validate_length(:tpid, max: 64)
     |> validate_length(:prefix, max: 24)

@@ -25,6 +25,7 @@ defmodule CgratesWebJsonapi.TariffPlan do
     has_many :tp_suppliers, CgratesWebJsonapi.TpSupplier, foreign_key: :tpid, references: :alias,
       on_delete: :delete_all
     has_many :tp_timing, CgratesWebJsonapi.TpTiming, foreign_key: :tpid, references: :alias, on_delete: :delete_all
+    has_many :tp_threshold, CgratesWebJsonapi.TpThreshold, foreign_key: :tpid, references: :alias, on_delete: :delete_all
 
     timestamps()
   end

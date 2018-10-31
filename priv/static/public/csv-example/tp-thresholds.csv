@@ -1,0 +1,3 @@
+tenant,custom_id,max_hits,filter_ids,min_hits,activation_interval,min_sleep,action_ids,async,blocker,weight
+tenant1,cust1,10,id1,2,interval1,1,actid1,true,false,10
+tenant2,cust2,15,id2,3,interval2,2,actid2,false,true,8
