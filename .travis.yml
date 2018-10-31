@@ -11,4 +11,8 @@ addons:
     - postgresql-client-10
 env:
   global:
-  - PGPORT=5432
+    - PGPORT=5432
+    - PGDATABASE=cgrates_web_jsonapi_test
+    - PGUSER=postgres
+    - PGPASSWORD=''
+    - PGHOST=localhost
