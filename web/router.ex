@@ -68,6 +68,9 @@ defmodule CgratesWebJsonapi.Router do
     get "/tp-rating-profiles/export-to-csv", TpRatingProfileController,      :export_to_csv
     post "/tp-rating-profiles/delete_all",   TpRatingProfileController,      :delete_all
     resources "/tp-rating-profiles",        TpRatingProfileController,       except: [:new, :edit]
+    get "/tp-resources/export-to-csv",      TpResourceController,            :export_to_csv
+    post "/tp-resources/delete_all",        TpResourceController,            :delete_all
+    resources "/tp-resources",              TpResourceController,            except: [:new, :edit]
     resources "/tp-smart-rates",            TpSmartRateController,           only:   [:create]
     get "/tp-suppliers/export-to-csv",      TpSupplierController,            :export_to_csv
     post "/tp-suppliers/delete_all",        TpSupplierController,            :delete_all
@@ -90,6 +93,7 @@ defmodule CgratesWebJsonapi.Router do
     resources "/tp-lcr-rule-import-jobs", TpLcrRuleImportJobController, only: [:create]
     resources "/tp-rate-import-jobs", TpRateImportJobController, only: [:create]
     resources "/tp-rating-plan-import-jobs", TpRatingPlanImportJobController, only: [:create]
+    resources "/tp-resource-import-jobs", TpResourceImportJobController, only: [:create]
     resources "/tp-rating-profile-import-jobs", TpRatingProfileImportJobController, only: [:create]
     resources "/tp-supplier-import-jobs", TpSupplierImportJobController, only: [:create]
     resources "/tp-timing-import-jobs", TpTimingImportJobController, only: [:create]

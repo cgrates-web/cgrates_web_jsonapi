@@ -81,7 +81,7 @@ defmodule CgratesWebJsonapi.TpAliasControllerTest do
       t1 = insert :tp_alias, tpid: tariff_plan.alias
       t2 = insert :tp_alias, tpid: tariff_plan.alias
 
-      conn = get(conn, tp_alias_path(conn, :index, tpid: tariff_plan.alias), filter: %{target: t1.target})
+      conn = get(conn, tp_alias_path(conn, :index, tpid: tariff_plan.alias), filter: %{target_param: t1.target})
       |> doc
       assert length(json_response(conn, 200)["data"]) == 1
     end
