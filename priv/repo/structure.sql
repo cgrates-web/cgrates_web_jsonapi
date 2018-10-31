@@ -71,7 +71,6 @@ CREATE TABLE cdrs (
 --
 
 CREATE SEQUENCE cdrs_id_seq
-    AS integer
     START WITH 1
     INCREMENT BY 1
     NO MINVALUE
@@ -154,7 +153,6 @@ CREATE TABLE sessions_costs (
 --
 
 CREATE SEQUENCE sessions_costs_id_seq
-    AS integer
     START WITH 1
     INCREMENT BY 1
     NO MINVALUE
@@ -225,7 +223,6 @@ CREATE TABLE tp_account_actions (
 --
 
 CREATE SEQUENCE tp_account_actions_id_seq
-    AS integer
     START WITH 1
     INCREMENT BY 1
     NO MINVALUE
@@ -260,7 +257,6 @@ CREATE TABLE tp_action_plans (
 --
 
 CREATE SEQUENCE tp_action_plans_id_seq
-    AS integer
     START WITH 1
     INCREMENT BY 1
     NO MINVALUE
@@ -314,7 +310,6 @@ CREATE TABLE tp_action_triggers (
 --
 
 CREATE SEQUENCE tp_action_triggers_id_seq
-    AS integer
     START WITH 1
     INCREMENT BY 1
     NO MINVALUE
@@ -363,7 +358,6 @@ CREATE TABLE tp_actions (
 --
 
 CREATE SEQUENCE tp_actions_id_seq
-    AS integer
     START WITH 1
     INCREMENT BY 1
     NO MINVALUE
@@ -405,7 +399,6 @@ CREATE TABLE tp_aliases (
 --
 
 CREATE SEQUENCE tp_aliases_id_seq
-    AS integer
     START WITH 1
     INCREMENT BY 1
     NO MINVALUE
@@ -447,7 +440,6 @@ CREATE TABLE tp_attributes (
 --
 
 CREATE SEQUENCE tp_attributes_pk_seq
-    AS integer
     START WITH 1
     INCREMENT BY 1
     NO MINVALUE
@@ -503,7 +495,6 @@ CREATE TABLE tp_cdr_stats (
 --
 
 CREATE SEQUENCE tp_cdr_stats_id_seq
-    AS integer
     START WITH 1
     INCREMENT BY 1
     NO MINVALUE
@@ -541,7 +532,6 @@ CREATE TABLE tp_chargers (
 --
 
 CREATE SEQUENCE tp_chargers_pk_seq
-    AS integer
     START WITH 1
     INCREMENT BY 1
     NO MINVALUE
@@ -596,7 +586,6 @@ CREATE TABLE tp_derived_chargers (
 --
 
 CREATE SEQUENCE tp_derived_chargers_id_seq
-    AS integer
     START WITH 1
     INCREMENT BY 1
     NO MINVALUE
@@ -634,7 +623,6 @@ CREATE TABLE tp_destination_rates (
 --
 
 CREATE SEQUENCE tp_destination_rates_id_seq
-    AS integer
     START WITH 1
     INCREMENT BY 1
     NO MINVALUE
@@ -667,7 +655,6 @@ CREATE TABLE tp_destinations (
 --
 
 CREATE SEQUENCE tp_destinations_id_seq
-    AS integer
     START WITH 1
     INCREMENT BY 1
     NO MINVALUE
@@ -704,7 +691,6 @@ CREATE TABLE tp_filters (
 --
 
 CREATE SEQUENCE tp_filters_pk_seq
-    AS integer
     START WITH 1
     INCREMENT BY 1
     NO MINVALUE
@@ -746,7 +732,6 @@ CREATE TABLE tp_lcr_rules (
 --
 
 CREATE SEQUENCE tp_lcr_rules_id_seq
-    AS integer
     START WITH 1
     INCREMENT BY 1
     NO MINVALUE
@@ -783,7 +768,6 @@ CREATE TABLE tp_rates (
 --
 
 CREATE SEQUENCE tp_rates_id_seq
-    AS integer
     START WITH 1
     INCREMENT BY 1
     NO MINVALUE
@@ -818,7 +802,6 @@ CREATE TABLE tp_rating_plans (
 --
 
 CREATE SEQUENCE tp_rating_plans_id_seq
-    AS integer
     START WITH 1
     INCREMENT BY 1
     NO MINVALUE
@@ -858,7 +841,6 @@ CREATE TABLE tp_rating_profiles (
 --
 
 CREATE SEQUENCE tp_rating_profiles_id_seq
-    AS integer
     START WITH 1
     INCREMENT BY 1
     NO MINVALUE
@@ -900,7 +882,6 @@ CREATE TABLE tp_resources (
 --
 
 CREATE SEQUENCE tp_resources_pk_seq
-    AS integer
     START WITH 1
     INCREMENT BY 1
     NO MINVALUE
@@ -935,7 +916,6 @@ CREATE TABLE tp_shared_groups (
 --
 
 CREATE SEQUENCE tp_shared_groups_id_seq
-    AS integer
     START WITH 1
     INCREMENT BY 1
     NO MINVALUE
@@ -979,7 +959,6 @@ CREATE TABLE tp_stats (
 --
 
 CREATE SEQUENCE tp_stats_pk_seq
-    AS integer
     START WITH 1
     INCREMENT BY 1
     NO MINVALUE
@@ -1026,7 +1005,6 @@ CREATE TABLE tp_suppliers (
 --
 
 CREATE SEQUENCE tp_suppliers_pk_seq
-    AS integer
     START WITH 1
     INCREMENT BY 1
     NO MINVALUE
@@ -1068,7 +1046,6 @@ CREATE TABLE tp_thresholds (
 --
 
 CREATE SEQUENCE tp_thresholds_pk_seq
-    AS integer
     START WITH 1
     INCREMENT BY 1
     NO MINVALUE
@@ -1105,7 +1082,6 @@ CREATE TABLE tp_timings (
 --
 
 CREATE SEQUENCE tp_timings_id_seq
-    AS integer
     START WITH 1
     INCREMENT BY 1
     NO MINVALUE
@@ -1142,7 +1118,6 @@ CREATE TABLE tp_users (
 --
 
 CREATE SEQUENCE tp_users_id_seq
-    AS integer
     START WITH 1
     INCREMENT BY 1
     NO MINVALUE
@@ -1205,7 +1180,6 @@ CREATE TABLE versions (
 --
 
 CREATE SEQUENCE versions_id_seq
-    AS integer
     START WITH 1
     INCREMENT BY 1
     NO MINVALUE

@@ -4,17 +4,4 @@ elixir:
 services:
   - postgresql
 addons:
-  postgresql: "10"
-  apt:
-    packages:
-    - postgresql-10
-    - postgresql-client-10
-env:
-  global:
-    - PGPORT=5432
-    - PGDATABASE=cgrates_web_jsonapi_test
-    - PGUSER=postgres
-    - PGPASSWORD=''
-    - PGHOST=localhost
-before_script:
-  - psql -c 'create database travis_ci_test;' -U postgres
+  postgresql: "9.6"
