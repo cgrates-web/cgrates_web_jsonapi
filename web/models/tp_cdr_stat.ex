@@ -8,7 +8,7 @@ defmodule CgratesWebJsonapi.TpCdrStat do
 
   use CgratesWebJsonapi.CsvImport, module: __MODULE__, attributes: @attributes
 
-  def metrics, do: ["*ACC", "*ACD", "*ASR", "*PDD", "*TCD", "*TCD"]
+  def metrics, do: ["ACC", "ACD", "ASR", "PDD", "TCC", "TCD"]
 
   schema "tp_cdr_stats" do
     field :tpid, :string

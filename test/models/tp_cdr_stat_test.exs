@@ -6,7 +6,7 @@ defmodule CgratesWebJsonapi.TpCdrStatTest do
   import CgratesWebJsonapi.Factory
 
   @valid_attrs %{tpid: "some content", tag: "some content", queue_length: "some content",
-                 time_window: "cont", save_interval: "cont", metrics: "*ACC", action_triggers: "some content",
+                 time_window: "cont", save_interval: "cont", metrics: "ACC", action_triggers: "some content",
                  setup_interval: "some content", tors: "some content", cdr_hosts: "some content",
                  cdr_sources: "some content", req_types: "some content", directions: "cont",
                  tenants: "some content", categories: "some content", accounts: "some content",
@@ -49,7 +49,7 @@ defmodule CgratesWebJsonapi.TpCdrStatTest do
         tag: "cdrstatid55",
         time_window: "tw1",
         save_interval: "si1",
-        metrics: "*ASR",
+        metrics: "ASR",
         setup_interval: "setint1",
         tors: "tors1",
         cdr_hosts: "ch1",

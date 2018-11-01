@@ -120,7 +120,7 @@ defmodule CgratesWebJsonapi.Factory do
       tag: Faker.UUID.v4(),
       time_window: "window",
       save_interval: "si1",
-      metrics: "*ACC",
+      metrics: "ACC",
       setup_interval: Faker.Pokemon.name,
       tors: Faker.Beer.name,
       cdr_hosts: Faker.Pokemon.name,

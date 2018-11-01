@@ -78,8 +78,8 @@ defmodule CgratesWebJsonapi.TpCdrStatControllerTest do
     test "filtering by metrics", %{conn: conn} do
       tariff_plan = insert :tariff_plan
 
-      t1 = insert :tp_cdr_stat, tpid: tariff_plan.alias, metrics: "*ACC"
-      t2 = insert :tp_cdr_stat, tpid: tariff_plan.alias, metrics: "*ASR"
+      t1 = insert :tp_cdr_stat, tpid: tariff_plan.alias, metrics: "ACC"
+      t2 = insert :tp_cdr_stat, tpid: tariff_plan.alias, metrics: "ASR"
 
       conn = get(conn, tp_cdr_stat_path(conn, :index, tpid: tariff_plan.alias), filter: %{metrics: t1.metrics})
       |> doc

@@ -1,3 +1,3 @@
 tag,queue_length,time_window,save_interval,metrics,setup_interval,tors,cdr_hosts,cdr_sources,req_types,directions,tenants,categories,accounts,subjects,destination_ids,pdd_interval,usage_interval,suppliers,disconnect_causes,mediation_runids,rated_accounts,rated_subjects,cost_interval,action_triggers
-cdrstatid55,5,tw1,si1,*ASR,setint1,tors1,ch1,cs1,rt1,d1,t1,c1,a1,s1,d86ui,pi1,ui1,s1,dc1,mr1,ra1,rs1,ci1,at1
-cdrstatid22,4,tw2,si2,*ACC,setint2,tors2,ch2,cs2,rt2,d2,t2,c2,a2,s2,d53ol,pi2,ui2,s2,dc2,mr2,ra2,rs2,ci2,at2
+cdrstatid55,5,tw1,si1,ASR,setint1,tors1,ch1,cs1,rt1,d1,t1,c1,a1,s1,d86ui,pi1,ui1,s1,dc1,mr1,ra1,rs1,ci1,at1
+cdrstatid22,4,tw2,si2,ACC,setint2,tors2,ch2,cs2,rt2,d2,t2,c2,a2,s2,d53ol,pi2,ui2,s2,dc2,mr2,ra2,rs2,ci2,at2
