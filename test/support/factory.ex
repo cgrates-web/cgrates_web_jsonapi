@@ -115,6 +115,36 @@ defmodule CgratesWebJsonapi.Factory do
     }
   end
 
+  def tp_cdr_stat_factory do
+    %CgratesWebJsonapi.TpCdrStat{
+      tag: Faker.UUID.v4(),
+      time_window: "window",
+      save_interval: "si1",
+      metrics: "*ACC",
+      setup_interval: Faker.Pokemon.name,
+      tors: Faker.Beer.name,
+      cdr_hosts: Faker.Pokemon.name,
+      cdr_sources: Faker.Pokemon.name,
+      req_types: Faker.Beer.name,
+      directions: "d1, d2",
+      tenants: "t1, t2",
+      categories: "c1, c2",
+      accounts: "a1, a2",
+      subjects: "s1, s2",
+      destination_ids: "d1, d2",
+      pdd_interval: Faker.Beer.name,
+      usage_interval:  Faker.Beer.name,
+      suppliers: "s1, s2",
+      disconnect_causes: Faker.Beer.name,
+      mediation_runids: "id1, id2",
+      rated_accounts: "a1, a2",
+      rated_subjects: "s1, s2",
+      cost_interval:  "interval1",
+      action_triggers:  Faker.Beer.name,
+      queue_length: 3
+    }
+  end
+
   def tp_destination_factory do
     %CgratesWebJsonapi.TpDestination{
       prefix: "+44",
