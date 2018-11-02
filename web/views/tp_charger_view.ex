@@ -4,5 +4,5 @@ defmodule CgratesWebJsonapi.TpChargerView do
 
   attributes ~w[id tpid tenant custom_id attribute_ids filter_ids run_id activation_interval weight]a
 
-  def id(filter), do: filter.pk
+  def id(charger), do: charger.pk
 end
