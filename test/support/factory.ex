@@ -173,6 +173,35 @@ defmodule CgratesWebJsonapi.Factory do
     }
   end
 
+  def tp_derived_charger_factory do
+    %CgratesWebJsonapi.TpDerivedCharger{
+      loadid: Faker.Pokemon.name,
+      direction: "d1",
+      tenant: Faker.Pokemon.name,
+      category: Faker.Pokemon.name,
+      account: Faker.Pokemon.name,
+      subject: Faker.Pokemon.name,
+      destination_ids: Faker.Pokemon.name,
+      runid: Faker.Pokemon.name,
+      run_filters: Faker.Pokemon.name,
+      req_type_field: Faker.Pokemon.name,
+      direction_field: Faker.Beer.name,
+      tenant_field: Faker.Beer.name,
+      category_field: Faker.Beer.name,
+      account_field: Faker.Beer.name,
+      subject_field: Faker.Beer.name,
+      destination_field: Faker.Beer.name,
+      setup_time_field: Faker.Beer.name,
+      pdd_field: Faker.Beer.name,
+      answer_time_field: Faker.Beer.name,
+      usage_field: Faker.Beer.name,
+      supplier_field: Faker.Beer.name,
+      disconnect_cause_field: Faker.Beer.name,
+      rated_field: Faker.Beer.name,
+      cost_field: Faker.Beer.name
+    }
+  end
+
   def tp_destination_factory do
     %CgratesWebJsonapi.TpDestination{
       prefix: "+44",
