@@ -32,6 +32,8 @@ defmodule CgratesWebJsonapi.TpAction do
 
     has_many :tp_action_plans, CgratesWebJsonapi.TpActionPlan, foreign_key: :actions_tag, references: :tag,
       on_delete: :delete_all
+    has_many :tp_action_triggers, CgratesWebJsonapi.TpActionTrigger, foreign_key: :actions_tag, references: :tag,
+      on_delete: :delete_all
   end
 
   @doc """

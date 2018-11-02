@@ -43,6 +43,9 @@ defmodule CgratesWebJsonapi.Router do
     get "/tp-action-plans/export-to-csv",   TpActionPlanController,          :export_to_csv
     post "/tp-action-plans/delete_all",     TpActionPlanController,          :delete_all
     resources "/tp-action-plans",           TpActionPlanController,          except: [:new, :edit]
+    get "/tp-action-triggers/export-to-csv", TpActionTriggerController,      :export_to_csv
+    post "/tp-action-triggers/delete_all",  TpActionTriggerController,       :delete_all
+    resources "/tp-action-triggers",        TpActionTriggerController,        except: [:new, :edit]
     get "/tp-aliases/export-to-csv",        TpAliasController,               :export_to_csv
     post "/tp-aliases/delete_all",          TpAliasController,               :delete_all
     resources "/tp-aliases",                TpAliasController,               except: [:new, :edit]
@@ -95,6 +98,7 @@ defmodule CgratesWebJsonapi.Router do
     resources "/raw-supplier-rate-import-jobs", RawSupplierRateImportJobController, only: [:create]
     resources "/tp-action-import-jobs", TpActionImportJobController, only: [:create]
     resources "/tp-action-plan-import-jobs", TpActionPlanImportJobController, only: [:create]
+    resources "/tp-action-trigger-import-jobs", TpActionTriggerImportJobController, only: [:create]
     resources "/tp-alias-import-jobs", TpAliasImportJobController, only: [:create]
     resources "/tp-attribute-import-jobs", TpAttributeImportJobController, only: [:create]
     resources "/tp-cdr-stat-import-jobs", TpCdrStatImportJobController, only: [:create]

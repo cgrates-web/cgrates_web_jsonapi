@@ -82,6 +82,34 @@ defmodule CgratesWebJsonapi.Factory do
     }
   end
 
+  def tp_action_trigger_factory do
+    %CgratesWebJsonapi.TpActionTrigger{
+      tag: Faker.UUID.v4(),
+      unique_id: Faker.UUID.v4(),
+      actions_tag: Faker.UUID.v4(),
+      balance_tag: "MONETARY",
+      balance_type: "*monetary",
+      balance_directions: "*out",
+      threshold_type: "*min_counter",
+      threshold_value: 4.0,
+      min_sleep: Faker.Pokemon.name,
+      activation_time: "30s",
+      expiry_time: "10s",
+      balance_expiry_time: "20s",
+      balance_timing_tags: "TIMING_1, TIMING_2",
+      balance_destination_tags: "DST_1, DST_2",
+      balance_rating_subject: Faker.Pokemon.name,
+      balance_categories: "cat1, cat2",
+      balance_shared_groups: "xz",
+      balance_weight: "100",
+      balance_blocker: "false",
+      balance_disabled: "false",
+      min_queued_items: 1,
+      recurrent: false,
+      weight: 10.0
+    }
+  end
+
   def tp_alias_factory do
     %CgratesWebJsonapi.TpAlias{
       alias: Faker.Pokemon.name,
