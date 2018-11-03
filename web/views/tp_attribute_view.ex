@@ -5,5 +5,5 @@ defmodule CgratesWebJsonapi.TpAttributeView do
   attributes ~w[id tpid tenant custom_id contexts filter_ids initial
                 activation_interval field_name substitute append blocker weight]a
 
-  def id(filter), do: filter.pk
+  def id(attribute), do: attribute.pk
 end
