@@ -50,6 +50,18 @@ defmodule CgratesWebJsonapi.Factory do
     }
   end
 
+  def tp_account_action_factory do
+    %CgratesWebJsonapi.TpAccountAction{
+      loadid: Faker.UUID.v4(),
+      action_plan_tag: Faker.UUID.v4(),
+      tenant: Faker.Beer.name,
+      account: Faker.Pokemon.name,
+      action_triggers_tag: Faker.UUID.v4(),
+      allow_negative: true,
+      disabled: false
+    }
+  end
+
   def tp_action_factory do
     %CgratesWebJsonapi.TpAction{
       tag: Faker.UUID.v4(),

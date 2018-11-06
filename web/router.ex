@@ -37,6 +37,9 @@ defmodule CgratesWebJsonapi.Router do
     post "/raw-supplier-rates/delete_all",  RawSupplierRateController,       :delete_all
     resources "/raw-supplier-resolve-jobs", RawSupplierResolveJobController, expect: [:new]
     resources "/tariff-plans",              TariffPlanController,            except: [:new, :edit]
+    get "/tp-account-actions/export-to-csv", TpAccountActionController,      :export_to_csv
+    post "/tp-account-actions/delete_all",   TpAccountActionController,      :delete_all
+    resources "/tp-account-actions",         TpAccountActionController,      except: [:new, :edit]
     get "/tp-actions/export-to-csv",        TpActionController,              :export_to_csv
     post "/tp-actions/delete_all",          TpActionController,              :delete_all
     resources "/tp-actions",                TpActionController,              except: [:new, :edit]
@@ -102,6 +105,7 @@ defmodule CgratesWebJsonapi.Router do
   scope "/uploaders", CgratesWebJsonapi do
     resources "/tp-smart-rate-import-jobs", TpSmartRateImportJobController, only: [:create]
     resources "/raw-supplier-rate-import-jobs", RawSupplierRateImportJobController, only: [:create]
+    resources "/tp-account-action-import-jobs", TpAccountActionImportJobController, only: [:create]
     resources "/tp-action-import-jobs", TpActionImportJobController, only: [:create]
     resources "/tp-action-plan-import-jobs", TpActionPlanImportJobController, only: [:create]
     resources "/tp-action-trigger-import-jobs", TpActionTriggerImportJobController, only: [:create]

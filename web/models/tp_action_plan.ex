@@ -13,6 +13,9 @@ defmodule CgratesWebJsonapi.TpActionPlan do
     field :weight, :decimal
 
     field :created_at, :naive_datetime
+
+    has_many :tp_account_actions, CgratesWebJsonapi.TpAccountAction, foreign_key: :action_plan_tag, references: :tag,
+      on_delete: :delete_all
   end
 
   @doc """
