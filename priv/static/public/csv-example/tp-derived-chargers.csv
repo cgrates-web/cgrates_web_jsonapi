@@ -1,0 +1,2 @@
+loadid,direction,tenant,category,account,subject,destination_ids,runid,run_filters,req_type_field,direction_field,tenant_field,category_field,account_field,subject_field,destination_field,setup_time_field,pdd_field,answer_time_field,usage_field,supplier_field,disconnect_cause_field,rated_field,cost_field
+loadid1,d1,t1,c1,a1,s1,dst_1,runid1,filter1,rtf1,df1,tf1,cf1,af1,sf1,df1,stf1,pf1,atf1,uf1,sf1,dcf1,rf1,cf1

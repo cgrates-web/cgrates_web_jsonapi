@@ -59,9 +59,12 @@ defmodule CgratesWebJsonapi.Router do
     get "/tp-cdr-stats/export-to-csv",      TpCdrStatController,             :export_to_csv
     post "/tp-cdr-stats/delete_all",        TpCdrStatController,             :delete_all
     resources "/tp-cdr-stats",              TpCdrStatController,             except: [:new, :edit]
-    get "/tp-destinations/export-to-csv",  TpDestinationController,         :export_to_csv
-    post "/tp-destinations/delete_all",    TpDestinationController,         :delete_all
-    resources "/tp-destinations",           TpDestinationController,         except: [:new, :edit]
+    get "/tp-derived-chargers/export-to-csv", TpDerivedChargerController,     :export_to_csv
+    post "/tp-derived-chargers/delete_all",   TpDerivedChargerController,     :delete_all
+    resources "/tp-derived-chargers",         TpDerivedChargerController,     except: [:new, :edit]
+    get "/tp-destinations/export-to-csv",  TpDestinationController,          :export_to_csv
+    post "/tp-destinations/delete_all",    TpDestinationController,          :delete_all
+    resources "/tp-destinations",          TpDestinationController,          except: [:new, :edit]
     get "/tp-destination-rates/export-to-csv",  TpDestinationRateController, :export_to_csv
     post "/tp-destination-rates/delete_all",    TpDestinationRateController, :delete_all
     resources "/tp-destination-rates",      TpDestinationRateController,     except: [:new, :edit]
@@ -106,6 +109,7 @@ defmodule CgratesWebJsonapi.Router do
     resources "/tp-attribute-import-jobs", TpAttributeImportJobController, only: [:create]
     resources "/tp-charger-import-jobs", TpChargerImportJobController, only: [:create]
     resources "/tp-cdr-stat-import-jobs", TpCdrStatImportJobController, only: [:create]
+    resources "/tp-derived-charger-import-jobs", TpDerivedChargerImportJobController, only: [:create]
     resources "/tp-destination-import-jobs", TpDestinationImportJobController, only: [:create]
     resources "/tp-destination-rate-import-jobs", TpDestinationRateImportJobController, only: [:create]
     resources "/tp-filter-import-jobs", TpFilterImportJobController, only: [:create]
