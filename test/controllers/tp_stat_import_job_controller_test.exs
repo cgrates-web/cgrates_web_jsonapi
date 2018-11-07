@@ -1,4 +1,4 @@
-defmodule CgratesWebJsonapi.TpRateImportJobControllerTest do
+defmodule CgratesWebJsonapi.TpStatImportJobControllerTest do
   use CgratesWebJsonapi.ConnCase
   import CgratesWebJsonapi.Factory
 
@@ -19,13 +19,13 @@ defmodule CgratesWebJsonapi.TpRateImportJobControllerTest do
   describe "POST create" do
     test "creates resource imported from csv file", %{conn: conn} do
       tariff_plan = insert :tariff_plan
-      path = Path.expand("../fixtures/csv/tp-rates.csv", __DIR__)
-      csv = %Plug.Upload{path: path, filename: "tp-rates.csv"}
+      path = Path.expand("../fixtures/csv/tp-stats.csv", __DIR__)
+      csv = %Plug.Upload{path: path, filename: "tp-stats.csv"}
 
-      conn = post(conn, tp_rate_import_job_path(conn, :create), %{
+      conn = post(conn, tp_stat_import_job_path(conn, :create), %{
         "meta" => %{},
         "data" => %{
-          "type" => "tp_rate_import_job",
+          "type" => "tp_stat_import_job",
           "attributes" => %{"tpid" => tariff_plan.alias, "csv" => csv},
         }
       }) |> doc()
