@@ -1,0 +1,2 @@
+loadid,tenant,account,action_plan_tag,action_triggers_tag,allow_negative,disabled
+loadid1,t1,ac1,apt1,att1,false,false
