@@ -311,6 +311,16 @@ end
     }
   end
 
+  def tp_shared_group_factory do
+    %CgratesWebJsonapi.TpSharedGroup{
+      tpid: Faker.UUID.v4(),
+      tag: Faker.UUID.v4(),
+      account: Faker.Beer.name,
+      strategy: Faker.Pokemon.name,
+      rating_subject: Faker.Pokemon.name
+    }
+  end
+
   def tp_supplier_factory do
     %CgratesWebJsonapi.TpSupplier{
       tpid: Faker.Beer.name,
