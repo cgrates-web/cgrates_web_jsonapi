@@ -345,6 +345,25 @@ end
     }
   end
 
+  def tp_stat_factory do
+    %CgratesWebJsonapi.TpStat{
+      tpid: Faker.UUID.v4(),
+      tenant: Faker.Beer.name,
+      filter_ids: Faker.Pokemon.name,
+      queue_length: 5,
+      blocker: true,
+      weight: 10,
+      activation_interval: Faker.Pokemon.name,
+      custom_id: Faker.Pokemon.name,
+      ttl: Faker.Pokemon.name,
+      metrics: Faker.Beer.name,
+      parameters: Faker.Pokemon.name,
+      stored: false,
+      min_items: 1,
+      threshold_ids: Faker.UUID.v4()
+    }
+  end
+
   def tp_threshold_factory do
   %CgratesWebJsonapi.TpThreshold{
     tenant: Faker.Beer.name,
