@@ -14,6 +14,8 @@ defmodule CgratesWebJsonapi do
       supervisor(CgratesWebJsonapi.Endpoint, []),
       # Start your own worker by calling: CgratesWebJsonapi.Worker.start_link(arg1, arg2, arg3)
       # worker(CgratesWebJsonapi.Worker, [arg1, arg2, arg3]),
+      supervisor(CgratesWebJsonapi.RawSupplierRate.ResolverRegistrySupervisor, []),
+      supervisor(Registry, [:unique, :raw_rate_resolver], id: :raw_rate_resolver),
     ]
 
     # See http://elixir-lang.org/docs/stable/elixir/Supervisor.html
