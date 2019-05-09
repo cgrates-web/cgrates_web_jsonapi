@@ -3,8 +3,9 @@ defmodule CgratesWebJsonapi.UserNotificationChannel do
   alias CgratesWebJsonapi.RawSupplierRate.ResolverRegistry
 
 
-  def join("notification:" <> tp_id, _payload, socket) do
-    {:ok, "Check:#{tp_id}", socket}
+  # def join("notification:", _payload, socket) do
+  def join(socket) do
+    {:ok, socket}
   end
 
   # # Channels can be used in a request/response fashion
@@ -20,13 +21,13 @@ defmodule CgratesWebJsonapi.UserNotificationChannel do
   #   {:noreply, socket}
   # end
 
-  def handle_in("ResolverRegistry.start_link(tp_id)", state, socket) do
+  def handle_in(state, socket, tp_id) do
     if (ResolverRegistry.start_link(tp_id) == :ok) do
       {:reply, {:ok, state}, socket}
     end
   end
 
-  def handle_out("new_notification", state, socket) do
+  def handle_out(state, socket, tp_id) do
     if (ResolverRegistry.state(tp_id) == :finished) do
       {:reply, {:ok, state}, socket}
     end
