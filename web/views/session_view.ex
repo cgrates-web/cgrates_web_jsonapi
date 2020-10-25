@@ -3,7 +3,7 @@ defmodule CgratesWebJsonapi.SessionView do
 
   def render("login.json", %{user: user, jwt: jwt, exp: exp}) do
      %{
-       token: jwt,
+       access_token: jwt,
        expire: exp,
        user: CgratesWebJsonapi.UserView |> JaSerializer.format(user) |> Poison.encode!
      }
