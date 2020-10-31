@@ -1,3 +1,0 @@
-strategy_params,direction,tenant,category,account,subject,destination_tag,rp_category,strategy,weight,activation_time
-,*in,tenant_1,call,account_1,subj_1,dest_1por5,rpcat_1,*static,10,2018-10-10
-,*out,tenant_2,call,account_2,subj_2,dest_2qwa3,rpcat_2,*highest_cost,10,2018-09-09

@@ -122,21 +122,6 @@ defmodule CgratesWebJsonapi.Factory do
     }
   end
 
-  def tp_alias_factory do
-    %CgratesWebJsonapi.TpAlias{
-      alias: Faker.Pokemon.name,
-      context: Faker.Pokemon.name,
-      subject: Faker.Pokemon.name,
-      account: Faker.Pokemon.name,
-      tenant: Faker.Pokemon.name,
-      category: Faker.Pokemon.name,
-      original: Faker.Pokemon.name,
-      target: Faker.Pokemon.name,
-      direction: "direct",
-      destination_id: Faker.UUID.v4(),
-      weight: 10.0
-    }
-  end
 
   def tp_attribute_factory do
     %CgratesWebJsonapi.TpAttribute{
@@ -155,73 +140,14 @@ defmodule CgratesWebJsonapi.Factory do
     }
   end
   def tp_charger_factory do
-  %CgratesWebJsonapi.TpCharger{
-    tenant: Faker.Beer.name,
-    custom_id: Faker.Pokemon.name,
-    filter_ids: Faker.Pokemon.name,
-    attribute_ids: Faker.Beer.name,
-    run_id: Faker.Pokemon.name,
-    activation_interval: Faker.Beer.name,
-    weight: 10.0
-  }
-end
-
-  def tp_cdr_stat_factory do
-    %CgratesWebJsonapi.TpCdrStat{
-      tag: Faker.UUID.v4(),
-      time_window: "window",
-      save_interval: "si1",
-      metrics: "ACC",
-      setup_interval: Faker.Pokemon.name,
-      tors: Faker.Beer.name,
-      cdr_hosts: Faker.Pokemon.name,
-      cdr_sources: Faker.Pokemon.name,
-      req_types: Faker.Beer.name,
-      directions: "d1, d2",
-      tenants: "t1, t2",
-      categories: "c1, c2",
-      accounts: "a1, a2",
-      subjects: "s1, s2",
-      destination_ids: "d1, d2",
-      pdd_interval: Faker.Beer.name,
-      usage_interval:  Faker.Beer.name,
-      suppliers: "s1, s2",
-      disconnect_causes: Faker.Beer.name,
-      mediation_runids: "id1, id2",
-      rated_accounts: "a1, a2",
-      rated_subjects: "s1, s2",
-      cost_interval:  "interval1",
-      action_triggers:  Faker.Beer.name,
-      queue_length: 3
-    }
-  end
-
-  def tp_derived_charger_factory do
-    %CgratesWebJsonapi.TpDerivedCharger{
-      loadid: Faker.Pokemon.name,
-      direction: "d1",
-      tenant: Faker.Pokemon.name,
-      category: Faker.Pokemon.name,
-      account: Faker.Pokemon.name,
-      subject: Faker.Pokemon.name,
-      destination_ids: Faker.Pokemon.name,
-      runid: Faker.Pokemon.name,
-      run_filters: Faker.Pokemon.name,
-      req_type_field: Faker.Pokemon.name,
-      direction_field: Faker.Beer.name,
-      tenant_field: Faker.Beer.name,
-      category_field: Faker.Beer.name,
-      account_field: Faker.Beer.name,
-      subject_field: Faker.Beer.name,
-      destination_field: Faker.Beer.name,
-      setup_time_field: Faker.Beer.name,
-      pdd_field: Faker.Beer.name,
-      answer_time_field: Faker.Beer.name,
-      usage_field: Faker.Beer.name,
-      supplier_field: Faker.Beer.name,
-      disconnect_cause_field: Faker.Beer.name,
-      rated_field: Faker.Beer.name,
-      cost_field: Faker.Beer.name
+    %CgratesWebJsonapi.TpCharger{
+      tenant: Faker.Beer.name,
+      custom_id: Faker.Pokemon.name,
+      filter_ids: Faker.Pokemon.name,
+      attribute_ids: Faker.Beer.name,
+      run_id: Faker.Pokemon.name,
+      activation_interval: Faker.Beer.name,
+      weight: 10.0
     }
   end
 
@@ -252,22 +178,6 @@ end
       tenant: Faker.Pokemon.name,
       custom_id: Faker.Pokemon.name,
       tpid: Faker.Pokemon.name
-    }
-  end
-
-  def tp_lcr_rule_factory do
-    %CgratesWebJsonapi.TpLcrRule{
-      tpid: Faker.Pokemon.name,
-      direction: "*out",
-      tenant: Faker.Pokemon.name,
-      category: "call",
-      account: Faker.Pokemon.name,
-      subject: Faker.Pokemon.name,
-      destination_tag: Faker.Pokemon.name,
-      rp_category: Faker.Pokemon.name,
-      strategy: "*static",
-      activation_time: "2017-11-11",
-      weight: 10
     }
   end
 
@@ -330,18 +240,6 @@ end
       account: Faker.Beer.name,
       strategy: Faker.Pokemon.name,
       rating_subject: Faker.Pokemon.name
-    }
-  end
-
-  def tp_supplier_factory do
-    %CgratesWebJsonapi.TpSupplier{
-      tpid: Faker.Beer.name,
-      tenant: Faker.Beer.name,
-      supplier_id: Faker.Pokemon.name,
-      supplier_weight: 100,
-      supplier_blocker: true,
-      weight: 100,
-      custom_id: Faker.Pokemon.name
     }
   end
 

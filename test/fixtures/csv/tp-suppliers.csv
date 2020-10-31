@@ -1,3 +1,0 @@
-filter_ids,activation_interval,sorting,sorting_parameters,supplier_account_ids,supplier_ratingplan_ids,supplier_resource_ids,supplier_stat_ids,supplier_parameters,supplier_filter_ids,supplier_blocker,supplier_id,tenant,custom_id,weight,supplier_weight
-,,,,,,,,,,true,sid7612,tenant1,cust1,10,10
-,,,,,,,,,,false,sid1109,tenant2,cust2,9,10

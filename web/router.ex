@@ -49,9 +49,6 @@ defmodule CgratesWebJsonapi.Router do
     get "/tp-action-triggers/export-to-csv", TpActionTriggerController,      :export_to_csv
     post "/tp-action-triggers/delete_all",  TpActionTriggerController,       :delete_all
     resources "/tp-action-triggers",        TpActionTriggerController,        except: [:new, :edit]
-    get "/tp-aliases/export-to-csv",        TpAliasController,               :export_to_csv
-    post "/tp-aliases/delete_all",          TpAliasController,               :delete_all
-    resources "/tp-aliases",                TpAliasController,               except: [:new, :edit]
     get "/tp-attributes/export-to-csv",     TpAttributeController,           :export_to_csv
     post "/tp-attributes/delete_all",       TpAttributeController,           :delete_all
     resources "/tp-attributes",             TpAttributeController,           except: [:new, :edit]
@@ -59,12 +56,6 @@ defmodule CgratesWebJsonapi.Router do
     get "/tp-chargers/export-to-csv",       TpChargerController,             :export_to_csv
     post "/tp-chargers/delete_all",         TpChargerController,             :delete_all
     resources "/tp-chargers",               TpChargerController,             except: [:new, :edit]
-    get "/tp-cdr-stats/export-to-csv",      TpCdrStatController,             :export_to_csv
-    post "/tp-cdr-stats/delete_all",        TpCdrStatController,             :delete_all
-    resources "/tp-cdr-stats",              TpCdrStatController,             except: [:new, :edit]
-    get "/tp-derived-chargers/export-to-csv", TpDerivedChargerController,     :export_to_csv
-    post "/tp-derived-chargers/delete_all",   TpDerivedChargerController,     :delete_all
-    resources "/tp-derived-chargers",         TpDerivedChargerController,     except: [:new, :edit]
     get "/tp-destinations/export-to-csv",  TpDestinationController,          :export_to_csv
     post "/tp-destinations/delete_all",    TpDestinationController,          :delete_all
     resources "/tp-destinations",          TpDestinationController,          except: [:new, :edit]
@@ -74,9 +65,6 @@ defmodule CgratesWebJsonapi.Router do
     get "/tp-filters/export-to-csv",        TpFilterController,              :export_to_csv
     post "/tp-filters/delete_all",          TpFilterController,              :delete_all
     resources "/tp-filters",                TpFilterController,              except: [:new, :edit]
-    get "/tp-lcr-rules/export-to-csv",      TpLcrRuleController,             :export_to_csv
-    post "/tp-lcr-rules/delete_all",        TpLcrRuleController,             :delete_all
-    resources "/tp-lcr-rules",              TpLcrRuleController,             except: [:new, :edit]
     get "/tp-rates/export-to-csv",          TpRateController,                :export_to_csv
     post "/tp-rates/delete_all",            TpRateController,                :delete_all
     resources "/tp-rates",                  TpRateController,                except: [:new, :edit]
@@ -93,9 +81,6 @@ defmodule CgratesWebJsonapi.Router do
     post "/tp-shared-groups/delete_all",    TpSharedGroupController,        :delete_all
     resources "/tp-shared-groups",          TpSharedGroupController,        except: [:new, :edit]
     resources "/tp-smart-rates",            TpSmartRateController,           only:   [:create]
-    get "/tp-suppliers/export-to-csv",      TpSupplierController,            :export_to_csv
-    post "/tp-suppliers/delete_all",        TpSupplierController,            :delete_all
-    resources "/tp-suppliers",              TpSupplierController,            except: [:new, :edit]
     get "/tp-stats/export-to-csv",          TpStatController,                :export_to_csv
     post "/tp-stats/delete_all",            TpStatController,                :delete_all
     resources "/tp-stats",                  TpStatController,                except: [:new, :edit]
@@ -115,21 +100,16 @@ defmodule CgratesWebJsonapi.Router do
     resources "/tp-action-import-jobs", TpActionImportJobController, only: [:create]
     resources "/tp-action-plan-import-jobs", TpActionPlanImportJobController, only: [:create]
     resources "/tp-action-trigger-import-jobs", TpActionTriggerImportJobController, only: [:create]
-    resources "/tp-alias-import-jobs", TpAliasImportJobController, only: [:create]
     resources "/tp-attribute-import-jobs", TpAttributeImportJobController, only: [:create]
     resources "/tp-charger-import-jobs", TpChargerImportJobController, only: [:create]
-    resources "/tp-cdr-stat-import-jobs", TpCdrStatImportJobController, only: [:create]
-    resources "/tp-derived-charger-import-jobs", TpDerivedChargerImportJobController, only: [:create]
     resources "/tp-destination-import-jobs", TpDestinationImportJobController, only: [:create]
     resources "/tp-destination-rate-import-jobs", TpDestinationRateImportJobController, only: [:create]
     resources "/tp-filter-import-jobs", TpFilterImportJobController, only: [:create]
-    resources "/tp-lcr-rule-import-jobs", TpLcrRuleImportJobController, only: [:create]
     resources "/tp-rate-import-jobs", TpRateImportJobController, only: [:create]
     resources "/tp-rating-plan-import-jobs", TpRatingPlanImportJobController, only: [:create]
     resources "/tp-resource-import-jobs", TpResourceImportJobController, only: [:create]
     resources "/tp-rating-profile-import-jobs", TpRatingProfileImportJobController, only: [:create]
     resources "/tp-shared-group-import-jobs", TpSharedGroupImportJobController, only: [:create]
-    resources "/tp-supplier-import-jobs", TpSupplierImportJobController, only: [:create]
     resources "/tp-stat-import-jobs", TpStatImportJobController, only: [:create]
     resources "/tp-threshold-import-jobs", TpThresholdImportJobController, only: [:create]
     resources "/tp-timing-import-jobs", TpTimingImportJobController, only: [:create]
