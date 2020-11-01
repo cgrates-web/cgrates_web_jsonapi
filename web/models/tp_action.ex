@@ -1,7 +1,7 @@
 defmodule CgratesWebJsonapi.TpAction do
   use CgratesWebJsonapi.Web, :model
   use EctoConditionals, repo: CgratesWebJsonapi.Repo
-  @attributes ~w[tpid tag action balance_tag balance_type directions units expiry_time timing_tags
+  @attributes ~w[tpid tag action balance_tag balance_type units expiry_time timing_tags
                  destination_tags rating_subject categories shared_groups balance_weight balance_blocker
                  balance_disabled extra_parameters filter weight]a
 
@@ -13,7 +13,6 @@ defmodule CgratesWebJsonapi.TpAction do
     field :action, :string
     field :balance_tag, :string
     field :balance_type, :string
-    field :directions, :string
     field :units, :string
     field :expiry_time, :string
     field :timing_tags, :string
@@ -48,7 +47,6 @@ defmodule CgratesWebJsonapi.TpAction do
     |> validate_length(:action, max: 24)
     |> validate_length(:balance_tag, max: 64)
     |> validate_length(:balance_type, max: 24)
-    |> validate_length(:directions, max: 8)
     |> validate_length(:expiry_time, max: 24)
     |> validate_length(:timing_tags, max: 128)
     |> validate_length(:destination_tags, max: 64)

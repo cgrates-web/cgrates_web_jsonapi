@@ -43,17 +43,6 @@ defmodule CgratesWebJsonapi.TpActionControllerTest do
       assert length(json_response(conn, 200)["data"]) == 1
     end
 
-    test "filtering by directions", %{conn: conn} do
-      tariff_plan = insert :tariff_plan
-
-      t1 = insert :tp_action, tpid: tariff_plan.alias, directions: "up"
-      t2 = insert :tp_action, tpid: tariff_plan.alias, directions: "down"
-
-      conn = get(conn, tp_action_path(conn, :index, tpid: tariff_plan.alias), filter: %{directions: t1.directions})
-      |> doc
-      assert length(json_response(conn, 200)["data"]) == 1
-    end
-
     test "filtering by action", %{conn: conn} do
       tariff_plan = insert :tariff_plan
 
@@ -224,7 +213,6 @@ defmodule CgratesWebJsonapi.TpActionControllerTest do
       assert data["attributes"]["action"] == tp_action.action
       assert data["attributes"]["balance-tag"] == tp_action.balance_tag
       assert data["attributes"]["balance-type"] == tp_action.balance_type
-      assert data["attributes"]["directions"] == tp_action.directions
       assert data["attributes"]["units"] == tp_action.units
       assert data["attributes"]["expiry-time"] == tp_action.expiry_time
       assert data["attributes"]["timing-tags"] == tp_action.timing_tags
@@ -335,7 +323,7 @@ defmodule CgratesWebJsonapi.TpActionControllerTest do
       assert response(conn, 204)
       refute Repo.get(TpAction, tp_action.id)
     end
-    
+
     test "deletes chosen resource with assosiated resources included", %{conn: conn} do
       tariff_plan = insert :tariff_plan
       tp_action = insert :tp_action, tpid: tariff_plan.alias
