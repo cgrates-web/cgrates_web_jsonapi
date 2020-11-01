@@ -13,23 +13,17 @@ defmodule CgratesWebJsonapi.TariffPlan do
     has_many :tp_actions, CgratesWebJsonapi.TpAction, foreign_key: :tpid, references: :alias, on_delete: :delete_all
     has_many :tp_action_triggers, CgratesWebJsonapi.TpActionTrigger, foreign_key: :tpid, references: :alias,
       on_delete: :delete_all
-    has_many :tp_aliases, CgratesWebJsonapi.TpAlias, foreign_key: :tpid, references: :alias, on_delete: :delete_all
-    has_many :tp_cdr_stats, CgratesWebJsonapi.TpCdrStat, foreign_key: :tpid, references: :alias,
-      on_delete: :delete_all
     has_many :tp_destination_rates, CgratesWebJsonapi.TpDestinationRate, foreign_key: :tpid, references: :alias,
       on_delete: :delete_all
     has_many :tp_destinations, CgratesWebJsonapi.TpDestination, foreign_key: :tpid, references: :alias,
       on_delete: :delete_all
     has_many :tp_filters, CgratesWebJsonapi.TpFilter, foreign_key: :tpid, references: :alias, on_delete: :delete_all
-    has_many :tp_lcr_rules, CgratesWebJsonapi.TpLcrRule, foreign_key: :tpid, references: :alias, on_delete: :delete_all
     has_many :tp_rates, CgratesWebJsonapi.TpRate, foreign_key: :tpid, references: :alias, on_delete: :delete_all
     has_many :tp_rating_plans, CgratesWebJsonapi.TpRatingPlan, foreign_key: :tpid, references: :alias,
       on_delete: :delete_all
     has_many :tp_rating_profiles, CgratesWebJsonapi.TpRatingProfile, foreign_key: :tpid, references: :alias,
       on_delete: :delete_all
     has_many :tp_resources, CgratesWebJsonapi.TpResource, foreign_key: :tpid, references: :alias,
-      on_delete: :delete_all
-    has_many :tp_suppliers, CgratesWebJsonapi.TpSupplier, foreign_key: :tpid, references: :alias,
       on_delete: :delete_all
     has_many :stats, CgratesWebJsonapi.TpStat, foreign_key: :tpid, references: :alias,
       on_delete: :delete_all
