@@ -10,13 +10,12 @@ defmodule CgratesWebJsonapi.TpActionController do
 
   plug JaResource
 
-  def handle_show(conn, id), do: Repo.get!(TpAction, id)
+  def handle_show(_conn, id), do: Repo.get!(TpAction, id)
 
   def filter(_conn, query, "tag", val),              do: query |> where([r], like(r.tag, ^"%#{val}%"))
   def filter(_conn, query, "action", val),           do: query |> where([r], like(r.action, ^"%#{val}%"))
   def filter(_conn, query, "balance_tag", val),      do: query |> where(balance_tag: ^val)
   def filter(_conn, query, "balance_type", val),     do: query |> where(balance_type: ^val)
-  def filter(_conn, query, "directions", val),       do: query |> where([r], like(r.directions, ^"%#{val}%"))
   def filter(_conn, query, "units", val),            do: query |> where([r], like(r.units, ^"%#{val}%"))
   def filter(_conn, query, "expiry_time", val),      do: query |> where(expiry_time: ^val)
   def filter(_conn, query, "timing_tags", val),      do: query |> where([r], like(r.timing_tags, ^"%#{val}%"))

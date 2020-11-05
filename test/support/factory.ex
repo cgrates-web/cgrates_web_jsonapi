@@ -68,7 +68,6 @@ defmodule CgratesWebJsonapi.Factory do
       action: Faker.Pokemon.name,
       balance_tag: Faker.Pokemon.name,
       balance_type: "*monetary",
-      directions: "*up",
       units: Faker.Beer.name,
       expiry_time: "10s",
       timing_tags: "TIMING_1, TIMING_2",
