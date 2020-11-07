@@ -8,8 +8,7 @@ defmodule CgratesWebJsonapi.SessionController do
   require Logger
 
   def create(conn, params) do
-    user = User |> Repo.get_by(email: params["email"])
-    Logger.debug inspect(user)
+    user = User |> Repo.get_by(email: params["username"])
     if user && checkpw(params["password"], user.password_encrypted) do
       new_conn = Guardian.Plug.api_sign_in(conn, user)
       jwt = Guardian.Plug.current_token(new_conn)
