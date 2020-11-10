@@ -171,9 +171,6 @@ defmodule CgratesWebJsonapi.Factory do
 
   def tp_filter_factory do
     %CgratesWebJsonapi.TpFilter{
-      filter_field_name: Faker.Beer.name,
-      filter_field_values: Faker.Beer.name,
-      filter_type: "*string",
       tenant: Faker.Pokemon.name,
       custom_id: Faker.Pokemon.name,
       tpid: Faker.Pokemon.name
