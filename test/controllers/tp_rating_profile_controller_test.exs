@@ -46,18 +46,6 @@ defmodule CgratesWebJsonapi.TpRatingProfileControllerTest do
       assert length(json_response(conn, 200)["data"]) == 1
     end
 
-    test "filtering by direction", %{conn: conn} do
-      tariff_plan = insert :tariff_plan
-
-      t1 = insert :tp_rating_profile, tpid: tariff_plan.alias, direction: "up"
-      t2 = insert :tp_rating_profile, tpid: tariff_plan.alias, direction: "down"
-
-      conn = conn
-      |> get(tp_rating_profile_path(conn, :index, tpid: tariff_plan.alias), filter: %{direction: t1.direction})
-      |> doc
-      assert length(json_response(conn, 200)["data"]) == 1
-    end
-
     test "filtering by tenant", %{conn: conn} do
       tariff_plan = insert :tariff_plan
 
@@ -153,14 +141,12 @@ defmodule CgratesWebJsonapi.TpRatingProfileControllerTest do
       assert data["type"] == "tp-rating-profile"
       assert data["attributes"]["tpid"] == tp_rating_profile.tpid
       assert data["attributes"]["loadid"] == tp_rating_profile.loadid
-      assert data["attributes"]["direction"] == tp_rating_profile.direction
       assert data["attributes"]["tenant"] == tp_rating_profile.tenant
       assert data["attributes"]["category"] == tp_rating_profile.category
       assert data["attributes"]["subject"] == tp_rating_profile.subject
       assert data["attributes"]["activation-time"] == tp_rating_profile.activation_time
       assert data["attributes"]["rating-plan-tag"] == tp_rating_profile.rating_plan_tag
       assert data["attributes"]["fallback-subjects"] == tp_rating_profile.fallback_subjects
-      assert data["attributes"]["cdr-stat-queue-ids"] == tp_rating_profile.cdr_stat_queue_ids
     end
 
     test "does not show resource and instead throw error when id is nonexistent", %{conn: conn} do
@@ -174,11 +160,11 @@ defmodule CgratesWebJsonapi.TpRatingProfileControllerTest do
     test "returns status 'ok'", %{conn: conn} do
       tariff_plan = insert :tariff_plan
 
-      insert :tp_rating_profile, tpid: tariff_plan.alias, subject: "subj1", direction: "up"
+      insert :tp_rating_profile, tpid: tariff_plan.alias, subject: "subj1"
       insert :tp_rating_profile, tpid: tariff_plan.alias, subject: "subj2"
 
       conn = conn
-      |> get(tp_rating_profile_path(conn, :export_to_csv), %{tpid: tariff_plan.alias, filter: %{subject: "subj1", direction: "up"}})
+      |> get(tp_rating_profile_path(conn, :export_to_csv), %{tpid: tariff_plan.alias, filter: %{subject: "subj1"}})
       |> doc()
       assert conn.status == 200
     end
@@ -265,13 +251,11 @@ defmodule CgratesWebJsonapi.TpRatingProfileControllerTest do
     test "deletes all records by filter", %{conn: conn}  do
       tariff_plan = insert :tariff_plan
 
-      tprp1 = insert :tp_rating_profile, tpid: tariff_plan.alias, subject: "subj1", direction: "up"
       tprp2 = insert :tp_rating_profile, tpid: tariff_plan.alias, subject: "subj2"
 
       conn = conn
       |> post(tp_rating_profile_path(conn, :delete_all), %{tpid: tariff_plan.alias, filter: %{subject: "subj2"}})
 
-      assert Repo.get(TpRatingProfile, tprp1.id)
       refute Repo.get(TpRatingProfile, tprp2.id)
     end
   end
