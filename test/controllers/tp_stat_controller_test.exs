@@ -75,17 +75,6 @@ defmodule CgratesWebJsonapi.TpStatControllerTest do
       assert length(json_response(conn, 200)["data"]) == 1
     end
 
-    test "filtering by parameters", %{conn: conn} do
-      tariff_plan = insert :tariff_plan
-
-      insert :tp_stat, tpid: tariff_plan.alias, parameters: "a"
-      insert :tp_stat, tpid: tariff_plan.alias, parameters: "b"
-
-      conn = get(conn, tp_stat_path(conn, :index, tpid: tariff_plan.alias), filter: %{parameters: "a"})
-      |> doc()
-      assert length(json_response(conn, 200)["data"]) == 1
-    end
-
     test "filtering by tenant", %{conn: conn} do
       tariff_plan = insert :tariff_plan
 
@@ -104,17 +93,6 @@ defmodule CgratesWebJsonapi.TpStatControllerTest do
       insert :tp_stat, tpid: tariff_plan.alias, min_items: 2
 
       conn = get(conn, tp_stat_path(conn, :index, tpid: tariff_plan.alias), filter: %{min_items: 1})
-      |> doc()
-      assert length(json_response(conn, 200)["data"]) == 1
-    end
-
-    test "filtering by metrics", %{conn: conn} do
-      tariff_plan = insert :tariff_plan
-
-      insert :tp_stat, tpid: tariff_plan.alias, metrics: "m1"
-      insert :tp_stat, tpid: tariff_plan.alias, metrics: "m2"
-
-      conn = get(conn, tp_stat_path(conn, :index, tpid: tariff_plan.alias), filter: %{metrics: "m1"})
       |> doc()
       assert length(json_response(conn, 200)["data"]) == 1
     end
@@ -190,12 +168,10 @@ defmodule CgratesWebJsonapi.TpStatControllerTest do
       assert data["attributes"]["filter-ids"] == tp_stat.filter_ids
       assert data["attributes"]["activation-interval"] == tp_stat.activation_interval
       assert data["attributes"]["ttl"] == tp_stat.ttl
-      assert data["attributes"]["parameters"] == tp_stat.parameters
       assert data["attributes"]["blocker"] == tp_stat.blocker
       assert data["attributes"]["stored"] == tp_stat.stored
       assert data["attributes"]["min-items"] == tp_stat.min_items
       assert data["attributes"]["threshold-ids"] == tp_stat.threshold_ids
-      assert data["attributes"]["metrics"] == tp_stat.metrics
       assert data["attributes"]["queue-length"] == tp_stat.queue_length
       assert data["attributes"]["weight"] == "10.00"
     end
@@ -243,7 +219,7 @@ defmodule CgratesWebJsonapi.TpStatControllerTest do
         "meta" => %{},
         "data" => %{
           "type" => "tp_stat",
-          "attributes" => %{metrics: nil}
+          "attributes" => %{ttl: nil}
         }
       }) |> doc()
 

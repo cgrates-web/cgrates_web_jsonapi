@@ -253,8 +253,6 @@ defmodule CgratesWebJsonapi.Factory do
       activation_interval: Faker.Pokemon.name,
       custom_id: Faker.Pokemon.name,
       ttl: Faker.Pokemon.name,
-      metrics: Faker.Beer.name,
-      parameters: Faker.Pokemon.name,
       stored: false,
       min_items: 1,
       threshold_ids: Faker.UUID.v4()
