@@ -251,17 +251,6 @@ defmodule CgratesWebJsonapi.TpActionTriggerControllerTest do
       assert length(json_response(conn, 200)["data"]) == 1
     end
 
-    test "filtering by min_queued_items", %{conn: conn} do
-      tariff_plan = insert :tariff_plan
-
-      t1 = insert :tp_action_trigger, tpid: tariff_plan.alias, min_queued_items: 1
-      t2 = insert :tp_action_trigger, tpid: tariff_plan.alias, min_queued_items: 2
-
-      conn = get(conn, tp_action_trigger_path(conn, :index, tpid: tariff_plan.alias), filter: %{min_queued_items: t1.min_queued_items})
-      |> doc
-      assert length(json_response(conn, 200)["data"]) == 1
-    end
-
     test "filtering by weight", %{conn: conn} do
       tariff_plan = insert :tariff_plan
 
@@ -303,7 +292,6 @@ defmodule CgratesWebJsonapi.TpActionTriggerControllerTest do
       assert data["attributes"]["balance-weight"] == tp_action_trigger.balance_weight
       assert data["attributes"]["balance-blocker"] == tp_action_trigger.balance_blocker
       assert data["attributes"]["balance-disabled"] == tp_action_trigger.balance_disabled
-      assert data["attributes"]["min-queued-items"] == tp_action_trigger.min_queued_items
       assert data["attributes"]["recurrent"] == tp_action_trigger.recurrent
       assert data["attributes"]["weight"] == "10.00"
     end
