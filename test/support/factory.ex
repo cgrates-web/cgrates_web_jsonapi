@@ -126,13 +126,9 @@ defmodule CgratesWebJsonapi.Factory do
     %CgratesWebJsonapi.TpAttribute{
       tenant: Faker.Beer.name,
       custom_id: Faker.Pokemon.name,
-      field_name: Faker.Pokemon.name,
       filter_ids: Faker.Pokemon.name,
       contexts: Faker.Pokemon.name,
       blocker: false,
-      substitute: Faker.Beer.name,
-      append: false,
-      initial: Faker.Beer.name,
       contexts: Faker.Beer.name,
       activation_interval: Faker.Beer.name,
       weight: 10.0

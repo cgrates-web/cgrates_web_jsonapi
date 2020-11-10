@@ -86,50 +86,6 @@ defmodule CgratesWebJsonapi.TpAttributeControllerTest do
       assert length(json_response(conn, 200)["data"]) == 1
     end
 
-    test "filtering by field_name", %{conn: conn} do
-      tariff_plan = insert :tariff_plan
-
-      t1 = insert :tp_attribute, tpid: tariff_plan.alias
-      t2 = insert :tp_attribute, tpid: tariff_plan.alias
-
-      conn = get(conn, tp_attribute_path(conn, :index, tpid: tariff_plan.alias), filter: %{field_name: t1.field_name})
-      |> doc
-      assert length(json_response(conn, 200)["data"]) == 1
-    end
-
-    test "filtering by initial", %{conn: conn} do
-      tariff_plan = insert :tariff_plan
-
-      t1 = insert :tp_attribute, tpid: tariff_plan.alias
-      t2 = insert :tp_attribute, tpid: tariff_plan.alias
-
-      conn = get(conn, tp_attribute_path(conn, :index, tpid: tariff_plan.alias), filter: %{initial: t1.initial})
-      |> doc
-      assert length(json_response(conn, 200)["data"]) == 1
-    end
-
-    test "filtering by append", %{conn: conn} do
-      tariff_plan = insert :tariff_plan
-
-      t1 = insert :tp_attribute, tpid: tariff_plan.alias, append: true
-      t2 = insert :tp_attribute, tpid: tariff_plan.alias, append: false
-
-      conn = get(conn, tp_attribute_path(conn, :index, tpid: tariff_plan.alias), filter: %{append: true})
-      |> doc
-      assert length(json_response(conn, 200)["data"]) == 1
-    end
-
-    test "filtering by substitute", %{conn: conn} do
-      tariff_plan = insert :tariff_plan
-
-      t1 = insert :tp_attribute, tpid: tariff_plan.alias
-      t2 = insert :tp_attribute, tpid: tariff_plan.alias
-
-      conn = get(conn, tp_attribute_path(conn, :index, tpid: tariff_plan.alias), filter: %{substitute: t1.substitute})
-      |> doc
-      assert length(json_response(conn, 200)["data"]) == 1
-    end
-
     test "filtering by blocker", %{conn: conn} do
       tariff_plan = insert :tariff_plan
 
@@ -167,10 +123,6 @@ defmodule CgratesWebJsonapi.TpAttributeControllerTest do
       assert data["attributes"]["contexts"] == tp_attribute.contexts
       assert data["attributes"]["filter-ids"] == tp_attribute.filter_ids
       assert data["attributes"]["activation-interval"] == tp_attribute.activation_interval
-      assert data["attributes"]["field-name"] == tp_attribute.field_name
-      assert data["attributes"]["initial"] == tp_attribute.initial
-      assert data["attributes"]["substitute"] == tp_attribute.substitute
-      assert data["attributes"]["append"] == tp_attribute.append
       assert data["attributes"]["blocker"] == tp_attribute.blocker
       assert data["attributes"]["weight"] == "10.00"
     end
@@ -217,7 +169,7 @@ defmodule CgratesWebJsonapi.TpAttributeControllerTest do
         "meta" => %{},
         "data" => %{
           "type" => "tp_attribute",
-          "attributes" => %{field_name: nil},
+          "attributes" => %{contexts: nil},
         }
       }) |> doc
 
@@ -253,7 +205,7 @@ defmodule CgratesWebJsonapi.TpAttributeControllerTest do
         "data" => %{
           "type" => "tp_attribute",
           "id" => tp_attribute.pk,
-          "attributes" => %{field_name: nil},
+          "attributes" => %{contexts: nil},
         }
       }) |> doc
 
@@ -276,7 +228,7 @@ defmodule CgratesWebJsonapi.TpAttributeControllerTest do
     test "deletes all records by filter", %{conn: conn}  do
       tariff_plan = insert :tariff_plan
 
-      tp_attribute1 = insert :tp_attribute, tpid: tariff_plan.alias, blocker: true, field_name: "field1"
+      tp_attribute1 = insert :tp_attribute, tpid: tariff_plan.alias, blocker: true, contexts: "field1"
       tp_attribute2 = insert :tp_attribute, tpid: tariff_plan.alias, blocker: false
 
       conn = conn
