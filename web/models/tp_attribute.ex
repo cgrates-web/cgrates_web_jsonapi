@@ -16,6 +16,10 @@ defmodule CgratesWebJsonapi.TpAttribute do
     field :activation_interval, :string
     field :blocker, :boolean
     field :weight, :decimal
+    field :attribute_filter_ids, :string
+    field :path, :string
+    field :type, :string
+    field :value, :string
 
     field :created_at, :naive_datetime
   end
@@ -33,6 +37,10 @@ defmodule CgratesWebJsonapi.TpAttribute do
     |> validate_length(:contexts, max: 64)
     |> validate_length(:filter_ids, max: 64)
     |> validate_length(:activation_interval, max: 64)
+    |> validate_length(:attribute_filter_ids, max: 64)
+    |> validate_length(:path, max: 64)
+    |> validate_length(:type, max: 64)
+    |> validate_length(:value, max: 64)
   end
 
 end

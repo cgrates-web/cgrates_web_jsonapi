@@ -75,6 +75,50 @@ defmodule CgratesWebJsonapi.TpAttributeControllerTest do
       assert length(json_response(conn, 200)["data"]) == 1
     end
 
+    test "filtering by attribute_filter_ids", %{conn: conn} do
+      tariff_plan = insert :tariff_plan
+
+      t1 = insert :tp_attribute, tpid: tariff_plan.alias
+      t2 = insert :tp_attribute, tpid: tariff_plan.alias
+
+      conn = get(conn, tp_attribute_path(conn, :index, tpid: tariff_plan.alias), filter: %{attribute_filter_ids: t1.attribute_filter_ids})
+      |> doc
+      assert length(json_response(conn, 200)["data"]) == 1
+    end
+
+    test "filtering by path", %{conn: conn} do
+      tariff_plan = insert :tariff_plan
+
+      t1 = insert :tp_attribute, tpid: tariff_plan.alias
+      t2 = insert :tp_attribute, tpid: tariff_plan.alias
+
+      conn = get(conn, tp_attribute_path(conn, :index, tpid: tariff_plan.alias), filter: %{path: t1.path})
+      |> doc
+      assert length(json_response(conn, 200)["data"]) == 1
+    end
+
+    test "filtering by type", %{conn: conn} do
+      tariff_plan = insert :tariff_plan
+
+      t1 = insert :tp_attribute, tpid: tariff_plan.alias
+      t2 = insert :tp_attribute, tpid: tariff_plan.alias
+
+      conn = get(conn, tp_attribute_path(conn, :index, tpid: tariff_plan.alias), filter: %{type: t1.type})
+      |> doc
+      assert length(json_response(conn, 200)["data"]) == 1
+    end
+
+    test "filtering by value", %{conn: conn} do
+      tariff_plan = insert :tariff_plan
+
+      t1 = insert :tp_attribute, tpid: tariff_plan.alias
+      t2 = insert :tp_attribute, tpid: tariff_plan.alias
+
+      conn = get(conn, tp_attribute_path(conn, :index, tpid: tariff_plan.alias), filter: %{value: t1.value})
+      |> doc
+      assert length(json_response(conn, 200)["data"]) == 1
+    end
+
     test "filtering by activation_interval", %{conn: conn} do
       tariff_plan = insert :tariff_plan
 
@@ -123,6 +167,10 @@ defmodule CgratesWebJsonapi.TpAttributeControllerTest do
       assert data["attributes"]["contexts"] == tp_attribute.contexts
       assert data["attributes"]["filter-ids"] == tp_attribute.filter_ids
       assert data["attributes"]["activation-interval"] == tp_attribute.activation_interval
+      assert data["attributes"]["attribute-filter-ids"] == tp_attribute.attribute_filter_ids
+      assert data["attributes"]["path"] == tp_attribute.path
+      assert data["attributes"]["type"] == tp_attribute.type
+      assert data["attributes"]["value"] == tp_attribute.value
       assert data["attributes"]["blocker"] == tp_attribute.blocker
       assert data["attributes"]["weight"] == "10.00"
     end

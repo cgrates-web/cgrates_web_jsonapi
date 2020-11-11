@@ -131,7 +131,11 @@ defmodule CgratesWebJsonapi.Factory do
       blocker: false,
       contexts: Faker.Beer.name,
       activation_interval: Faker.Beer.name,
-      weight: 10.0
+      weight: 10.0,
+      attribute_filter_ids: Faker.Beer.name,
+      path: 'path',
+      type: 'type',
+      value: 'value'
     }
   end
   def tp_charger_factory do
