@@ -173,7 +173,10 @@ defmodule CgratesWebJsonapi.Factory do
     %CgratesWebJsonapi.TpFilter{
       tenant: Faker.Pokemon.name,
       custom_id: Faker.Pokemon.name,
-      tpid: Faker.Pokemon.name
+      tpid: Faker.Pokemon.name,
+      type: 'type',
+      element: 'element',
+      values: 'values'
     }
   end
 

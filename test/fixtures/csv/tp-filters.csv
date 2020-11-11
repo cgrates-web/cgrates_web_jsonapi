@@ -1,3 +1,3 @@
-activation_interval,custom_id,tenant
-,a,tenant_1
-,b,tenant_2
+activation_interval,custom_id,tenant,type,element,values
+,a,tenant_1,type1,element1,values1
+,b,tenant_2,type2,element2,values2

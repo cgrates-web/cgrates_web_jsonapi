@@ -11,6 +11,9 @@ defmodule CgratesWebJsonapi.TpFilter do
     field :tenant, :string
     field :custom_id, :string, source: :id
     field :activation_interval, :string, default: ""
+    field :type, :string
+    field :element, :string
+    field :values, :string
 
     field :created_at, :naive_datetime
   end
@@ -26,5 +29,8 @@ defmodule CgratesWebJsonapi.TpFilter do
     |> validate_length(:tenant, max: 64)
     |> validate_length(:custom_id, max: 64)
     |> validate_length(:activation_interval, max: 64)
+    |> validate_length(:type, max: 64)
+    |> validate_length(:element, max: 64)
+    |> validate_length(:values, max: 64)
   end
 end
