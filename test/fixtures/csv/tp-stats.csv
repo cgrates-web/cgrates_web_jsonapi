@@ -1,2 +1,2 @@
-filter_ids,activation_interval,ttl,threshold_ids,min_items,queue_length,stored,blocker,tenant,custom_id,weight
-fid1,int1,10s,tid1,1,2,false,true,tenant1,cust1,10
+filter_ids,activation_interval,ttl,threshold_ids,min_items,queue_length,stored,blocker,tenant,custom_id,weight,metric_ids,metric_filter_ids
+fid1,int1,10s,tid1,1,2,false,true,tenant1,cust1,10,1,1

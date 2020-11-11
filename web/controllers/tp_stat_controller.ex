@@ -23,6 +23,8 @@ defmodule CgratesWebJsonapi.TpStatController do
   def filter(_conn, query, "stored", v),              do: query |> where(stored: ^v)
   def filter(_conn, query, "min_items", v),           do: query |> where(min_items: ^v)
   def filter(_conn, query, "threshold_ids", v),       do: query |> where([s], like(s.threshold_ids, ^"%#{v}%"))
+  def filter(_conn, query, "metric_ids", v),          do: query |> where([s], like(s.metric_ids, ^"%#{v}%"))
+  def filter(_conn, query, "metric_filter_ids", v),   do: query |> where([s], like(s.metric_filter_ids, ^"%#{v}%"))
 
   defp build_query(conn, params) do
     conn

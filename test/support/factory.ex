@@ -255,7 +255,9 @@ defmodule CgratesWebJsonapi.Factory do
       ttl: Faker.Pokemon.name,
       stored: false,
       min_items: 1,
-      threshold_ids: Faker.UUID.v4()
+      threshold_ids: Faker.UUID.v4(),
+      metric_ids: Faker.Pokemon.name,
+      metric_filter_ids: Faker.Pokemon.name
     }
   end
 

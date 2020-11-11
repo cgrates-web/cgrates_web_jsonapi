@@ -20,6 +20,8 @@ defmodule CgratesWebJsonapi.TpStat do
     field :min_items, :integer
     field :threshold_ids, :string
     field :weight, :decimal
+    field :metric_ids, :string
+    field :metric_filter_ids, :string
 
     timestamps(inserted_at: :created_at, updated_at: false)
   end
@@ -38,5 +40,7 @@ defmodule CgratesWebJsonapi.TpStat do
     |> validate_length(:activation_interval, max: 64)
     |> validate_length(:ttl, max: 32)
     |> validate_length(:threshold_ids, max: 64)
+    |> validate_length(:metric_ids, max: 128)
+    |> validate_length(:metric_filter_ids, max: 128)
   end
 end
