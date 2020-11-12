@@ -1994,5 +1994,6 @@ ALTER TABLE ONLY public.raw_supplier_rates
 -- PostgreSQL database dump complete
 --
 
-INSERT INTO "schema_migrations" (version) VALUES (20170905093653), (20170908061508), (20180220044803);
-
+INSERT INTO public."schema_migrations" (version) VALUES (20170905093653);
+INSERT INTO public."schema_migrations" (version) VALUES (20170908061508);
+INSERT INTO public."schema_migrations" (version) VALUES (20180220044803);
