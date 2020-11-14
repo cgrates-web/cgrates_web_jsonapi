@@ -42,17 +42,6 @@ defmodule CgratesWebJsonapi.TpActionTriggerControllerTest do
       assert length(json_response(conn, 200)["data"]) == 1
     end
 
-    test "filtering by balance_directions", %{conn: conn} do
-      tariff_plan = insert :tariff_plan
-
-      t1 = insert :tp_action_trigger, tpid: tariff_plan.alias, balance_directions: "*in"
-      t2 = insert :tp_action_trigger, tpid: tariff_plan.alias, balance_directions: "*out"
-
-      conn = get(conn, tp_action_trigger_path(conn, :index, tpid: tariff_plan.alias), filter: %{balance_directions: t1.balance_directions})
-      |> doc
-      assert length(json_response(conn, 200)["data"]) == 1
-    end
-
     test "filtering by actions_tag", %{conn: conn} do
       tariff_plan = insert :tariff_plan
 
@@ -281,7 +270,6 @@ defmodule CgratesWebJsonapi.TpActionTriggerControllerTest do
       assert data["attributes"]["threshold-value"] == "4.0000"
       assert data["attributes"]["activation-time"] == tp_action_trigger.activation_time
       assert data["attributes"]["balance-expiry-time"] == tp_action_trigger.balance_expiry_time
-      assert data["attributes"]["balance-directions"] == tp_action_trigger.balance_directions
       assert data["attributes"]["min-sleep"] == tp_action_trigger.min_sleep
       assert data["attributes"]["expiry-time"] == tp_action_trigger.expiry_time
       assert data["attributes"]["balance-timing-tags"] == tp_action_trigger.balance_timing_tags

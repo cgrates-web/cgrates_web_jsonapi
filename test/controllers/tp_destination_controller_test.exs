@@ -230,7 +230,6 @@ defmodule CgratesWebJsonapi.TpDestinationControllerTest do
     conn = delete(conn, tp_destination_path(conn, :delete, tp_destination))
     assert response(conn, 204)
     refute Repo.get(TpDestination, tp_destination.id)
-    refute Repo.get(CgratesWebJsonapi.TpLcrRule, tp_lcr_rule.id)
     refute Repo.get(CgratesWebJsonapi.TpDestinationRate, tp_destination_rate.id)
   end
 

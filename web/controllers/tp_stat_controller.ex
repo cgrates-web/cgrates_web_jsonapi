@@ -10,7 +10,7 @@ defmodule CgratesWebJsonapi.TpStatController do
 
   plug JaResource
 
-  def handle_show(conn, id), do: Repo.get!(TpStat, id)
+  def handle_show(_conn, id), do: Repo.get!(TpStat, id)
 
   def filter(_conn, query, "tenant", v),              do: query |> where([s], like(s.tenant, ^"%#{v}%"))
   def filter(_conn, query, "queue_length", v),        do: query |> where(queue_length: ^v)

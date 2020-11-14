@@ -95,7 +95,7 @@ defmodule CgratesWebJsonapi.TpSmartRate do
   defp create_dst(changes) do
     dst = Repo.get_by TpDestination, %{prefix: changes.prefix, tpid: changes.tpid}
     if is_nil(dst) do
-      %TpDestination{} |> TpDestination.changeset(changes |> destination_attrs) |> Repo.insert!
+      %TpDestination{} |> TpDestination.changeset(changes |> destination_attrs()) |> Repo.insert!
       changes
     else
       changes |> Map.replace(:destination_tag, dst.tag)

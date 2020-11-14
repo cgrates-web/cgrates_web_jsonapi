@@ -37,6 +37,6 @@ defmodule CgratesWebJsonapi.TpRatingProfile do
     |> validate_length(:rating_plan_tag, max: 64)
     |> validate_length(:fallback_subjects, max: 64)
     |> validate_length(:cdr_stat_queue_ids, max: 64)
-    |> unique_constraint(:subject, name: :tp_rating_profiles_tpid_loadid_tenant_category_direction_su_key)
+    |> unique_constraint(:subject, name: :tp_rating_profiles_tpid_loadid_tenant_category_subject_acti_key)
   end
 end

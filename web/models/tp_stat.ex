@@ -2,7 +2,7 @@ defmodule CgratesWebJsonapi.TpStat do
   use CgratesWebJsonapi.Web, :model
   use EctoConditionals, repo: CgratesWebJsonapi.Repo
   @attributes ~w[tpid tenant custom_id filter_ids queue_length weight activation_interval
-                 ttl blocker stored min_items threshold_ids]a
+                 ttl blocker stored min_items threshold_ids metric_ids metric_filter_ids]a
   use CgratesWebJsonapi.CsvImport, module: __MODULE__, attributes: @attributes
 
   @primary_key {:pk, :id, autogenerate: true}
