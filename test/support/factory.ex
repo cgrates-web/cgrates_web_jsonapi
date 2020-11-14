@@ -203,14 +203,12 @@ defmodule CgratesWebJsonapi.Factory do
     %CgratesWebJsonapi.TpRatingProfile{
       tpid: Faker.Beer.name,
       loadid: Faker.Beer.name,
-      direction: "up",
       tenant: Faker.Beer.name,
       category: Faker.Lorem.word,
       subject: Faker.Beer.name,
       activation_time: Faker.Lorem.word,
       rating_plan_tag: Faker.UUID.v4(),
       fallback_subjects: Faker.Beer.name,
-      cdr_stat_queue_ids: Faker.Beer.name,
     }
   end
 
