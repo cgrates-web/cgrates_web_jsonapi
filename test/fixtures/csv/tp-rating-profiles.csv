@@ -1,3 +1,3 @@
-loadid,direction,tenant,category,subject,activation_time,rating_plan_tag,fallback_subjects,cdr_stat_queue_ids
-loadid1,up,tenant1,cat1,subj1,2018-10-10,rpt1,fs1,78ud56
-loadid2,down,tenant2,cat2,subj2,2018-09-09,rpt2,fs2,91yb00
+loadid,tenant,category,subject,activation_time,rating_plan_tag,fallback_subjects
+loadid1,tenant1,cat1,subj1,2018-10-10,rpt1,fs1
+loadid2,tenant2,cat2,subj2,2018-09-09,rpt2,fs2

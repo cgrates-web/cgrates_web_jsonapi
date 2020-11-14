@@ -5,7 +5,7 @@ defmodule CgratesWebJsonapi.TpRatingProfileTest do
 
   import CgratesWebJsonapi.Factory
 
-  @valid_attrs %{activation_time: "some", category: "some", cdr_stat_queue_ids: "some", direction: "some", fallback_subjects: "some content", loadid: "some content", rating_plan_tag: "some content", subject: "some content", tenant: "some content", tpid: "some content"}
+  @valid_attrs %{activation_time: "some", category: "some", fallback_subjects: "some content", loadid: "some content", rating_plan_tag: "some content", subject: "some content", tenant: "some content", tpid: "some content"}
   @invalid_attrs %{}
 
   test "changeset with valid attributes" do
@@ -28,7 +28,6 @@ defmodule CgratesWebJsonapi.TpRatingProfileTest do
       assert TpRatingProfile |> Repo.aggregate(:count, :id) == 2
       assert Repo.get_by(TpRatingProfile, %{
         subject: "subj1",
-        direction: "up",
         tpid: tariff_plan.alias
       })
     end
@@ -39,13 +38,11 @@ defmodule CgratesWebJsonapi.TpRatingProfileTest do
 
       insert :tp_rating_profile, %{
         subject: "subj1",
-        direction: "up",
         category: "cat1",
         tenant: "tenant1",
         activation_time: "2018-10-10",
         rating_plan_tag: "rpt1",
         fallback_subjects: "fs1",
-        cdr_stat_queue_ids: "78ud56",
         loadid: "loadid1",
         tpid: tariff_plan.alias
       }
@@ -54,7 +51,6 @@ defmodule CgratesWebJsonapi.TpRatingProfileTest do
       assert TpRatingProfile |> Repo.aggregate(:count, :id) == 2
       assert Repo.get_by(TpRatingProfile, %{
         subject: "subj1",
-        direction: "up",
         tpid: tariff_plan.alias
       })
     end
