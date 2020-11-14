@@ -100,7 +100,6 @@ defmodule CgratesWebJsonapi.Factory do
       actions_tag: Faker.UUID.v4(),
       balance_tag: "MONETARY",
       balance_type: "*monetary",
-      balance_directions: "*out",
       threshold_type: "*min_counter",
       threshold_value: 4.0,
       min_sleep: Faker.Pokemon.name,
@@ -115,7 +114,6 @@ defmodule CgratesWebJsonapi.Factory do
       balance_weight: "100",
       balance_blocker: "false",
       balance_disabled: "false",
-      min_queued_items: 1,
       recurrent: false,
       weight: 10.0
     }

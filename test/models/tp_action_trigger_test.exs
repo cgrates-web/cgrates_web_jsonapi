@@ -8,8 +8,8 @@ defmodule CgratesWebJsonapi.TpActionTriggerTest do
   @valid_attrs %{unique_id: "some content", balance_blocker: "true", balance_disabled: "some content",
                  balance_tag: "MONETARY", balance_type: "*sms", balance_weight: "10", min_sleep: "content",
                  balance_categories: "some content", balance_destination_tags: "some content", expiry_time: "20s",
-                 balance_directions: "*in", actions_tag: "some content", recurrent: "false", activation_time: "20s",
-                 balance_expiry_time: "some content", threshold_type: "*min_counter", min_queued_items: "1",
+                 actions_tag: "some content", recurrent: "false", activation_time: "20s",
+                 balance_expiry_time: "some content", threshold_type: "*min_counter",
                  balance_rating_subject: "some content", balance_shared_groups: "some content", tag: "some content",
                  balance_timing_tags: "some content", tpid: "some content", threshold_value: "4.0", weight: "120.5"}
 
@@ -48,7 +48,6 @@ defmodule CgratesWebJsonapi.TpActionTriggerTest do
         actions_tag: "at1",
         balance_tag: "MONETARY",
         balance_type: "*monetary",
-        balance_directions: "*in",
         threshold_type: "*min_counter",
         threshold_value: 4.000,
         min_sleep: "minsleep1",
@@ -63,7 +62,6 @@ defmodule CgratesWebJsonapi.TpActionTriggerTest do
         balance_weight: "100",
         balance_blocker: "true",
         balance_disabled: "false",
-        min_queued_items: 1,
         recurrent: false,
         weight: 10.0,
         tpid: tariff_plan.alias
