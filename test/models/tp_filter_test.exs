@@ -5,8 +5,7 @@ defmodule CgratesWebJsonapi.TpFilterTest do
 
   import CgratesWebJsonapi.Factory
 
-  @valid_attrs %{activation_interval: "some content", filter_field_name: "some content",
-                 filter_field_values: "some content", filter_type: "*string", tenant: "some content",
+  @valid_attrs %{activation_interval: "some content", tenant: "some content",
                  custom_id: "id", tpid: "some content"}
   @invalid_attrs %{}
 
@@ -29,7 +28,6 @@ defmodule CgratesWebJsonapi.TpFilterTest do
 
       assert TpFilter |> Repo.aggregate(:count, :custom_id) == 2
       assert Repo.get_by(TpFilter, %{
-        filter_type: "*string",
         tpid: tariff_plan.alias
       })
     end
