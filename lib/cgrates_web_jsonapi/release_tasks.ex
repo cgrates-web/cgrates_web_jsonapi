@@ -1,54 +1,85 @@
 defmodule CgratesWebJsonapi.ReleaseTasks do
-
   @start_apps [
     :crypto,
     :ssl,
     :postgrex,
-    :ecto
+    :ecto,
+    :ecto_sql # If using Ecto 3.0 or higher
   ]
 
-  @myapps [
-    :cgrates_web_jsonapi
-  ]
+  @repos Application.get_env(:cgrates_web_jsonapi, :ecto_repos, [])
 
-  @repos [
-    CgratesWebJsonapi.Repo
-  ]
+  def migrate(_argv) do
+    start_services()
 
-  def seed do
-    IO.puts "Loading myapp.."
-    # Load the code for myapp, but don't start it
-    :ok = Application.load(:cgrates_web_jsonapi)
+    run_migrations()
 
-    IO.puts "Starting dependencies.."
+    stop_services()
+  end
+
+  def seed(_argv) do
+    start_services()
+
+    run_migrations()
+
+    run_seeds()
+
+    stop_services()
+  end
+
+  defp start_services do
+    IO.puts("Starting dependencies..")
     # Start apps necessary for executing migrations
     Enum.each(@start_apps, &Application.ensure_all_started/1)
 
-    # Start the Repo(s) for myapp
-    IO.puts "Starting repos.."
-    Enum.each(@repos, &(&1.start_link(pool_size: 1)))
+    # Start the Repo(s) for app
+    IO.puts("Starting repos..")
 
-    # Run migrations
-    Enum.each(@myapps, &run_migrations_for/1)
+    # pool_size can be 1 for ecto < 3.0
+    Enum.each(@repos, & &1.start_link(pool_size: 2))
+  end
 
-    # Run the seed script if it exists
-    seed_script = Path.join([priv_dir(:cgrates_web_jsonapi), "repo", "seeds.exs"])
-    if File.exists?(seed_script) do
-      IO.puts "Running seed script.."
-      Code.eval_file(seed_script)
-    end
-
-    # Signal shutdown
-    IO.puts "Success!"
+  defp stop_services do
+    IO.puts("Success!")
     :init.stop()
   end
 
-  def priv_dir(app), do: "#{:code.priv_dir(app)}"
-
-  defp run_migrations_for(app) do
-    IO.puts "Running migrations for #{app}"
-    Ecto.Migrator.run(CgratesWebJsonapi.Repo, migrations_path(app), :up, all: true)
+  defp run_migrations do
+    Enum.each(@repos, &run_migrations_for/1)
   end
 
-  defp migrations_path(app), do: Path.join([priv_dir(app), "repo", "migrations"])
+  defp run_migrations_for(repo) do
+    app = Keyword.get(repo.config(), :otp_app)
+    IO.puts("Running migrations for #{app}")
+    migrations_path = priv_path_for(repo, "migrations")
+    Ecto.Migrator.run(repo, migrations_path, :up, all: true)
+  end
+
+  defp run_seeds do
+    Enum.each(@repos, &run_seeds_for/1)
+  end
+
+  defp run_seeds_for(repo) do
+    # Run the seed script if it exists
+    seed_script = priv_path_for(repo, "seeds.exs")
+
+    if File.exists?(seed_script) do
+      IO.puts("Running seed script..")
+      Code.eval_file(seed_script)
+    end
+  end
+
+  defp priv_path_for(repo, filename) do
+    app = Keyword.get(repo.config(), :otp_app)
+
+    repo_underscore =
+      repo
+      |> Module.split()
+      |> List.last()
+      |> Macro.underscore()
+
+    priv_dir = "#{:code.priv_dir(app)}"
+
+    Path.join([priv_dir, repo_underscore, filename])
+  end
 end

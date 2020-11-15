@@ -3,7 +3,7 @@ defmodule CgratesWebJsonapi.Mixfile do
 
   def project do
     [app: :cgrates_web_jsonapi,
-     version: "0.1.0",
+     version: "0.2.0",
      elixir: "~> 1.4",
      elixirc_paths: elixirc_paths(Mix.env),
      compilers: [:phoenix, :gettext] ++ Mix.compilers,
@@ -47,7 +47,7 @@ defmodule CgratesWebJsonapi.Mixfile do
      {:coverex, "~> 1.4.10", only: :test},
      {:credo, "~> 0.9.0-rc1", only: [:dev, :test], runtime: false},
      {:csv, "~> 2.0.0"},
-     {:distillery, "~> 1.4", runtime: false},
+     {:distillery, "~> 2.1", runtime: false},
      {:ecto_conditionals, "~> 0.1.0"},
      {:ex_machina, "~> 2.1", only: :test},
      {:faker, "~> 0.8", only: :test},
