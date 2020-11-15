@@ -131,9 +131,9 @@ defmodule CgratesWebJsonapi.Factory do
       activation_interval: Faker.Beer.name,
       weight: 10.0,
       attribute_filter_ids: Faker.Beer.name,
-      path: 'path',
-      type: 'type',
-      value: 'value'
+      path: "path",
+      cg_type: "type",
+      value: "value"
     }
   end
   def tp_charger_factory do
@@ -172,9 +172,9 @@ defmodule CgratesWebJsonapi.Factory do
       tenant: Faker.Pokemon.name,
       custom_id: Faker.Pokemon.name,
       tpid: Faker.Pokemon.name,
-      type: 'type',
-      element: 'element',
-      values: 'values'
+      cg_type: "type",
+      element: "element",
+      values: "value"
     }
   end
 

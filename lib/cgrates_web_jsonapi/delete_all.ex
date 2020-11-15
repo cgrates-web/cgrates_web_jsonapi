@@ -5,11 +5,9 @@ defmodule CgratesWebJsonapi.DeleteAll do
       alias CgratesWebJsonapi.Repo
 
       def delete_all(conn, params) do
-        Task.async fn ->
-          conn
-          |> build_query(params)
-          |> Repo.delete_all()
-        end
+        conn
+        |> build_query(params)
+        |> Repo.delete_all()
 
         send_resp(conn, :no_content, "")
       end

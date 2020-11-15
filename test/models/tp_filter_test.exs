@@ -6,7 +6,8 @@ defmodule CgratesWebJsonapi.TpFilterTest do
   import CgratesWebJsonapi.Factory
 
   @valid_attrs %{activation_interval: "some content", tenant: "some content",
-                 custom_id: "id", tpid: "some content"}
+                 custom_id: "id", tpid: "some content", element: "element", values: "value",
+                 cg_type: "type"}
   @invalid_attrs %{}
 
   test "changeset with valid attributes" do
@@ -28,7 +29,8 @@ defmodule CgratesWebJsonapi.TpFilterTest do
 
       assert TpFilter |> Repo.aggregate(:count, :custom_id) == 2
       assert Repo.get_by(TpFilter, %{
-        tpid: tariff_plan.alias
+        tpid: tariff_plan.alias,
+        custom_id: "a"
       })
     end
   end

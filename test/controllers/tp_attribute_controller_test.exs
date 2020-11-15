@@ -34,8 +34,8 @@ defmodule CgratesWebJsonapi.TpAttributeControllerTest do
     test "filtering by tenant", %{conn: conn} do
       tariff_plan = insert :tariff_plan
 
-      t1 = insert :tp_attribute, tpid: tariff_plan.alias
-      t2 = insert :tp_attribute, tpid: tariff_plan.alias
+      t1 = insert :tp_attribute, tpid: tariff_plan.alias, tenant: "my-tenant"
+      insert :tp_attribute, tpid: tariff_plan.alias
 
       conn = get(conn, tp_attribute_path(conn, :index, tpid: tariff_plan.alias), filter: %{tenant: t1.tenant})
       |> doc
@@ -45,8 +45,8 @@ defmodule CgratesWebJsonapi.TpAttributeControllerTest do
     test "filtering by custom_id", %{conn: conn} do
       tariff_plan = insert :tariff_plan
 
-      t1 = insert :tp_attribute, tpid: tariff_plan.alias
-      t2 = insert :tp_attribute, tpid: tariff_plan.alias
+      t1 = insert :tp_attribute, tpid: tariff_plan.alias, custom_id: "custom_id"
+      insert :tp_attribute, tpid: tariff_plan.alias
 
       conn = get(conn, tp_attribute_path(conn, :index, tpid: tariff_plan.alias), filter: %{custom_id: t1.custom_id})
       |> doc
@@ -56,8 +56,8 @@ defmodule CgratesWebJsonapi.TpAttributeControllerTest do
     test "filtering by contexts", %{conn: conn} do
       tariff_plan = insert :tariff_plan
 
-      t1 = insert :tp_attribute, tpid: tariff_plan.alias
-      t2 = insert :tp_attribute, tpid: tariff_plan.alias
+      t1 = insert :tp_attribute, tpid: tariff_plan.alias, contexts: "my-contexts"
+      insert :tp_attribute, tpid: tariff_plan.alias
 
       conn = get(conn, tp_attribute_path(conn, :index, tpid: tariff_plan.alias), filter: %{contexts: t1.contexts})
       |> doc
@@ -67,8 +67,8 @@ defmodule CgratesWebJsonapi.TpAttributeControllerTest do
     test "filtering by filter_ids", %{conn: conn} do
       tariff_plan = insert :tariff_plan
 
-      t1 = insert :tp_attribute, tpid: tariff_plan.alias
-      t2 = insert :tp_attribute, tpid: tariff_plan.alias
+      t1 = insert :tp_attribute, tpid: tariff_plan.alias, filter_ids: "my-filter-id"
+      insert :tp_attribute, tpid: tariff_plan.alias
 
       conn = get(conn, tp_attribute_path(conn, :index, tpid: tariff_plan.alias), filter: %{filter_ids: t1.filter_ids})
       |> doc
@@ -78,8 +78,8 @@ defmodule CgratesWebJsonapi.TpAttributeControllerTest do
     test "filtering by attribute_filter_ids", %{conn: conn} do
       tariff_plan = insert :tariff_plan
 
-      t1 = insert :tp_attribute, tpid: tariff_plan.alias
-      t2 = insert :tp_attribute, tpid: tariff_plan.alias
+      t1 = insert :tp_attribute, tpid: tariff_plan.alias, attribute_filter_ids: "my-id"
+      insert :tp_attribute, tpid: tariff_plan.alias
 
       conn = get(conn, tp_attribute_path(conn, :index, tpid: tariff_plan.alias), filter: %{attribute_filter_ids: t1.attribute_filter_ids})
       |> doc
@@ -89,21 +89,21 @@ defmodule CgratesWebJsonapi.TpAttributeControllerTest do
     test "filtering by path", %{conn: conn} do
       tariff_plan = insert :tariff_plan
 
-      t1 = insert :tp_attribute, tpid: tariff_plan.alias
-      t2 = insert :tp_attribute, tpid: tariff_plan.alias
+      t1 = insert :tp_attribute, tpid: tariff_plan.alias, path: "my-path"
+      insert :tp_attribute, tpid: tariff_plan.alias
 
       conn = get(conn, tp_attribute_path(conn, :index, tpid: tariff_plan.alias), filter: %{path: t1.path})
       |> doc
       assert length(json_response(conn, 200)["data"]) == 1
     end
 
-    test "filtering by type", %{conn: conn} do
+    test "filtering by cg_type", %{conn: conn} do
       tariff_plan = insert :tariff_plan
 
-      t1 = insert :tp_attribute, tpid: tariff_plan.alias
-      t2 = insert :tp_attribute, tpid: tariff_plan.alias
+      t1 = insert :tp_attribute, tpid: tariff_plan.alias, cg_type: "custom"
+      insert :tp_attribute, tpid: tariff_plan.alias
 
-      conn = get(conn, tp_attribute_path(conn, :index, tpid: tariff_plan.alias), filter: %{type: t1.type})
+      conn = get(conn, tp_attribute_path(conn, :index, tpid: tariff_plan.alias), filter: %{cg_type: t1.cg_type})
       |> doc
       assert length(json_response(conn, 200)["data"]) == 1
     end
@@ -111,8 +111,8 @@ defmodule CgratesWebJsonapi.TpAttributeControllerTest do
     test "filtering by value", %{conn: conn} do
       tariff_plan = insert :tariff_plan
 
-      t1 = insert :tp_attribute, tpid: tariff_plan.alias
-      t2 = insert :tp_attribute, tpid: tariff_plan.alias
+      t1 = insert :tp_attribute, tpid: tariff_plan.alias, value: "my-value"
+      insert :tp_attribute, tpid: tariff_plan.alias
 
       conn = get(conn, tp_attribute_path(conn, :index, tpid: tariff_plan.alias), filter: %{value: t1.value})
       |> doc
@@ -122,8 +122,8 @@ defmodule CgratesWebJsonapi.TpAttributeControllerTest do
     test "filtering by activation_interval", %{conn: conn} do
       tariff_plan = insert :tariff_plan
 
-      t1 = insert :tp_attribute, tpid: tariff_plan.alias
-      t2 = insert :tp_attribute, tpid: tariff_plan.alias
+      t1 = insert :tp_attribute, tpid: tariff_plan.alias, activation_interval: "99s"
+      insert :tp_attribute, tpid: tariff_plan.alias
 
       conn = get(conn, tp_attribute_path(conn, :index, tpid: tariff_plan.alias), filter: %{activation_interval: t1.activation_interval})
       |> doc
@@ -134,7 +134,7 @@ defmodule CgratesWebJsonapi.TpAttributeControllerTest do
       tariff_plan = insert :tariff_plan
 
       t1 = insert :tp_attribute, tpid: tariff_plan.alias, blocker: true
-      t2 = insert :tp_attribute, tpid: tariff_plan.alias, blocker: false
+      insert :tp_attribute, tpid: tariff_plan.alias, blocker: false
 
       conn = get(conn, tp_attribute_path(conn, :index, tpid: tariff_plan.alias), filter: %{blocker: true})
       |> doc
@@ -145,7 +145,7 @@ defmodule CgratesWebJsonapi.TpAttributeControllerTest do
       tariff_plan = insert :tariff_plan
 
       t1 = insert :tp_attribute, tpid: tariff_plan.alias, weight: 1
-      t2 = insert :tp_attribute, tpid: tariff_plan.alias, weight: 2
+      insert :tp_attribute, tpid: tariff_plan.alias, weight: 2
 
       conn = get(conn, tp_attribute_path(conn, :index, tpid: tariff_plan.alias), filter: %{weight: t1.weight})
       |> doc
@@ -169,7 +169,7 @@ defmodule CgratesWebJsonapi.TpAttributeControllerTest do
       assert data["attributes"]["activation-interval"] == tp_attribute.activation_interval
       assert data["attributes"]["attribute-filter-ids"] == tp_attribute.attribute_filter_ids
       assert data["attributes"]["path"] == tp_attribute.path
-      assert data["attributes"]["type"] == tp_attribute.type
+      assert data["attributes"]["cg-type"] == tp_attribute.cg_type
       assert data["attributes"]["value"] == tp_attribute.value
       assert data["attributes"]["blocker"] == tp_attribute.blocker
       assert data["attributes"]["weight"] == "10.00"

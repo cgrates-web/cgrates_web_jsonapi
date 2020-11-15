@@ -37,8 +37,8 @@ defmodule CgratesWebJsonapi.TpRatingProfileControllerTest do
     test "filtering by loadid", %{conn: conn} do
       tariff_plan = insert :tariff_plan
 
-      t1 = insert :tp_rating_profile, tpid: tariff_plan.alias
-      t2 = insert :tp_rating_profile, tpid: tariff_plan.alias
+      t1 = insert :tp_rating_profile, tpid: tariff_plan.alias, loadid: "my_loadid"
+      insert :tp_rating_profile, tpid: tariff_plan.alias
 
       conn = conn
       |> get(tp_rating_profile_path(conn, :index, tpid: tariff_plan.alias), filter: %{loadid: t1.loadid})
@@ -49,8 +49,8 @@ defmodule CgratesWebJsonapi.TpRatingProfileControllerTest do
     test "filtering by tenant", %{conn: conn} do
       tariff_plan = insert :tariff_plan
 
-      t1 = insert :tp_rating_profile, tpid: tariff_plan.alias
-      t2 = insert :tp_rating_profile, tpid: tariff_plan.alias
+      t1 = insert :tp_rating_profile, tpid: tariff_plan.alias, tenant: "my tenant"
+      insert :tp_rating_profile, tpid: tariff_plan.alias
 
       conn = conn
       |> get(tp_rating_profile_path(conn, :index, tpid: tariff_plan.alias), filter: %{tenant: t1.tenant})
@@ -61,8 +61,8 @@ defmodule CgratesWebJsonapi.TpRatingProfileControllerTest do
     test "filtering by category", %{conn: conn} do
       tariff_plan = insert :tariff_plan
 
-      t1 = insert :tp_rating_profile, tpid: tariff_plan.alias
-      t2 = insert :tp_rating_profile, tpid: tariff_plan.alias
+      t1 = insert :tp_rating_profile, tpid: tariff_plan.alias, category: "my category"
+      insert :tp_rating_profile, tpid: tariff_plan.alias
 
       conn = conn
       |> get(tp_rating_profile_path(conn, :index, tpid: tariff_plan.alias), filter: %{category: t1.category})
@@ -73,8 +73,8 @@ defmodule CgratesWebJsonapi.TpRatingProfileControllerTest do
     test "filtering by subject", %{conn: conn} do
       tariff_plan = insert :tariff_plan
 
-      t1 = insert :tp_rating_profile, tpid: tariff_plan.alias
-      t2 = insert :tp_rating_profile, tpid: tariff_plan.alias
+      t1 = insert :tp_rating_profile, tpid: tariff_plan.alias, subject: "my subject"
+      insert :tp_rating_profile, tpid: tariff_plan.alias
 
       conn = conn
       |> get(tp_rating_profile_path(conn, :index, tpid: tariff_plan.alias), filter: %{subject: t1.subject})
@@ -86,7 +86,7 @@ defmodule CgratesWebJsonapi.TpRatingProfileControllerTest do
       tariff_plan = insert :tariff_plan
 
       t1 = insert :tp_rating_profile, tpid: tariff_plan.alias
-      t2 = insert :tp_rating_profile, tpid: tariff_plan.alias
+      insert :tp_rating_profile, tpid: tariff_plan.alias
 
       conn = conn
       |> get(
@@ -101,7 +101,7 @@ defmodule CgratesWebJsonapi.TpRatingProfileControllerTest do
       tariff_plan = insert :tariff_plan
 
       t1 = insert :tp_rating_profile, tpid: tariff_plan.alias
-      t2 = insert :tp_rating_profile, tpid: tariff_plan.alias
+      insert :tp_rating_profile, tpid: tariff_plan.alias
 
       conn = conn
       |> get(
@@ -116,7 +116,7 @@ defmodule CgratesWebJsonapi.TpRatingProfileControllerTest do
       tariff_plan = insert :tariff_plan
 
       t1 = insert :tp_rating_profile, tpid: tariff_plan.alias, fallback_subjects: "A"
-      t2 = insert :tp_rating_profile, tpid: tariff_plan.alias, fallback_subjects: "B"
+      insert :tp_rating_profile, tpid: tariff_plan.alias, fallback_subjects: "B"
 
       conn = conn
       |> get(

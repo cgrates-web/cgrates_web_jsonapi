@@ -36,7 +36,7 @@ defmodule CgratesWebJsonapi.TpAccountActionControllerTest do
       tariff_plan = insert :tariff_plan
 
       t1 = insert :tp_account_action, tpid: tariff_plan.alias
-      t2 = insert :tp_account_action, tpid: tariff_plan.alias
+      insert :tp_account_action, tpid: tariff_plan.alias
 
       conn = get(conn, tp_account_action_path(conn, :index, tpid: tariff_plan.alias), filter: %{loadid: t1.loadid})
       |> doc
@@ -47,7 +47,7 @@ defmodule CgratesWebJsonapi.TpAccountActionControllerTest do
       tariff_plan = insert :tariff_plan
 
       t1 = insert :tp_account_action, tpid: tariff_plan.alias, tenant: "t1"
-      t2 = insert :tp_account_action, tpid: tariff_plan.alias, tenant: "t2"
+      insert :tp_account_action, tpid: tariff_plan.alias, tenant: "t2"
 
       conn = get(conn, tp_account_action_path(conn, :index, tpid: tariff_plan.alias), filter: %{tenant: t1.tenant})
       |> doc
@@ -58,7 +58,7 @@ defmodule CgratesWebJsonapi.TpAccountActionControllerTest do
       tariff_plan = insert :tariff_plan
 
       t1 = insert :tp_account_action, tpid: tariff_plan.alias, account: "ac1"
-      t2 = insert :tp_account_action, tpid: tariff_plan.alias, account: "ac2" 
+      insert :tp_account_action, tpid: tariff_plan.alias, account: "ac2"
 
       conn = get(conn, tp_account_action_path(conn, :index, tpid: tariff_plan.alias), filter: %{account: t1.account})
       |> doc
@@ -69,7 +69,7 @@ defmodule CgratesWebJsonapi.TpAccountActionControllerTest do
       tariff_plan = insert :tariff_plan
 
       t1 = insert :tp_account_action, tpid: tariff_plan.alias
-      t2 = insert :tp_account_action, tpid: tariff_plan.alias
+      insert :tp_account_action, tpid: tariff_plan.alias
 
       conn = get(conn, tp_account_action_path(conn, :index, tpid: tariff_plan.alias), filter: %{action_plan_tag: t1.action_plan_tag})
       |> doc
@@ -80,7 +80,7 @@ defmodule CgratesWebJsonapi.TpAccountActionControllerTest do
       tariff_plan = insert :tariff_plan
 
       t1 = insert :tp_account_action, tpid: tariff_plan.alias
-      t2 = insert :tp_account_action, tpid: tariff_plan.alias
+      insert :tp_account_action, tpid: tariff_plan.alias
 
       conn = get(conn, tp_account_action_path(conn, :index, tpid: tariff_plan.alias), filter: %{action_triggers_tag: t1.action_triggers_tag})
       |> doc
@@ -91,7 +91,7 @@ defmodule CgratesWebJsonapi.TpAccountActionControllerTest do
       tariff_plan = insert :tariff_plan
 
       t1 = insert :tp_account_action, tpid: tariff_plan.alias, allow_negative: true
-      t2 = insert :tp_account_action, tpid: tariff_plan.alias, allow_negative: false
+      insert :tp_account_action, tpid: tariff_plan.alias, allow_negative: false
 
       conn = get(conn, tp_account_action_path(conn, :index, tpid: tariff_plan.alias), filter: %{allow_negative: t1.allow_negative})
       |> doc
@@ -102,7 +102,7 @@ defmodule CgratesWebJsonapi.TpAccountActionControllerTest do
       tariff_plan = insert :tariff_plan
 
       t1 = insert :tp_account_action, tpid: tariff_plan.alias, disabled: true
-      t2 = insert :tp_account_action, tpid: tariff_plan.alias, disabled: false
+      insert :tp_account_action, tpid: tariff_plan.alias, disabled: false
 
       conn = get(conn, tp_account_action_path(conn, :index, tpid: tariff_plan.alias), filter: %{disabled: t1.disabled})
       |> doc

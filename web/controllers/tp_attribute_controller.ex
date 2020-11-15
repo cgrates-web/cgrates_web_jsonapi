@@ -19,7 +19,7 @@ defmodule CgratesWebJsonapi.TpAttributeController do
   def filter(_conn, query, "activation_interval", val),  do: query |> where([r], like(r.activation_interval, ^"%#{val}%"))
   def filter(_conn, query, "attribute_filter_ids", val), do: query |> where([r], like(r.attribute_filter_ids, ^"%#{val}%"))
   def filter(_conn, query, "path", val),                 do: query |> where([r], like(r.path, ^"%#{val}%"))
-  def filter(_conn, query, "type", val),                 do: query |> where([r], like(r.type, ^"%#{val}%"))
+  def filter(_conn, query, "cg_type", val),              do: query |> where([r], like(r.cg_type, ^"%#{val}%"))
   def filter(_conn, query, "value", val),                do: query |> where([r], like(r.value, ^"%#{val}%"))
   def filter(_conn, query, "blocker", val),              do: query |> where(blocker: ^val)
   def filter(_conn, query, "weight", val),               do: query |> where(weight: ^val)

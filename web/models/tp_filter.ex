@@ -1,7 +1,9 @@
 defmodule CgratesWebJsonapi.TpFilter do
   use CgratesWebJsonapi.Web, :model
   use EctoConditionals, repo: CgratesWebJsonapi.Repo
-  @attributes ~w[tpid tenant custom_id activation_interval]a
+
+  @attributes ~w[tpid tenant custom_id activation_interval element values cg_type]a
+
   use CgratesWebJsonapi.CsvImport, module: __MODULE__, attributes: @attributes
 
   @primary_key {:pk, :id, autogenerate: true}
@@ -11,7 +13,7 @@ defmodule CgratesWebJsonapi.TpFilter do
     field :tenant, :string
     field :custom_id, :string, source: :id
     field :activation_interval, :string, default: ""
-    field :type, :string
+    field :cg_type, :string, source: :type
     field :element, :string
     field :values, :string
 
@@ -24,12 +26,12 @@ defmodule CgratesWebJsonapi.TpFilter do
   def changeset(struct, params \\ %{}) do
     struct
     |> cast(params, @attributes)
-    |> validate_required([:tpid, :tenant, :custom_id, :filter_type, :filter_field_values])
+    |> validate_required([:tpid, :tenant, :custom_id, :element, :values, :cg_type])
     |> validate_length(:tpid, max: 64)
     |> validate_length(:tenant, max: 64)
     |> validate_length(:custom_id, max: 64)
     |> validate_length(:activation_interval, max: 64)
-    |> validate_length(:type, max: 64)
+    |> validate_length(:cg_type, max: 64)
     |> validate_length(:element, max: 64)
     |> validate_length(:values, max: 64)
   end

@@ -225,7 +225,6 @@ defmodule CgratesWebJsonapi.TpDestinationControllerTest do
     tariff_plan    = insert :tariff_plan
     tp_destination = insert :tp_destination, tpid: tariff_plan.alias
     tp_destination_rate = insert :tp_destination_rate, destinations_tag: tp_destination.tag, tpid: tariff_plan.alias
-    tp_lcr_rule = insert :tp_lcr_rule, destination_tag: tp_destination.tag, tpid: tariff_plan.alias
 
     conn = delete(conn, tp_destination_path(conn, :delete, tp_destination))
     assert response(conn, 204)
