@@ -41,7 +41,7 @@ defmodule CgratesWebJsonapi.TpRateControllerTest do
     tariff_plan = insert :tariff_plan
 
     r1 = insert :tp_rate, tpid: tariff_plan.alias, rate: 0.01
-    r2 = insert :tp_rate, tpid: tariff_plan.alias, rate: 0.02
+     insert :tp_rate, tpid: tariff_plan.alias, rate: 0.02
 
     conn = get(conn, tp_rate_path(conn, :index, tpid: tariff_plan.alias), filter: %{rate: r1.rate})
     |> doc
@@ -52,7 +52,7 @@ defmodule CgratesWebJsonapi.TpRateControllerTest do
     tariff_plan = insert :tariff_plan
 
     r1 = insert :tp_rate, tpid: tariff_plan.alias, connect_fee: 0.01
-    r2 = insert :tp_rate, tpid: tariff_plan.alias, connect_fee: 0.02
+     insert :tp_rate, tpid: tariff_plan.alias, connect_fee: 0.02
 
     conn = get(conn, tp_rate_path(conn, :index, tpid: tariff_plan.alias), filter: %{connect_fee: r1.connect_fee})
     |> doc
@@ -63,7 +63,7 @@ defmodule CgratesWebJsonapi.TpRateControllerTest do
     tariff_plan = insert :tariff_plan
 
     r1 = insert :tp_rate, tpid: tariff_plan.alias
-    r2 = insert :tp_rate, tpid: tariff_plan.alias
+     insert :tp_rate, tpid: tariff_plan.alias
 
     conn = get(conn, tp_rate_path(conn, :index, tpid: tariff_plan.alias), filter: %{tag: r1.tag})
     |> doc
@@ -74,7 +74,7 @@ defmodule CgratesWebJsonapi.TpRateControllerTest do
     tariff_plan = insert :tariff_plan
 
     r1 = insert :tp_rate, tpid: tariff_plan.alias, rate_unit: "60s"
-    r2 = insert :tp_rate, tpid: tariff_plan.alias, rate_unit: "40s"
+     insert :tp_rate, tpid: tariff_plan.alias, rate_unit: "40s"
 
     conn = get(conn, tp_rate_path(conn, :index, tpid: tariff_plan.alias), filter: %{rate_unit: r1.rate_unit})
     |> doc
@@ -85,7 +85,7 @@ defmodule CgratesWebJsonapi.TpRateControllerTest do
     tariff_plan = insert :tariff_plan
 
     r1 = insert :tp_rate, tpid: tariff_plan.alias, rate_increment: "60s"
-    r2 = insert :tp_rate, tpid: tariff_plan.alias, rate_increment: "40s"
+     insert :tp_rate, tpid: tariff_plan.alias, rate_increment: "40s"
 
     conn = get(conn, tp_rate_path(conn, :index, tpid: tariff_plan.alias), filter: %{rate_increment: r1.rate_increment})
     |> doc
@@ -96,7 +96,7 @@ defmodule CgratesWebJsonapi.TpRateControllerTest do
     tariff_plan = insert :tariff_plan
 
     r1 = insert :tp_rate, tpid: tariff_plan.alias, group_interval_start: "60s"
-    r2 = insert :tp_rate, tpid: tariff_plan.alias, group_interval_start: "40s"
+     insert :tp_rate, tpid: tariff_plan.alias, group_interval_start: "40s"
 
     conn = get(conn, tp_rate_path(conn, :index, tpid: tariff_plan.alias),
                                                 filter: %{group_interval_start: r1.group_interval_start})
