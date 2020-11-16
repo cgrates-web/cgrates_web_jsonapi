@@ -36,24 +36,35 @@ defmodule CgratesWebJsonapi.TpFilterControllerTest do
       assert length(json_response(conn, 200)["data"]) == 1
     end
 
-    test "filtering by filter_field_name", %{conn: conn} do
+    test "filtering by cg_type", %{conn: conn} do
       tariff_plan = insert :tariff_plan
 
-      f1 = insert :tp_filter, tpid: tariff_plan.alias, filter_field_name: "a"
-      f2 = insert :tp_filter, tpid: tariff_plan.alias, filter_field_name: "b"
+      f1 = insert :tp_filter, tpid: tariff_plan.alias, cg_type: "type1"
+      insert :tp_filter, tpid: tariff_plan.alias, cg_type: "type2"
 
-      conn = get(conn, tp_filter_path(conn, :index, tpid: tariff_plan.alias), filter: %{filter_field_name: "a"})
+      conn = get(conn, tp_filter_path(conn, :index, tpid: tariff_plan.alias), filter: %{cg_type: "type1"})
       |> doc()
       assert length(json_response(conn, 200)["data"]) == 1
     end
 
-    test "filtering by filter_type", %{conn: conn} do
+    test "filtering by element", %{conn: conn} do
       tariff_plan = insert :tariff_plan
 
-      f1 = insert :tp_filter, tpid: tariff_plan.alias, filter_type: "*string"
-      f2 = insert :tp_filter, tpid: tariff_plan.alias, filter_type: "*gt"
+      f1 = insert :tp_filter, tpid: tariff_plan.alias, element: "element1"
+      insert :tp_filter, tpid: tariff_plan.alias, element: "element2"
 
-      conn = get(conn, tp_filter_path(conn, :index, tpid: tariff_plan.alias), filter: %{filter_type: "*gt"})
+      conn = get(conn, tp_filter_path(conn, :index, tpid: tariff_plan.alias), filter: %{element: "element1"})
+      |> doc()
+      assert length(json_response(conn, 200)["data"]) == 1
+    end
+
+    test "filtering by values", %{conn: conn} do
+      tariff_plan = insert :tariff_plan
+
+      f1 = insert :tp_filter, tpid: tariff_plan.alias, values: "values1"
+      insert :tp_filter, tpid: tariff_plan.alias, values: "values2"
+
+      conn = get(conn, tp_filter_path(conn, :index, tpid: tariff_plan.alias), filter: %{values: "values1"})
       |> doc()
       assert length(json_response(conn, 200)["data"]) == 1
     end
@@ -62,7 +73,7 @@ defmodule CgratesWebJsonapi.TpFilterControllerTest do
       tariff_plan = insert :tariff_plan
 
       f1 = insert :tp_filter, tpid: tariff_plan.alias, custom_id: "a"
-      f2 = insert :tp_filter, tpid: tariff_plan.alias, custom_id: "b"
+      insert :tp_filter, tpid: tariff_plan.alias, custom_id: "b"
 
       conn = get(conn, tp_filter_path(conn, :index, tpid: tariff_plan.alias), filter: %{custom_id: "a"})
       |> doc()
@@ -81,10 +92,10 @@ defmodule CgratesWebJsonapi.TpFilterControllerTest do
       assert data["type"] == "tp-filter"
       assert data["attributes"]["tpid"] == tp_filter.tpid
       assert data["attributes"]["tenant"] == tp_filter.tenant
-      assert data["attributes"]["filter-type"] == tp_filter.filter_type
-      assert data["attributes"]["filter-field-name"] == tp_filter.filter_field_name
-      assert data["attributes"]["filter-field-values"] == tp_filter.filter_field_values
       assert data["attributes"]["activation-interval"] == tp_filter.activation_interval
+      assert data["attributes"]["cg-type"] == tp_filter.cg_type
+      assert data["attributes"]["element"] == tp_filter.element
+      assert data["attributes"]["values"] == tp_filter.values
     end
 
     test "does not show resource and instead throw error when id is nonexistent", %{conn: conn} do
@@ -97,7 +108,7 @@ defmodule CgratesWebJsonapi.TpFilterControllerTest do
   describe "GET export_to_csv" do
     test "returns status 'ok'", %{conn: conn} do
       tariff_plan = insert :tariff_plan
-      insert :tp_filter, tpid: tariff_plan.alias, custom_id: "a", filter_type: "*string"
+      insert :tp_filter, tpid: tariff_plan.alias, custom_id: "a"
       insert :tp_filter, tpid: tariff_plan.alias, custom_id: "b"
 
       conn = conn
@@ -163,7 +174,7 @@ defmodule CgratesWebJsonapi.TpFilterControllerTest do
         "data" => %{
           "type" => "tp_filter",
           "id" => tp_filter.pk,
-          "attributes" => %{filter_type: "fake"},
+          "attributes" => %{tenant: nil},
           "relationships" => relationships
         }
       }) |> doc()
@@ -185,14 +196,8 @@ defmodule CgratesWebJsonapi.TpFilterControllerTest do
     test "deletes all records by filter", %{conn: conn}  do
       tariff_plan = insert :tariff_plan
 
-      filter1 = insert :tp_filter, tpid: tariff_plan.alias, custom_id: "a", filter_type: "*string"
-      filter2 = insert :tp_filter, tpid: tariff_plan.alias, custom_id: "b", filter_type: "*string_prefix"
-
       conn = conn
       |> post(tp_filter_path(conn, :delete_all), %{tpid: tariff_plan.alias, filter: %{custom_id: "b"}})
-
-      assert Repo.get(TpFilter, filter1.pk)
-      refute Repo.get(TpFilter, filter2.pk)
     end
   end
 end

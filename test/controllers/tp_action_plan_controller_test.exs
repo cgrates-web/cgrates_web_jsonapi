@@ -36,7 +36,7 @@ defmodule CgratesWebJsonapi.TpActionPlanControllerTest do
       tariff_plan = insert :tariff_plan
 
       t1 = insert :tp_action_plan, tpid: tariff_plan.alias, tag: "A"
-      t2 = insert :tp_action_plan, tpid: tariff_plan.alias, tag: "B"
+      insert :tp_action_plan, tpid: tariff_plan.alias, tag: "B"
 
       conn = get(conn, tp_action_plan_path(conn, :index, tpid: tariff_plan.alias), filter: %{tag: t1.tag})
       |> doc
@@ -47,7 +47,7 @@ defmodule CgratesWebJsonapi.TpActionPlanControllerTest do
       tariff_plan = insert :tariff_plan
 
       t1 = insert :tp_action_plan, tpid: tariff_plan.alias, actions_tag: "a"
-      t2 = insert :tp_action_plan, tpid: tariff_plan.alias, actions_tag: "b"
+      insert :tp_action_plan, tpid: tariff_plan.alias, actions_tag: "b"
 
       conn = get(conn, tp_action_plan_path(conn, :index, tpid: tariff_plan.alias), filter: %{actions_tag: t1.actions_tag})
       |> doc
@@ -58,7 +58,7 @@ defmodule CgratesWebJsonapi.TpActionPlanControllerTest do
       tariff_plan = insert :tariff_plan
 
       t1 = insert :tp_action_plan, tpid: tariff_plan.alias
-      t2 = insert :tp_action_plan, tpid: tariff_plan.alias
+      insert :tp_action_plan, tpid: tariff_plan.alias
 
       conn = get(conn, tp_action_plan_path(conn, :index, tpid: tariff_plan.alias), filter: %{timing_tag: t1.timing_tag})
       |> doc
@@ -69,7 +69,7 @@ defmodule CgratesWebJsonapi.TpActionPlanControllerTest do
       tariff_plan = insert :tariff_plan
 
       t1 = insert :tp_action_plan, tpid: tariff_plan.alias, weight: 1
-      t2 = insert :tp_action_plan, tpid: tariff_plan.alias, weight: 2
+      insert :tp_action_plan, tpid: tariff_plan.alias, weight: 2
 
       conn = get(conn, tp_action_plan_path(conn, :index, tpid: tariff_plan.alias), filter: %{weight: t1.weight})
       |> doc

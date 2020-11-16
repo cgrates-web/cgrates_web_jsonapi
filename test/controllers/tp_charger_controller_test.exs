@@ -35,7 +35,7 @@ defmodule CgratesWebJsonapi.TpChargerControllerTest do
       tariff_plan = insert :tariff_plan
 
       t1 = insert :tp_charger, tpid: tariff_plan.alias, tenant: "tenant1"
-      t2 = insert :tp_charger, tpid: tariff_plan.alias
+      insert :tp_charger, tpid: tariff_plan.alias
 
       conn = get(conn, tp_charger_path(conn, :index, tpid: tariff_plan.alias), filter: %{tenant: t1.tenant})
       |> doc
@@ -46,7 +46,7 @@ defmodule CgratesWebJsonapi.TpChargerControllerTest do
       tariff_plan = insert :tariff_plan
 
       t1 = insert :tp_charger, tpid: tariff_plan.alias, custom_id: "custid1"
-      t2 = insert :tp_charger, tpid: tariff_plan.alias
+      insert :tp_charger, tpid: tariff_plan.alias
 
       conn = get(conn, tp_charger_path(conn, :index, tpid: tariff_plan.alias), filter: %{custom_id: t1.custom_id})
       |> doc
@@ -57,7 +57,7 @@ defmodule CgratesWebJsonapi.TpChargerControllerTest do
       tariff_plan = insert :tariff_plan
 
       t1 = insert :tp_charger, tpid: tariff_plan.alias, attribute_ids: "atrid1"
-      t2 = insert :tp_charger, tpid: tariff_plan.alias
+      insert :tp_charger, tpid: tariff_plan.alias
 
       conn = get(conn, tp_charger_path(conn, :index, tpid: tariff_plan.alias), filter: %{attribute_ids: t1.attribute_ids})
       |> doc
@@ -68,7 +68,7 @@ defmodule CgratesWebJsonapi.TpChargerControllerTest do
       tariff_plan = insert :tariff_plan
 
       t1 = insert :tp_charger, tpid: tariff_plan.alias, filter_ids: "fid1"
-      t2 = insert :tp_charger, tpid: tariff_plan.alias
+      insert :tp_charger, tpid: tariff_plan.alias
 
       conn = get(conn, tp_charger_path(conn, :index, tpid: tariff_plan.alias), filter: %{filter_ids: t1.filter_ids})
       |> doc
@@ -79,7 +79,7 @@ defmodule CgratesWebJsonapi.TpChargerControllerTest do
       tariff_plan = insert :tariff_plan
 
       t1 = insert :tp_charger, tpid: tariff_plan.alias, activation_interval: "interval1"
-      t2 = insert :tp_charger, tpid: tariff_plan.alias
+      insert :tp_charger, tpid: tariff_plan.alias
 
       conn = get(conn, tp_charger_path(conn, :index, tpid: tariff_plan.alias), filter: %{activation_interval: t1.activation_interval})
       |> doc
@@ -90,7 +90,7 @@ defmodule CgratesWebJsonapi.TpChargerControllerTest do
       tariff_plan = insert :tariff_plan
 
       t1 = insert :tp_charger, tpid: tariff_plan.alias, run_id: "runid1"
-      t2 = insert :tp_charger, tpid: tariff_plan.alias
+      insert :tp_charger, tpid: tariff_plan.alias
 
       conn = get(conn, tp_charger_path(conn, :index, tpid: tariff_plan.alias), filter: %{run_id: t1.run_id})
       |> doc
@@ -101,7 +101,7 @@ defmodule CgratesWebJsonapi.TpChargerControllerTest do
       tariff_plan = insert :tariff_plan
 
       t1 = insert :tp_charger, tpid: tariff_plan.alias, weight: 1
-      t2 = insert :tp_charger, tpid: tariff_plan.alias, weight: 2
+      insert :tp_charger, tpid: tariff_plan.alias, weight: 2
 
       conn = get(conn, tp_charger_path(conn, :index, tpid: tariff_plan.alias), filter: %{weight: t1.weight})
       |> doc

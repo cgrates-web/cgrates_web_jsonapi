@@ -34,8 +34,8 @@ defmodule CgratesWebJsonapi.TpResourceControllerTest do
     test "filtering by tenant", %{conn: conn} do
       tariff_plan = insert :tariff_plan
 
-      t1 = insert :tp_resource, tpid: tariff_plan.alias
-      t2 = insert :tp_resource, tpid: tariff_plan.alias
+      t1 = insert :tp_resource, tpid: tariff_plan.alias, tenant: "my-tenant"
+      insert :tp_resource, tpid: tariff_plan.alias
 
       conn = get(conn, tp_resource_path(conn, :index, tpid: tariff_plan.alias), filter: %{tenant: t1.tenant})
       |> doc
@@ -45,8 +45,8 @@ defmodule CgratesWebJsonapi.TpResourceControllerTest do
     test "filtering by custom_id", %{conn: conn} do
       tariff_plan = insert :tariff_plan
 
-      t1 = insert :tp_resource, tpid: tariff_plan.alias
-      t2 = insert :tp_resource, tpid: tariff_plan.alias
+      t1 = insert :tp_resource, tpid: tariff_plan.alias, custom_id: "my_custom_id"
+      insert :tp_resource, tpid: tariff_plan.alias
 
       conn = get(conn, tp_resource_path(conn, :index, tpid: tariff_plan.alias), filter: %{custom_id: t1.custom_id})
       |> doc
@@ -57,7 +57,7 @@ defmodule CgratesWebJsonapi.TpResourceControllerTest do
       tariff_plan = insert :tariff_plan
 
       t1 = insert :tp_resource, tpid: tariff_plan.alias
-      t2 = insert :tp_resource, tpid: tariff_plan.alias, usage_ttl: "30s"
+      insert :tp_resource, tpid: tariff_plan.alias, usage_ttl: "30s"
 
       conn = get(conn, tp_resource_path(conn, :index, tpid: tariff_plan.alias), filter: %{usage_ttl: t1.usage_ttl})
       |> doc
@@ -67,8 +67,8 @@ defmodule CgratesWebJsonapi.TpResourceControllerTest do
     test "filtering by filter_ids", %{conn: conn} do
       tariff_plan = insert :tariff_plan
 
-      t1 = insert :tp_resource, tpid: tariff_plan.alias
-      t2 = insert :tp_resource, tpid: tariff_plan.alias
+      t1 = insert :tp_resource, tpid: tariff_plan.alias, filter_ids: "my_filter_ids"
+      insert :tp_resource, tpid: tariff_plan.alias
 
       conn = get(conn, tp_resource_path(conn, :index, tpid: tariff_plan.alias), filter: %{filter_ids: t1.filter_ids})
       |> doc
@@ -78,8 +78,8 @@ defmodule CgratesWebJsonapi.TpResourceControllerTest do
     test "filtering by activation_interval", %{conn: conn} do
       tariff_plan = insert :tariff_plan
 
-      t1 = insert :tp_resource, tpid: tariff_plan.alias
-      t2 = insert :tp_resource, tpid: tariff_plan.alias
+      t1 = insert :tp_resource, tpid: tariff_plan.alias, activation_interval: "50s"
+      insert :tp_resource, tpid: tariff_plan.alias
 
       conn = get(conn, tp_resource_path(conn, :index, tpid: tariff_plan.alias), filter: %{activation_interval: t1.activation_interval})
       |> doc
@@ -89,8 +89,8 @@ defmodule CgratesWebJsonapi.TpResourceControllerTest do
     test "filtering by limit", %{conn: conn} do
       tariff_plan = insert :tariff_plan
 
-      t1 = insert :tp_resource, tpid: tariff_plan.alias
-      t2 = insert :tp_resource, tpid: tariff_plan.alias
+      t1 = insert :tp_resource, tpid: tariff_plan.alias, limit: "33s"
+      insert :tp_resource, tpid: tariff_plan.alias
 
       conn = get(conn, tp_resource_path(conn, :index, tpid: tariff_plan.alias), filter: %{limit: t1.limit})
       |> doc
@@ -100,8 +100,8 @@ defmodule CgratesWebJsonapi.TpResourceControllerTest do
     test "filtering by allocation_message", %{conn: conn} do
       tariff_plan = insert :tariff_plan
 
-      t1 = insert :tp_resource, tpid: tariff_plan.alias
-      t2 = insert :tp_resource, tpid: tariff_plan.alias
+      t1 = insert :tp_resource, tpid: tariff_plan.alias, allocation_message: "allocation_message"
+      insert :tp_resource, tpid: tariff_plan.alias
 
       conn = get(conn, tp_resource_path(conn, :index, tpid: tariff_plan.alias), filter: %{allocation_message: t1.allocation_message})
       |> doc
@@ -112,7 +112,7 @@ defmodule CgratesWebJsonapi.TpResourceControllerTest do
       tariff_plan = insert :tariff_plan
 
       t1 = insert :tp_resource, tpid: tariff_plan.alias, stored: true
-      t2 = insert :tp_resource, tpid: tariff_plan.alias, stored: false
+      insert :tp_resource, tpid: tariff_plan.alias, stored: false
 
       conn = get(conn, tp_resource_path(conn, :index, tpid: tariff_plan.alias), filter: %{stored: true})
       |> doc
@@ -122,8 +122,8 @@ defmodule CgratesWebJsonapi.TpResourceControllerTest do
     test "filtering by threshold_ids", %{conn: conn} do
       tariff_plan = insert :tariff_plan
 
-      t1 = insert :tp_resource, tpid: tariff_plan.alias
-      t2 = insert :tp_resource, tpid: tariff_plan.alias
+      t1 = insert :tp_resource, tpid: tariff_plan.alias, threshold_ids: "my_threshold_ids"
+      insert :tp_resource, tpid: tariff_plan.alias
 
       conn = get(conn, tp_resource_path(conn, :index, tpid: tariff_plan.alias), filter: %{threshold_ids: t1.threshold_ids})
       |> doc
@@ -134,7 +134,7 @@ defmodule CgratesWebJsonapi.TpResourceControllerTest do
       tariff_plan = insert :tariff_plan
 
       t1 = insert :tp_resource, tpid: tariff_plan.alias, blocker: true
-      t2 = insert :tp_resource, tpid: tariff_plan.alias, blocker: false
+      insert :tp_resource, tpid: tariff_plan.alias, blocker: false
 
       conn = get(conn, tp_resource_path(conn, :index, tpid: tariff_plan.alias), filter: %{blocker: true})
       |> doc
@@ -145,7 +145,7 @@ defmodule CgratesWebJsonapi.TpResourceControllerTest do
       tariff_plan = insert :tariff_plan
 
       t1 = insert :tp_resource, tpid: tariff_plan.alias, weight: 1
-      t2 = insert :tp_resource, tpid: tariff_plan.alias, weight: 2
+      insert :tp_resource, tpid: tariff_plan.alias, weight: 2
 
       conn = get(conn, tp_resource_path(conn, :index, tpid: tariff_plan.alias), filter: %{weight: t1.weight})
       |> doc

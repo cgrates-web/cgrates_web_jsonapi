@@ -35,20 +35,9 @@ defmodule CgratesWebJsonapi.TpActionTriggerControllerTest do
       tariff_plan = insert :tariff_plan
 
       t1 = insert :tp_action_trigger, tpid: tariff_plan.alias
-      t2 = insert :tp_action_trigger, tpid: tariff_plan.alias
+      insert :tp_action_trigger, tpid: tariff_plan.alias
 
       conn = get(conn, tp_action_trigger_path(conn, :index, tpid: tariff_plan.alias), filter: %{tag: t1.tag})
-      |> doc
-      assert length(json_response(conn, 200)["data"]) == 1
-    end
-
-    test "filtering by balance_directions", %{conn: conn} do
-      tariff_plan = insert :tariff_plan
-
-      t1 = insert :tp_action_trigger, tpid: tariff_plan.alias, balance_directions: "*in"
-      t2 = insert :tp_action_trigger, tpid: tariff_plan.alias, balance_directions: "*out"
-
-      conn = get(conn, tp_action_trigger_path(conn, :index, tpid: tariff_plan.alias), filter: %{balance_directions: t1.balance_directions})
       |> doc
       assert length(json_response(conn, 200)["data"]) == 1
     end
@@ -57,7 +46,7 @@ defmodule CgratesWebJsonapi.TpActionTriggerControllerTest do
       tariff_plan = insert :tariff_plan
 
       t1 = insert :tp_action_trigger, tpid: tariff_plan.alias
-      t2 = insert :tp_action_trigger, tpid: tariff_plan.alias
+      insert :tp_action_trigger, tpid: tariff_plan.alias
 
       conn = get(conn, tp_action_trigger_path(conn, :index, tpid: tariff_plan.alias), filter: %{actions_tag: t1.actions_tag})
       |> doc
@@ -68,7 +57,7 @@ defmodule CgratesWebJsonapi.TpActionTriggerControllerTest do
       tariff_plan = insert :tariff_plan
 
       t1 = insert :tp_action_trigger, tpid: tariff_plan.alias, balance_tag: "INTERNET"
-      t2 = insert :tp_action_trigger, tpid: tariff_plan.alias
+      insert :tp_action_trigger, tpid: tariff_plan.alias
 
       conn = get(conn, tp_action_trigger_path(conn, :index, tpid: tariff_plan.alias), filter: %{balance_tag: t1.balance_tag})
       |> doc
@@ -79,7 +68,7 @@ defmodule CgratesWebJsonapi.TpActionTriggerControllerTest do
       tariff_plan = insert :tariff_plan
 
       t1 = insert :tp_action_trigger, tpid: tariff_plan.alias, balance_type: "*voice"
-      t2 = insert :tp_action_trigger, tpid: tariff_plan.alias
+      insert :tp_action_trigger, tpid: tariff_plan.alias
 
       conn = get(conn, tp_action_trigger_path(conn, :index, tpid: tariff_plan.alias), filter: %{balance_type: t1.balance_type})
       |> doc
@@ -90,7 +79,7 @@ defmodule CgratesWebJsonapi.TpActionTriggerControllerTest do
       tariff_plan = insert :tariff_plan
 
       t1 = insert :tp_action_trigger, tpid: tariff_plan.alias
-      t2 = insert :tp_action_trigger, tpid: tariff_plan.alias
+      insert :tp_action_trigger, tpid: tariff_plan.alias
 
       conn = get(conn, tp_action_trigger_path(conn, :index, tpid: tariff_plan.alias), filter: %{unique_id: t1.unique_id})
       |> doc
@@ -101,7 +90,7 @@ defmodule CgratesWebJsonapi.TpActionTriggerControllerTest do
       tariff_plan = insert :tariff_plan
 
       t1 = insert :tp_action_trigger, tpid: tariff_plan.alias, expiry_time: "10s"
-      t2 = insert :tp_action_trigger, tpid: tariff_plan.alias, expiry_time: "20s"
+      insert :tp_action_trigger, tpid: tariff_plan.alias, expiry_time: "20s"
 
       conn = get(conn, tp_action_trigger_path(conn, :index, tpid: tariff_plan.alias), filter: %{expiry_time: t1.expiry_time})
       |> doc
@@ -112,7 +101,7 @@ defmodule CgratesWebJsonapi.TpActionTriggerControllerTest do
       tariff_plan = insert :tariff_plan
 
       t1 = insert :tp_action_trigger, tpid: tariff_plan.alias, balance_timing_tags: "t1"
-      t2 = insert :tp_action_trigger, tpid: tariff_plan.alias, balance_timing_tags: "t2"
+      insert :tp_action_trigger, tpid: tariff_plan.alias, balance_timing_tags: "t2"
 
       conn = get(conn, tp_action_trigger_path(conn, :index, tpid: tariff_plan.alias), filter: %{balance_timing_tags: t1.balance_timing_tags})
       |> doc
@@ -123,7 +112,7 @@ defmodule CgratesWebJsonapi.TpActionTriggerControllerTest do
       tariff_plan = insert :tariff_plan
 
       t1 = insert :tp_action_trigger, tpid: tariff_plan.alias, balance_destination_tags: "d1"
-      t2 = insert :tp_action_trigger, tpid: tariff_plan.alias, balance_destination_tags: "d2"
+      insert :tp_action_trigger, tpid: tariff_plan.alias, balance_destination_tags: "d2"
 
       conn = get(conn, tp_action_trigger_path(conn, :index, tpid: tariff_plan.alias), filter: %{balance_destination_tags: t1.balance_destination_tags})
       |> doc
@@ -134,7 +123,7 @@ defmodule CgratesWebJsonapi.TpActionTriggerControllerTest do
       tariff_plan = insert :tariff_plan
 
       t1 = insert :tp_action_trigger, tpid: tariff_plan.alias, balance_rating_subject: "brs1"
-      t2 = insert :tp_action_trigger, tpid: tariff_plan.alias
+      insert :tp_action_trigger, tpid: tariff_plan.alias
 
       conn = get(conn, tp_action_trigger_path(conn, :index, tpid: tariff_plan.alias), filter: %{balance_rating_subject: t1.balance_rating_subject})
       |> doc
@@ -145,7 +134,7 @@ defmodule CgratesWebJsonapi.TpActionTriggerControllerTest do
       tariff_plan = insert :tariff_plan
 
       t1 = insert :tp_action_trigger, tpid: tariff_plan.alias, balance_categories: "c1"
-      t2 = insert :tp_action_trigger, tpid: tariff_plan.alias, balance_categories: "c2"
+      insert :tp_action_trigger, tpid: tariff_plan.alias, balance_categories: "c2"
 
       conn = get(conn, tp_action_trigger_path(conn, :index, tpid: tariff_plan.alias), filter: %{balance_categories: t1.balance_categories})
       |> doc
@@ -156,7 +145,7 @@ defmodule CgratesWebJsonapi.TpActionTriggerControllerTest do
       tariff_plan = insert :tariff_plan
 
       t1 = insert :tp_action_trigger, tpid: tariff_plan.alias, balance_shared_groups: "g1"
-      t2 = insert :tp_action_trigger, tpid: tariff_plan.alias, balance_shared_groups: "g2"
+      insert :tp_action_trigger, tpid: tariff_plan.alias, balance_shared_groups: "g2"
 
       conn = get(conn, tp_action_trigger_path(conn, :index, tpid: tariff_plan.alias), filter: %{balance_shared_groups: t1.balance_shared_groups})
       |> doc
@@ -167,7 +156,7 @@ defmodule CgratesWebJsonapi.TpActionTriggerControllerTest do
       tariff_plan = insert :tariff_plan
 
       t1 = insert :tp_action_trigger, tpid: tariff_plan.alias, balance_weight: "c1"
-      t2 = insert :tp_action_trigger, tpid: tariff_plan.alias, balance_weight: "c2"
+      insert :tp_action_trigger, tpid: tariff_plan.alias, balance_weight: "c2"
 
       conn = get(conn, tp_action_trigger_path(conn, :index, tpid: tariff_plan.alias), filter: %{balance_weight: t1.balance_weight})
       |> doc
@@ -178,7 +167,7 @@ defmodule CgratesWebJsonapi.TpActionTriggerControllerTest do
       tariff_plan = insert :tariff_plan
 
       t1 = insert :tp_action_trigger, tpid: tariff_plan.alias, balance_blocker: "true"
-      t2 = insert :tp_action_trigger, tpid: tariff_plan.alias, balance_blocker: "false"
+      insert :tp_action_trigger, tpid: tariff_plan.alias, balance_blocker: "false"
 
       conn = get(conn, tp_action_trigger_path(conn, :index, tpid: tariff_plan.alias), filter: %{balance_blocker: t1.balance_blocker})
       |> doc
@@ -189,7 +178,7 @@ defmodule CgratesWebJsonapi.TpActionTriggerControllerTest do
       tariff_plan = insert :tariff_plan
 
       t1 = insert :tp_action_trigger, tpid: tariff_plan.alias, balance_disabled: "true"
-      t2 = insert :tp_action_trigger, tpid: tariff_plan.alias, balance_disabled: "false"
+      insert :tp_action_trigger, tpid: tariff_plan.alias, balance_disabled: "false"
 
       conn = get(conn, tp_action_trigger_path(conn, :index, tpid: tariff_plan.alias), filter: %{balance_disabled: t1.balance_disabled})
       |> doc
@@ -200,7 +189,7 @@ defmodule CgratesWebJsonapi.TpActionTriggerControllerTest do
       tariff_plan = insert :tariff_plan
 
       t1 = insert :tp_action_trigger, tpid: tariff_plan.alias, balance_expiry_time: "5s"
-      t2 = insert :tp_action_trigger, tpid: tariff_plan.alias, balance_expiry_time: "10s"
+      insert :tp_action_trigger, tpid: tariff_plan.alias, balance_expiry_time: "10s"
 
       conn = get(conn, tp_action_trigger_path(conn, :index, tpid: tariff_plan.alias), filter: %{balance_expiry_time: t1.balance_expiry_time})
       |> doc
@@ -211,7 +200,7 @@ defmodule CgratesWebJsonapi.TpActionTriggerControllerTest do
       tariff_plan = insert :tariff_plan
 
       t1 = insert :tp_action_trigger, tpid: tariff_plan.alias, threshold_type: "*min_balance"
-      t2 = insert :tp_action_trigger, tpid: tariff_plan.alias, threshold_type: "*min_tcc"
+      insert :tp_action_trigger, tpid: tariff_plan.alias, threshold_type: "*min_tcc"
 
       conn = get(conn, tp_action_trigger_path(conn, :index, tpid: tariff_plan.alias), filter: %{threshold_type: t1.threshold_type})
       |> doc
@@ -222,7 +211,7 @@ defmodule CgratesWebJsonapi.TpActionTriggerControllerTest do
       tariff_plan = insert :tariff_plan
 
       t1 = insert :tp_action_trigger, tpid: tariff_plan.alias, threshold_value: 5.0
-      t2 = insert :tp_action_trigger, tpid: tariff_plan.alias, threshold_value: 9.5
+      insert :tp_action_trigger, tpid: tariff_plan.alias, threshold_value: 9.5
 
       conn = get(conn, tp_action_trigger_path(conn, :index, tpid: tariff_plan.alias), filter: %{threshold_value: t1.threshold_value})
       |> doc
@@ -233,7 +222,7 @@ defmodule CgratesWebJsonapi.TpActionTriggerControllerTest do
       tariff_plan = insert :tariff_plan
 
       t1 = insert :tp_action_trigger, tpid: tariff_plan.alias, min_sleep: "ms1"
-      t2 = insert :tp_action_trigger, tpid: tariff_plan.alias
+      insert :tp_action_trigger, tpid: tariff_plan.alias
 
       conn = get(conn, tp_action_trigger_path(conn, :index, tpid: tariff_plan.alias), filter: %{min_sleep: t1.min_sleep})
       |> doc
@@ -244,20 +233,9 @@ defmodule CgratesWebJsonapi.TpActionTriggerControllerTest do
       tariff_plan = insert :tariff_plan
 
       t1 = insert :tp_action_trigger, tpid: tariff_plan.alias, activation_time: "5s"
-      t2 = insert :tp_action_trigger, tpid: tariff_plan.alias, activation_time: "10s"
+      insert :tp_action_trigger, tpid: tariff_plan.alias, activation_time: "10s"
 
       conn = get(conn, tp_action_trigger_path(conn, :index, tpid: tariff_plan.alias), filter: %{activation_time: t1.activation_time})
-      |> doc
-      assert length(json_response(conn, 200)["data"]) == 1
-    end
-
-    test "filtering by min_queued_items", %{conn: conn} do
-      tariff_plan = insert :tariff_plan
-
-      t1 = insert :tp_action_trigger, tpid: tariff_plan.alias, min_queued_items: 1
-      t2 = insert :tp_action_trigger, tpid: tariff_plan.alias, min_queued_items: 2
-
-      conn = get(conn, tp_action_trigger_path(conn, :index, tpid: tariff_plan.alias), filter: %{min_queued_items: t1.min_queued_items})
       |> doc
       assert length(json_response(conn, 200)["data"]) == 1
     end
@@ -266,7 +244,7 @@ defmodule CgratesWebJsonapi.TpActionTriggerControllerTest do
       tariff_plan = insert :tariff_plan
 
       t1 = insert :tp_action_trigger, tpid: tariff_plan.alias, weight: 1
-      t2 = insert :tp_action_trigger, tpid: tariff_plan.alias, weight: 2
+      insert :tp_action_trigger, tpid: tariff_plan.alias, weight: 2
 
       conn = get(conn, tp_action_trigger_path(conn, :index, tpid: tariff_plan.alias), filter: %{weight: t1.weight})
       |> doc
@@ -292,7 +270,6 @@ defmodule CgratesWebJsonapi.TpActionTriggerControllerTest do
       assert data["attributes"]["threshold-value"] == "4.0000"
       assert data["attributes"]["activation-time"] == tp_action_trigger.activation_time
       assert data["attributes"]["balance-expiry-time"] == tp_action_trigger.balance_expiry_time
-      assert data["attributes"]["balance-directions"] == tp_action_trigger.balance_directions
       assert data["attributes"]["min-sleep"] == tp_action_trigger.min_sleep
       assert data["attributes"]["expiry-time"] == tp_action_trigger.expiry_time
       assert data["attributes"]["balance-timing-tags"] == tp_action_trigger.balance_timing_tags
@@ -303,7 +280,6 @@ defmodule CgratesWebJsonapi.TpActionTriggerControllerTest do
       assert data["attributes"]["balance-weight"] == tp_action_trigger.balance_weight
       assert data["attributes"]["balance-blocker"] == tp_action_trigger.balance_blocker
       assert data["attributes"]["balance-disabled"] == tp_action_trigger.balance_disabled
-      assert data["attributes"]["min-queued-items"] == tp_action_trigger.min_queued_items
       assert data["attributes"]["recurrent"] == tp_action_trigger.recurrent
       assert data["attributes"]["weight"] == "10.00"
     end

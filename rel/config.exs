@@ -2,18 +2,19 @@
 # They can then be used by adding `plugin MyPlugin` to
 # either an environment, or release definition, where
 # `MyPlugin` is the name of the plugin module.
-Path.join(["rel", "plugins", "*.exs"])
+~w(rel plugins *.exs)
+|> Path.join()
 |> Path.wildcard()
 |> Enum.map(&Code.eval_file(&1))
 
-use Mix.Releases.Config,
-    # This sets the default release built by `mix release`
+use Distillery.Releases.Config,
+    # This sets the default release built by `mix distillery.release`
     default_release: :default,
-    # This sets the default environment used by `mix release`
+    # This sets the default environment used by `mix distillery.release`
     default_environment: Mix.env()
 
 # For a full list of config options for both releases
-# and environments, visit https://hexdocs.pm/distillery/configuration.html
+# and environments, visit https://hexdocs.pm/distillery/config/distillery.html
 
 
 # You may define one or more environments in this file,
@@ -30,26 +31,31 @@ environment :dev do
   # dev mode.
   set dev_mode: true
   set include_erts: false
-  set cookie: :"$wK]D8o)nb3gj8iHz;sR/M*Q^8|if8A72bk!6SYUZHm^15KIOL/m8E`x0W47f[=i"
+  set cookie: :"egmU|5d%O(phC;FZN*j)T&2ep_uXX?^ZhD*:Tr=bV9~Kb&{c}Rcn@qkoSb9>I!Tf"
 end
 
 environment :prod do
-  set include_erts: false
+  set include_erts: true
   set include_src: false
-  set cookie: :"*jQj)7&39Q&`1k;n7Q:RV&yGZZGVM*onnY*Ev.OobRau,y@%?.HET*v/p$F?i%=5"
+  set cookie: :"FYrsC<TA%ABsUIZv]_4M(c{D0!%OVf$F:%QAnz0}Tin4%hcV*edUk]5xjYrveSY0"
+  set vm_args: "rel/vm.args"
 end
 
 # You may define one or more releases in this file.
 # If you have not set a default release, or selected one
-# when running `mix release`, the first release in the file
+# when running `mix distillery.release`, the first release in the file
 # will be used by default
 
 release :cgrates_web_jsonapi do
-  set commands: [
-    "migrate": "rel/commands/migrate.sh"
-  ]
   set version: current_version(:cgrates_web_jsonapi)
   set applications: [
     :runtime_tools
+  ]
+  set overlays: [
+    {:copy, "rel/config/config.exs", "etc/config.exs"}
+  ]
+  set commands: [
+    migrate: "rel/commands/migrate.sh",
+    seed: "rel/commands/seed.sh"
   ]
 end

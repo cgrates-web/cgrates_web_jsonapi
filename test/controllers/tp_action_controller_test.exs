@@ -36,20 +36,9 @@ defmodule CgratesWebJsonapi.TpActionControllerTest do
       tariff_plan = insert :tariff_plan
 
       t1 = insert :tp_action, tpid: tariff_plan.alias
-      t2 = insert :tp_action, tpid: tariff_plan.alias
+      insert :tp_action, tpid: tariff_plan.alias
 
       conn = get(conn, tp_action_path(conn, :index, tpid: tariff_plan.alias), filter: %{tag: t1.tag})
-      |> doc
-      assert length(json_response(conn, 200)["data"]) == 1
-    end
-
-    test "filtering by directions", %{conn: conn} do
-      tariff_plan = insert :tariff_plan
-
-      t1 = insert :tp_action, tpid: tariff_plan.alias, directions: "up"
-      t2 = insert :tp_action, tpid: tariff_plan.alias, directions: "down"
-
-      conn = get(conn, tp_action_path(conn, :index, tpid: tariff_plan.alias), filter: %{directions: t1.directions})
       |> doc
       assert length(json_response(conn, 200)["data"]) == 1
     end
@@ -58,7 +47,7 @@ defmodule CgratesWebJsonapi.TpActionControllerTest do
       tariff_plan = insert :tariff_plan
 
       t1 = insert :tp_action, tpid: tariff_plan.alias
-      t2 = insert :tp_action, tpid: tariff_plan.alias
+      insert :tp_action, tpid: tariff_plan.alias
 
       conn = get(conn, tp_action_path(conn, :index, tpid: tariff_plan.alias), filter: %{action: t1.action})
       |> doc
@@ -69,7 +58,7 @@ defmodule CgratesWebJsonapi.TpActionControllerTest do
       tariff_plan = insert :tariff_plan
 
       t1 = insert :tp_action, tpid: tariff_plan.alias
-      t2 = insert :tp_action, tpid: tariff_plan.alias
+      insert :tp_action, tpid: tariff_plan.alias
 
       conn = get(conn, tp_action_path(conn, :index, tpid: tariff_plan.alias), filter: %{balance_tag: t1.balance_tag})
       |> doc
@@ -80,7 +69,7 @@ defmodule CgratesWebJsonapi.TpActionControllerTest do
       tariff_plan = insert :tariff_plan
 
       t1 = insert :tp_action, tpid: tariff_plan.alias, balance_type: "monetary"
-      t2 = insert :tp_action, tpid: tariff_plan.alias, balance_type: "other"
+      insert :tp_action, tpid: tariff_plan.alias, balance_type: "other"
 
       conn = get(conn, tp_action_path(conn, :index, tpid: tariff_plan.alias), filter: %{balance_type: t1.balance_type})
       |> doc
@@ -91,7 +80,7 @@ defmodule CgratesWebJsonapi.TpActionControllerTest do
       tariff_plan = insert :tariff_plan
 
       t1 = insert :tp_action, tpid: tariff_plan.alias
-      t2 = insert :tp_action, tpid: tariff_plan.alias
+      insert :tp_action, tpid: tariff_plan.alias
 
       conn = get(conn, tp_action_path(conn, :index, tpid: tariff_plan.alias), filter: %{units: t1.units})
       |> doc
@@ -102,7 +91,7 @@ defmodule CgratesWebJsonapi.TpActionControllerTest do
       tariff_plan = insert :tariff_plan
 
       t1 = insert :tp_action, tpid: tariff_plan.alias, expiry_time: "10s"
-      t2 = insert :tp_action, tpid: tariff_plan.alias, expiry_time: "20s"
+      insert :tp_action, tpid: tariff_plan.alias, expiry_time: "20s"
 
       conn = get(conn, tp_action_path(conn, :index, tpid: tariff_plan.alias), filter: %{expiry_time: t1.expiry_time})
       |> doc
@@ -113,7 +102,7 @@ defmodule CgratesWebJsonapi.TpActionControllerTest do
       tariff_plan = insert :tariff_plan
 
       t1 = insert :tp_action, tpid: tariff_plan.alias, timing_tags: "t1"
-      t2 = insert :tp_action, tpid: tariff_plan.alias, timing_tags: "t2"
+      insert :tp_action, tpid: tariff_plan.alias, timing_tags: "t2"
 
       conn = get(conn, tp_action_path(conn, :index, tpid: tariff_plan.alias), filter: %{timing_tags: t1.timing_tags})
       |> doc
@@ -124,7 +113,7 @@ defmodule CgratesWebJsonapi.TpActionControllerTest do
       tariff_plan = insert :tariff_plan
 
       t1 = insert :tp_action, tpid: tariff_plan.alias, destination_tags: "d1"
-      t2 = insert :tp_action, tpid: tariff_plan.alias, destination_tags: "d2"
+      insert :tp_action, tpid: tariff_plan.alias, destination_tags: "d2"
 
       conn = get(conn, tp_action_path(conn, :index, tpid: tariff_plan.alias), filter: %{destination_tags: t1.destination_tags})
       |> doc
@@ -135,7 +124,7 @@ defmodule CgratesWebJsonapi.TpActionControllerTest do
       tariff_plan = insert :tariff_plan
 
       t1 = insert :tp_action, tpid: tariff_plan.alias
-      t2 = insert :tp_action, tpid: tariff_plan.alias
+      insert :tp_action, tpid: tariff_plan.alias
 
       conn = get(conn, tp_action_path(conn, :index, tpid: tariff_plan.alias), filter: %{rating_subject: t1.rating_subject})
       |> doc
@@ -146,7 +135,7 @@ defmodule CgratesWebJsonapi.TpActionControllerTest do
       tariff_plan = insert :tariff_plan
 
       t1 = insert :tp_action, tpid: tariff_plan.alias, categories: "c1"
-      t2 = insert :tp_action, tpid: tariff_plan.alias, categories: "c2"
+      insert :tp_action, tpid: tariff_plan.alias, categories: "c2"
 
       conn = get(conn, tp_action_path(conn, :index, tpid: tariff_plan.alias), filter: %{categories: t1.categories})
       |> doc
@@ -157,7 +146,7 @@ defmodule CgratesWebJsonapi.TpActionControllerTest do
       tariff_plan = insert :tariff_plan
 
       t1 = insert :tp_action, tpid: tariff_plan.alias, shared_groups: "g1"
-      t2 = insert :tp_action, tpid: tariff_plan.alias, shared_groups: "g2"
+      insert :tp_action, tpid: tariff_plan.alias, shared_groups: "g2"
 
       conn = get(conn, tp_action_path(conn, :index, tpid: tariff_plan.alias), filter: %{shared_groups: t1.shared_groups})
       |> doc
@@ -168,7 +157,7 @@ defmodule CgratesWebJsonapi.TpActionControllerTest do
       tariff_plan = insert :tariff_plan
 
       t1 = insert :tp_action, tpid: tariff_plan.alias, balance_weight: "c1"
-      t2 = insert :tp_action, tpid: tariff_plan.alias, balance_weight: "c2"
+      insert :tp_action, tpid: tariff_plan.alias, balance_weight: "c2"
 
       conn = get(conn, tp_action_path(conn, :index, tpid: tariff_plan.alias), filter: %{balance_weight: t1.balance_weight})
       |> doc
@@ -179,7 +168,7 @@ defmodule CgratesWebJsonapi.TpActionControllerTest do
       tariff_plan = insert :tariff_plan
 
       t1 = insert :tp_action, tpid: tariff_plan.alias, balance_blocker: "true"
-      t2 = insert :tp_action, tpid: tariff_plan.alias, balance_blocker: "false"
+      insert :tp_action, tpid: tariff_plan.alias, balance_blocker: "false"
 
       conn = get(conn, tp_action_path(conn, :index, tpid: tariff_plan.alias), filter: %{balance_blocker: t1.balance_blocker})
       |> doc
@@ -190,7 +179,7 @@ defmodule CgratesWebJsonapi.TpActionControllerTest do
       tariff_plan = insert :tariff_plan
 
       t1 = insert :tp_action, tpid: tariff_plan.alias, balance_disabled: "true"
-      t2 = insert :tp_action, tpid: tariff_plan.alias, balance_disabled: "false"
+      insert :tp_action, tpid: tariff_plan.alias, balance_disabled: "false"
 
       conn = get(conn, tp_action_path(conn, :index, tpid: tariff_plan.alias), filter: %{balance_disabled: t1.balance_disabled})
       |> doc
@@ -201,7 +190,7 @@ defmodule CgratesWebJsonapi.TpActionControllerTest do
       tariff_plan = insert :tariff_plan
 
       t1 = insert :tp_action, tpid: tariff_plan.alias, weight: 1
-      t2 = insert :tp_action, tpid: tariff_plan.alias, weight: 2
+      insert :tp_action, tpid: tariff_plan.alias, weight: 2
 
       conn = get(conn, tp_action_path(conn, :index, tpid: tariff_plan.alias), filter: %{weight: t1.weight})
       |> doc
@@ -224,7 +213,6 @@ defmodule CgratesWebJsonapi.TpActionControllerTest do
       assert data["attributes"]["action"] == tp_action.action
       assert data["attributes"]["balance-tag"] == tp_action.balance_tag
       assert data["attributes"]["balance-type"] == tp_action.balance_type
-      assert data["attributes"]["directions"] == tp_action.directions
       assert data["attributes"]["units"] == tp_action.units
       assert data["attributes"]["expiry-time"] == tp_action.expiry_time
       assert data["attributes"]["timing-tags"] == tp_action.timing_tags
@@ -335,7 +323,7 @@ defmodule CgratesWebJsonapi.TpActionControllerTest do
       assert response(conn, 204)
       refute Repo.get(TpAction, tp_action.id)
     end
-    
+
     test "deletes chosen resource with assosiated resources included", %{conn: conn} do
       tariff_plan = insert :tariff_plan
       tp_action = insert :tp_action, tpid: tariff_plan.alias

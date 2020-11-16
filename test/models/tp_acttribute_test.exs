@@ -6,9 +6,9 @@ defmodule CgratesWebJsonapi.TpAttributeTest do
   import CgratesWebJsonapi.Factory
 
   @valid_attrs %{tenant: "some content", custom_id: "true", contexts: "some content",
-                 filter_ids: "some content", activation_interval: "some content", field_name: "some content",
-                 initial: "some content", substitute: "some content", append: false, blocker: false,
-                 tpid: "some content", weight: "100.5"}
+                 filter_ids: "some content", activation_interval: "some content",
+                 blocker: false, tpid: "some content", weight: "100.5", attribute_filter_ids: "some content",
+                 path: "path", cg_type: "type", value: "value"}
 
   @invalid_attrs %{}
   test "changeset with valid attributes" do

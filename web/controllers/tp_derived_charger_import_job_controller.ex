@@ -1,3 +1,0 @@
-defmodule CgratesWebJsonapi.TpDerivedChargerImportJobController do
-  use CgratesWebJsonapi.CsvImportJob, module: CgratesWebJsonapi.TpDerivedCharger
-end

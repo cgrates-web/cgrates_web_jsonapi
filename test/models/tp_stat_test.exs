@@ -6,9 +6,10 @@ defmodule CgratesWebJsonapi.TpStatTest do
   import CgratesWebJsonapi.Factory
 
   @valid_attrs %{activation_interval: "some content", filter_ids: "some content", tenant: "some content",
-                 parameters: "some content", ttl: "some content", metrics: "some content", min_items: 2,
+                 ttl: "some content", min_items: 2,
                  stored: false, supplier_resource_ids: "some content", queue_length: 2,
-                 threshold_ids: "some content", tpid: "some content", weight: 100, custom_id: "1", blocker: false}
+                 threshold_ids: "some content", tpid: "some content", weight: 100, custom_id: "1",
+                 blocker: false, metric_ids: "some content", metric_filter_ids: "some content"}
   @invalid_attrs %{}
 
   test "changeset with valid attributes" do

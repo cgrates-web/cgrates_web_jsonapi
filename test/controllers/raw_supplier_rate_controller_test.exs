@@ -42,7 +42,7 @@ defmodule CgratesWebJsonapi.RawSupplierRateControllerTest do
       tariff_plan = insert :tariff_plan
 
       r1 = insert :raw_supplier_rate, tariff_plan: tariff_plan, rate: 0.01
-      r2 = insert :raw_supplier_rate, tariff_plan: tariff_plan, rate: 0.02
+      insert :raw_supplier_rate, tariff_plan: tariff_plan, rate: 0.02
 
       conn = conn
       |> get(raw_supplier_rate_path(conn, :index, tpid: tariff_plan.id), filter: %{rate: r1.rate})
@@ -54,7 +54,7 @@ defmodule CgratesWebJsonapi.RawSupplierRateControllerTest do
       tariff_plan = insert :tariff_plan
 
       r1 = insert :raw_supplier_rate, tariff_plan: tariff_plan
-      r2 = insert :raw_supplier_rate, tariff_plan: tariff_plan
+      insert :raw_supplier_rate, tariff_plan: tariff_plan
 
       conn = conn
       |> get(raw_supplier_rate_path(conn, :index, tpid: tariff_plan.id), filter: %{inserted_at_gt: r1.inserted_at})
@@ -65,11 +65,11 @@ defmodule CgratesWebJsonapi.RawSupplierRateControllerTest do
     test "filtering by inserted_at_lt", %{conn: conn} do
       tariff_plan = insert :tariff_plan
 
-      r1 = insert :raw_supplier_rate, tariff_plan: tariff_plan
-      r2 = insert :raw_supplier_rate, tariff_plan: tariff_plan
+      insert :raw_supplier_rate, tariff_plan: tariff_plan
+      r = insert :raw_supplier_rate, tariff_plan: tariff_plan
 
       conn = conn
-      |> get(raw_supplier_rate_path(conn, :index, tpid: tariff_plan.id), filter: %{inserted_at_lt: r2.inserted_at})
+      |> get(raw_supplier_rate_path(conn, :index, tpid: tariff_plan.id), filter: %{inserted_at_lt: r.inserted_at})
       |> doc()
       assert length(json_response(conn, 200)["data"]) == 1
     end
@@ -78,7 +78,7 @@ defmodule CgratesWebJsonapi.RawSupplierRateControllerTest do
       tariff_plan = insert :tariff_plan
 
       r1 = insert :raw_supplier_rate, tariff_plan: tariff_plan, prefix: "123"
-      r2 = insert :raw_supplier_rate, tariff_plan: tariff_plan, prefix: "987"
+      insert :raw_supplier_rate, tariff_plan: tariff_plan, prefix: "987"
 
       conn = conn
       |> get(raw_supplier_rate_path(conn, :index, tpid: tariff_plan.id), filter: %{prefix: "123"})
@@ -90,7 +90,7 @@ defmodule CgratesWebJsonapi.RawSupplierRateControllerTest do
       tariff_plan = insert :tariff_plan
 
       r1 = insert :raw_supplier_rate, tariff_plan: tariff_plan, supplier_name: "123"
-      r2 = insert :raw_supplier_rate, tariff_plan: tariff_plan, supplier_name: "987"
+      insert :raw_supplier_rate, tariff_plan: tariff_plan, supplier_name: "987"
 
       conn = conn
       |> get(raw_supplier_rate_path(conn, :index, tpid: tariff_plan.id), filter: %{supplier_name: "12"})
@@ -110,7 +110,7 @@ defmodule CgratesWebJsonapi.RawSupplierRateControllerTest do
       tariff_plan = insert :tariff_plan
 
       r1 = insert :raw_supplier_rate, tariff_plan: tariff_plan, supplier_name: "123", prefix: "123"
-      r2 = insert :raw_supplier_rate, tariff_plan: tariff_plan, supplier_name: "987"
+      insert :raw_supplier_rate, tariff_plan: tariff_plan, supplier_name: "987"
 
       conn = conn
       |> get(raw_supplier_rate_path(conn, :export_to_csv), %{tpid: tariff_plan.id, filter: %{prefix: "123"}})

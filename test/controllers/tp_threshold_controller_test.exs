@@ -34,8 +34,8 @@ defmodule CgratesWebJsonapi.TpThresholdControllerTest do
     test "filtering by tenant", %{conn: conn} do
       tariff_plan = insert :tariff_plan
 
-      t1 = insert :tp_threshold, tpid: tariff_plan.alias
-      t2 = insert :tp_threshold, tpid: tariff_plan.alias
+      t1 = insert :tp_threshold, tpid: tariff_plan.alias, tenant: "my-tenant"
+      insert :tp_threshold, tpid: tariff_plan.alias
 
       conn = get(conn, tp_threshold_path(conn, :index, tpid: tariff_plan.alias), filter: %{tenant: t1.tenant})
       |> doc
@@ -45,8 +45,8 @@ defmodule CgratesWebJsonapi.TpThresholdControllerTest do
     test "filtering by custom_id", %{conn: conn} do
       tariff_plan = insert :tariff_plan
 
-      t1 = insert :tp_threshold, tpid: tariff_plan.alias
-      t2 = insert :tp_threshold, tpid: tariff_plan.alias
+      t1 = insert :tp_threshold, tpid: tariff_plan.alias, custom_id: "my-custom-id"
+      insert :tp_threshold, tpid: tariff_plan.alias
 
       conn = get(conn, tp_threshold_path(conn, :index, tpid: tariff_plan.alias), filter: %{custom_id: t1.custom_id})
       |> doc
@@ -56,8 +56,8 @@ defmodule CgratesWebJsonapi.TpThresholdControllerTest do
     test "filtering by action_ids", %{conn: conn} do
       tariff_plan = insert :tariff_plan
 
-      t1 = insert :tp_threshold, tpid: tariff_plan.alias
-      t2 = insert :tp_threshold, tpid: tariff_plan.alias
+      t1 = insert :tp_threshold, tpid: tariff_plan.alias, action_ids: "my-action-ids"
+      insert :tp_threshold, tpid: tariff_plan.alias
 
       conn = get(conn, tp_threshold_path(conn, :index, tpid: tariff_plan.alias), filter: %{action_ids: t1.action_ids})
       |> doc
@@ -67,8 +67,8 @@ defmodule CgratesWebJsonapi.TpThresholdControllerTest do
     test "filtering by filter_ids", %{conn: conn} do
       tariff_plan = insert :tariff_plan
 
-      t1 = insert :tp_threshold, tpid: tariff_plan.alias
-      t2 = insert :tp_threshold, tpid: tariff_plan.alias
+      t1 = insert :tp_threshold, tpid: tariff_plan.alias, filter_ids: "my-filter-ids"
+      insert :tp_threshold, tpid: tariff_plan.alias
 
       conn = get(conn, tp_threshold_path(conn, :index, tpid: tariff_plan.alias), filter: %{filter_ids: t1.filter_ids})
       |> doc
@@ -78,8 +78,8 @@ defmodule CgratesWebJsonapi.TpThresholdControllerTest do
     test "filtering by activation_interval", %{conn: conn} do
       tariff_plan = insert :tariff_plan
 
-      t1 = insert :tp_threshold, tpid: tariff_plan.alias
-      t2 = insert :tp_threshold, tpid: tariff_plan.alias
+      t1 = insert :tp_threshold, tpid: tariff_plan.alias, activation_interval: "999s"
+      insert :tp_threshold, tpid: tariff_plan.alias
 
       conn = get(conn, tp_threshold_path(conn, :index, tpid: tariff_plan.alias), filter: %{activation_interval: t1.activation_interval})
       |> doc
@@ -89,8 +89,8 @@ defmodule CgratesWebJsonapi.TpThresholdControllerTest do
     test "filtering by min_sleep", %{conn: conn} do
       tariff_plan = insert :tariff_plan
 
-      t1 = insert :tp_threshold, tpid: tariff_plan.alias
-      t2 = insert :tp_threshold, tpid: tariff_plan.alias
+      t1 = insert :tp_threshold, tpid: tariff_plan.alias, min_sleep: "99s"
+      insert :tp_threshold, tpid: tariff_plan.alias
 
       conn = get(conn, tp_threshold_path(conn, :index, tpid: tariff_plan.alias), filter: %{min_sleep: t1.min_sleep})
       |> doc
@@ -101,7 +101,7 @@ defmodule CgratesWebJsonapi.TpThresholdControllerTest do
       tariff_plan = insert :tariff_plan
 
       t1 = insert :tp_threshold, tpid: tariff_plan.alias
-      t2 = insert :tp_threshold, tpid: tariff_plan.alias, min_hits: 3
+      insert :tp_threshold, tpid: tariff_plan.alias, min_hits: 3
 
       conn = get(conn, tp_threshold_path(conn, :index, tpid: tariff_plan.alias), filter: %{min_hits: t1.min_hits})
       |> doc
@@ -112,7 +112,7 @@ defmodule CgratesWebJsonapi.TpThresholdControllerTest do
       tariff_plan = insert :tariff_plan
 
       t1 = insert :tp_threshold, tpid: tariff_plan.alias, async: true
-      t2 = insert :tp_threshold, tpid: tariff_plan.alias, async: false
+      insert :tp_threshold, tpid: tariff_plan.alias, async: false
 
       conn = get(conn, tp_threshold_path(conn, :index, tpid: tariff_plan.alias), filter: %{async: true})
       |> doc
@@ -123,7 +123,7 @@ defmodule CgratesWebJsonapi.TpThresholdControllerTest do
       tariff_plan = insert :tariff_plan
 
       t1 = insert :tp_threshold, tpid: tariff_plan.alias
-      t2 = insert :tp_threshold, tpid: tariff_plan.alias, max_hits: 20
+      insert :tp_threshold, tpid: tariff_plan.alias, max_hits: 20
 
       conn = get(conn, tp_threshold_path(conn, :index, tpid: tariff_plan.alias), filter: %{max_hits: t1.max_hits})
       |> doc
@@ -134,7 +134,7 @@ defmodule CgratesWebJsonapi.TpThresholdControllerTest do
       tariff_plan = insert :tariff_plan
 
       t1 = insert :tp_threshold, tpid: tariff_plan.alias, blocker: true
-      t2 = insert :tp_threshold, tpid: tariff_plan.alias, blocker: false
+      insert :tp_threshold, tpid: tariff_plan.alias, blocker: false
 
       conn = get(conn, tp_threshold_path(conn, :index, tpid: tariff_plan.alias), filter: %{blocker: true})
       |> doc
@@ -145,7 +145,7 @@ defmodule CgratesWebJsonapi.TpThresholdControllerTest do
       tariff_plan = insert :tariff_plan
 
       t1 = insert :tp_threshold, tpid: tariff_plan.alias, weight: 1
-      t2 = insert :tp_threshold, tpid: tariff_plan.alias, weight: 2
+      insert :tp_threshold, tpid: tariff_plan.alias, weight: 2
 
       conn = get(conn, tp_threshold_path(conn, :index, tpid: tariff_plan.alias), filter: %{weight: t1.weight})
       |> doc
