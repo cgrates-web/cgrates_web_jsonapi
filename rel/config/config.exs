@@ -14,7 +14,7 @@ use Mix.Config
 
 port = 80
 
-config :cgrates_web_jsonapi, CgratesWebJsonapi.Endpoint,
+config :cgrates_web_jsonapi, CgratesWebJsonapiWeb.Endpoint,
 http: [port: port]
   url: [host: System.get_env("HOST"), port: port],
   secret_key_base: System.get_env("SECRET_KEY_BASE"),

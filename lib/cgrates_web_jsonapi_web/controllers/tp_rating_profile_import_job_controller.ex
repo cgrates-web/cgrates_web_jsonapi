@@ -1,0 +1,3 @@
+defmodule CgratesWebJsonapiWeb.TpRatingProfileImportJobController do
+  use CgratesWebJsonapi.CsvImportJob, module: CgratesWebJsonapi.TpRatingProfile
+end

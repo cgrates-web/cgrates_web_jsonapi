@@ -5,7 +5,8 @@ defmodule CgratesWebJsonapi.CsvImport do
     attributes = Keyword.get(opts, :attributes)
 
     quote do
-      use CgratesWebJsonapi.Web, :model
+      use Ecto.Schema
+  import Ecto.Changeset
       use EctoConditionals, repo: CgratesWebJsonapi.Repo
       alias unquote(module)
 
