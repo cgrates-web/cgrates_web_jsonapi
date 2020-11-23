@@ -16,6 +16,4 @@ defmodule CgratesWebJsonapiWeb.TpResourceView do
     :weight,
     :limit
   ])
-
-  def id(resource), do: resource.pk
 end

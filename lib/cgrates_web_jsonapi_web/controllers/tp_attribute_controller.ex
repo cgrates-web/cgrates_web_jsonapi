@@ -6,9 +6,11 @@ defmodule CgratesWebJsonapiWeb.TpAttributeController do
   use CgratesWebJsonapi.CsvExport
   use CgratesWebJsonapi.DeleteAll
 
-  alias CgratesWebJsonapi.TpAttribute
+  alias CgratesWebJsonapi.TariffPlans.TpAttribute
 
   plug JaResource
+
+  def model(), do: TpAttribute
 
   def handle_show(conn, id), do: Repo.get!(TpAttribute, id)
 

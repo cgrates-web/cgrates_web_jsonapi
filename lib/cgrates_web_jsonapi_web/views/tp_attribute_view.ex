@@ -16,6 +16,4 @@ defmodule CgratesWebJsonapiWeb.TpAttributeView do
     :cg_type,
     :value
   ])
-
-  def id(attribute), do: attribute.pk
 end

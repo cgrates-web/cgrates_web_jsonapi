@@ -1,3 +1,3 @@
 defmodule CgratesWebJsonapiWeb.TpActionTriggerImportJobController do
-  use CgratesWebJsonapi.CsvImportJob, module: CgratesWebJsonapi.TpActionTrigger
+  use CgratesWebJsonapi.CsvImportJob, module: CgratesWebJsonapi.TariffPlans.TpActionTrigger
 end

@@ -18,6 +18,4 @@ defmodule CgratesWebJsonapiWeb.TpStatView do
     :metric_ids,
     :metric_filter_ids
   ])
-
-  def id(stat), do: stat.pk
 end

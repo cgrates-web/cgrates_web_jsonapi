@@ -1,6 +1,6 @@
 # API Documentation
 
-* [CgratesWebJsonapi.TpDestinationRateController](#cgrateswebjsonapitpdestinationratecontroller)
+* [CgratesWebJsonapi.TariffPlans.TpDestinationRateController](#cgrateswebjsonapitpdestinationratecontroller)
   * [create](#cgrateswebjsonapitpdestinationratecontrollercreate)
   * [delete](#cgrateswebjsonapitpdestinationratecontrollerdelete)
   * [export_to_csv](#cgrateswebjsonapitpdestinationratecontrollerexport_to_csv)
@@ -15,21 +15,21 @@
   * [index](#cgrateswebjsonapirawsupplierratecontrollerindex)
   * [show](#cgrateswebjsonapirawsupplierratecontrollershow)
   * [update](#cgrateswebjsonapirawsupplierratecontrollerupdate)
-* [CgratesWebJsonapi.TpStatController](#cgrateswebjsonapitpstatcontroller)
+* [CgratesWebJsonapi.TariffPlans.TpStatController](#cgrateswebjsonapitpstatcontroller)
   * [create](#cgrateswebjsonapitpstatcontrollercreate)
   * [delete](#cgrateswebjsonapitpstatcontrollerdelete)
   * [export_to_csv](#cgrateswebjsonapitpstatcontrollerexport_to_csv)
   * [index](#cgrateswebjsonapitpstatcontrollerindex)
   * [show](#cgrateswebjsonapitpstatcontrollershow)
   * [update](#cgrateswebjsonapitpstatcontrollerupdate)
-* [CgratesWebJsonapi.TpFilterController](#cgrateswebjsonapitpfiltercontroller)
+* [CgratesWebJsonapi.TariffPlans.TpFilterController](#cgrateswebjsonapitpfiltercontroller)
   * [create](#cgrateswebjsonapitpfiltercontrollercreate)
   * [delete](#cgrateswebjsonapitpfiltercontrollerdelete)
   * [export_to_csv](#cgrateswebjsonapitpfiltercontrollerexport_to_csv)
   * [index](#cgrateswebjsonapitpfiltercontrollerindex)
   * [show](#cgrateswebjsonapitpfiltercontrollershow)
   * [update](#cgrateswebjsonapitpfiltercontrollerupdate)
-* [CgratesWebJsonapi.TpActionPlanController](#cgrateswebjsonapitpactionplancontroller)
+* [CgratesWebJsonapi.TariffPlans.TpActionPlanController](#cgrateswebjsonapitpactionplancontroller)
   * [create](#cgrateswebjsonapitpactionplancontrollercreate)
   * [delete](#cgrateswebjsonapitpactionplancontrollerdelete)
   * [export_to_csv](#cgrateswebjsonapitpactionplancontrollerexport_to_csv)
@@ -42,63 +42,63 @@
   * [index](#cgrateswebjsonapitariffplancontrollerindex)
   * [show](#cgrateswebjsonapitariffplancontrollershow)
   * [update](#cgrateswebjsonapitariffplancontrollerupdate)
-* [CgratesWebJsonapi.TpActionController](#cgrateswebjsonapitpactioncontroller)
+* [CgratesWebJsonapi.TariffPlans.TpActionController](#cgrateswebjsonapitpactioncontroller)
   * [create](#cgrateswebjsonapitpactioncontrollercreate)
   * [delete](#cgrateswebjsonapitpactioncontrollerdelete)
   * [export_to_csv](#cgrateswebjsonapitpactioncontrollerexport_to_csv)
   * [index](#cgrateswebjsonapitpactioncontrollerindex)
   * [show](#cgrateswebjsonapitpactioncontrollershow)
   * [update](#cgrateswebjsonapitpactioncontrollerupdate)
-* [CgratesWebJsonapi.TpResourceImportJobController](#cgrateswebjsonapitpresourceimportjobcontroller)
+* [CgratesWebJsonapi.TariffPlans.TpResourceImportJobController](#cgrateswebjsonapitpresourceimportjobcontroller)
   * [create](#cgrateswebjsonapitpresourceimportjobcontrollercreate)
-* [CgratesWebJsonapi.TpChargerController](#cgrateswebjsonapitpchargercontroller)
+* [CgratesWebJsonapi.TariffPlans.TpChargerController](#cgrateswebjsonapitpchargercontroller)
   * [create](#cgrateswebjsonapitpchargercontrollercreate)
   * [delete](#cgrateswebjsonapitpchargercontrollerdelete)
   * [export_to_csv](#cgrateswebjsonapitpchargercontrollerexport_to_csv)
   * [index](#cgrateswebjsonapitpchargercontrollerindex)
   * [show](#cgrateswebjsonapitpchargercontrollershow)
   * [update](#cgrateswebjsonapitpchargercontrollerupdate)
-* [CgratesWebJsonapi.TpRateController](#cgrateswebjsonapitpratecontroller)
+* [CgratesWebJsonapi.TariffPlans.TpRateController](#cgrateswebjsonapitpratecontroller)
   * [create](#cgrateswebjsonapitpratecontrollercreate)
   * [delete](#cgrateswebjsonapitpratecontrollerdelete)
   * [export_to_csv](#cgrateswebjsonapitpratecontrollerexport_to_csv)
   * [index](#cgrateswebjsonapitpratecontrollerindex)
   * [show](#cgrateswebjsonapitpratecontrollershow)
   * [update](#cgrateswebjsonapitpratecontrollerupdate)
-* [CgratesWebJsonapi.TpRateImportJobController](#cgrateswebjsonapitprateimportjobcontroller)
+* [CgratesWebJsonapi.TariffPlans.TpRateImportJobController](#cgrateswebjsonapitprateimportjobcontroller)
   * [create](#cgrateswebjsonapitprateimportjobcontrollercreate)
-* [CgratesWebJsonapi.TpAttributeImportJobController](#cgrateswebjsonapitpattributeimportjobcontroller)
+* [CgratesWebJsonapi.TariffPlans.TpAttributeImportJobController](#cgrateswebjsonapitpattributeimportjobcontroller)
   * [create](#cgrateswebjsonapitpattributeimportjobcontrollercreate)
-* [CgratesWebJsonapi.TpThresholdImportJobController](#cgrateswebjsonapitpthresholdimportjobcontroller)
+* [CgratesWebJsonapi.TariffPlans.TpThresholdImportJobController](#cgrateswebjsonapitpthresholdimportjobcontroller)
   * [create](#cgrateswebjsonapitpthresholdimportjobcontrollercreate)
-* [CgratesWebJsonapi.TpTimingImportJobController](#cgrateswebjsonapitptimingimportjobcontroller)
+* [CgratesWebJsonapi.TariffPlans.TpTimingImportJobController](#cgrateswebjsonapitptimingimportjobcontroller)
   * [create](#cgrateswebjsonapitptimingimportjobcontrollercreate)
-* [CgratesWebJsonapi.TpStatImportJobController](#cgrateswebjsonapitpstatimportjobcontroller)
+* [CgratesWebJsonapi.TariffPlans.TpStatImportJobController](#cgrateswebjsonapitpstatimportjobcontroller)
   * [create](#cgrateswebjsonapitpstatimportjobcontrollercreate)
-* [CgratesWebJsonapi.TpChargerImportJobController](#cgrateswebjsonapitpchargerimportjobcontroller)
+* [CgratesWebJsonapi.TariffPlans.TpChargerImportJobController](#cgrateswebjsonapitpchargerimportjobcontroller)
   * [create](#cgrateswebjsonapitpchargerimportjobcontrollercreate)
-* [CgratesWebJsonapi.TpResourceController](#cgrateswebjsonapitpresourcecontroller)
+* [CgratesWebJsonapi.TariffPlans.TpResourceController](#cgrateswebjsonapitpresourcecontroller)
   * [create](#cgrateswebjsonapitpresourcecontrollercreate)
   * [delete](#cgrateswebjsonapitpresourcecontrollerdelete)
   * [export_to_csv](#cgrateswebjsonapitpresourcecontrollerexport_to_csv)
   * [index](#cgrateswebjsonapitpresourcecontrollerindex)
   * [show](#cgrateswebjsonapitpresourcecontrollershow)
   * [update](#cgrateswebjsonapitpresourcecontrollerupdate)
-* [CgratesWebJsonapi.TpThresholdController](#cgrateswebjsonapitpthresholdcontroller)
+* [CgratesWebJsonapi.TariffPlans.TpThresholdController](#cgrateswebjsonapitpthresholdcontroller)
   * [create](#cgrateswebjsonapitpthresholdcontrollercreate)
   * [delete](#cgrateswebjsonapitpthresholdcontrollerdelete)
   * [export_to_csv](#cgrateswebjsonapitpthresholdcontrollerexport_to_csv)
   * [index](#cgrateswebjsonapitpthresholdcontrollerindex)
   * [show](#cgrateswebjsonapitpthresholdcontrollershow)
   * [update](#cgrateswebjsonapitpthresholdcontrollerupdate)
-* [CgratesWebJsonapi.TpRatingPlanController](#cgrateswebjsonapitpratingplancontroller)
+* [CgratesWebJsonapi.TariffPlans.TpRatingPlanController](#cgrateswebjsonapitpratingplancontroller)
   * [create](#cgrateswebjsonapitpratingplancontrollercreate)
   * [delete](#cgrateswebjsonapitpratingplancontrollerdelete)
   * [export_to_csv](#cgrateswebjsonapitpratingplancontrollerexport_to_csv)
   * [index](#cgrateswebjsonapitpratingplancontrollerindex)
   * [show](#cgrateswebjsonapitpratingplancontrollershow)
   * [update](#cgrateswebjsonapitpratingplancontrollerupdate)
-* [CgratesWebJsonapi.TpSharedGroupController](#cgrateswebjsonapitpsharedgroupcontroller)
+* [CgratesWebJsonapi.TariffPlans.TpSharedGroupController](#cgrateswebjsonapitpsharedgroupcontroller)
   * [create](#cgrateswebjsonapitpsharedgroupcontrollercreate)
   * [delete](#cgrateswebjsonapitpsharedgroupcontrollerdelete)
   * [export_to_csv](#cgrateswebjsonapitpsharedgroupcontrollerexport_to_csv)
@@ -112,7 +112,7 @@
 * [CgratesWebJsonapi.CdrController](#cgrateswebjsonapicdrcontroller)
   * [index](#cgrateswebjsonapicdrcontrollerindex)
   * [show](#cgrateswebjsonapicdrcontrollershow)
-* [CgratesWebJsonapi.TpTimingController](#cgrateswebjsonapitptimingcontroller)
+* [CgratesWebJsonapi.TariffPlans.TpTimingController](#cgrateswebjsonapitptimingcontroller)
   * [create](#cgrateswebjsonapitptimingcontrollercreate)
   * [delete](#cgrateswebjsonapitptimingcontrollerdelete)
   * [export_to_csv](#cgrateswebjsonapitptimingcontrollerexport_to_csv)
@@ -121,43 +121,43 @@
   * [update](#cgrateswebjsonapitptimingcontrollerupdate)
 * [CgratesWebJsonapi.LoadTariffPlanController](#cgrateswebjsonapiloadtariffplancontroller)
   * [create](#cgrateswebjsonapiloadtariffplancontrollercreate)
-* [CgratesWebJsonapi.TpActionPlanImportJobController](#cgrateswebjsonapitpactionplanimportjobcontroller)
+* [CgratesWebJsonapi.TariffPlans.TpActionPlanImportJobController](#cgrateswebjsonapitpactionplanimportjobcontroller)
   * [create](#cgrateswebjsonapitpactionplanimportjobcontrollercreate)
-* [CgratesWebJsonapi.TpFilterImportJobController](#cgrateswebjsonapitpfilterimportjobcontroller)
+* [CgratesWebJsonapi.TariffPlans.TpFilterImportJobController](#cgrateswebjsonapitpfilterimportjobcontroller)
   * [create](#cgrateswebjsonapitpfilterimportjobcontrollercreate)
-* [CgratesWebJsonapi.TpRatingProfileController](#cgrateswebjsonapitpratingprofilecontroller)
+* [CgratesWebJsonapi.TariffPlans.TpRatingProfileController](#cgrateswebjsonapitpratingprofilecontroller)
   * [create](#cgrateswebjsonapitpratingprofilecontrollercreate)
   * [delete](#cgrateswebjsonapitpratingprofilecontrollerdelete)
   * [export_to_csv](#cgrateswebjsonapitpratingprofilecontrollerexport_to_csv)
   * [index](#cgrateswebjsonapitpratingprofilecontrollerindex)
   * [show](#cgrateswebjsonapitpratingprofilecontrollershow)
   * [update](#cgrateswebjsonapitpratingprofilecontrollerupdate)
-* [CgratesWebJsonapi.TpActionTriggerImportJobController](#cgrateswebjsonapitpactiontriggerimportjobcontroller)
+* [CgratesWebJsonapi.TariffPlans.TpActionTriggerImportJobController](#cgrateswebjsonapitpactiontriggerimportjobcontroller)
   * [create](#cgrateswebjsonapitpactiontriggerimportjobcontrollercreate)
-* [CgratesWebJsonapi.TpAccountActionImportJobController](#cgrateswebjsonapitpaccountactionimportjobcontroller)
+* [CgratesWebJsonapi.TariffPlans.TpAccountActionImportJobController](#cgrateswebjsonapitpaccountactionimportjobcontroller)
   * [create](#cgrateswebjsonapitpaccountactionimportjobcontrollercreate)
 * [CgratesWebJsonapi.DestinationController](#cgrateswebjsonapidestinationcontroller)
   * [create](#cgrateswebjsonapidestinationcontrollercreate)
   * [index](#cgrateswebjsonapidestinationcontrollerindex)
   * [show](#cgrateswebjsonapidestinationcontrollershow)
-* [CgratesWebJsonapi.TpDestinationImportJobController](#cgrateswebjsonapitpdestinationimportjobcontroller)
+* [CgratesWebJsonapi.TariffPlans.TpDestinationImportJobController](#cgrateswebjsonapitpdestinationimportjobcontroller)
   * [create](#cgrateswebjsonapitpdestinationimportjobcontrollercreate)
-* [CgratesWebJsonapi.TpRatingProfileImportJobController](#cgrateswebjsonapitpratingprofileimportjobcontroller)
+* [CgratesWebJsonapi.TariffPlans.TpRatingProfileImportJobController](#cgrateswebjsonapitpratingprofileimportjobcontroller)
   * [create](#cgrateswebjsonapitpratingprofileimportjobcontrollercreate)
-* [CgratesWebJsonapi.TpRatingPlanImportJobController](#cgrateswebjsonapitpratingplanimportjobcontroller)
+* [CgratesWebJsonapi.TariffPlans.TpRatingPlanImportJobController](#cgrateswebjsonapitpratingplanimportjobcontroller)
   * [create](#cgrateswebjsonapitpratingplanimportjobcontrollercreate)
-* [CgratesWebJsonapi.TpActionImportJobController](#cgrateswebjsonapitpactionimportjobcontroller)
+* [CgratesWebJsonapi.TariffPlans.TpActionImportJobController](#cgrateswebjsonapitpactionimportjobcontroller)
   * [create](#cgrateswebjsonapitpactionimportjobcontrollercreate)
-* [CgratesWebJsonapi.TpSharedGroupImportJobController](#cgrateswebjsonapitpsharedgroupimportjobcontroller)
+* [CgratesWebJsonapi.TariffPlans.TpSharedGroupImportJobController](#cgrateswebjsonapitpsharedgroupimportjobcontroller)
   * [create](#cgrateswebjsonapitpsharedgroupimportjobcontrollercreate)
-* [CgratesWebJsonapi.TpActionTriggerController](#cgrateswebjsonapitpactiontriggercontroller)
+* [CgratesWebJsonapi.TariffPlans.TpActionTriggerController](#cgrateswebjsonapitpactiontriggercontroller)
   * [create](#cgrateswebjsonapitpactiontriggercontrollercreate)
   * [delete](#cgrateswebjsonapitpactiontriggercontrollerdelete)
   * [export_to_csv](#cgrateswebjsonapitpactiontriggercontrollerexport_to_csv)
   * [index](#cgrateswebjsonapitpactiontriggercontrollerindex)
   * [show](#cgrateswebjsonapitpactiontriggercontrollershow)
   * [update](#cgrateswebjsonapitpactiontriggercontrollerupdate)
-* [CgratesWebJsonapi.TpAttributeController](#cgrateswebjsonapitpattributecontroller)
+* [CgratesWebJsonapi.TariffPlans.TpAttributeController](#cgrateswebjsonapitpattributecontroller)
   * [create](#cgrateswebjsonapitpattributecontrollercreate)
   * [delete](#cgrateswebjsonapitpattributecontrollerdelete)
   * [export_to_csv](#cgrateswebjsonapitpattributecontrollerexport_to_csv)
@@ -166,14 +166,14 @@
   * [update](#cgrateswebjsonapitpattributecontrollerupdate)
 * [CgratesWebJsonapi.AddBalanceController](#cgrateswebjsonapiaddbalancecontroller)
   * [create](#cgrateswebjsonapiaddbalancecontrollercreate)
-* [CgratesWebJsonapi.TpAccountActionController](#cgrateswebjsonapitpaccountactioncontroller)
+* [CgratesWebJsonapi.TariffPlans.TpAccountActionController](#cgrateswebjsonapitpaccountactioncontroller)
   * [create](#cgrateswebjsonapitpaccountactioncontrollercreate)
   * [delete](#cgrateswebjsonapitpaccountactioncontrollerdelete)
   * [export_to_csv](#cgrateswebjsonapitpaccountactioncontrollerexport_to_csv)
   * [index](#cgrateswebjsonapitpaccountactioncontrollerindex)
   * [show](#cgrateswebjsonapitpaccountactioncontrollershow)
   * [update](#cgrateswebjsonapitpaccountactioncontrollerupdate)
-* [CgratesWebJsonapi.TpBulkInsertController](#cgrateswebjsonapitpbulkinsertcontroller)
+* [CgratesWebJsonapi.TariffPlans.TpBulkInsertController](#cgrateswebjsonapitpbulkinsertcontroller)
   * [create](#cgrateswebjsonapitpbulkinsertcontrollercreate)
 * [CgratesWebJsonapi.UserController](#cgrateswebjsonapiusercontroller)
   * [create](#cgrateswebjsonapiusercontrollercreate)
@@ -181,7 +181,7 @@
   * [index](#cgrateswebjsonapiusercontrollerindex)
   * [show](#cgrateswebjsonapiusercontrollershow)
   * [update](#cgrateswebjsonapiusercontrollerupdate)
-* [CgratesWebJsonapi.TpDestinationController](#cgrateswebjsonapitpdestinationcontroller)
+* [CgratesWebJsonapi.TariffPlans.TpDestinationController](#cgrateswebjsonapitpdestinationcontroller)
   * [create](#cgrateswebjsonapitpdestinationcontrollercreate)
   * [delete](#cgrateswebjsonapitpdestinationcontrollerdelete)
   * [export_to_csv](#cgrateswebjsonapitpdestinationcontrollerexport_to_csv)
@@ -189,8 +189,8 @@
   * [show](#cgrateswebjsonapitpdestinationcontrollershow)
   * [update](#cgrateswebjsonapitpdestinationcontrollerupdate)
 
-## CgratesWebJsonapi.TpDestinationRateController
-### CgratesWebJsonapi.TpDestinationRateController.create
+## CgratesWebJsonapi.TariffPlans.TpDestinationRateController
+### CgratesWebJsonapi.TariffPlans.TpDestinationRateController.create
 #### does not create resource and renders errors when data is invalid
 ##### Request
 * __Method:__ POST
@@ -317,7 +317,7 @@ access-control-allow-credentials: true
 }
 ```
 
-### CgratesWebJsonapi.TpDestinationRateController.delete
+### CgratesWebJsonapi.TariffPlans.TpDestinationRateController.delete
 #### deletes chosen resource
 ##### Request
 * __Method:__ DELETE
@@ -344,7 +344,7 @@ content-type: application/vnd.api+json
 
 ```
 
-### CgratesWebJsonapi.TpDestinationRateController.export_to_csv
+### CgratesWebJsonapi.TariffPlans.TpDestinationRateController.export_to_csv
 #### GET export_to_csv returns status 'ok'
 ##### Request
 * __Method:__ GET
@@ -372,7 +372,7 @@ content-disposition: attachment; filename=export.csv
 
 ```
 
-### CgratesWebJsonapi.TpDestinationRateController.index
+### CgratesWebJsonapi.TariffPlans.TpDestinationRateController.index
 #### filtering by max_cost_strategy
 ##### Request
 * __Method:__ GET
@@ -805,7 +805,7 @@ access-control-allow-credentials: true
 }
 ```
 
-### CgratesWebJsonapi.TpDestinationRateController.show
+### CgratesWebJsonapi.TariffPlans.TpDestinationRateController.show
 #### shows chosen resource
 ##### Request
 * __Method:__ GET
@@ -851,7 +851,7 @@ access-control-allow-credentials: true
 }
 ```
 
-### CgratesWebJsonapi.TpDestinationRateController.update
+### CgratesWebJsonapi.TariffPlans.TpDestinationRateController.update
 #### does not update chosen resource and renders errors when data is invalid
 ##### Request
 * __Method:__ PUT
@@ -1566,8 +1566,8 @@ access-control-allow-credentials: true
 }
 ```
 
-## CgratesWebJsonapi.TpStatController
-### CgratesWebJsonapi.TpStatController.create
+## CgratesWebJsonapi.TariffPlans.TpStatController
+### CgratesWebJsonapi.TariffPlans.TpStatController.create
 #### POST create does not create resource and renders errors when data is invalid
 ##### Request
 * __Method:__ POST
@@ -1749,7 +1749,7 @@ access-control-allow-credentials: true
 }
 ```
 
-### CgratesWebJsonapi.TpStatController.delete
+### CgratesWebJsonapi.TariffPlans.TpStatController.delete
 #### DELETE destroy deletes chosen resource
 ##### Request
 * __Method:__ DELETE
@@ -1776,7 +1776,7 @@ content-type: application/vnd.api+json
 
 ```
 
-### CgratesWebJsonapi.TpStatController.export_to_csv
+### CgratesWebJsonapi.TariffPlans.TpStatController.export_to_csv
 #### GET export_to_csv returns status 'ok'
 ##### Request
 * __Method:__ GET
@@ -1804,7 +1804,7 @@ content-disposition: attachment; filename=export.csv
 
 ```
 
-### CgratesWebJsonapi.TpStatController.index
+### CgratesWebJsonapi.TariffPlans.TpStatController.index
 #### GET index filtering by weight
 ##### Request
 * __Method:__ GET
@@ -2645,7 +2645,7 @@ access-control-allow-credentials: true
 }
 ```
 
-### CgratesWebJsonapi.TpStatController.show
+### CgratesWebJsonapi.TariffPlans.TpStatController.show
 #### GET show shows chosen resource
 ##### Request
 * __Method:__ GET
@@ -2697,7 +2697,7 @@ access-control-allow-credentials: true
 }
 ```
 
-### CgratesWebJsonapi.TpStatController.update
+### CgratesWebJsonapi.TariffPlans.TpStatController.update
 #### PUT update does not update chosen resource and renders errors when data is invalid
 ##### Request
 * __Method:__ PUT
@@ -2788,8 +2788,8 @@ access-control-allow-credentials: true
 }
 ```
 
-## CgratesWebJsonapi.TpFilterController
-### CgratesWebJsonapi.TpFilterController.create
+## CgratesWebJsonapi.TariffPlans.TpFilterController
+### CgratesWebJsonapi.TariffPlans.TpFilterController.create
 #### POST create does not create resource and renders errors when data is invalid
 ##### Request
 * __Method:__ POST
@@ -2909,7 +2909,7 @@ access-control-allow-credentials: true
 }
 ```
 
-### CgratesWebJsonapi.TpFilterController.delete
+### CgratesWebJsonapi.TariffPlans.TpFilterController.delete
 #### DELETE destroy deletes chosen resource
 ##### Request
 * __Method:__ DELETE
@@ -2936,7 +2936,7 @@ content-type: application/vnd.api+json
 
 ```
 
-### CgratesWebJsonapi.TpFilterController.export_to_csv
+### CgratesWebJsonapi.TariffPlans.TpFilterController.export_to_csv
 #### GET export_to_csv returns status 'ok'
 ##### Request
 * __Method:__ GET
@@ -2964,7 +2964,7 @@ content-disposition: attachment; filename=export.csv
 
 ```
 
-### CgratesWebJsonapi.TpFilterController.index
+### CgratesWebJsonapi.TariffPlans.TpFilterController.index
 #### GET index filtering by id
 ##### Request
 * __Method:__ GET
@@ -3235,7 +3235,7 @@ access-control-allow-credentials: true
 }
 ```
 
-### CgratesWebJsonapi.TpFilterController.show
+### CgratesWebJsonapi.TariffPlans.TpFilterController.show
 #### GET show shows chosen resource
 ##### Request
 * __Method:__ GET
@@ -3281,7 +3281,7 @@ access-control-allow-credentials: true
 }
 ```
 
-### CgratesWebJsonapi.TpFilterController.update
+### CgratesWebJsonapi.TariffPlans.TpFilterController.update
 #### PUT update does not update chosen resource and renders errors when data is invalid
 ##### Request
 * __Method:__ PUT
@@ -3366,8 +3366,8 @@ access-control-allow-credentials: true
 }
 ```
 
-## CgratesWebJsonapi.TpActionPlanController
-### CgratesWebJsonapi.TpActionPlanController.create
+## CgratesWebJsonapi.TariffPlans.TpActionPlanController
+### CgratesWebJsonapi.TariffPlans.TpActionPlanController.create
 #### POST create does not create resource and renders errors when data is invalid
 ##### Request
 * __Method:__ POST
@@ -3477,7 +3477,7 @@ access-control-allow-credentials: true
 }
 ```
 
-### CgratesWebJsonapi.TpActionPlanController.delete
+### CgratesWebJsonapi.TariffPlans.TpActionPlanController.delete
 #### DELETE destroy deletes chosen resource
 ##### Request
 * __Method:__ DELETE
@@ -3504,7 +3504,7 @@ content-type: application/vnd.api+json
 
 ```
 
-### CgratesWebJsonapi.TpActionPlanController.export_to_csv
+### CgratesWebJsonapi.TariffPlans.TpActionPlanController.export_to_csv
 #### GET export_to_csv returns status 'ok'
 ##### Request
 * __Method:__ GET
@@ -3532,7 +3532,7 @@ content-disposition: attachment; filename=export.csv
 
 ```
 
-### CgratesWebJsonapi.TpActionPlanController.index
+### CgratesWebJsonapi.TariffPlans.TpActionPlanController.index
 #### GET index filtering by weight
 ##### Request
 * __Method:__ GET
@@ -3788,7 +3788,7 @@ access-control-allow-credentials: true
 }
 ```
 
-### CgratesWebJsonapi.TpActionPlanController.show
+### CgratesWebJsonapi.TariffPlans.TpActionPlanController.show
 #### GET show shows chosen resource
 ##### Request
 * __Method:__ GET
@@ -3831,7 +3831,7 @@ access-control-allow-credentials: true
 }
 ```
 
-### CgratesWebJsonapi.TpActionPlanController.update
+### CgratesWebJsonapi.TariffPlans.TpActionPlanController.update
 #### PATCH/PUT update does not update chosen resource and renders errors when data is invalid
 ##### Request
 * __Method:__ PUT
@@ -4169,8 +4169,8 @@ access-control-allow-credentials: true
 }
 ```
 
-## CgratesWebJsonapi.TpActionController
-### CgratesWebJsonapi.TpActionController.create
+## CgratesWebJsonapi.TariffPlans.TpActionController
+### CgratesWebJsonapi.TariffPlans.TpActionController.create
 #### POST create does not create resource and renders errors when data is invalid
 ##### Request
 * __Method:__ POST
@@ -4384,7 +4384,7 @@ access-control-allow-credentials: true
 }
 ```
 
-### CgratesWebJsonapi.TpActionController.delete
+### CgratesWebJsonapi.TariffPlans.TpActionController.delete
 #### DELETE destroy deletes chosen resource
 ##### Request
 * __Method:__ DELETE
@@ -4411,7 +4411,7 @@ content-type: application/vnd.api+json
 
 ```
 
-### CgratesWebJsonapi.TpActionController.export_to_csv
+### CgratesWebJsonapi.TariffPlans.TpActionController.export_to_csv
 #### GET export_to_csv returns status 'ok'
 ##### Request
 * __Method:__ GET
@@ -4439,7 +4439,7 @@ content-disposition: attachment; filename=export.csv
 
 ```
 
-### CgratesWebJsonapi.TpActionController.index
+### CgratesWebJsonapi.TariffPlans.TpActionController.index
 #### GET index filtering by weight
 ##### Request
 * __Method:__ GET
@@ -5464,7 +5464,7 @@ access-control-allow-credentials: true
 }
 ```
 
-### CgratesWebJsonapi.TpActionController.show
+### CgratesWebJsonapi.TariffPlans.TpActionController.show
 #### GET show shows chosen resource
 ##### Request
 * __Method:__ GET
@@ -5520,7 +5520,7 @@ access-control-allow-credentials: true
 }
 ```
 
-### CgratesWebJsonapi.TpActionController.update
+### CgratesWebJsonapi.TariffPlans.TpActionController.update
 #### PATCH/PUT update does not update chosen resource and renders errors when data is invalid
 ##### Request
 * __Method:__ PUT
@@ -5615,8 +5615,8 @@ access-control-allow-credentials: true
 }
 ```
 
-## CgratesWebJsonapi.TpResourceImportJobController
-### CgratesWebJsonapi.TpResourceImportJobController.create
+## CgratesWebJsonapi.TariffPlans.TpResourceImportJobController
+### CgratesWebJsonapi.TariffPlans.TpResourceImportJobController.create
 #### POST create creates resource imported from csv file
 ##### Request
 * __Method:__ POST
@@ -5655,8 +5655,8 @@ access-control-allow-credentials: true
 }
 ```
 
-## CgratesWebJsonapi.TpChargerController
-### CgratesWebJsonapi.TpChargerController.create
+## CgratesWebJsonapi.TariffPlans.TpChargerController
+### CgratesWebJsonapi.TariffPlans.TpChargerController.create
 #### POST create does not create resource and renders errors when data is invalid
 ##### Request
 * __Method:__ POST
@@ -5790,7 +5790,7 @@ access-control-allow-credentials: true
 }
 ```
 
-### CgratesWebJsonapi.TpChargerController.delete
+### CgratesWebJsonapi.TariffPlans.TpChargerController.delete
 #### DELETE destroy deletes chosen resource
 ##### Request
 * __Method:__ DELETE
@@ -5817,7 +5817,7 @@ content-type: application/vnd.api+json
 
 ```
 
-### CgratesWebJsonapi.TpChargerController.export_to_csv
+### CgratesWebJsonapi.TariffPlans.TpChargerController.export_to_csv
 #### GET export_to_csv returns status 'ok'
 ##### Request
 * __Method:__ GET
@@ -5845,7 +5845,7 @@ content-disposition: attachment; filename=export.csv
 
 ```
 
-### CgratesWebJsonapi.TpChargerController.index
+### CgratesWebJsonapi.TariffPlans.TpChargerController.index
 #### GET index filtering by weight
 ##### Request
 * __Method:__ GET
@@ -6278,7 +6278,7 @@ access-control-allow-credentials: true
 }
 ```
 
-### CgratesWebJsonapi.TpChargerController.show
+### CgratesWebJsonapi.TariffPlans.TpChargerController.show
 #### GET show shows chosen resource
 ##### Request
 * __Method:__ GET
@@ -6324,7 +6324,7 @@ access-control-allow-credentials: true
 }
 ```
 
-### CgratesWebJsonapi.TpChargerController.update
+### CgratesWebJsonapi.TariffPlans.TpChargerController.update
 #### PATCH/PUT update does not update chosen resource and renders errors when data is invalid
 ##### Request
 * __Method:__ PUT
@@ -6409,8 +6409,8 @@ access-control-allow-credentials: true
 }
 ```
 
-## CgratesWebJsonapi.TpRateController
-### CgratesWebJsonapi.TpRateController.create
+## CgratesWebJsonapi.TariffPlans.TpRateController
+### CgratesWebJsonapi.TariffPlans.TpRateController.create
 #### creates and renders resource when data is valid
 ##### Request
 * __Method:__ POST
@@ -6455,7 +6455,7 @@ access-control-allow-credentials: true
 }
 ```
 
-### CgratesWebJsonapi.TpRateController.delete
+### CgratesWebJsonapi.TariffPlans.TpRateController.delete
 #### deletes chosen resource
 ##### Request
 * __Method:__ DELETE
@@ -6482,7 +6482,7 @@ content-type: application/vnd.api+json
 
 ```
 
-### CgratesWebJsonapi.TpRateController.export_to_csv
+### CgratesWebJsonapi.TariffPlans.TpRateController.export_to_csv
 #### GET export_to_csv returns status 'ok'
 ##### Request
 * __Method:__ GET
@@ -6510,7 +6510,7 @@ content-disposition: attachment; filename=export.csv
 
 ```
 
-### CgratesWebJsonapi.TpRateController.index
+### CgratesWebJsonapi.TariffPlans.TpRateController.index
 #### filtering by group_interval_start
 ##### Request
 * __Method:__ GET
@@ -6882,7 +6882,7 @@ access-control-allow-credentials: true
 }
 ```
 
-### CgratesWebJsonapi.TpRateController.show
+### CgratesWebJsonapi.TariffPlans.TpRateController.show
 #### shows chosen resource
 ##### Request
 * __Method:__ GET
@@ -6927,7 +6927,7 @@ access-control-allow-credentials: true
 }
 ```
 
-### CgratesWebJsonapi.TpRateController.update
+### CgratesWebJsonapi.TariffPlans.TpRateController.update
 #### does not update chosen resource and renders errors when data is invalid
 ##### Request
 * __Method:__ PUT
@@ -7025,8 +7025,8 @@ access-control-allow-credentials: true
 }
 ```
 
-## CgratesWebJsonapi.TpRateImportJobController
-### CgratesWebJsonapi.TpRateImportJobController.create
+## CgratesWebJsonapi.TariffPlans.TpRateImportJobController
+### CgratesWebJsonapi.TariffPlans.TpRateImportJobController.create
 #### POST create creates resource imported from csv file
 ##### Request
 * __Method:__ POST
@@ -7065,8 +7065,8 @@ access-control-allow-credentials: true
 }
 ```
 
-## CgratesWebJsonapi.TpAttributeImportJobController
-### CgratesWebJsonapi.TpAttributeImportJobController.create
+## CgratesWebJsonapi.TariffPlans.TpAttributeImportJobController
+### CgratesWebJsonapi.TariffPlans.TpAttributeImportJobController.create
 #### POST create creates resource imported from csv file
 ##### Request
 * __Method:__ POST
@@ -7105,8 +7105,8 @@ access-control-allow-credentials: true
 }
 ```
 
-## CgratesWebJsonapi.TpThresholdImportJobController
-### CgratesWebJsonapi.TpThresholdImportJobController.create
+## CgratesWebJsonapi.TariffPlans.TpThresholdImportJobController
+### CgratesWebJsonapi.TariffPlans.TpThresholdImportJobController.create
 #### POST create creates resource imported from csv file
 ##### Request
 * __Method:__ POST
@@ -7145,8 +7145,8 @@ access-control-allow-credentials: true
 }
 ```
 
-## CgratesWebJsonapi.TpTimingImportJobController
-### CgratesWebJsonapi.TpTimingImportJobController.create
+## CgratesWebJsonapi.TariffPlans.TpTimingImportJobController
+### CgratesWebJsonapi.TariffPlans.TpTimingImportJobController.create
 #### POST create creates resource imported from csv file
 ##### Request
 * __Method:__ POST
@@ -7185,8 +7185,8 @@ access-control-allow-credentials: true
 }
 ```
 
-## CgratesWebJsonapi.TpStatImportJobController
-### CgratesWebJsonapi.TpStatImportJobController.create
+## CgratesWebJsonapi.TariffPlans.TpStatImportJobController
+### CgratesWebJsonapi.TariffPlans.TpStatImportJobController.create
 #### POST create creates resource imported from csv file
 ##### Request
 * __Method:__ POST
@@ -7225,8 +7225,8 @@ access-control-allow-credentials: true
 }
 ```
 
-## CgratesWebJsonapi.TpChargerImportJobController
-### CgratesWebJsonapi.TpChargerImportJobController.create
+## CgratesWebJsonapi.TariffPlans.TpChargerImportJobController
+### CgratesWebJsonapi.TariffPlans.TpChargerImportJobController.create
 #### POST create creates resource imported from csv file
 ##### Request
 * __Method:__ POST
@@ -7265,8 +7265,8 @@ access-control-allow-credentials: true
 }
 ```
 
-## CgratesWebJsonapi.TpResourceController
-### CgratesWebJsonapi.TpResourceController.create
+## CgratesWebJsonapi.TariffPlans.TpResourceController
+### CgratesWebJsonapi.TariffPlans.TpResourceController.create
 #### POST create does not create resource and renders errors when data is invalid
 ##### Request
 * __Method:__ POST
@@ -7432,7 +7432,7 @@ access-control-allow-credentials: true
 }
 ```
 
-### CgratesWebJsonapi.TpResourceController.delete
+### CgratesWebJsonapi.TariffPlans.TpResourceController.delete
 #### DELETE destroy deletes chosen resource
 ##### Request
 * __Method:__ DELETE
@@ -7459,7 +7459,7 @@ content-type: application/vnd.api+json
 
 ```
 
-### CgratesWebJsonapi.TpResourceController.export_to_csv
+### CgratesWebJsonapi.TariffPlans.TpResourceController.export_to_csv
 #### GET export_to_csv returns status 'ok'
 ##### Request
 * __Method:__ GET
@@ -7487,7 +7487,7 @@ content-disposition: attachment; filename=export.csv
 
 ```
 
-### CgratesWebJsonapi.TpResourceController.index
+### CgratesWebJsonapi.TariffPlans.TpResourceController.index
 #### GET index filtering by weight
 ##### Request
 * __Method:__ GET
@@ -8184,7 +8184,7 @@ access-control-allow-credentials: true
 }
 ```
 
-### CgratesWebJsonapi.TpResourceController.show
+### CgratesWebJsonapi.TariffPlans.TpResourceController.show
 #### GET show shows chosen resource
 ##### Request
 * __Method:__ GET
@@ -8234,7 +8234,7 @@ access-control-allow-credentials: true
 }
 ```
 
-### CgratesWebJsonapi.TpResourceController.update
+### CgratesWebJsonapi.TariffPlans.TpResourceController.update
 #### PATCH/PUT update does not update chosen resource and renders errors when data is invalid
 ##### Request
 * __Method:__ PUT
@@ -8323,8 +8323,8 @@ access-control-allow-credentials: true
 }
 ```
 
-## CgratesWebJsonapi.TpThresholdController
-### CgratesWebJsonapi.TpThresholdController.create
+## CgratesWebJsonapi.TariffPlans.TpThresholdController
+### CgratesWebJsonapi.TariffPlans.TpThresholdController.create
 #### POST create does not create resource and renders errors when data is invalid
 ##### Request
 * __Method:__ POST
@@ -8490,7 +8490,7 @@ access-control-allow-credentials: true
 }
 ```
 
-### CgratesWebJsonapi.TpThresholdController.delete
+### CgratesWebJsonapi.TariffPlans.TpThresholdController.delete
 #### DELETE destroy deletes chosen resource
 ##### Request
 * __Method:__ DELETE
@@ -8517,7 +8517,7 @@ content-type: application/vnd.api+json
 
 ```
 
-### CgratesWebJsonapi.TpThresholdController.export_to_csv
+### CgratesWebJsonapi.TariffPlans.TpThresholdController.export_to_csv
 #### GET export_to_csv returns status 'ok'
 ##### Request
 * __Method:__ GET
@@ -8545,7 +8545,7 @@ content-disposition: attachment; filename=export.csv
 
 ```
 
-### CgratesWebJsonapi.TpThresholdController.index
+### CgratesWebJsonapi.TariffPlans.TpThresholdController.index
 #### GET index filtering by weight
 ##### Request
 * __Method:__ GET
@@ -9242,7 +9242,7 @@ access-control-allow-credentials: true
 }
 ```
 
-### CgratesWebJsonapi.TpThresholdController.show
+### CgratesWebJsonapi.TariffPlans.TpThresholdController.show
 #### GET show shows chosen resource
 ##### Request
 * __Method:__ GET
@@ -9292,7 +9292,7 @@ access-control-allow-credentials: true
 }
 ```
 
-### CgratesWebJsonapi.TpThresholdController.update
+### CgratesWebJsonapi.TariffPlans.TpThresholdController.update
 #### PATCH/PUT update does not update chosen resource and renders errors when data is invalid
 ##### Request
 * __Method:__ PUT
@@ -9381,8 +9381,8 @@ access-control-allow-credentials: true
 }
 ```
 
-## CgratesWebJsonapi.TpRatingPlanController
-### CgratesWebJsonapi.TpRatingPlanController.create
+## CgratesWebJsonapi.TariffPlans.TpRatingPlanController
+### CgratesWebJsonapi.TariffPlans.TpRatingPlanController.create
 #### does not create resource and renders errors when data is invalid
 ##### Request
 * __Method:__ POST
@@ -9492,7 +9492,7 @@ access-control-allow-credentials: true
 }
 ```
 
-### CgratesWebJsonapi.TpRatingPlanController.delete
+### CgratesWebJsonapi.TariffPlans.TpRatingPlanController.delete
 #### deletes chosen resource
 ##### Request
 * __Method:__ DELETE
@@ -9519,7 +9519,7 @@ content-type: application/vnd.api+json
 
 ```
 
-### CgratesWebJsonapi.TpRatingPlanController.export_to_csv
+### CgratesWebJsonapi.TariffPlans.TpRatingPlanController.export_to_csv
 #### GET export_to_csv returns status 'ok'
 ##### Request
 * __Method:__ GET
@@ -9547,7 +9547,7 @@ content-disposition: attachment; filename=export.csv
 
 ```
 
-### CgratesWebJsonapi.TpRatingPlanController.index
+### CgratesWebJsonapi.TariffPlans.TpRatingPlanController.index
 #### filtering by weight
 ##### Request
 * __Method:__ GET
@@ -9803,7 +9803,7 @@ access-control-allow-credentials: true
 }
 ```
 
-### CgratesWebJsonapi.TpRatingPlanController.show
+### CgratesWebJsonapi.TariffPlans.TpRatingPlanController.show
 #### shows chosen resource
 ##### Request
 * __Method:__ GET
@@ -9846,7 +9846,7 @@ access-control-allow-credentials: true
 }
 ```
 
-### CgratesWebJsonapi.TpRatingPlanController.update
+### CgratesWebJsonapi.TariffPlans.TpRatingPlanController.update
 #### does not update chosen resource and renders errors when data is invalid
 ##### Request
 * __Method:__ PUT
@@ -9928,8 +9928,8 @@ access-control-allow-credentials: true
 }
 ```
 
-## CgratesWebJsonapi.TpSharedGroupController
-### CgratesWebJsonapi.TpSharedGroupController.create
+## CgratesWebJsonapi.TariffPlans.TpSharedGroupController
+### CgratesWebJsonapi.TariffPlans.TpSharedGroupController.create
 #### POST create does not create resource and renders errors when data is invalid
 ##### Request
 * __Method:__ POST
@@ -10038,7 +10038,7 @@ access-control-allow-credentials: true
 }
 ```
 
-### CgratesWebJsonapi.TpSharedGroupController.delete
+### CgratesWebJsonapi.TariffPlans.TpSharedGroupController.delete
 #### DELETE destroy deletes chosen resource
 ##### Request
 * __Method:__ DELETE
@@ -10065,7 +10065,7 @@ content-type: application/vnd.api+json
 
 ```
 
-### CgratesWebJsonapi.TpSharedGroupController.export_to_csv
+### CgratesWebJsonapi.TariffPlans.TpSharedGroupController.export_to_csv
 #### GET export_to_csv returns status 'ok'
 ##### Request
 * __Method:__ GET
@@ -10093,7 +10093,7 @@ content-disposition: attachment; filename=export.csv
 
 ```
 
-### CgratesWebJsonapi.TpSharedGroupController.index
+### CgratesWebJsonapi.TariffPlans.TpSharedGroupController.index
 #### GET index filtering by rating_subject
 ##### Request
 * __Method:__ GET
@@ -10344,7 +10344,7 @@ access-control-allow-credentials: true
 }
 ```
 
-### CgratesWebJsonapi.TpSharedGroupController.show
+### CgratesWebJsonapi.TariffPlans.TpSharedGroupController.show
 #### GET show shows chosen resource
 ##### Request
 * __Method:__ GET
@@ -10386,7 +10386,7 @@ access-control-allow-credentials: true
 }
 ```
 
-### CgratesWebJsonapi.TpSharedGroupController.update
+### CgratesWebJsonapi.TariffPlans.TpSharedGroupController.update
 #### PUT update does not update chosen resource and renders errors when data is invalid
 ##### Request
 * __Method:__ PUT
@@ -11693,8 +11693,8 @@ access-control-allow-credentials: true
 }
 ```
 
-## CgratesWebJsonapi.TpTimingController
-### CgratesWebJsonapi.TpTimingController.create
+## CgratesWebJsonapi.TariffPlans.TpTimingController
+### CgratesWebJsonapi.TariffPlans.TpTimingController.create
 #### does not create resource and renders errors when data is invalid
 ##### Request
 * __Method:__ POST
@@ -11820,7 +11820,7 @@ access-control-allow-credentials: true
 }
 ```
 
-### CgratesWebJsonapi.TpTimingController.delete
+### CgratesWebJsonapi.TariffPlans.TpTimingController.delete
 #### deletes chosen resource
 ##### Request
 * __Method:__ DELETE
@@ -11847,7 +11847,7 @@ content-type: application/vnd.api+json
 
 ```
 
-### CgratesWebJsonapi.TpTimingController.export_to_csv
+### CgratesWebJsonapi.TariffPlans.TpTimingController.export_to_csv
 #### GET export_to_csv returns status 'ok'
 ##### Request
 * __Method:__ GET
@@ -11875,7 +11875,7 @@ content-disposition: attachment; filename=export.csv
 
 ```
 
-### CgratesWebJsonapi.TpTimingController.index
+### CgratesWebJsonapi.TariffPlans.TpTimingController.index
 #### filtering by tag
 ##### Request
 * __Method:__ GET
@@ -11982,7 +11982,7 @@ access-control-allow-credentials: true
 }
 ```
 
-### CgratesWebJsonapi.TpTimingController.show
+### CgratesWebJsonapi.TariffPlans.TpTimingController.show
 #### shows chosen resource
 ##### Request
 * __Method:__ GET
@@ -12027,7 +12027,7 @@ access-control-allow-credentials: true
 }
 ```
 
-### CgratesWebJsonapi.TpTimingController.update
+### CgratesWebJsonapi.TariffPlans.TpTimingController.update
 #### does not update chosen resource and renders errors when data is invalid
 ##### Request
 * __Method:__ PUT
@@ -12143,8 +12143,8 @@ access-control-allow-credentials: true
 }
 ```
 
-## CgratesWebJsonapi.TpActionPlanImportJobController
-### CgratesWebJsonapi.TpActionPlanImportJobController.create
+## CgratesWebJsonapi.TariffPlans.TpActionPlanImportJobController
+### CgratesWebJsonapi.TariffPlans.TpActionPlanImportJobController.create
 #### POST create creates resource imported from csv file
 ##### Request
 * __Method:__ POST
@@ -12183,8 +12183,8 @@ access-control-allow-credentials: true
 }
 ```
 
-## CgratesWebJsonapi.TpFilterImportJobController
-### CgratesWebJsonapi.TpFilterImportJobController.create
+## CgratesWebJsonapi.TariffPlans.TpFilterImportJobController
+### CgratesWebJsonapi.TariffPlans.TpFilterImportJobController.create
 #### POST create creates resource imported from csv file
 ##### Request
 * __Method:__ POST
@@ -12223,8 +12223,8 @@ access-control-allow-credentials: true
 }
 ```
 
-## CgratesWebJsonapi.TpRatingProfileController
-### CgratesWebJsonapi.TpRatingProfileController.create
+## CgratesWebJsonapi.TariffPlans.TpRatingProfileController
+### CgratesWebJsonapi.TariffPlans.TpRatingProfileController.create
 #### POST create does not create resource and renders errors when data is invalid
 ##### Request
 * __Method:__ POST
@@ -12351,7 +12351,7 @@ access-control-allow-credentials: true
 }
 ```
 
-### CgratesWebJsonapi.TpRatingProfileController.delete
+### CgratesWebJsonapi.TariffPlans.TpRatingProfileController.delete
 #### DELETE destroy deletes chosen resource
 ##### Request
 * __Method:__ DELETE
@@ -12378,7 +12378,7 @@ content-type: application/vnd.api+json
 
 ```
 
-### CgratesWebJsonapi.TpRatingProfileController.export_to_csv
+### CgratesWebJsonapi.TariffPlans.TpRatingProfileController.export_to_csv
 #### GET export_to_csv returns status 'ok'
 ##### Request
 * __Method:__ GET
@@ -12406,7 +12406,7 @@ content-disposition: attachment; filename=export.csv
 
 ```
 
-### CgratesWebJsonapi.TpRatingProfileController.index
+### CgratesWebJsonapi.TariffPlans.TpRatingProfileController.index
 #### GET index filtering by fallback_subjects
 ##### Request
 * __Method:__ GET
@@ -12839,7 +12839,7 @@ access-control-allow-credentials: true
 }
 ```
 
-### CgratesWebJsonapi.TpRatingProfileController.show
+### CgratesWebJsonapi.TariffPlans.TpRatingProfileController.show
 #### GET show shows chosen resource
 ##### Request
 * __Method:__ GET
@@ -12885,7 +12885,7 @@ access-control-allow-credentials: true
 }
 ```
 
-### CgratesWebJsonapi.TpRatingProfileController.update
+### CgratesWebJsonapi.TariffPlans.TpRatingProfileController.update
 #### PATCH/PUT update does not update chosen resource and renders errors when data is invalid
 ##### Request
 * __Method:__ PUT
@@ -12970,8 +12970,8 @@ access-control-allow-credentials: true
 }
 ```
 
-## CgratesWebJsonapi.TpActionTriggerImportJobController
-### CgratesWebJsonapi.TpActionTriggerImportJobController.create
+## CgratesWebJsonapi.TariffPlans.TpActionTriggerImportJobController
+### CgratesWebJsonapi.TariffPlans.TpActionTriggerImportJobController.create
 #### POST create creates resource imported from csv file
 ##### Request
 * __Method:__ POST
@@ -13010,8 +13010,8 @@ access-control-allow-credentials: true
 }
 ```
 
-## CgratesWebJsonapi.TpAccountActionImportJobController
-### CgratesWebJsonapi.TpAccountActionImportJobController.create
+## CgratesWebJsonapi.TariffPlans.TpAccountActionImportJobController
+### CgratesWebJsonapi.TariffPlans.TpAccountActionImportJobController.create
 #### POST create creates resource imported from csv file
 ##### Request
 * __Method:__ POST
@@ -13213,8 +13213,8 @@ access-control-allow-credentials: true
 }
 ```
 
-## CgratesWebJsonapi.TpDestinationImportJobController
-### CgratesWebJsonapi.TpDestinationImportJobController.create
+## CgratesWebJsonapi.TariffPlans.TpDestinationImportJobController
+### CgratesWebJsonapi.TariffPlans.TpDestinationImportJobController.create
 #### POST create creates resource imported from csv file
 ##### Request
 * __Method:__ POST
@@ -13291,8 +13291,8 @@ access-control-allow-credentials: true
 }
 ```
 
-## CgratesWebJsonapi.TpRatingProfileImportJobController
-### CgratesWebJsonapi.TpRatingProfileImportJobController.create
+## CgratesWebJsonapi.TariffPlans.TpRatingProfileImportJobController
+### CgratesWebJsonapi.TariffPlans.TpRatingProfileImportJobController.create
 #### POST create creates resource imported from csv file
 ##### Request
 * __Method:__ POST
@@ -13331,8 +13331,8 @@ access-control-allow-credentials: true
 }
 ```
 
-## CgratesWebJsonapi.TpRatingPlanImportJobController
-### CgratesWebJsonapi.TpRatingPlanImportJobController.create
+## CgratesWebJsonapi.TariffPlans.TpRatingPlanImportJobController
+### CgratesWebJsonapi.TariffPlans.TpRatingPlanImportJobController.create
 #### POST create creates resource imported from csv file
 ##### Request
 * __Method:__ POST
@@ -13371,8 +13371,8 @@ access-control-allow-credentials: true
 }
 ```
 
-## CgratesWebJsonapi.TpActionImportJobController
-### CgratesWebJsonapi.TpActionImportJobController.create
+## CgratesWebJsonapi.TariffPlans.TpActionImportJobController
+### CgratesWebJsonapi.TariffPlans.TpActionImportJobController.create
 #### POST create creates resource imported from csv file
 ##### Request
 * __Method:__ POST
@@ -13411,8 +13411,8 @@ access-control-allow-credentials: true
 }
 ```
 
-## CgratesWebJsonapi.TpSharedGroupImportJobController
-### CgratesWebJsonapi.TpSharedGroupImportJobController.create
+## CgratesWebJsonapi.TariffPlans.TpSharedGroupImportJobController
+### CgratesWebJsonapi.TariffPlans.TpSharedGroupImportJobController.create
 #### POST create creates resource imported from csv file
 ##### Request
 * __Method:__ POST
@@ -13451,8 +13451,8 @@ access-control-allow-credentials: true
 }
 ```
 
-## CgratesWebJsonapi.TpActionTriggerController
-### CgratesWebJsonapi.TpActionTriggerController.create
+## CgratesWebJsonapi.TariffPlans.TpActionTriggerController
+### CgratesWebJsonapi.TariffPlans.TpActionTriggerController.create
 #### POST create does not create resource and renders errors when data is invalid
 ##### Request
 * __Method:__ POST
@@ -13697,7 +13697,7 @@ access-control-allow-credentials: true
 }
 ```
 
-### CgratesWebJsonapi.TpActionTriggerController.delete
+### CgratesWebJsonapi.TariffPlans.TpActionTriggerController.delete
 #### DELETE destroy deletes chosen resource
 ##### Request
 * __Method:__ DELETE
@@ -13724,7 +13724,7 @@ content-type: application/vnd.api+json
 
 ```
 
-### CgratesWebJsonapi.TpActionTriggerController.export_to_csv
+### CgratesWebJsonapi.TariffPlans.TpActionTriggerController.export_to_csv
 #### GET export_to_csv returns status 'ok'
 ##### Request
 * __Method:__ GET
@@ -13752,7 +13752,7 @@ content-disposition: attachment; filename=export.csv
 
 ```
 
-### CgratesWebJsonapi.TpActionTriggerController.index
+### CgratesWebJsonapi.TariffPlans.TpActionTriggerController.index
 #### GET index filtering by weight
 ##### Request
 * __Method:__ GET
@@ -15160,7 +15160,7 @@ access-control-allow-credentials: true
 }
 ```
 
-### CgratesWebJsonapi.TpActionTriggerController.show
+### CgratesWebJsonapi.TariffPlans.TpActionTriggerController.show
 #### GET show shows chosen resource
 ##### Request
 * __Method:__ GET
@@ -15219,7 +15219,7 @@ access-control-allow-credentials: true
 }
 ```
 
-### CgratesWebJsonapi.TpActionTriggerController.update
+### CgratesWebJsonapi.TariffPlans.TpActionTriggerController.update
 #### PATCH/PUT update does not update chosen resource and renders errors when data is invalid
 ##### Request
 * __Method:__ PUT
@@ -15317,8 +15317,8 @@ access-control-allow-credentials: true
 }
 ```
 
-## CgratesWebJsonapi.TpAttributeController
-### CgratesWebJsonapi.TpAttributeController.create
+## CgratesWebJsonapi.TariffPlans.TpAttributeController
+### CgratesWebJsonapi.TariffPlans.TpAttributeController.create
 #### POST create does not create resource and renders errors when data is invalid
 ##### Request
 * __Method:__ POST
@@ -15484,7 +15484,7 @@ access-control-allow-credentials: true
 }
 ```
 
-### CgratesWebJsonapi.TpAttributeController.delete
+### CgratesWebJsonapi.TariffPlans.TpAttributeController.delete
 #### DELETE destroy deletes chosen resource
 ##### Request
 * __Method:__ DELETE
@@ -15511,7 +15511,7 @@ content-type: application/vnd.api+json
 
 ```
 
-### CgratesWebJsonapi.TpAttributeController.export_to_csv
+### CgratesWebJsonapi.TariffPlans.TpAttributeController.export_to_csv
 #### GET export_to_csv returns status 'ok'
 ##### Request
 * __Method:__ GET
@@ -15539,7 +15539,7 @@ content-disposition: attachment; filename=export.csv
 
 ```
 
-### CgratesWebJsonapi.TpAttributeController.index
+### CgratesWebJsonapi.TariffPlans.TpAttributeController.index
 #### GET index filtering by weight
 ##### Request
 * __Method:__ GET
@@ -16236,7 +16236,7 @@ access-control-allow-credentials: true
 }
 ```
 
-### CgratesWebJsonapi.TpAttributeController.show
+### CgratesWebJsonapi.TariffPlans.TpAttributeController.show
 #### GET show shows chosen resource
 ##### Request
 * __Method:__ GET
@@ -16286,7 +16286,7 @@ access-control-allow-credentials: true
 }
 ```
 
-### CgratesWebJsonapi.TpAttributeController.update
+### CgratesWebJsonapi.TariffPlans.TpAttributeController.update
 #### PATCH/PUT update does not update chosen resource and renders errors when data is invalid
 ##### Request
 * __Method:__ PUT
@@ -16475,8 +16475,8 @@ access-control-allow-credentials: true
 }
 ```
 
-## CgratesWebJsonapi.TpAccountActionController
-### CgratesWebJsonapi.TpAccountActionController.create
+## CgratesWebJsonapi.TariffPlans.TpAccountActionController
+### CgratesWebJsonapi.TariffPlans.TpAccountActionController.create
 #### POST create does not create resource and renders errors when data is invalid
 ##### Request
 * __Method:__ POST
@@ -16609,7 +16609,7 @@ access-control-allow-credentials: true
 }
 ```
 
-### CgratesWebJsonapi.TpAccountActionController.delete
+### CgratesWebJsonapi.TariffPlans.TpAccountActionController.delete
 #### DELETE destroy deletes chosen resource
 ##### Request
 * __Method:__ DELETE
@@ -16636,7 +16636,7 @@ content-type: application/vnd.api+json
 
 ```
 
-### CgratesWebJsonapi.TpAccountActionController.export_to_csv
+### CgratesWebJsonapi.TariffPlans.TpAccountActionController.export_to_csv
 #### GET export_to_csv returns status 'ok'
 ##### Request
 * __Method:__ GET
@@ -16664,7 +16664,7 @@ content-disposition: attachment; filename=export.csv
 
 ```
 
-### CgratesWebJsonapi.TpAccountActionController.index
+### CgratesWebJsonapi.TariffPlans.TpAccountActionController.index
 #### GET index filtering by disabled
 ##### Request
 * __Method:__ GET
@@ -17089,7 +17089,7 @@ access-control-allow-credentials: true
 }
 ```
 
-### CgratesWebJsonapi.TpAccountActionController.show
+### CgratesWebJsonapi.TariffPlans.TpAccountActionController.show
 #### GET show shows chosen resource
 ##### Request
 * __Method:__ GET
@@ -17134,7 +17134,7 @@ access-control-allow-credentials: true
 }
 ```
 
-### CgratesWebJsonapi.TpAccountActionController.update
+### CgratesWebJsonapi.TariffPlans.TpAccountActionController.update
 #### PATCH/PUT update does not update chosen resource and renders errors when data is invalid
 ##### Request
 * __Method:__ PUT
@@ -17218,8 +17218,8 @@ access-control-allow-credentials: true
 }
 ```
 
-## CgratesWebJsonapi.TpBulkInsertController
-### CgratesWebJsonapi.TpBulkInsertController.create
+## CgratesWebJsonapi.TariffPlans.TpBulkInsertController
+### CgratesWebJsonapi.TariffPlans.TpBulkInsertController.create
 #### create insert list of TpDestination
 ##### Request
 * __Method:__ POST
@@ -17514,8 +17514,8 @@ access-control-allow-credentials: true
 }
 ```
 
-## CgratesWebJsonapi.TpDestinationController
-### CgratesWebJsonapi.TpDestinationController.create
+## CgratesWebJsonapi.TariffPlans.TpDestinationController
+### CgratesWebJsonapi.TariffPlans.TpDestinationController.create
 #### creates and renders resource when data is valid
 ##### Request
 * __Method:__ POST
@@ -17556,7 +17556,7 @@ access-control-allow-credentials: true
 }
 ```
 
-### CgratesWebJsonapi.TpDestinationController.delete
+### CgratesWebJsonapi.TariffPlans.TpDestinationController.delete
 #### deletes chosen resource
 ##### Request
 * __Method:__ DELETE
@@ -17583,7 +17583,7 @@ content-type: application/vnd.api+json
 
 ```
 
-### CgratesWebJsonapi.TpDestinationController.export_to_csv
+### CgratesWebJsonapi.TariffPlans.TpDestinationController.export_to_csv
 #### GET export_to_csv returns status 'ok'
 ##### Request
 * __Method:__ GET
@@ -17611,7 +17611,7 @@ content-disposition: attachment; filename=export.csv
 
 ```
 
-### CgratesWebJsonapi.TpDestinationController.index
+### CgratesWebJsonapi.TariffPlans.TpDestinationController.index
 #### sorting by prefix
 ##### Request
 * __Method:__ GET
@@ -17928,7 +17928,7 @@ access-control-allow-credentials: true
 }
 ```
 
-### CgratesWebJsonapi.TpDestinationController.show
+### CgratesWebJsonapi.TariffPlans.TpDestinationController.show
 #### shows chosen resource
 ##### Request
 * __Method:__ GET
@@ -17969,7 +17969,7 @@ access-control-allow-credentials: true
 }
 ```
 
-### CgratesWebJsonapi.TpDestinationController.update
+### CgratesWebJsonapi.TariffPlans.TpDestinationController.update
 #### does not update chosen resource and renders errors when data is invalid
 ##### Request
 * __Method:__ PUT

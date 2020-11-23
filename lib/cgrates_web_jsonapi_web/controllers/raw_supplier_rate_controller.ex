@@ -12,7 +12,7 @@ defmodule CgratesWebJsonapiWeb.RawSupplierRateController do
   def handle_show(_, id), do: Repo.get!(RawSupplierRate, id)
 
   def handle_index(_, %{"tpid" => tpid}), do: model() |> where(tariff_plan_id: ^tpid)
-  def handle_index(_, _params), do: raise CgratesWebJsonapi.TpidIsNotPassedError
+  def handle_index(_, _params), do: raise CgratesWebJsonapi.TariffPlans.TpidIsNotPassedError
 
   def handle_index_query(%{query_params: qp}, query) do
     paginator = if qp["page"] |> is_nil, do: %{"page" => 1}, else: qp["page"]

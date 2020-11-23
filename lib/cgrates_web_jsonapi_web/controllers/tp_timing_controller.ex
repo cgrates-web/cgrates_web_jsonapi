@@ -6,9 +6,11 @@ defmodule CgratesWebJsonapiWeb.TpTimingController do
   use CgratesWebJsonapi.CsvExport
   use CgratesWebJsonapi.DeleteAll
 
-  alias CgratesWebJsonapi.TpTiming
+  alias CgratesWebJsonapi.TariffPlans.TpTiming
 
   plug JaResource
+
+  def model(), do: TpTiming
 
   def handle_show(conn, id), do: Repo.get!(TpTiming, id)
 

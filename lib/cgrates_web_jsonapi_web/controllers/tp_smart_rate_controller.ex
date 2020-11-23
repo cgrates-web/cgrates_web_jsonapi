@@ -1,7 +1,7 @@
 defmodule CgratesWebJsonapiWeb.TpSmartRateController do
   use CgratesWebJsonapiWeb, :controller
 
-  alias CgratesWebJsonapi.TpSmartRate
+  alias CgratesWebJsonapi.TariffPlans.TpSmartRate
 
   def create(conn, %{"data" => data}) do
     attrs = JaSerializer.Params.to_attributes(data)

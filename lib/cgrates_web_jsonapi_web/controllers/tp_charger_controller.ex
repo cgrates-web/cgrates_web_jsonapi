@@ -6,9 +6,11 @@ defmodule CgratesWebJsonapiWeb.TpChargerController do
   use CgratesWebJsonapi.CsvExport
   use CgratesWebJsonapi.DeleteAll
 
-  alias CgratesWebJsonapi.TpCharger
+  alias CgratesWebJsonapi.TariffPlans.TpCharger
 
   plug JaResource
+
+  def model(), do: TpCharger
 
   def handle_show(conn, id), do: Repo.get!(TpCharger, id)
 

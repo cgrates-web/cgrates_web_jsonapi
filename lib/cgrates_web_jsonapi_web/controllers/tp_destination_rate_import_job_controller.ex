@@ -1,3 +1,3 @@
 defmodule CgratesWebJsonapiWeb.TpDestinationRateImportJobController do
-  use CgratesWebJsonapi.CsvImportJob, module: CgratesWebJsonapi.TpDestinationRate
+  use CgratesWebJsonapi.CsvImportJob, module: CgratesWebJsonapi.TariffPlans.TpDestinationRate
 end

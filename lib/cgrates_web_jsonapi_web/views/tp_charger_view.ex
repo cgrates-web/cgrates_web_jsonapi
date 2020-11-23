@@ -12,6 +12,4 @@ defmodule CgratesWebJsonapiWeb.TpChargerView do
     :activation_interval,
     :weight
   ])
-
-  def id(charger), do: charger.pk
 end

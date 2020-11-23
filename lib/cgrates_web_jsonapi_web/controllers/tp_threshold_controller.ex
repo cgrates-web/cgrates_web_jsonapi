@@ -6,9 +6,11 @@ defmodule CgratesWebJsonapiWeb.TpThresholdController do
   use CgratesWebJsonapi.CsvExport
   use CgratesWebJsonapi.DeleteAll
 
-  alias CgratesWebJsonapi.TpThreshold
+  alias CgratesWebJsonapi.TariffPlans.TpThreshold
 
   plug JaResource
+
+  def model(), do: TpThreshold
 
   def handle_show(conn, id), do: Repo.get!(TpThreshold, id)
 

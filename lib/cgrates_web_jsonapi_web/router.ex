@@ -100,7 +100,7 @@ defmodule CgratesWebJsonapiWeb.Router do
     resources("/users", UserController, except: [:new, :edit])
   end
 
-  scope "/uploaders", CgratesWebJsonapi do
+  scope "/uploaders", CgratesWebJsonapiWeb do
     pipe_through :cors
     resources("/tp-smart-rate-import-jobs", TpSmartRateImportJobController, only: [:create])
 

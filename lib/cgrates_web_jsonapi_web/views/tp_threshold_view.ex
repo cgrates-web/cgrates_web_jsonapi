@@ -16,6 +16,4 @@ defmodule CgratesWebJsonapiWeb.TpThresholdView do
     :blocker,
     :weight
   ])
-
-  def id(threshold), do: threshold.pk
 end

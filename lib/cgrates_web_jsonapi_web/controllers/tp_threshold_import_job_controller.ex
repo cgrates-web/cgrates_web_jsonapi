@@ -1,3 +1,3 @@
 defmodule CgratesWebJsonapiWeb.TpThresholdImportJobController do
-  use CgratesWebJsonapi.CsvImportJob, module: CgratesWebJsonapi.TpThreshold
+  use CgratesWebJsonapi.CsvImportJob, module: CgratesWebJsonapi.TariffPlans.TpThreshold
 end

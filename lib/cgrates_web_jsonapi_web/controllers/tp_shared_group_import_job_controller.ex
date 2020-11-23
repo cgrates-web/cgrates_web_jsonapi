@@ -1,3 +1,3 @@
 defmodule CgratesWebJsonapiWeb.TpSharedGroupImportJobController do
-  use CgratesWebJsonapi.CsvImportJob, module: CgratesWebJsonapi.TpSharedGroup
+  use CgratesWebJsonapi.CsvImportJob, module: CgratesWebJsonapi.TariffPlans.TpSharedGroup
 end

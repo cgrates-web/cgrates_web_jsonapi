@@ -6,9 +6,11 @@ defmodule CgratesWebJsonapiWeb.TpSharedGroupController do
   use CgratesWebJsonapi.CsvExport
   use CgratesWebJsonapi.DeleteAll
 
-  alias CgratesWebJsonapi.TpSharedGroup
+  alias CgratesWebJsonapi.TariffPlans.TpSharedGroup
 
   plug JaResource
+
+  def model(), do: TpSharedGroup
 
   def handle_show(conn, id), do: Repo.get!(TpSharedGroup, id)
 

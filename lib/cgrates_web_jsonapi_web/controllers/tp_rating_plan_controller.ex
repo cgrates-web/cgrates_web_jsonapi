@@ -6,9 +6,11 @@ defmodule CgratesWebJsonapiWeb.TpRatingPlanController do
   use CgratesWebJsonapi.CsvExport
   use CgratesWebJsonapi.DeleteAll
 
-  alias CgratesWebJsonapi.TpRatingPlan
+  alias CgratesWebJsonapi.TariffPlans.TpRatingPlan
 
   plug JaResource
+
+  def model(), do: TpRatingPlan
 
   def handle_show(conn, id), do: Repo.get!(TpRatingPlan, id)
 
