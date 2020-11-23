@@ -29,10 +29,9 @@ config :cgrates_web_jsonapi, CgratesWebJsonapi.Repo,
   database: "${DB_DATABASE}",
   hostname: "${DB_HOST}",
   pool_size: 10,
-  timeout: 150000
+  timeout: 150_000
 
-config :guardian, Guardian,
-  secret_key: "${GUARDIAN_SECRET_KEY}"
+config :guardian, Guardian, secret_key: "${GUARDIAN_SECRET_KEY}"
 
 config :cgrates_web_jsonapi,
   cgrates_url: "${CGRATES_URL}",

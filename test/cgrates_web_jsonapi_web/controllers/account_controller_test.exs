@@ -43,14 +43,16 @@ defmodule CgratesWebJsonapi.AccountControllerTest do
   import CgratesWebJsonapi.Guardian
 
   setup do
-    user = insert :user
+    user = insert(:user)
 
     {:ok, token, _} = encode_and_sign(user, %{}, token_type: :access)
 
-    conn = build_conn()
-     |> put_req_header("accept", "application/vnd.api+json")
-     |> put_req_header("content-type", "application/vnd.api+json")
-     |> put_req_header("authorization", "bearer: " <> token)
+    conn =
+      build_conn()
+      |> put_req_header("accept", "application/vnd.api+json")
+      |> put_req_header("content-type", "application/vnd.api+json")
+      |> put_req_header("authorization", "bearer: " <> token)
+
     {:ok, conn: conn}
   end
 
@@ -59,31 +61,34 @@ defmodule CgratesWebJsonapi.AccountControllerTest do
   end
 
   test "paginated lists entries on index", %{conn: conn} do
-    with_mock CgratesWebJsonapi.Cgrates.Adapter, [
-      execute: fn(_params) ->
+    with_mock CgratesWebJsonapi.Cgrates.Adapter,
+      execute: fn _params ->
         %{
-          "result" => [fake_account_response("cgrates.org:1"), fake_account_response("cgrates.org:2")],
-          "error"  => nil,
-          "id"     => nil
+          "result" => [
+            fake_account_response("cgrates.org:1"),
+            fake_account_response("cgrates.org:2")
+          ],
+          "error" => nil,
+          "id" => nil
         }
-      end
-    ] do
+      end do
       conn = get(conn, Routes.account_path(conn, :index), %{page: "2", per_page: "10"}) |> doc
       assert length(json_response(conn, 200)["data"]) == 2
     end
-
   end
 
-  test "returns first page with 10 entries if page and per_page not pass", %{conn: conn}  do
-    with_mock CgratesWebJsonapi.Cgrates.Adapter, [
-      execute: fn(_params) ->
+  test "returns first page with 10 entries if page and per_page not pass", %{conn: conn} do
+    with_mock CgratesWebJsonapi.Cgrates.Adapter,
+      execute: fn _params ->
         %{
-          "result" => [fake_account_response("cgrates.org:1"), fake_account_response("cgrates.org:2")],
-          "error"  => nil,
-          "id"     => nil
+          "result" => [
+            fake_account_response("cgrates.org:1"),
+            fake_account_response("cgrates.org:2")
+          ],
+          "error" => nil,
+          "id" => nil
         }
-      end
-    ] do
+      end do
       conn = get(conn, Routes.account_path(conn, :index)) |> doc
       assert length(json_response(conn, 200)["data"]) == 2
     end
@@ -91,15 +96,15 @@ defmodule CgratesWebJsonapi.AccountControllerTest do
 
   test "shows chosen resource", %{conn: conn} do
     account = fake_account_response("cgrates.org:1")
-    with_mock CgratesWebJsonapi.Cgrates.Adapter, [
-      execute: fn(_params) ->
+
+    with_mock CgratesWebJsonapi.Cgrates.Adapter,
+      execute: fn _params ->
         %{
           "result" => account,
-          "error"  => nil,
-          "id"     => nil
+          "error" => nil,
+          "id" => nil
         }
-      end
-    ] do
+      end do
       conn = get(conn, Routes.account_path(conn, :show, "cgrates.org:1")) |> doc
       data = json_response(conn, 200)["data"]
       assert data["id"] == "cgrates.org:1"
@@ -113,15 +118,14 @@ defmodule CgratesWebJsonapi.AccountControllerTest do
   end
 
   test "does not show resource and instead throw error when id is nonexistent", %{conn: conn} do
-    with_mock CgratesWebJsonapi.Cgrates.Adapter, [
-      execute: fn(_params) ->
+    with_mock CgratesWebJsonapi.Cgrates.Adapter,
+      execute: fn _params ->
         %{
           "result" => nil,
-          "error"  => nil,
-          "id"     => nil
+          "error" => nil,
+          "id" => nil
         }
-      end
-    ] do
+      end do
       assert_error_sent 404, fn ->
         get(conn, Routes.account_path(conn, :show, -1)) |> doc
       end
@@ -129,39 +133,42 @@ defmodule CgratesWebJsonapi.AccountControllerTest do
   end
 
   test "creates and renders resource when data is valid", %{conn: conn} do
-    with_mock CgratesWebJsonapi.Cgrates.Adapter, [
-      execute: fn(_params) ->
+    with_mock CgratesWebJsonapi.Cgrates.Adapter,
+      execute: fn _params ->
         %{
           "result" => "OK",
-          "error"  => nil,
-          "id"     => nil
+          "error" => nil,
+          "id" => nil
         }
-      end
-    ] do
-      conn = post(conn, Routes.account_path(conn, :create), %{
-        "meta" => %{},
-        "data" => %{
-          "id" => "2001",
-          "type" => "accounts",
-          "attributes" => @valid_attrs,
-          "relationships" => relationships
-        }
-      }) |> doc
+      end do
+      conn =
+        post(conn, Routes.account_path(conn, :create), %{
+          "meta" => %{},
+          "data" => %{
+            "id" => "2001",
+            "type" => "accounts",
+            "attributes" => @valid_attrs,
+            "relationships" => relationships
+          }
+        })
+        |> doc
 
       assert json_response(conn, 201)["data"]["id"]
     end
   end
 
   test "does not create resource and renders errors when data is invalid", %{conn: conn} do
-    conn = post(conn, Routes.account_path(conn, :create), %{
-      "meta" => %{},
-      "data" => %{
-        "id" => "",
-        "type" => "accounts",
-        "attributes" => @invalid_attrs,
-        "relationships" => relationships
-      }
-    }) |> doc
+    conn =
+      post(conn, Routes.account_path(conn, :create), %{
+        "meta" => %{},
+        "data" => %{
+          "id" => "",
+          "type" => "accounts",
+          "attributes" => @invalid_attrs,
+          "relationships" => relationships
+        }
+      })
+      |> doc
 
     assert json_response(conn, 422)["errors"] != %{}
   end

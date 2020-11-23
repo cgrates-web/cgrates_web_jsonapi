@@ -22,142 +22,186 @@ defmodule CgratesWebJsonapi.TariffPlans.TpThresholdControllerTest do
 
   describe "GET index" do
     test "lists all entries related tariff plan on index", %{conn: conn} do
-      tariff_plan_1 = insert :tariff_plan
-      tariff_plan_2 = insert :tariff_plan
+      tariff_plan_1 = insert(:tariff_plan)
+      tariff_plan_2 = insert(:tariff_plan)
 
-      insert :tp_threshold, tpid: tariff_plan_1.alias
-      insert :tp_threshold, tpid: tariff_plan_2.alias
+      insert(:tp_threshold, tpid: tariff_plan_1.alias)
+      insert(:tp_threshold, tpid: tariff_plan_2.alias)
 
       conn = get(conn, Routes.tp_threshold_path(conn, :index, tpid: tariff_plan_1.alias)) |> doc
       assert length(json_response(conn, 200)["data"]) == 1
     end
 
     test "filtering by tenant", %{conn: conn} do
-      tariff_plan = insert :tariff_plan
+      tariff_plan = insert(:tariff_plan)
 
-      t1 = insert :tp_threshold, tpid: tariff_plan.alias, tenant: "my-tenant"
-      insert :tp_threshold, tpid: tariff_plan.alias
+      t1 = insert(:tp_threshold, tpid: tariff_plan.alias, tenant: "my-tenant")
+      insert(:tp_threshold, tpid: tariff_plan.alias)
 
-      conn = get(conn, Routes.tp_threshold_path(conn, :index, tpid: tariff_plan.alias), filter: %{tenant: t1.tenant})
-      |> doc
+      conn =
+        get(conn, Routes.tp_threshold_path(conn, :index, tpid: tariff_plan.alias),
+          filter: %{tenant: t1.tenant}
+        )
+        |> doc
+
       assert length(json_response(conn, 200)["data"]) == 1
     end
 
     test "filtering by custom_id", %{conn: conn} do
-      tariff_plan = insert :tariff_plan
+      tariff_plan = insert(:tariff_plan)
 
-      t1 = insert :tp_threshold, tpid: tariff_plan.alias, custom_id: "my-custom-id"
-      insert :tp_threshold, tpid: tariff_plan.alias
+      t1 = insert(:tp_threshold, tpid: tariff_plan.alias, custom_id: "my-custom-id")
+      insert(:tp_threshold, tpid: tariff_plan.alias)
 
-      conn = get(conn, Routes.tp_threshold_path(conn, :index, tpid: tariff_plan.alias), filter: %{custom_id: t1.custom_id})
-      |> doc
+      conn =
+        get(conn, Routes.tp_threshold_path(conn, :index, tpid: tariff_plan.alias),
+          filter: %{custom_id: t1.custom_id}
+        )
+        |> doc
+
       assert length(json_response(conn, 200)["data"]) == 1
     end
 
     test "filtering by action_ids", %{conn: conn} do
-      tariff_plan = insert :tariff_plan
+      tariff_plan = insert(:tariff_plan)
 
-      t1 = insert :tp_threshold, tpid: tariff_plan.alias, action_ids: "my-action-ids"
-      insert :tp_threshold, tpid: tariff_plan.alias
+      t1 = insert(:tp_threshold, tpid: tariff_plan.alias, action_ids: "my-action-ids")
+      insert(:tp_threshold, tpid: tariff_plan.alias)
 
-      conn = get(conn, Routes.tp_threshold_path(conn, :index, tpid: tariff_plan.alias), filter: %{action_ids: t1.action_ids})
-      |> doc
+      conn =
+        get(conn, Routes.tp_threshold_path(conn, :index, tpid: tariff_plan.alias),
+          filter: %{action_ids: t1.action_ids}
+        )
+        |> doc
+
       assert length(json_response(conn, 200)["data"]) == 1
     end
 
     test "filtering by filter_ids", %{conn: conn} do
-      tariff_plan = insert :tariff_plan
+      tariff_plan = insert(:tariff_plan)
 
-      t1 = insert :tp_threshold, tpid: tariff_plan.alias, filter_ids: "my-filter-ids"
-      insert :tp_threshold, tpid: tariff_plan.alias
+      t1 = insert(:tp_threshold, tpid: tariff_plan.alias, filter_ids: "my-filter-ids")
+      insert(:tp_threshold, tpid: tariff_plan.alias)
 
-      conn = get(conn, Routes.tp_threshold_path(conn, :index, tpid: tariff_plan.alias), filter: %{filter_ids: t1.filter_ids})
-      |> doc
+      conn =
+        get(conn, Routes.tp_threshold_path(conn, :index, tpid: tariff_plan.alias),
+          filter: %{filter_ids: t1.filter_ids}
+        )
+        |> doc
+
       assert length(json_response(conn, 200)["data"]) == 1
     end
 
     test "filtering by activation_interval", %{conn: conn} do
-      tariff_plan = insert :tariff_plan
+      tariff_plan = insert(:tariff_plan)
 
-      t1 = insert :tp_threshold, tpid: tariff_plan.alias, activation_interval: "999s"
-      insert :tp_threshold, tpid: tariff_plan.alias
+      t1 = insert(:tp_threshold, tpid: tariff_plan.alias, activation_interval: "999s")
+      insert(:tp_threshold, tpid: tariff_plan.alias)
 
-      conn = get(conn, Routes.tp_threshold_path(conn, :index, tpid: tariff_plan.alias), filter: %{activation_interval: t1.activation_interval})
-      |> doc
+      conn =
+        get(conn, Routes.tp_threshold_path(conn, :index, tpid: tariff_plan.alias),
+          filter: %{activation_interval: t1.activation_interval}
+        )
+        |> doc
+
       assert length(json_response(conn, 200)["data"]) == 1
     end
 
     test "filtering by min_sleep", %{conn: conn} do
-      tariff_plan = insert :tariff_plan
+      tariff_plan = insert(:tariff_plan)
 
-      t1 = insert :tp_threshold, tpid: tariff_plan.alias, min_sleep: "99s"
-      insert :tp_threshold, tpid: tariff_plan.alias
+      t1 = insert(:tp_threshold, tpid: tariff_plan.alias, min_sleep: "99s")
+      insert(:tp_threshold, tpid: tariff_plan.alias)
 
-      conn = get(conn, Routes.tp_threshold_path(conn, :index, tpid: tariff_plan.alias), filter: %{min_sleep: t1.min_sleep})
-      |> doc
+      conn =
+        get(conn, Routes.tp_threshold_path(conn, :index, tpid: tariff_plan.alias),
+          filter: %{min_sleep: t1.min_sleep}
+        )
+        |> doc
+
       assert length(json_response(conn, 200)["data"]) == 1
     end
 
     test "filtering by min_hits", %{conn: conn} do
-      tariff_plan = insert :tariff_plan
+      tariff_plan = insert(:tariff_plan)
 
-      t1 = insert :tp_threshold, tpid: tariff_plan.alias
-      insert :tp_threshold, tpid: tariff_plan.alias, min_hits: 3
+      t1 = insert(:tp_threshold, tpid: tariff_plan.alias)
+      insert(:tp_threshold, tpid: tariff_plan.alias, min_hits: 3)
 
-      conn = get(conn, Routes.tp_threshold_path(conn, :index, tpid: tariff_plan.alias), filter: %{min_hits: t1.min_hits})
-      |> doc
+      conn =
+        get(conn, Routes.tp_threshold_path(conn, :index, tpid: tariff_plan.alias),
+          filter: %{min_hits: t1.min_hits}
+        )
+        |> doc
+
       assert length(json_response(conn, 200)["data"]) == 1
     end
 
     test "filtering by async", %{conn: conn} do
-      tariff_plan = insert :tariff_plan
+      tariff_plan = insert(:tariff_plan)
 
-      t1 = insert :tp_threshold, tpid: tariff_plan.alias, async: true
-      insert :tp_threshold, tpid: tariff_plan.alias, async: false
+      t1 = insert(:tp_threshold, tpid: tariff_plan.alias, async: true)
+      insert(:tp_threshold, tpid: tariff_plan.alias, async: false)
 
-      conn = get(conn, Routes.tp_threshold_path(conn, :index, tpid: tariff_plan.alias), filter: %{async: true})
-      |> doc
+      conn =
+        get(conn, Routes.tp_threshold_path(conn, :index, tpid: tariff_plan.alias),
+          filter: %{async: true}
+        )
+        |> doc
+
       assert length(json_response(conn, 200)["data"]) == 1
     end
 
     test "filtering by max_hits", %{conn: conn} do
-      tariff_plan = insert :tariff_plan
+      tariff_plan = insert(:tariff_plan)
 
-      t1 = insert :tp_threshold, tpid: tariff_plan.alias
-      insert :tp_threshold, tpid: tariff_plan.alias, max_hits: 20
+      t1 = insert(:tp_threshold, tpid: tariff_plan.alias)
+      insert(:tp_threshold, tpid: tariff_plan.alias, max_hits: 20)
 
-      conn = get(conn, Routes.tp_threshold_path(conn, :index, tpid: tariff_plan.alias), filter: %{max_hits: t1.max_hits})
-      |> doc
+      conn =
+        get(conn, Routes.tp_threshold_path(conn, :index, tpid: tariff_plan.alias),
+          filter: %{max_hits: t1.max_hits}
+        )
+        |> doc
+
       assert length(json_response(conn, 200)["data"]) == 1
     end
 
     test "filtering by blocker", %{conn: conn} do
-      tariff_plan = insert :tariff_plan
+      tariff_plan = insert(:tariff_plan)
 
-      t1 = insert :tp_threshold, tpid: tariff_plan.alias, blocker: true
-      insert :tp_threshold, tpid: tariff_plan.alias, blocker: false
+      t1 = insert(:tp_threshold, tpid: tariff_plan.alias, blocker: true)
+      insert(:tp_threshold, tpid: tariff_plan.alias, blocker: false)
 
-      conn = get(conn, Routes.tp_threshold_path(conn, :index, tpid: tariff_plan.alias), filter: %{blocker: true})
-      |> doc
+      conn =
+        get(conn, Routes.tp_threshold_path(conn, :index, tpid: tariff_plan.alias),
+          filter: %{blocker: true}
+        )
+        |> doc
+
       assert length(json_response(conn, 200)["data"]) == 1
     end
 
     test "filtering by weight", %{conn: conn} do
-      tariff_plan = insert :tariff_plan
+      tariff_plan = insert(:tariff_plan)
 
-      t1 = insert :tp_threshold, tpid: tariff_plan.alias, weight: 1
-      insert :tp_threshold, tpid: tariff_plan.alias, weight: 2
+      t1 = insert(:tp_threshold, tpid: tariff_plan.alias, weight: 1)
+      insert(:tp_threshold, tpid: tariff_plan.alias, weight: 2)
 
-      conn = get(conn, Routes.tp_threshold_path(conn, :index, tpid: tariff_plan.alias), filter: %{weight: t1.weight})
-      |> doc
+      conn =
+        get(conn, Routes.tp_threshold_path(conn, :index, tpid: tariff_plan.alias),
+          filter: %{weight: t1.weight}
+        )
+        |> doc
+
       assert length(json_response(conn, 200)["data"]) == 1
     end
   end
 
   describe "GET show" do
     test "shows chosen resource", %{conn: conn} do
-      tariff_plan = insert :tariff_plan
-      tp_threshold = insert :tp_threshold, tpid: tariff_plan.alias
+      tariff_plan = insert(:tariff_plan)
+      tp_threshold = insert(:tp_threshold, tpid: tariff_plan.alias)
 
       conn = get(conn, Routes.tp_threshold_path(conn, :show, tp_threshold)) |> doc
       data = json_response(conn, 200)["data"]
@@ -185,42 +229,51 @@ defmodule CgratesWebJsonapi.TariffPlans.TpThresholdControllerTest do
 
   describe "GET export_to_csv" do
     test "returns status 'ok'", %{conn: conn} do
-      tariff_plan = insert :tariff_plan
-      insert :tp_threshold, tpid: tariff_plan.alias, blocker: true, tenant: "t1"
-      insert :tp_threshold, tpid: tariff_plan.alias, blocker: false
+      tariff_plan = insert(:tariff_plan)
+      insert(:tp_threshold, tpid: tariff_plan.alias, blocker: true, tenant: "t1")
+      insert(:tp_threshold, tpid: tariff_plan.alias, blocker: false)
 
-      conn = conn
-      |> get(Routes.tp_threshold_path(conn, :export_to_csv), %{tpid: tariff_plan.alias, filter: %{blocker: true, tenant: "t1"}})
-      |> doc()
+      conn =
+        conn
+        |> get(Routes.tp_threshold_path(conn, :export_to_csv), %{
+          tpid: tariff_plan.alias,
+          filter: %{blocker: true, tenant: "t1"}
+        })
+        |> doc()
+
       assert conn.status == 200
     end
   end
 
   describe "POST create" do
     test "creates and renders resource when data is valid", %{conn: conn} do
-      tariff_plan = insert :tariff_plan
-      params = Map.merge params_for(:tp_threshold), %{tpid: tariff_plan.alias}
+      tariff_plan = insert(:tariff_plan)
+      params = Map.merge(params_for(:tp_threshold), %{tpid: tariff_plan.alias})
 
-      conn = post(conn, Routes.tp_threshold_path(conn, :create), %{
-        "meta" => %{},
-        "data" => %{
-          "type" => "tp_threshold",
-          "attributes" => params,
-        }
-      }) |> doc
+      conn =
+        post(conn, Routes.tp_threshold_path(conn, :create), %{
+          "meta" => %{},
+          "data" => %{
+            "type" => "tp_threshold",
+            "attributes" => params
+          }
+        })
+        |> doc
 
       assert json_response(conn, 201)["data"]["id"]
       assert Repo.get_by(TpThreshold, params)
     end
 
     test "does not create resource and renders errors when data is invalid", %{conn: conn} do
-      conn = post(conn, Routes.tp_threshold_path(conn, :create), %{
-        "meta" => %{},
-        "data" => %{
-          "type" => "tp_threshold",
-          "attributes" => %{min_sleep: nil},
-        }
-      }) |> doc
+      conn =
+        post(conn, Routes.tp_threshold_path(conn, :create), %{
+          "meta" => %{},
+          "data" => %{
+            "type" => "tp_threshold",
+            "attributes" => %{min_sleep: nil}
+          }
+        })
+        |> doc
 
       assert json_response(conn, 422)["errors"] != %{}
     end
@@ -228,35 +281,39 @@ defmodule CgratesWebJsonapi.TariffPlans.TpThresholdControllerTest do
 
   describe "PATCH/PUT update" do
     test "updates and renders chosen resource when data is valid", %{conn: conn} do
-      tariff_plan = insert :tariff_plan
-      tp_threshold = insert :tp_threshold, tpid: tariff_plan.alias
+      tariff_plan = insert(:tariff_plan)
+      tp_threshold = insert(:tp_threshold, tpid: tariff_plan.alias)
       params = params_for(:tp_threshold)
 
-      conn = put(conn, Routes.tp_threshold_path(conn, :update, tp_threshold), %{
-        "meta" => %{},
-        "data" => %{
-          "type" => "tp_threshold",
-          "id" => tp_threshold.pk,
-          "attributes" => params,
-        }
-      }) |> doc
+      conn =
+        put(conn, Routes.tp_threshold_path(conn, :update, tp_threshold), %{
+          "meta" => %{},
+          "data" => %{
+            "type" => "tp_threshold",
+            "id" => tp_threshold.pk,
+            "attributes" => params
+          }
+        })
+        |> doc
 
       assert json_response(conn, 200)["data"]["id"]
       assert Repo.get_by(TpThreshold, params)
     end
 
     test "does not update chosen resource and renders errors when data is invalid", %{conn: conn} do
-      tariff_plan = insert :tariff_plan
-      tp_threshold = insert :tp_threshold, tpid: tariff_plan.alias
+      tariff_plan = insert(:tariff_plan)
+      tp_threshold = insert(:tp_threshold, tpid: tariff_plan.alias)
 
-      conn = put(conn, Routes.tp_threshold_path(conn, :update, tp_threshold), %{
-        "meta" => %{},
-        "data" => %{
-          "type" => "tp_threshold",
-          "id" => tp_threshold.pk,
-          "attributes" => %{min_sleep: nil},
-        }
-      }) |> doc
+      conn =
+        put(conn, Routes.tp_threshold_path(conn, :update, tp_threshold), %{
+          "meta" => %{},
+          "data" => %{
+            "type" => "tp_threshold",
+            "id" => tp_threshold.pk,
+            "attributes" => %{min_sleep: nil}
+          }
+        })
+        |> doc
 
       assert json_response(conn, 422)["errors"] != %{}
     end
@@ -264,8 +321,8 @@ defmodule CgratesWebJsonapi.TariffPlans.TpThresholdControllerTest do
 
   describe "DELETE destroy" do
     test "deletes chosen resource", %{conn: conn} do
-      tariff_plan = insert :tariff_plan
-      tp_threshold = insert :tp_threshold, tpid: tariff_plan.alias
+      tariff_plan = insert(:tariff_plan)
+      tp_threshold = insert(:tp_threshold, tpid: tariff_plan.alias)
 
       conn = delete(conn, Routes.tp_threshold_path(conn, :delete, tp_threshold)) |> doc
       assert response(conn, 204)
@@ -274,14 +331,20 @@ defmodule CgratesWebJsonapi.TariffPlans.TpThresholdControllerTest do
   end
 
   describe "DELETE delete_all" do
-    test "deletes all records by filter", %{conn: conn}  do
-      tariff_plan = insert :tariff_plan
+    test "deletes all records by filter", %{conn: conn} do
+      tariff_plan = insert(:tariff_plan)
 
-      tp_threshold1 = insert :tp_threshold, tpid: tariff_plan.alias, blocker: true, tenant: "tenant1"
-      tp_threshold2 = insert :tp_threshold, tpid: tariff_plan.alias, blocker: false
+      tp_threshold1 =
+        insert(:tp_threshold, tpid: tariff_plan.alias, blocker: true, tenant: "tenant1")
 
-      conn = conn
-      |> post(Routes.tp_threshold_path(conn, :delete_all), %{tpid: tariff_plan.alias, filter: %{blocker: false}})
+      tp_threshold2 = insert(:tp_threshold, tpid: tariff_plan.alias, blocker: false)
+
+      conn =
+        conn
+        |> post(Routes.tp_threshold_path(conn, :delete_all), %{
+          tpid: tariff_plan.alias,
+          filter: %{blocker: false}
+        })
 
       assert Repo.get(TpThreshold, tp_threshold1.pk)
       refute Repo.get(TpThreshold, tp_threshold2.pk)

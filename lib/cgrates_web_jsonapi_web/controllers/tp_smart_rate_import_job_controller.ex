@@ -4,10 +4,12 @@ defmodule CgratesWebJsonapiWeb.TpSmartRateImportJobController do
   alias CgratesWebJsonapi.TariffPlans.TpSmartRate
 
   def create(conn, %{"data" => %{"attributes" => %{"tpid" => tpid, "csv" => csv}}}) do
-    id = DateTime.utc_now() |>  DateTime.to_unix()
-    Task.async fn ->
+    id = DateTime.utc_now() |> DateTime.to_unix()
+
+    Task.async(fn ->
       TpSmartRate.from_csv(csv.path, tpid)
-    end
+    end)
+
     conn
     |> put_status(202)
     |> render("show.json-api", data: %{id: id})

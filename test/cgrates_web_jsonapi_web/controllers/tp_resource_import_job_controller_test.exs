@@ -19,17 +19,19 @@ defmodule CgratesWebJsonapi.TariffPlans.TpResourceImportJobControllerTest do
 
   describe "POST create" do
     test "creates resource imported from csv file", %{conn: conn} do
-      tariff_plan = insert :tariff_plan
+      tariff_plan = insert(:tariff_plan)
       path = Path.expand("../fixtures/csv/tp-resources.csv", __DIR__)
       csv = %Plug.Upload{path: path, filename: "tp-resources.csv"}
 
-      conn = post(conn, Routes.tp_resource_import_job_path(conn, :create), %{
-        "meta" => %{},
-        "data" => %{
-          "type" => "tp_resource_import_job",
-          "attributes" => %{"tpid" => tariff_plan.alias, "csv" => csv},
-        }
-      }) |> doc()
+      conn =
+        post(conn, Routes.tp_resource_import_job_path(conn, :create), %{
+          "meta" => %{},
+          "data" => %{
+            "type" => "tp_resource_import_job",
+            "attributes" => %{"tpid" => tariff_plan.alias, "csv" => csv}
+          }
+        })
+        |> doc()
 
       assert json_response(conn, 202)["data"]["id"]
     end

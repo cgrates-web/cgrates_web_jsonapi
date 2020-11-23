@@ -29,7 +29,9 @@ defmodule CgratesWebJsonapi.TariffPlans.TpAccountActionControllerTest do
       insert(:tp_account_action, tpid: tariff_plan_1.alias)
       insert(:tp_account_action, tpid: tariff_plan_2.alias)
 
-      conn = get(conn, Routes.tp_account_action_path(conn, :index, tpid: tariff_plan_1.alias)) |> doc
+      conn =
+        get(conn, Routes.tp_account_action_path(conn, :index, tpid: tariff_plan_1.alias)) |> doc
+
       assert length(json_response(conn, 200)["data"]) == 1
     end
 

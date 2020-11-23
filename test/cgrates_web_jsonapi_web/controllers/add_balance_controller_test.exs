@@ -6,14 +6,16 @@ defmodule CgratesWebJsonapi.AddBalanceControllerTest do
   import CgratesWebJsonapi.Guardian
 
   setup do
-    user = insert :user
+    user = insert(:user)
 
     {:ok, token, _} = encode_and_sign(user, %{}, token_type: :access)
 
-    conn = build_conn()
-     |> put_req_header("accept", "application/vnd.api+json")
-     |> put_req_header("content-type", "application/vnd.api+json")
-     |> put_req_header("authorization", "bearer: " <> token)
+    conn =
+      build_conn()
+      |> put_req_header("accept", "application/vnd.api+json")
+      |> put_req_header("content-type", "application/vnd.api+json")
+      |> put_req_header("authorization", "bearer: " <> token)
+
     {:ok, conn: conn}
   end
 
@@ -21,34 +23,37 @@ defmodule CgratesWebJsonapi.AddBalanceControllerTest do
     %{}
   end
 
-  test "success add", %{conn: conn}  do
-    with_mock CgratesWebJsonapi.Cgrates.Adapter, [
-      execute: fn(_params) ->
+  test "success add", %{conn: conn} do
+    with_mock CgratesWebJsonapi.Cgrates.Adapter,
+      execute: fn _params ->
         %{
           "result" => "OK",
-          "error"  => nil,
-          "id"     => nil
+          "error" => nil,
+          "id" => nil
         }
-      end
-    ] do
-      conn = post(conn, Routes.add_balance_path(conn, :create), %{
-        "meta" => %{},
-        "data" => %{
-          "attributes" => %{account: "1", balance_type: "*monetary"},
-        }
-      }) |> doc
+      end do
+      conn =
+        post(conn, Routes.add_balance_path(conn, :create), %{
+          "meta" => %{},
+          "data" => %{
+            "attributes" => %{account: "1", balance_type: "*monetary"}
+          }
+        })
+        |> doc
 
       assert json_response(conn, 201)
     end
   end
 
   test "renders errors when data is invalid", %{conn: conn} do
-    conn = post(conn, Routes.add_balance_path(conn, :create), %{
-      "meta" => %{},
-      "data" => %{
-        "attributes" => %{},
-      }
-    }) |> doc
+    conn =
+      post(conn, Routes.add_balance_path(conn, :create), %{
+        "meta" => %{},
+        "data" => %{
+          "attributes" => %{}
+        }
+      })
+      |> doc
 
     assert json_response(conn, 422)["errors"] != %{}
   end

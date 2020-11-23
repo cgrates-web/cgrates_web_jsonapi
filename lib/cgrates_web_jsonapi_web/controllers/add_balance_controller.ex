@@ -14,6 +14,7 @@ defmodule CgratesWebJsonapiWeb.AddBalanceController do
         conn
         |> put_status(:created)
         |> render("show.json-api", data: balance)
+
       {:error, changeset} ->
         conn
         |> put_status(:unprocessable_entity)

@@ -12,7 +12,7 @@ defmodule CgratesWebJsonapiWeb.CdrController do
   def handle_show(conn, id), do: Repo.get!(Cdr, id)
 
   def handle_index_query(%{query_params: qp}, query) do
-    paginator = if (qp["page"] |> is_nil), do: %{"page" => 1}, else: qp["page"]
+    paginator = if qp["page"] |> is_nil, do: %{"page" => 1}, else: qp["page"]
     query |> repo().paginate(page: paginator["page"], page_size: paginator["page-size"])
   end
 
@@ -27,16 +27,28 @@ defmodule CgratesWebJsonapiWeb.CdrController do
     end
   end
 
-  def filter(_conn, query, "cgrid", val),       do: query |> where([r], like(r.cgrid, ^"%#{val}%"))
-  def filter(_conn, query, "run_id", val),      do: query |> where([r], like(r.run_id, ^"%#{val}%"))
-  def filter(_conn, query, "origin_host", val), do: query |> where([r], like(r.origin_host, ^"%#{val}%"))
-  def filter(_conn, query, "source", val),      do: query |> where([r], like(r.source, ^"%#{val}%"))
-  def filter(_conn, query, "origin_id", val),   do: query |> where([r], like(r.origin_id, ^"%#{val}%"))
-  def filter(_conn, query, "tor", val),         do: query |> where([r], like(r.tor, ^"%#{val}%"))
-  def filter(_conn, query, "tenant", val),      do: query |> where([r], like(r.tenant, ^"%#{val}%"))
-  def filter(_conn, query, "category", val),    do: query |> where([r], like(r.category, ^"%#{val}%"))
-  def filter(_conn, query, "account", val),     do: query |> where([r], like(r.account, ^"%#{val}%"))
-  def filter(_conn, query, "destination", val), do: query |> where([r], like(r.destination, ^"%#{val}%"))
-  def filter(_conn, query, "direction", val),   do: query |> where([r], like(r.direction, ^"%#{val}%"))
+  def filter(_conn, query, "cgrid", val), do: query |> where([r], like(r.cgrid, ^"%#{val}%"))
+  def filter(_conn, query, "run_id", val), do: query |> where([r], like(r.run_id, ^"%#{val}%"))
 
+  def filter(_conn, query, "origin_host", val),
+    do: query |> where([r], like(r.origin_host, ^"%#{val}%"))
+
+  def filter(_conn, query, "source", val), do: query |> where([r], like(r.source, ^"%#{val}%"))
+
+  def filter(_conn, query, "origin_id", val),
+    do: query |> where([r], like(r.origin_id, ^"%#{val}%"))
+
+  def filter(_conn, query, "tor", val), do: query |> where([r], like(r.tor, ^"%#{val}%"))
+  def filter(_conn, query, "tenant", val), do: query |> where([r], like(r.tenant, ^"%#{val}%"))
+
+  def filter(_conn, query, "category", val),
+    do: query |> where([r], like(r.category, ^"%#{val}%"))
+
+  def filter(_conn, query, "account", val), do: query |> where([r], like(r.account, ^"%#{val}%"))
+
+  def filter(_conn, query, "destination", val),
+    do: query |> where([r], like(r.destination, ^"%#{val}%"))
+
+  def filter(_conn, query, "direction", val),
+    do: query |> where([r], like(r.direction, ^"%#{val}%"))
 end

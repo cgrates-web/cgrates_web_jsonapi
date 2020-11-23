@@ -13,7 +13,7 @@ defmodule CgratesWebJsonapi.Application do
       # Start the endpoint when the application starts
       CgratesWebJsonapiWeb.Endpoint,
       # Start the Telemetry supervisor
-      CgratesWebJsonapiWeb.Telemetry,
+      CgratesWebJsonapiWeb.Telemetry
     ]
 
     # See http://elixir-lang.org/docs/stable/elixir/Supervisor.html
@@ -28,5 +28,4 @@ defmodule CgratesWebJsonapi.Application do
     CgratesWebJsonapiWeb.Endpoint.config_change(changed, removed)
     :ok
   end
-
 end

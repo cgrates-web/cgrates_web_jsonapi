@@ -14,8 +14,10 @@ defmodule CgratesWebJsonapiWeb.TpDestinationController do
 
   def handle_show(conn, id), do: Repo.get!(TpDestination, id)
 
-  def filter(_conn, query, "tag", tag),       do: query |> where([r], like(r.tag, ^"%#{tag}%"))
-  def filter(_conn, query, "prefix", prefix), do: query |> where([r], like(r.prefix, ^"%#{prefix}%"))
+  def filter(_conn, query, "tag", tag), do: query |> where([r], like(r.tag, ^"%#{tag}%"))
+
+  def filter(_conn, query, "prefix", prefix),
+    do: query |> where([r], like(r.prefix, ^"%#{prefix}%"))
 
   defp build_query(conn, params) do
     conn

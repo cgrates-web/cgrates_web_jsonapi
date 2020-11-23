@@ -30,11 +30,11 @@ defmodule CgratesWebJsonapi.Auth.User do
     |> encrypt_password
   end
 
-
   defp encrypt_password(changeset) do
     case changeset do
       %Ecto.Changeset{valid?: true, changes: %{password: pass}} ->
-        put_change(changeset, :password_encrypted , Comeonin.Bcrypt.hashpwsalt(pass))
+        put_change(changeset, :password_encrypted, Comeonin.Bcrypt.hashpwsalt(pass))
+
       _ ->
         changeset
     end

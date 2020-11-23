@@ -5,10 +5,20 @@ defmodule CgratesWebJsonapi.TariffPlans.TpAttributeTest do
 
   import CgratesWebJsonapi.Factory
 
-  @valid_attrs %{tenant: "some content", custom_id: "true", contexts: "some content",
-                 filter_ids: "some content", activation_interval: "some content",
-                 blocker: false, tpid: "some content", weight: "100.5", attribute_filter_ids: "some content",
-                 path: "path", cg_type: "type", value: "value"}
+  @valid_attrs %{
+    tenant: "some content",
+    custom_id: "true",
+    contexts: "some content",
+    filter_ids: "some content",
+    activation_interval: "some content",
+    blocker: false,
+    tpid: "some content",
+    weight: "100.5",
+    attribute_filter_ids: "some content",
+    path: "path",
+    cg_type: "type",
+    value: "value"
+  }
 
   @invalid_attrs %{}
   test "changeset with valid attributes" do
@@ -24,16 +34,16 @@ defmodule CgratesWebJsonapi.TariffPlans.TpAttributeTest do
   describe "#from_csv" do
     test "it parses csv and inerts records to DB" do
       path = Path.expand("../../fixtures/csv/tp-attributes.csv", __DIR__)
-      tariff_plan = insert :tariff_plan
+      tariff_plan = insert(:tariff_plan)
 
       path |> TpAttribute.from_csv(tariff_plan.alias) |> Enum.into([])
 
       assert Repo.get_by(TpAttribute, %{
-        tenant: "tenant1",
-        custom_id: "cust1",
-        blocker: false,
-        tpid: tariff_plan.alias
-      })
+               tenant: "tenant1",
+               custom_id: "cust1",
+               blocker: false,
+               tpid: tariff_plan.alias
+             })
     end
   end
 end

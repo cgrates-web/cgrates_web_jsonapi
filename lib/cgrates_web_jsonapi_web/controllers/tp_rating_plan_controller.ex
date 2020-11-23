@@ -14,10 +14,15 @@ defmodule CgratesWebJsonapiWeb.TpRatingPlanController do
 
   def handle_show(conn, id), do: Repo.get!(TpRatingPlan, id)
 
-  def filter(_conn, query, "tag", tag),           do: query |> where([r], like(r.tag, ^"%#{tag}%"))
-  def filter(_conn, query, "destrates_tag", tag), do: query |> where([r], like(r.destrates_tag, ^"%#{tag}%"))
-  def filter(_conn, query, "timing_tag", tag),    do: query |> where([r], like(r.timing_tag, ^"%#{tag}%"))
-  def filter(_conn, query, "weight", weight),     do: query |> where(weight: ^weight)
+  def filter(_conn, query, "tag", tag), do: query |> where([r], like(r.tag, ^"%#{tag}%"))
+
+  def filter(_conn, query, "destrates_tag", tag),
+    do: query |> where([r], like(r.destrates_tag, ^"%#{tag}%"))
+
+  def filter(_conn, query, "timing_tag", tag),
+    do: query |> where([r], like(r.timing_tag, ^"%#{tag}%"))
+
+  def filter(_conn, query, "weight", weight), do: query |> where(weight: ^weight)
 
   defp build_query(conn, params) do
     conn

@@ -14,7 +14,7 @@ defmodule CgratesWebJsonapiWeb.RawSupplierRateController do
   def handle_show(_, id), do: Repo.get!(RawSupplierRate, id)
 
   def handle_index(_, %{"tpid" => tpid}), do: model() |> where(tariff_plan_id: ^tpid)
-  def handle_index(_, _params), do: raise CgratesWebJsonapi.TariffPlans.TpidIsNotPassedError
+  def handle_index(_, _params), do: raise(CgratesWebJsonapi.TariffPlans.TpidIsNotPassedError)
 
   def handle_index_query(%{query_params: qp}, query) do
     paginator = if qp["page"] |> is_nil, do: %{"page" => 1}, else: qp["page"]
@@ -40,9 +40,12 @@ defmodule CgratesWebJsonapiWeb.RawSupplierRateController do
     send_resp(conn, :no_content, "")
   end
 
-  def filter(_conn, query, "rate", val),           do: query |> where(rate: ^val)
-  def filter(_conn, query, "supplier_name", val),  do: query |> where([r], like(r.supplier_name, ^"%#{val}%"))
-  def filter(_conn, query, "prefix", val),         do: query |> where(prefix: ^val)
+  def filter(_conn, query, "rate", val), do: query |> where(rate: ^val)
+
+  def filter(_conn, query, "supplier_name", val),
+    do: query |> where([r], like(r.supplier_name, ^"%#{val}%"))
+
+  def filter(_conn, query, "prefix", val), do: query |> where(prefix: ^val)
   def filter(_conn, query, "inserted_at_lt", val), do: query |> where([r], r.inserted_at < ^val)
   def filter(_conn, query, "inserted_at_gt", val), do: query |> where([r], r.inserted_at > ^val)
 

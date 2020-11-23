@@ -14,10 +14,10 @@ defmodule CgratesWebJsonapiWeb.TpActionPlanController do
 
   def handle_show(conn, id), do: Repo.get!(TpActionPlan, id)
 
-  def filter(_conn, query, "tag", val),         do: query |> where([r], like(r.tag, ^"%#{val}%"))
+  def filter(_conn, query, "tag", val), do: query |> where([r], like(r.tag, ^"%#{val}%"))
   def filter(_conn, query, "actions_tag", val), do: query |> where(actions_tag: ^val)
-  def filter(_conn, query, "timing_tag", val),  do: query |> where(timing_tag: ^val)
-  def filter(_conn, query, "weight", val),      do: query |> where(weight: ^val)
+  def filter(_conn, query, "timing_tag", val), do: query |> where(timing_tag: ^val)
+  def filter(_conn, query, "weight", val), do: query |> where(weight: ^val)
 
   defp build_query(conn, params) do
     conn

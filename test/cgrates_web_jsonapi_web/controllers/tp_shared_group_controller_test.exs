@@ -22,65 +22,83 @@ defmodule CgratesWebJsonapi.TariffPlans.TpSharedGroupControllerTest do
 
   describe "GET index" do
     test "lists all entries related tariff plan on index", %{conn: conn} do
-      tariff_plan_1 = insert :tariff_plan
-      tariff_plan_2 = insert :tariff_plan
+      tariff_plan_1 = insert(:tariff_plan)
+      tariff_plan_2 = insert(:tariff_plan)
 
-      insert :tp_shared_group, tpid: tariff_plan_1.alias
-      insert :tp_shared_group, tpid: tariff_plan_2.alias
+      insert(:tp_shared_group, tpid: tariff_plan_1.alias)
+      insert(:tp_shared_group, tpid: tariff_plan_2.alias)
 
-      conn = get(conn, Routes.tp_shared_group_path(conn, :index, tpid: tariff_plan_1.alias)) |> doc()
+      conn =
+        get(conn, Routes.tp_shared_group_path(conn, :index, tpid: tariff_plan_1.alias)) |> doc()
+
       assert length(json_response(conn, 200)["data"]) == 1
     end
 
     test "filtering by tag", %{conn: conn} do
-      tariff_plan = insert :tariff_plan
+      tariff_plan = insert(:tariff_plan)
 
-      t1 = insert :tp_shared_group, tpid: tariff_plan.alias
-      insert :tp_shared_group, tpid: tariff_plan.alias
+      t1 = insert(:tp_shared_group, tpid: tariff_plan.alias)
+      insert(:tp_shared_group, tpid: tariff_plan.alias)
 
-      conn = get(conn, Routes.tp_shared_group_path(conn, :index, tpid: tariff_plan.alias), filter: %{tag: t1.tag})
-      |> doc()
+      conn =
+        get(conn, Routes.tp_shared_group_path(conn, :index, tpid: tariff_plan.alias),
+          filter: %{tag: t1.tag}
+        )
+        |> doc()
+
       assert length(json_response(conn, 200)["data"]) == 1
     end
 
     test "filtering by account", %{conn: conn} do
-      tariff_plan = insert :tariff_plan
+      tariff_plan = insert(:tariff_plan)
 
-      insert :tp_shared_group, tpid: tariff_plan.alias, account: "a1"
-      insert :tp_shared_group, tpid: tariff_plan.alias, account: "a2"
+      insert(:tp_shared_group, tpid: tariff_plan.alias, account: "a1")
+      insert(:tp_shared_group, tpid: tariff_plan.alias, account: "a2")
 
-      conn = get(conn, Routes.tp_shared_group_path(conn, :index, tpid: tariff_plan.alias), filter: %{account: "a1"})
-      |> doc()
+      conn =
+        get(conn, Routes.tp_shared_group_path(conn, :index, tpid: tariff_plan.alias),
+          filter: %{account: "a1"}
+        )
+        |> doc()
+
       assert length(json_response(conn, 200)["data"]) == 1
     end
 
     test "filtering by strategy", %{conn: conn} do
-      tariff_plan = insert :tariff_plan
+      tariff_plan = insert(:tariff_plan)
 
-      insert :tp_shared_group, tpid: tariff_plan.alias, strategy: "s1"
-      insert :tp_shared_group, tpid: tariff_plan.alias, strategy: "s2"
+      insert(:tp_shared_group, tpid: tariff_plan.alias, strategy: "s1")
+      insert(:tp_shared_group, tpid: tariff_plan.alias, strategy: "s2")
 
-      conn = get(conn, Routes.tp_shared_group_path(conn, :index, tpid: tariff_plan.alias), filter: %{strategy: "s1"})
-      |> doc()
+      conn =
+        get(conn, Routes.tp_shared_group_path(conn, :index, tpid: tariff_plan.alias),
+          filter: %{strategy: "s1"}
+        )
+        |> doc()
+
       assert length(json_response(conn, 200)["data"]) == 1
     end
 
     test "filtering by rating_subject", %{conn: conn} do
-      tariff_plan = insert :tariff_plan
+      tariff_plan = insert(:tariff_plan)
 
-      insert :tp_shared_group, tpid: tariff_plan.alias, rating_subject: "rs1"
-      insert :tp_shared_group, tpid: tariff_plan.alias, rating_subject: "rs2"
+      insert(:tp_shared_group, tpid: tariff_plan.alias, rating_subject: "rs1")
+      insert(:tp_shared_group, tpid: tariff_plan.alias, rating_subject: "rs2")
 
-      conn = get(conn, Routes.tp_shared_group_path(conn, :index, tpid: tariff_plan.alias), filter: %{rating_subject: "rs1"})
-      |> doc()
+      conn =
+        get(conn, Routes.tp_shared_group_path(conn, :index, tpid: tariff_plan.alias),
+          filter: %{rating_subject: "rs1"}
+        )
+        |> doc()
+
       assert length(json_response(conn, 200)["data"]) == 1
     end
   end
 
   describe "GET show" do
     test "shows chosen resource", %{conn: conn} do
-      tariff_plan = insert :tariff_plan
-      tp_shared_group = insert :tp_shared_group, tpid: tariff_plan.alias
+      tariff_plan = insert(:tariff_plan)
+      tp_shared_group = insert(:tp_shared_group, tpid: tariff_plan.alias)
 
       conn = get(conn, Routes.tp_shared_group_path(conn, :show, tp_shared_group)) |> doc()
       data = json_response(conn, 200)["data"]
@@ -102,43 +120,52 @@ defmodule CgratesWebJsonapi.TariffPlans.TpSharedGroupControllerTest do
 
   describe "GET export_to_csv" do
     test "returns status 'ok'", %{conn: conn} do
-      tariff_plan = insert :tariff_plan
+      tariff_plan = insert(:tariff_plan)
 
-      insert :tp_shared_group, tpid: tariff_plan.alias, strategy: "s1"
-      insert :tp_shared_group, tpid: tariff_plan.alias, strategy: "s2"
+      insert(:tp_shared_group, tpid: tariff_plan.alias, strategy: "s1")
+      insert(:tp_shared_group, tpid: tariff_plan.alias, strategy: "s2")
 
-      conn = conn
-      |> get(Routes.tp_shared_group_path(conn, :export_to_csv), %{tpid: tariff_plan.alias, filter: %{strategy: "s1"}})
-      |> doc()
+      conn =
+        conn
+        |> get(Routes.tp_shared_group_path(conn, :export_to_csv), %{
+          tpid: tariff_plan.alias,
+          filter: %{strategy: "s1"}
+        })
+        |> doc()
+
       assert conn.status == 200
     end
   end
 
   describe "POST create" do
     test "creates and renders resource when data is valid", %{conn: conn} do
-      tariff_plan = insert :tariff_plan
-      params = Map.merge params_for(:tp_shared_group), %{tpid: tariff_plan.alias}
+      tariff_plan = insert(:tariff_plan)
+      params = Map.merge(params_for(:tp_shared_group), %{tpid: tariff_plan.alias})
 
-      conn = post(conn, Routes.tp_shared_group_path(conn, :create), %{
-        "meta" => %{},
-        "data" => %{
-          "type" => "tp_shared_group",
-          "attributes" => params
-        }
-      }) |> doc()
+      conn =
+        post(conn, Routes.tp_shared_group_path(conn, :create), %{
+          "meta" => %{},
+          "data" => %{
+            "type" => "tp_shared_group",
+            "attributes" => params
+          }
+        })
+        |> doc()
 
       assert json_response(conn, 201)["data"]["id"]
       assert Repo.get_by(TpSharedGroup, params)
     end
 
     test "does not create resource and renders errors when data is invalid", %{conn: conn} do
-      conn = post(conn, Routes.tp_shared_group_path(conn, :create), %{
-        "meta" => %{},
-        "data" => %{
-          "type" => "tp_shared_group",
-          "attributes" => %{strategy: nil}
-        }
-      }) |> doc()
+      conn =
+        post(conn, Routes.tp_shared_group_path(conn, :create), %{
+          "meta" => %{},
+          "data" => %{
+            "type" => "tp_shared_group",
+            "attributes" => %{strategy: nil}
+          }
+        })
+        |> doc()
 
       assert json_response(conn, 422)["errors"] != %{}
     end
@@ -146,30 +173,36 @@ defmodule CgratesWebJsonapi.TariffPlans.TpSharedGroupControllerTest do
 
   describe "PUT update" do
     test "updates and renders chosen resource when data is valid", %{conn: conn} do
-      tp_shared_group = insert :tp_shared_group
-      conn = put(conn, Routes.tp_shared_group_path(conn, :update, tp_shared_group), %{
-        "meta" => %{},
-        "data" => %{
-          "type" => "tp_shared_group",
-          "id" => tp_shared_group.id,
-          "attributes" => %{strategy: "new_s"}
-        }
-      }) |> doc()
+      tp_shared_group = insert(:tp_shared_group)
+
+      conn =
+        put(conn, Routes.tp_shared_group_path(conn, :update, tp_shared_group), %{
+          "meta" => %{},
+          "data" => %{
+            "type" => "tp_shared_group",
+            "id" => tp_shared_group.id,
+            "attributes" => %{strategy: "new_s"}
+          }
+        })
+        |> doc()
 
       assert json_response(conn, 200)["data"]["id"]
       assert Repo.get_by(TpSharedGroup, %{strategy: "new_s"})
     end
 
     test "does not update chosen resource and renders errors when data is invalid", %{conn: conn} do
-      tp_shared_group = insert :tp_shared_group
-      conn = put(conn, Routes.tp_shared_group_path(conn, :update, tp_shared_group), %{
-        "meta" => %{},
-        "data" => %{
-          "type" => "tp_shared_group",
-          "id" => tp_shared_group.id,
-          "attributes" => %{strategy: nil}
-        }
-      }) |> doc()
+      tp_shared_group = insert(:tp_shared_group)
+
+      conn =
+        put(conn, Routes.tp_shared_group_path(conn, :update, tp_shared_group), %{
+          "meta" => %{},
+          "data" => %{
+            "type" => "tp_shared_group",
+            "id" => tp_shared_group.id,
+            "attributes" => %{strategy: nil}
+          }
+        })
+        |> doc()
 
       assert json_response(conn, 422)["errors"] != %{}
     end
@@ -177,7 +210,7 @@ defmodule CgratesWebJsonapi.TariffPlans.TpSharedGroupControllerTest do
 
   describe "DELETE destroy" do
     test "deletes chosen resource", %{conn: conn} do
-      tp_shared_group = insert :tp_shared_group
+      tp_shared_group = insert(:tp_shared_group)
       conn = delete(conn, Routes.tp_shared_group_path(conn, :delete, tp_shared_group)) |> doc()
       assert response(conn, 204)
       refute Repo.get(TpSharedGroup, tp_shared_group.id)
@@ -185,14 +218,18 @@ defmodule CgratesWebJsonapi.TariffPlans.TpSharedGroupControllerTest do
   end
 
   describe "DELETE delete_all" do
-    test "deletes all records by filter", %{conn: conn}  do
-      tariff_plan = insert :tariff_plan
+    test "deletes all records by filter", %{conn: conn} do
+      tariff_plan = insert(:tariff_plan)
 
-      tps1 = insert :tp_shared_group, tpid: tariff_plan.alias, strategy: "s1"
-      tps2 = insert :tp_shared_group, tpid: tariff_plan.alias, strategy: "s2"
+      tps1 = insert(:tp_shared_group, tpid: tariff_plan.alias, strategy: "s1")
+      tps2 = insert(:tp_shared_group, tpid: tariff_plan.alias, strategy: "s2")
 
-      conn = conn
-      |> post(Routes.tp_shared_group_path(conn, :delete_all), %{tpid: tariff_plan.alias, filter: %{strategy: "s2"}})
+      conn =
+        conn
+        |> post(Routes.tp_shared_group_path(conn, :delete_all), %{
+          tpid: tariff_plan.alias,
+          filter: %{strategy: "s2"}
+        })
 
       assert Repo.get(TpSharedGroup, tps1.id)
       refute Repo.get(TpSharedGroup, tps2.id)

@@ -16,8 +16,11 @@ defmodule CgratesWebJsonapiWeb.Router do
 
     plug JaSerializer.ContentTypeNegotiation
     plug JaSerializer.Deserializer
-    plug Guardian.Plug.Pipeline, module: CgratesWebJsonapi.Guardian,
-                                 error_handler: CgratesWebJsonapi.AuthErrorHandler
+
+    plug Guardian.Plug.Pipeline,
+      module: CgratesWebJsonapi.Guardian,
+      error_handler: CgratesWebJsonapi.AuthErrorHandler
+
     plug Guardian.Plug.VerifyHeader
     plug Guardian.Plug.EnsureAuthenticated
     plug Guardian.Plug.LoadResource, allow_blank: true

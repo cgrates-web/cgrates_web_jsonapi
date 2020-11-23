@@ -6,10 +6,12 @@ defmodule CgratesWebJsonapi.CsvExportTest do
 
   describe "build_copy_query" do
     test "builds copy query from sql query and list of values" do
-      tariff_plan = insert :tariff_plan
+      tariff_plan = insert(:tariff_plan)
 
-      query = from r in CgratesWebJsonapi.RawSupplierRate,
-             where: r.tariff_plan_id == ^tariff_plan.id
+      query =
+        from r in CgratesWebJsonapi.RawSupplierRate,
+          where: r.tariff_plan_id == ^tariff_plan.id
+
       {raw_query, values} = Repo.to_sql(:all, query)
 
       copy_query = """
@@ -26,7 +28,9 @@ defmodule CgratesWebJsonapi.CsvExportTest do
     test "replaces all paremeters in string with given values within range" do
       query = "SELECT r0.id, r0.rate from raw_supplier_rates AS r0 WHERE (r0.tariff_plan_id = $1)"
       values = [100]
-      query_with_values = "SELECT r0.id, r0.rate from raw_supplier_rates AS r0 WHERE (r0.tariff_plan_id = '100')"
+
+      query_with_values =
+        "SELECT r0.id, r0.rate from raw_supplier_rates AS r0 WHERE (r0.tariff_plan_id = '100')"
 
       assert CsvExport.query_with_values(1..1, query, values) == query_with_values
     end

@@ -5,7 +5,16 @@ defmodule CgratesWebJsonapi.TariffPlans.TpRatingProfileTest do
 
   import CgratesWebJsonapi.Factory
 
-  @valid_attrs %{activation_time: "some", category: "some", fallback_subjects: "some content", loadid: "some content", rating_plan_tag: "some content", subject: "some content", tenant: "some content", tpid: "some content"}
+  @valid_attrs %{
+    activation_time: "some",
+    category: "some",
+    fallback_subjects: "some content",
+    loadid: "some content",
+    rating_plan_tag: "some content",
+    subject: "some content",
+    tenant: "some content",
+    tpid: "some content"
+  }
   @invalid_attrs %{}
 
   test "changeset with valid attributes" do
@@ -21,22 +30,23 @@ defmodule CgratesWebJsonapi.TariffPlans.TpRatingProfileTest do
   describe "#from_csv" do
     test "it parses csv and inserts records to DB" do
       path = Path.expand("../../fixtures/csv/tp-rating-profiles.csv", __DIR__)
-      tariff_plan = insert :tariff_plan
+      tariff_plan = insert(:tariff_plan)
 
       path |> TpRatingProfile.from_csv(tariff_plan.alias) |> Enum.into([])
 
       assert TpRatingProfile |> Repo.aggregate(:count, :id) == 2
+
       assert Repo.get_by(TpRatingProfile, %{
-        subject: "subj1",
-        tpid: tariff_plan.alias
-      })
+               subject: "subj1",
+               tpid: tariff_plan.alias
+             })
     end
 
     test "it does not insert new record" do
       path = Path.expand("../../fixtures/csv/tp-rating-profiles.csv", __DIR__)
-      tariff_plan = insert :tariff_plan
+      tariff_plan = insert(:tariff_plan)
 
-      insert :tp_rating_profile, %{
+      insert(:tp_rating_profile, %{
         subject: "subj1",
         category: "cat1",
         tenant: "tenant1",
@@ -45,14 +55,15 @@ defmodule CgratesWebJsonapi.TariffPlans.TpRatingProfileTest do
         fallback_subjects: "fs1",
         loadid: "loadid1",
         tpid: tariff_plan.alias
-      }
+      })
 
       path |> TpRatingProfile.from_csv(tariff_plan.alias) |> Enum.into([])
       assert TpRatingProfile |> Repo.aggregate(:count, :id) == 2
+
       assert Repo.get_by(TpRatingProfile, %{
-        subject: "subj1",
-        tpid: tariff_plan.alias
-      })
+               subject: "subj1",
+               tpid: tariff_plan.alias
+             })
     end
   end
 end

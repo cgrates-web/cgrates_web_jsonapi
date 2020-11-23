@@ -5,9 +5,15 @@ defmodule CgratesWebJsonapi.TariffPlans.TpFilterTest do
 
   import CgratesWebJsonapi.Factory
 
-  @valid_attrs %{activation_interval: "some content", tenant: "some content",
-                 custom_id: "id", tpid: "some content", element: "element", values: "value",
-                 cg_type: "type"}
+  @valid_attrs %{
+    activation_interval: "some content",
+    tenant: "some content",
+    custom_id: "id",
+    tpid: "some content",
+    element: "element",
+    values: "value",
+    cg_type: "type"
+  }
   @invalid_attrs %{}
 
   test "changeset with valid attributes" do
@@ -23,15 +29,16 @@ defmodule CgratesWebJsonapi.TariffPlans.TpFilterTest do
   describe "#from_csv" do
     test "it parses csv and inerts records to DB" do
       path = Path.expand("../../fixtures/csv/tp-filters.csv", __DIR__)
-      tariff_plan = insert :tariff_plan
+      tariff_plan = insert(:tariff_plan)
 
       path |> TpFilter.from_csv(tariff_plan.alias) |> Enum.into([])
 
       assert TpFilter |> Repo.aggregate(:count, :custom_id) == 2
+
       assert Repo.get_by(TpFilter, %{
-        tpid: tariff_plan.alias,
-        custom_id: "a"
-      })
+               tpid: tariff_plan.alias,
+               custom_id: "a"
+             })
     end
   end
 end

@@ -6,7 +6,7 @@ defmodule CgratesWebJsonapi.TariffPlans.TpRateControllerTest do
   alias CgratesWebJsonapi.TariffPlans.TpRate
   alias CgratesWebJsonapi.Repo
 
-  @invalid_attrs %{group_interval_start: "60", rate_increment: "s",rate_unit: "dads"}
+  @invalid_attrs %{group_interval_start: "60", rate_increment: "s", rate_unit: "dads"}
   import CgratesWebJsonapi.Guardian
 
   setup do
@@ -28,80 +28,101 @@ defmodule CgratesWebJsonapi.TariffPlans.TpRateControllerTest do
   end
 
   test "lists all entries related tariff plan on index", %{conn: conn} do
-    tariff_plan_1 = insert :tariff_plan
-    tariff_plan_2 = insert :tariff_plan
+    tariff_plan_1 = insert(:tariff_plan)
+    tariff_plan_2 = insert(:tariff_plan)
 
-    insert :tp_rate, tpid: tariff_plan_1.alias
-    insert :tp_rate, tpid: tariff_plan_2.alias
+    insert(:tp_rate, tpid: tariff_plan_1.alias)
+    insert(:tp_rate, tpid: tariff_plan_2.alias)
 
     conn = get(conn, Routes.tp_rate_path(conn, :index, tpid: tariff_plan_1.alias)) |> doc
     assert length(json_response(conn, 200)["data"]) == 1
   end
 
   test "filtering by rate", %{conn: conn} do
-    tariff_plan = insert :tariff_plan
+    tariff_plan = insert(:tariff_plan)
 
-    r1 = insert :tp_rate, tpid: tariff_plan.alias, rate: 0.01
-     insert :tp_rate, tpid: tariff_plan.alias, rate: 0.02
+    r1 = insert(:tp_rate, tpid: tariff_plan.alias, rate: 0.01)
+    insert(:tp_rate, tpid: tariff_plan.alias, rate: 0.02)
 
-    conn = get(conn, Routes.tp_rate_path(conn, :index, tpid: tariff_plan.alias), filter: %{rate: r1.rate})
-    |> doc
+    conn =
+      get(conn, Routes.tp_rate_path(conn, :index, tpid: tariff_plan.alias),
+        filter: %{rate: r1.rate}
+      )
+      |> doc
+
     assert length(json_response(conn, 200)["data"]) == 1
   end
 
   test "filtering by connect_fee", %{conn: conn} do
-    tariff_plan = insert :tariff_plan
+    tariff_plan = insert(:tariff_plan)
 
-    r1 = insert :tp_rate, tpid: tariff_plan.alias, connect_fee: 0.01
-     insert :tp_rate, tpid: tariff_plan.alias, connect_fee: 0.02
+    r1 = insert(:tp_rate, tpid: tariff_plan.alias, connect_fee: 0.01)
+    insert(:tp_rate, tpid: tariff_plan.alias, connect_fee: 0.02)
 
-    conn = get(conn, Routes.tp_rate_path(conn, :index, tpid: tariff_plan.alias), filter: %{connect_fee: r1.connect_fee})
-    |> doc
+    conn =
+      get(conn, Routes.tp_rate_path(conn, :index, tpid: tariff_plan.alias),
+        filter: %{connect_fee: r1.connect_fee}
+      )
+      |> doc
+
     assert length(json_response(conn, 200)["data"]) == 1
   end
 
   test "filtering by tag", %{conn: conn} do
-    tariff_plan = insert :tariff_plan
+    tariff_plan = insert(:tariff_plan)
 
-    r1 = insert :tp_rate, tpid: tariff_plan.alias
-     insert :tp_rate, tpid: tariff_plan.alias
+    r1 = insert(:tp_rate, tpid: tariff_plan.alias)
+    insert(:tp_rate, tpid: tariff_plan.alias)
 
-    conn = get(conn, Routes.tp_rate_path(conn, :index, tpid: tariff_plan.alias), filter: %{tag: r1.tag})
-    |> doc
+    conn =
+      get(conn, Routes.tp_rate_path(conn, :index, tpid: tariff_plan.alias), filter: %{tag: r1.tag})
+      |> doc
+
     assert length(json_response(conn, 200)["data"]) == 1
   end
 
   test "filtering by rate_unit", %{conn: conn} do
-    tariff_plan = insert :tariff_plan
+    tariff_plan = insert(:tariff_plan)
 
-    r1 = insert :tp_rate, tpid: tariff_plan.alias, rate_unit: "60s"
-     insert :tp_rate, tpid: tariff_plan.alias, rate_unit: "40s"
+    r1 = insert(:tp_rate, tpid: tariff_plan.alias, rate_unit: "60s")
+    insert(:tp_rate, tpid: tariff_plan.alias, rate_unit: "40s")
 
-    conn = get(conn, Routes.tp_rate_path(conn, :index, tpid: tariff_plan.alias), filter: %{rate_unit: r1.rate_unit})
-    |> doc
+    conn =
+      get(conn, Routes.tp_rate_path(conn, :index, tpid: tariff_plan.alias),
+        filter: %{rate_unit: r1.rate_unit}
+      )
+      |> doc
+
     assert length(json_response(conn, 200)["data"]) == 1
   end
 
   test "filtering by rate_increment", %{conn: conn} do
-    tariff_plan = insert :tariff_plan
+    tariff_plan = insert(:tariff_plan)
 
-    r1 = insert :tp_rate, tpid: tariff_plan.alias, rate_increment: "60s"
-     insert :tp_rate, tpid: tariff_plan.alias, rate_increment: "40s"
+    r1 = insert(:tp_rate, tpid: tariff_plan.alias, rate_increment: "60s")
+    insert(:tp_rate, tpid: tariff_plan.alias, rate_increment: "40s")
 
-    conn = get(conn, Routes.tp_rate_path(conn, :index, tpid: tariff_plan.alias), filter: %{rate_increment: r1.rate_increment})
-    |> doc
+    conn =
+      get(conn, Routes.tp_rate_path(conn, :index, tpid: tariff_plan.alias),
+        filter: %{rate_increment: r1.rate_increment}
+      )
+      |> doc
+
     assert length(json_response(conn, 200)["data"]) == 1
   end
 
   test "filtering by group_interval_start", %{conn: conn} do
-    tariff_plan = insert :tariff_plan
+    tariff_plan = insert(:tariff_plan)
 
-    r1 = insert :tp_rate, tpid: tariff_plan.alias, group_interval_start: "60s"
-     insert :tp_rate, tpid: tariff_plan.alias, group_interval_start: "40s"
+    r1 = insert(:tp_rate, tpid: tariff_plan.alias, group_interval_start: "60s")
+    insert(:tp_rate, tpid: tariff_plan.alias, group_interval_start: "40s")
 
-    conn = get(conn, Routes.tp_rate_path(conn, :index, tpid: tariff_plan.alias),
-                                                filter: %{group_interval_start: r1.group_interval_start})
-    |> doc
+    conn =
+      get(conn, Routes.tp_rate_path(conn, :index, tpid: tariff_plan.alias),
+        filter: %{group_interval_start: r1.group_interval_start}
+      )
+      |> doc
+
     assert length(json_response(conn, 200)["data"]) == 1
   end
 
@@ -112,8 +133,8 @@ defmodule CgratesWebJsonapi.TariffPlans.TpRateControllerTest do
   end
 
   test "shows chosen resource", %{conn: conn} do
-    tariff_plan = insert :tariff_plan
-    tp_rate = insert :tp_rate, tpid: tariff_plan.alias
+    tariff_plan = insert(:tariff_plan)
+    tp_rate = insert(:tp_rate, tpid: tariff_plan.alias)
 
     conn = get(conn, Routes.tp_rate_path(conn, :show, tp_rate)) |> doc
 
@@ -137,88 +158,100 @@ defmodule CgratesWebJsonapi.TariffPlans.TpRateControllerTest do
 
   describe "GET export_to_csv" do
     test "returns status 'ok'", %{conn: conn} do
-      tariff_plan = insert :tariff_plan
+      tariff_plan = insert(:tariff_plan)
 
-      insert :tp_rate, tpid: tariff_plan.alias, rate: 0.01, rate_unit: "ru1"
-      insert :tp_rate, tpid: tariff_plan.alias, rate: 0.01, rate_unit: "ru2"
+      insert(:tp_rate, tpid: tariff_plan.alias, rate: 0.01, rate_unit: "ru1")
+      insert(:tp_rate, tpid: tariff_plan.alias, rate: 0.01, rate_unit: "ru2")
 
-      conn = conn
-      |> get(Routes.tp_rate_path(conn, :export_to_csv), %{tpid: tariff_plan.alias, filter: %{rate: 0.01, rate_unit: "ru1"}})
-      |> doc()
+      conn =
+        conn
+        |> get(Routes.tp_rate_path(conn, :export_to_csv), %{
+          tpid: tariff_plan.alias,
+          filter: %{rate: 0.01, rate_unit: "ru1"}
+        })
+        |> doc()
+
       assert conn.status == 200
     end
   end
 
   test "creates and renders resource when data is valid", %{conn: conn} do
-    tariff_plan = insert :tariff_plan
-    params = Map.merge params_for(:tp_rate), %{tpid: tariff_plan.alias}
+    tariff_plan = insert(:tariff_plan)
+    params = Map.merge(params_for(:tp_rate), %{tpid: tariff_plan.alias})
 
-    conn = post(conn, Routes.tp_rate_path(conn, :create), %{
-      "meta" => %{},
-      "data" => %{
-        "type" => "tp-rates",
-        "attributes" => params,
-        "relationships" => relationships
-      }
-    }) |> doc
+    conn =
+      post(conn, Routes.tp_rate_path(conn, :create), %{
+        "meta" => %{},
+        "data" => %{
+          "type" => "tp-rates",
+          "attributes" => params,
+          "relationships" => relationships
+        }
+      })
+      |> doc
 
     assert json_response(conn, 201)["data"]["id"]
     assert Repo.get_by(TpRate, params)
   end
 
   test "does not create resource and renders errors when data is invalid", %{conn: conn} do
-    conn = post conn, Routes.tp_rate_path(conn, :create), %{
-      "meta" => %{},
-      "data" => %{
-        "type" => "tp-rates",
-        "attributes" => @invalid_attrs,
-        "relationships" => relationships
+    conn =
+      post conn, Routes.tp_rate_path(conn, :create), %{
+        "meta" => %{},
+        "data" => %{
+          "type" => "tp-rates",
+          "attributes" => @invalid_attrs,
+          "relationships" => relationships
+        }
       }
-    }
 
     assert json_response(conn, 422)["errors"] != %{}
   end
 
   test "updates and renders chosen resource when data is valid", %{conn: conn} do
-    tariff_plan    = insert :tariff_plan
-    tp_rate = insert :tp_rate, tpid: tariff_plan.alias
+    tariff_plan = insert(:tariff_plan)
+    tp_rate = insert(:tp_rate, tpid: tariff_plan.alias)
 
     params = params_for(:tp_rate)
 
-    conn = put(conn, Routes.tp_rate_path(conn, :update, tp_rate), %{
-      "meta" => %{},
-      "data" => %{
-        "type" => "tp-rates",
-        "id" => tp_rate.id,
-        "attributes" => params,
-        "relationships" => relationships
-      }
-    }) |> doc
+    conn =
+      put(conn, Routes.tp_rate_path(conn, :update, tp_rate), %{
+        "meta" => %{},
+        "data" => %{
+          "type" => "tp-rates",
+          "id" => tp_rate.id,
+          "attributes" => params,
+          "relationships" => relationships
+        }
+      })
+      |> doc
 
     assert json_response(conn, 200)["data"]["id"]
     assert Repo.get_by(TpRate, params)
   end
 
   test "does not update chosen resource and renders errors when data is invalid", %{conn: conn} do
-    tariff_plan    = insert :tariff_plan
-    tp_rate = insert :tp_rate, tpid: tariff_plan.alias
+    tariff_plan = insert(:tariff_plan)
+    tp_rate = insert(:tp_rate, tpid: tariff_plan.alias)
 
-    conn = put(conn, Routes.tp_rate_path(conn, :update, tp_rate), %{
-      "meta" => %{},
-      "data" => %{
-        "type" => "tp-rates",
-        "id" => tp_rate.id,
-        "attributes" => @invalid_attrs,
-        "relationships" => relationships
-      }
-    }) |> doc
+    conn =
+      put(conn, Routes.tp_rate_path(conn, :update, tp_rate), %{
+        "meta" => %{},
+        "data" => %{
+          "type" => "tp-rates",
+          "id" => tp_rate.id,
+          "attributes" => @invalid_attrs,
+          "relationships" => relationships
+        }
+      })
+      |> doc
 
     assert json_response(conn, 422)["errors"] != %{}
   end
 
   test "deletes chosen resource", %{conn: conn} do
-    tariff_plan    = insert :tariff_plan
-    tp_rate = insert :tp_rate, tpid: tariff_plan.alias
+    tariff_plan = insert(:tariff_plan)
+    tp_rate = insert(:tp_rate, tpid: tariff_plan.alias)
 
     conn = delete(conn, Routes.tp_rate_path(conn, :delete, tp_rate)) |> doc
     assert response(conn, 204)
@@ -226,9 +259,11 @@ defmodule CgratesWebJsonapi.TariffPlans.TpRateControllerTest do
   end
 
   test "deletes chosen resource with assosiated resources included", %{conn: conn} do
-    tariff_plan    = insert :tariff_plan
-    tp_rate = insert :tp_rate, tpid: tariff_plan.alias
-    tp_destination_rate = insert :tp_destination_rate, rates_tag: tp_rate.tag, tpid: tariff_plan.alias
+    tariff_plan = insert(:tariff_plan)
+    tp_rate = insert(:tp_rate, tpid: tariff_plan.alias)
+
+    tp_destination_rate =
+      insert(:tp_destination_rate, rates_tag: tp_rate.tag, tpid: tariff_plan.alias)
 
     conn = delete(conn, Routes.tp_rate_path(conn, :delete, tp_rate))
     assert response(conn, 204)
@@ -237,14 +272,18 @@ defmodule CgratesWebJsonapi.TariffPlans.TpRateControllerTest do
   end
 
   describe "DELETE delete_all" do
-    test "deletes all records by filter", %{conn: conn}  do
-      tariff_plan = insert :tariff_plan
+    test "deletes all records by filter", %{conn: conn} do
+      tariff_plan = insert(:tariff_plan)
 
-      tpr1 = insert :tp_rate, tpid: tariff_plan.alias, rate: 0.01, rate_unit: "ru1"
-      tpr2 = insert :tp_rate, tpid: tariff_plan.alias, rate: 0.01, rate_unit: "ru2"
+      tpr1 = insert(:tp_rate, tpid: tariff_plan.alias, rate: 0.01, rate_unit: "ru1")
+      tpr2 = insert(:tp_rate, tpid: tariff_plan.alias, rate: 0.01, rate_unit: "ru2")
 
-      conn = conn
-      |> post(Routes.tp_rate_path(conn, :delete_all), %{tpid: tariff_plan.alias, filter: %{rate: 0.01, rate_unit: "ru1"}})
+      conn =
+        conn
+        |> post(Routes.tp_rate_path(conn, :delete_all), %{
+          tpid: tariff_plan.alias,
+          filter: %{rate: 0.01, rate_unit: "ru1"}
+        })
 
       assert Repo.get(TpRate, tpr2.id)
       refute Repo.get(TpRate, tpr1.id)

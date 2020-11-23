@@ -22,17 +22,19 @@ defmodule CgratesWebJsonapi.TariffPlans.TpBulkInsertControllerTest do
 
   describe "create" do
     test "insert list of TpDestination", %{conn: conn} do
-      tariff_plan = insert :tariff_plan
-      params_1 = Map.merge params_for(:tp_destination), %{tpid: tariff_plan.alias}
-      params_2 = Map.merge params_for(:tp_destination), %{tpid: tariff_plan.alias}
+      tariff_plan = insert(:tariff_plan)
+      params_1 = Map.merge(params_for(:tp_destination), %{tpid: tariff_plan.alias})
+      params_2 = Map.merge(params_for(:tp_destination), %{tpid: tariff_plan.alias})
 
-      conn = post(conn, Routes.tp_bulk_insert_path(conn, :create), %{
-        "type" => "tp-destination",
-        "data" => [
-          params_1,
-          params_2
-        ]
-      }) |> doc
+      conn =
+        post(conn, Routes.tp_bulk_insert_path(conn, :create), %{
+          "type" => "tp-destination",
+          "data" => [
+            params_1,
+            params_2
+          ]
+        })
+        |> doc
 
       assert Repo.get_by(TpDestination, params_1)
       assert Repo.get_by(TpDestination, params_2)

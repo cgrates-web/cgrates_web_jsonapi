@@ -6,7 +6,7 @@ defmodule CgratesWebJsonapi.CsvImport do
 
     quote do
       use Ecto.Schema
-  import Ecto.Changeset
+      import Ecto.Changeset
       use EctoConditionals, repo: CgratesWebJsonapi.Repo
       alias unquote(module)
 
@@ -14,9 +14,13 @@ defmodule CgratesWebJsonapi.CsvImport do
       Parses CSV file and inserts records to raw_supplier_rates table.
       """
       def from_csv(path, tpid) do
-        path |> File.stream! |> CSV.decode!(headers: true) |> ParallelStream.map(fn (data) ->
-          cs = struct(unquote(module))
-          |> changeset(data |> Map.merge(%{unquote(tariff_plan_field) => tpid}))
+        path
+        |> File.stream!()
+        |> CSV.decode!(headers: true)
+        |> ParallelStream.map(fn data ->
+          cs =
+            struct(unquote(module))
+            |> changeset(data |> Map.merge(%{unquote(tariff_plan_field) => tpid}))
 
           if cs.valid? do
             struct(unquote(module))
@@ -29,5 +33,4 @@ defmodule CgratesWebJsonapi.CsvImport do
       end
     end
   end
-
 end
