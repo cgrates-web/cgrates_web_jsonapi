@@ -1,7 +1,8 @@
-defmodule CgratesWebJsonapi.AddBalance do
+defmodule CgratesWebJsonapi.Cgrates.AddBalance do
   use Ecto.Schema
   import Ecto.Changeset
 
+  # TODO: shemaless validations
   @primary_key {:id, :string, autogenerate: false}
   schema "add_balance" do
     field :account,         :string

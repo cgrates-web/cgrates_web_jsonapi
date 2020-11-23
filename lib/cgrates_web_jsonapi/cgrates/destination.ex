@@ -1,7 +1,8 @@
-defmodule CgratesWebJsonapi.Destination do
+defmodule CgratesWebJsonapi.Cgrates.Destination do
   use Ecto.Schema
   import Ecto.Changeset
 
+  # TODO: shemaless validations
   @primary_key {:id, :string, autogenerate: false}
   schema "destinations" do
     field :prefixes, {:array, :string}

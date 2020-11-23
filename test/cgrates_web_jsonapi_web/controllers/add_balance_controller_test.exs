@@ -3,18 +3,17 @@ defmodule CgratesWebJsonapi.AddBalanceControllerTest do
 
   import Mock
   import CgratesWebJsonapi.Factory
+  import CgratesWebJsonapi.Guardian
 
   setup do
     user = insert :user
 
+    {:ok, token, _} = encode_and_sign(user, %{}, token_type: :access)
+
     conn = build_conn()
      |> put_req_header("accept", "application/vnd.api+json")
      |> put_req_header("content-type", "application/vnd.api+json")
-     |> Guardian.Plug.api_sign_in(
-       user,
-       :token,
-       perms: %{default: [:read, :write]}
-     )
+     |> put_req_header("authorization", "bearer: " <> token)
     {:ok, conn: conn}
   end
 
@@ -32,7 +31,7 @@ defmodule CgratesWebJsonapi.AddBalanceControllerTest do
         }
       end
     ] do
-      conn = post(conn, add_balance_path(conn, :create), %{
+      conn = post(conn, Routes.add_balance_path(conn, :create), %{
         "meta" => %{},
         "data" => %{
           "attributes" => %{account: "1", balance_type: "*monetary"},
@@ -44,7 +43,7 @@ defmodule CgratesWebJsonapi.AddBalanceControllerTest do
   end
 
   test "renders errors when data is invalid", %{conn: conn} do
-    conn = post(conn, add_balance_path(conn, :create), %{
+    conn = post(conn, Routes.add_balance_path(conn, :create), %{
       "meta" => %{},
       "data" => %{
         "attributes" => %{},

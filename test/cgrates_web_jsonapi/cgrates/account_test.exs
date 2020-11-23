@@ -1,7 +1,7 @@
 defmodule CgratesWebJsonapi.AccountTest do
   use CgratesWebJsonapi.ModelCase
 
-  alias CgratesWebJsonapi.Account
+  alias CgratesWebJsonapi.Cgrates.Account
 
   @valid_attrs %{id: "1001"}
   @invalid_attrs %{}

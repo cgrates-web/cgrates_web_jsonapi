@@ -4,7 +4,7 @@ defmodule CgratesWebJsonapi.AccountControllerTest do
   import Mock
   import CgratesWebJsonapi.Factory
 
-  alias CgratesWebJsonapi.Account
+  alias CgratesWebJsonapi.Cgrates.Account
 
   @valid_attrs %{allow_negative: true}
   @invalid_attrs %{}
@@ -40,17 +40,17 @@ defmodule CgratesWebJsonapi.AccountControllerTest do
     }
   end
 
+  import CgratesWebJsonapi.Guardian
+
   setup do
     user = insert :user
+
+    {:ok, token, _} = encode_and_sign(user, %{}, token_type: :access)
 
     conn = build_conn()
      |> put_req_header("accept", "application/vnd.api+json")
      |> put_req_header("content-type", "application/vnd.api+json")
-     |> Guardian.Plug.api_sign_in(
-       user,
-       :token,
-       perms: %{default: [:read, :write]}
-     )
+     |> put_req_header("authorization", "bearer: " <> token)
     {:ok, conn: conn}
   end
 
@@ -68,7 +68,7 @@ defmodule CgratesWebJsonapi.AccountControllerTest do
         }
       end
     ] do
-      conn = get(conn, account_path(conn, :index), %{page: "2", per_page: "10"}) |> doc
+      conn = get(conn, Routes.account_path(conn, :index), %{page: "2", per_page: "10"}) |> doc
       assert length(json_response(conn, 200)["data"]) == 2
     end
 
@@ -84,7 +84,7 @@ defmodule CgratesWebJsonapi.AccountControllerTest do
         }
       end
     ] do
-      conn = get(conn, account_path(conn, :index)) |> doc
+      conn = get(conn, Routes.account_path(conn, :index)) |> doc
       assert length(json_response(conn, 200)["data"]) == 2
     end
   end
@@ -100,7 +100,7 @@ defmodule CgratesWebJsonapi.AccountControllerTest do
         }
       end
     ] do
-      conn = get(conn, account_path(conn, :show, "cgrates.org:1")) |> doc
+      conn = get(conn, Routes.account_path(conn, :show, "cgrates.org:1")) |> doc
       data = json_response(conn, 200)["data"]
       assert data["id"] == "cgrates.org:1"
       assert data["type"] == "account"
@@ -123,7 +123,7 @@ defmodule CgratesWebJsonapi.AccountControllerTest do
       end
     ] do
       assert_error_sent 404, fn ->
-        get(conn, account_path(conn, :show, -1)) |> doc
+        get(conn, Routes.account_path(conn, :show, -1)) |> doc
       end
     end
   end
@@ -138,7 +138,7 @@ defmodule CgratesWebJsonapi.AccountControllerTest do
         }
       end
     ] do
-      conn = post(conn, account_path(conn, :create), %{
+      conn = post(conn, Routes.account_path(conn, :create), %{
         "meta" => %{},
         "data" => %{
           "id" => "2001",
@@ -153,7 +153,7 @@ defmodule CgratesWebJsonapi.AccountControllerTest do
   end
 
   test "does not create resource and renders errors when data is invalid", %{conn: conn} do
-    conn = post(conn, account_path(conn, :create), %{
+    conn = post(conn, Routes.account_path(conn, :create), %{
       "meta" => %{},
       "data" => %{
         "id" => "",
@@ -168,7 +168,7 @@ defmodule CgratesWebJsonapi.AccountControllerTest do
 
   # test "updates and renders chosen resource when data is valid", %{conn: conn} do
   #   account = Repo.insert! %Account{}
-  #   conn = put conn, account_path(conn, :update, account), %{
+  #   conn = put conn, Routes.account_path(conn, :update, account), %{
   #     "meta" => %{},
   #     "data" => %{
   #       "type" => "accounts",
@@ -184,7 +184,7 @@ defmodule CgratesWebJsonapi.AccountControllerTest do
   #
   # test "does not update chosen resource and renders errors when data is invalid", %{conn: conn} do
   #   account = Repo.insert! %Account{}
-  #   conn = put conn, account_path(conn, :update, account), %{
+  #   conn = put conn, Routes.account_path(conn, :update, account), %{
   #     "meta" => %{},
   #     "data" => %{
   #       "type" => "accounts",
@@ -199,7 +199,7 @@ defmodule CgratesWebJsonapi.AccountControllerTest do
   #
   # test "deletes chosen resource", %{conn: conn} do
   #   account = Repo.insert! %Account{}
-  #   conn = delete conn, account_path(conn, :delete, account)
+  #   conn = delete conn, Routes.account_path(conn, :delete, account)
   #   assert response(conn, 204)
   #   refute Repo.get(Account, account.id)
   # end

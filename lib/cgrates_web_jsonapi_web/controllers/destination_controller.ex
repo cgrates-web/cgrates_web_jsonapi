@@ -1,7 +1,7 @@
   defmodule CgratesWebJsonapiWeb.DestinationController do
   use CgratesWebJsonapiWeb, :controller
 
-  alias CgratesWebJsonapi.Destination
+  alias CgratesWebJsonapi.Cgrates.Destination
   alias CgratesWebJsonapi.Cgrates.DestinationRepo
   alias JaSerializer.Params
 

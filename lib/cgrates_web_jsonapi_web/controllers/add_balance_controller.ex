@@ -2,7 +2,7 @@ defmodule CgratesWebJsonapiWeb.AddBalanceController do
   use CgratesWebJsonapiWeb, :controller
 
   alias CgratesWebJsonapi.Cgrates.AccountsRepo
-  alias CgratesWebJsonapi.AddBalance
+  alias CgratesWebJsonapi.Cgrates.AddBalance
   alias JaSerializer.Params
 
   def create(conn, %{"data" => data = %{"attributes" => _account_params}}) do

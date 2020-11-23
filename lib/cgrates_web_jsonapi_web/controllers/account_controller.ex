@@ -1,7 +1,7 @@
 defmodule CgratesWebJsonapiWeb.AccountController do
   use CgratesWebJsonapiWeb, :controller
 
-  alias CgratesWebJsonapi.Account
+  alias CgratesWebJsonapi.Cgrates.Account
   alias CgratesWebJsonapi.Cgrates.AccountsRepo
   alias JaSerializer.Params
 

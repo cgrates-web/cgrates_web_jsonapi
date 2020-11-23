@@ -1,7 +1,7 @@
 defmodule CgratesWebJsonapi.DestinationTest do
   use CgratesWebJsonapi.ModelCase
 
-  alias CgratesWebJsonapi.Destination
+  alias CgratesWebJsonapi.Cgrates.Destination
 
   @valid_attrs %{overwrite: true, prefixes: [], id: "DST_1"}
   @invalid_attrs %{}

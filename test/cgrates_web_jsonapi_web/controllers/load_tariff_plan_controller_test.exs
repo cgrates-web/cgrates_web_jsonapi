@@ -4,17 +4,17 @@ defmodule CgratesWebJsonapi.LoadTariffPlanControllerTest do
   import CgratesWebJsonapi.Factory
   import Mock
 
+  import CgratesWebJsonapi.Guardian
+
   setup do
     user = insert :user
+
+    {:ok, token, _} = encode_and_sign(user, %{}, token_type: :access)
 
     conn = build_conn()
      |> put_req_header("accept", "application/vnd.api+json")
      |> put_req_header("content-type", "application/vnd.api+json")
-     |> Guardian.Plug.api_sign_in(
-       user,
-       :token,
-       perms: %{default: [:read, :write]}
-     )
+     |> put_req_header("authorization", "bearer: " <> token)
     {:ok, conn: conn}
   end
 
@@ -28,7 +28,7 @@ defmodule CgratesWebJsonapi.LoadTariffPlanControllerTest do
         }
       end
     ] do
-      conn = post(conn, load_tariff_plan_path(conn, :create), %{
+      conn = post(conn, Routes.load_tariff_plan_path(conn, :create), %{
         "meta" => %{},
         "data" => %{
           "attributes" => %{
@@ -46,7 +46,7 @@ defmodule CgratesWebJsonapi.LoadTariffPlanControllerTest do
 
   test "does not executes LoadTariffPlanFromStorDb when data is invalid", %{conn: conn} do
     assert_error_sent 400, fn ->
-      conn = post(conn, load_tariff_plan_path(conn, :create), %{
+      conn = post(conn, Routes.load_tariff_plan_path(conn, :create), %{
         "data" => %{
           "attributes" => %{}
         }

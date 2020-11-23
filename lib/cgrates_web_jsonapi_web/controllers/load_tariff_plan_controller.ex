@@ -1,7 +1,6 @@
 defmodule CgratesWebJsonapiWeb.LoadTariffPlanController do
   use CgratesWebJsonapiWeb, :controller
 
-  alias CgratesWebJsonapi.Destination
   alias CgratesWebJsonapi.Cgrates.Adapter
   alias JaSerializer.Params
 
