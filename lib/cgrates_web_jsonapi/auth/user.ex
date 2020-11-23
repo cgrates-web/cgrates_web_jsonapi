@@ -16,7 +16,7 @@ defmodule CgratesWebJsonapi.Auth.User do
   """
   def changeset(model, params \\ :empty) do
     model
-    |> cast(params, ~w(email), [])
+    |> cast(params, [:email], [])
     |> validate_required(:email)
     |> validate_length(:email, min: 1, max: 255)
     |> validate_format(:email, ~r/@/)
@@ -25,7 +25,7 @@ defmodule CgratesWebJsonapi.Auth.User do
   def registration_changeset(model, params \\ :empty) do
     model
     |> changeset(params)
-    |> cast(params, ~w(password), [])
+    |> cast(params, [:password], [])
     |> validate_length(:password, min: 6)
     |> encrypt_password
   end

@@ -1,25 +1,27 @@
-defmodule CgratesWebJsonapi.UserControllerTest do
+defmodule CgratesWebJsonapiWeb.UserControllerTest do
   use CgratesWebJsonapi.ConnCase
 
   import CgratesWebJsonapi.Factory
 
-  alias CgratesWebJsonapi.User
+  alias CgratesWebJsonapi.Auth.User
   alias CgratesWebJsonapi.Repo
 
   @valid_attrs %{email: "email@example.com", password: "some content"}
   @invalid_attrs %{email: nil}
 
-  setup do
-    user = insert :user
+  import CgratesWebJsonapi.Guardian
 
-    conn = build_conn()
-     |> put_req_header("accept", "application/vnd.api+json")
-     |> put_req_header("content-type", "application/vnd.api+json")
-     |> Guardian.Plug.api_sign_in(
-       user,
-       :token,
-       perms: %{default: [:read, :write]}
-     )
+  setup do
+    user = insert(:user)
+
+    {:ok, token, _} = encode_and_sign(user, %{}, token_type: :access)
+
+    conn =
+      build_conn()
+      |> put_req_header("accept", "application/vnd.api+json")
+      |> put_req_header("content-type", "application/vnd.api+json")
+      |> put_req_header("authorization", "bearer: " <> token)
+
     {:ok, conn: conn}
   end
 
@@ -28,13 +30,13 @@ defmodule CgratesWebJsonapi.UserControllerTest do
   end
 
   test "lists all entries on index", %{conn: conn} do
-    conn = get(conn, user_path(conn, :index)) |> doc
+    conn = get(conn, Routes.user_path(conn, :index)) |> doc
     assert length(json_response(conn, 200)["data"]) == 1
   end
 
   test "shows chosen resource", %{conn: conn} do
     user = insert :user
-    conn = get(conn, user_path(conn, :show, user)) |> doc
+    conn = get(conn, Routes.user_path(conn, :show, user)) |> doc
     data = json_response(conn, 200)["data"]
     assert data["id"] == "#{user.id}"
     assert data["type"] == "user"
@@ -43,12 +45,12 @@ defmodule CgratesWebJsonapi.UserControllerTest do
 
   test "does not show resource and instead throw error when id is nonexistent", %{conn: conn} do
     assert_error_sent 404, fn ->
-      get(conn, user_path(conn, :show, -1)) |> doc
+      get(conn, Routes.user_path(conn, :show, -1)) |> doc
     end
   end
 
   test "creates and renders resource when data is valid", %{conn: conn} do
-    conn = post(conn, user_path(conn, :create), %{
+    conn = post(conn, Routes.user_path(conn, :create), %{
       "meta" => %{},
       "data" => %{
         "type" => "users",
@@ -62,7 +64,7 @@ defmodule CgratesWebJsonapi.UserControllerTest do
   end
 
   test "does not create resource and renders errors when data is invalid", %{conn: conn} do
-    conn = post(conn, user_path(conn, :create), %{
+    conn = post(conn, Routes.user_path(conn, :create), %{
       "meta" => %{},
       "data" => %{
         "type" => "users",
@@ -76,7 +78,7 @@ defmodule CgratesWebJsonapi.UserControllerTest do
 
   test "updates and renders chosen resource when data is valid", %{conn: conn} do
     user = insert :user
-    conn = put(conn, user_path(conn, :update, user), %{
+    conn = put(conn, Routes.user_path(conn, :update, user), %{
       "meta" => %{},
       "data" => %{
         "type" => "users",
@@ -91,7 +93,7 @@ defmodule CgratesWebJsonapi.UserControllerTest do
 
   test "does not update chosen resource and renders errors when data is invalid", %{conn: conn} do
     user = insert :user
-    conn = put(conn, user_path(conn, :update, user), %{
+    conn = put(conn, Routes.user_path(conn, :update, user), %{
       "meta" => %{},
       "data" => %{
         "type" => "users",
@@ -106,7 +108,7 @@ defmodule CgratesWebJsonapi.UserControllerTest do
 
   test "deletes chosen resource", %{conn: conn} do
     user = insert :user
-    conn = delete(conn, user_path(conn, :delete, user)) |> doc
+    conn = delete(conn, Routes.user_path(conn, :delete, user)) |> doc
     assert response(conn, 204)
     refute Repo.get(User, user.id)
   end

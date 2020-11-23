@@ -7,6 +7,8 @@ defmodule CgratesWebJsonapiWeb.UserController do
 
   plug JaResource
 
+  def model(), do: User
+
   def handle_show(conn, id), do: Repo.get!(User, id)
 
   def handle_create(conn, attributes) do

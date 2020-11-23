@@ -1,7 +1,7 @@
-defmodule CgratesWebJsonapi.UserTest do
+defmodule CgratesWebJsonapi.AuthUserTest do
   use CgratesWebJsonapi.ModelCase
 
-  alias CgratesWebJsonapi.User
+  alias CgratesWebJsonapi.Auth.User
 
   @valid_attrs %{email: "email@example.com", password: "some content"}
   @invalid_attrs %{}
