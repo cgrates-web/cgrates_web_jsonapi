@@ -3,10 +3,11 @@ defmodule CgratesWebJsonapiWeb.RawSupplierResolveJobController do
 
   require Logger
 
-  alias CgratesWebJsonapi.RawSupplierRate.Resolver
+  alias CgratesWebJsonapi.RawSupplierRates.Resolver
 
   def create(conn, %{"data" => %{"attributes" => %{"tpid" => tpid}}}) do
     id = DateTime.utc_now() |> DateTime.to_unix()
+    # TODO: Impl GenServer
     Task.async fn ->
       start_time = Time.utc_now()
       Logger.info "Start Resolve Task"

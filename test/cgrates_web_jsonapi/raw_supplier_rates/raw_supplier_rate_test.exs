@@ -1,7 +1,7 @@
-defmodule CgratesWebJsonapi.RawSupplierRateTest do
+defmodule CgratesWebJsonapi.RawSupplierRates.RawSupplierRateTest do
   use CgratesWebJsonapi.ModelCase
 
-  alias CgratesWebJsonapi.RawSupplierRate
+  alias CgratesWebJsonapi.RawSupplierRates.RawSupplierRate
   alias CgratesWebJsonapi.Repo
 
   import CgratesWebJsonapi.Factory
@@ -22,7 +22,7 @@ defmodule CgratesWebJsonapi.RawSupplierRateTest do
 
   describe "#from_csv" do
     test "it parse csv and inerts records to DB" do
-      path = Path.expand("../fixtures/csv/raw_supplier_rates.csv", __DIR__)
+      path = Path.expand("../../fixtures/csv/raw_supplier_rates.csv", __DIR__)
       tariff_plan = insert :tariff_plan
 
       path |> RawSupplierRate.from_csv(tariff_plan.id) |> Enum.into([])
@@ -36,7 +36,7 @@ defmodule CgratesWebJsonapi.RawSupplierRateTest do
     end
 
     test "it does not insert new record by (prefix supplier_name tariff_plan_id)" do
-      path = Path.expand("../fixtures/csv/raw_supplier_rates.csv", __DIR__)
+      path = Path.expand("../../fixtures/csv/raw_supplier_rates.csv", __DIR__)
       tariff_plan = insert :tariff_plan
 
       insert :raw_supplier_rate, %{

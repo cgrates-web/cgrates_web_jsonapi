@@ -1,10 +1,10 @@
-defmodule CgratesWebJsonapi.RawSupplierRate.ResolverTest do
+defmodule CgratesWebJsonapi.RawSupplierRates.ResolverTest do
   use CgratesWebJsonapi.ModelCase
 
   import CgratesWebJsonapi.Factory
 
-  alias CgratesWebJsonapi.RawSupplierRate
-  alias CgratesWebJsonapi.RawSupplierRate.Resolver
+  alias CgratesWebJsonapi.RawSupplierRates.RawSupplierRate
+  alias CgratesWebJsonapi.RawSupplierRates.Resolver
   alias CgratesWebJsonapi.Repo
 
   test "it creates missing rates for supplier" do

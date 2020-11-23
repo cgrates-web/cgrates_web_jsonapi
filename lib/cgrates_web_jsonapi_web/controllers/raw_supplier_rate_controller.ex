@@ -4,10 +4,12 @@ defmodule CgratesWebJsonapiWeb.RawSupplierRateController do
   use CgratesWebJsonapi.DefaultSorting
   use CgratesWebJsonapi.CsvExport
 
-  alias CgratesWebJsonapi.RawSupplierRate
+  alias CgratesWebJsonapi.RawSupplierRates.RawSupplierRate
   alias CgratesWebJsonapi.Repo
 
   plug JaResource
+
+  def model(), do: RawSupplierRate
 
   def handle_show(_, id), do: Repo.get!(RawSupplierRate, id)
 
