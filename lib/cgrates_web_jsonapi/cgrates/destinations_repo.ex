@@ -1,6 +1,6 @@
 defmodule CgratesWebJsonapi.Cgrates.DestinationRepo do
   alias CgratesWebJsonapi.Cgrates.Adapter
-  alias CgratesWebJsonapi.Destination
+  alias CgratesWebJsonapi.Cgrates.Destination
 
   import CgratesWebJsonapi.Cgrates.BaseRepo
 

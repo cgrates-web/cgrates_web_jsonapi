@@ -1,6 +1,6 @@
 defmodule CgratesWebJsonapi.Cgrates.AccountsRepo do
   alias CgratesWebJsonapi.Cgrates.Adapter
-  alias CgratesWebJsonapi.Account
+  alias CgratesWebJsonapi.Cgrates.Account
 
   import CgratesWebJsonapi.Cgrates.BaseRepo
 
@@ -16,6 +16,7 @@ defmodule CgratesWebJsonapi.Cgrates.AccountsRepo do
   def all(%{page: page, per_page: per_page}) do
     limit = per_page
     offset = (page - 1) * per_page
+
     Adapter.execute(%{method: "ApierV2.GetAccounts", params: %{limit: limit, offset: offset}})
     |> process_list_resources(Account)
   end
@@ -25,8 +26,9 @@ defmodule CgratesWebJsonapi.Cgrates.AccountsRepo do
   end
 
   def get!(id) do
-    result = Adapter.execute(%{method: "ApierV2.GetAccount", params: %{account: id}})
-    |> Map.get("result")
+    result =
+      Adapter.execute(%{method: "ApierV2.GetAccount", params: %{account: id}})
+      |> Map.get("result")
 
     if result |> is_nil do
       raise CgratesWebJsonapi.Cgrates.NotFoundError

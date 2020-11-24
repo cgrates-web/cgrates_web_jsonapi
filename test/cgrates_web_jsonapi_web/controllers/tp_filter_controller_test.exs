@@ -1,0 +1,239 @@
+defmodule CgratesWebJsonapi.TariffPlans.TpFilterControllerTest do
+  use CgratesWebJsonapi.ConnCase
+
+  alias CgratesWebJsonapi.TariffPlans.TpFilter
+  alias CgratesWebJsonapi.Repo
+
+  import CgratesWebJsonapi.Factory
+  import CgratesWebJsonapi.Guardian
+
+  setup do
+    user = insert(:user)
+
+    {:ok, token, _} = encode_and_sign(user, %{}, token_type: :access)
+
+    conn =
+      build_conn()
+      |> put_req_header("accept", "application/vnd.api+json")
+      |> put_req_header("content-type", "application/vnd.api+json")
+      |> put_req_header("authorization", "bearer: " <> token)
+
+    {:ok, conn: conn}
+  end
+
+  defp relationships do
+    %{}
+  end
+
+  describe "GET index" do
+    test "lists all entries related tariff plan on index", %{conn: conn} do
+      tariff_plan_1 = insert(:tariff_plan)
+      tariff_plan_2 = insert(:tariff_plan)
+
+      insert(:tp_filter, tpid: tariff_plan_1.alias)
+      insert(:tp_filter, tpid: tariff_plan_2.alias)
+
+      conn = get(conn, Routes.tp_filter_path(conn, :index, tpid: tariff_plan_1.alias)) |> doc()
+      assert length(json_response(conn, 200)["data"]) == 1
+    end
+
+    test "filtering by cg_type", %{conn: conn} do
+      tariff_plan = insert(:tariff_plan)
+
+      f1 = insert(:tp_filter, tpid: tariff_plan.alias, cg_type: "type1")
+      insert(:tp_filter, tpid: tariff_plan.alias, cg_type: "type2")
+
+      conn =
+        get(conn, Routes.tp_filter_path(conn, :index, tpid: tariff_plan.alias),
+          filter: %{cg_type: "type1"}
+        )
+        |> doc()
+
+      assert length(json_response(conn, 200)["data"]) == 1
+    end
+
+    test "filtering by element", %{conn: conn} do
+      tariff_plan = insert(:tariff_plan)
+
+      f1 = insert(:tp_filter, tpid: tariff_plan.alias, element: "element1")
+      insert(:tp_filter, tpid: tariff_plan.alias, element: "element2")
+
+      conn =
+        get(conn, Routes.tp_filter_path(conn, :index, tpid: tariff_plan.alias),
+          filter: %{element: "element1"}
+        )
+        |> doc()
+
+      assert length(json_response(conn, 200)["data"]) == 1
+    end
+
+    test "filtering by values", %{conn: conn} do
+      tariff_plan = insert(:tariff_plan)
+
+      f1 = insert(:tp_filter, tpid: tariff_plan.alias, values: "values1")
+      insert(:tp_filter, tpid: tariff_plan.alias, values: "values2")
+
+      conn =
+        get(conn, Routes.tp_filter_path(conn, :index, tpid: tariff_plan.alias),
+          filter: %{values: "values1"}
+        )
+        |> doc()
+
+      assert length(json_response(conn, 200)["data"]) == 1
+    end
+
+    test "filtering by id", %{conn: conn} do
+      tariff_plan = insert(:tariff_plan)
+
+      f1 = insert(:tp_filter, tpid: tariff_plan.alias, custom_id: "a")
+      insert(:tp_filter, tpid: tariff_plan.alias, custom_id: "b")
+
+      conn =
+        get(conn, Routes.tp_filter_path(conn, :index, tpid: tariff_plan.alias),
+          filter: %{custom_id: "a"}
+        )
+        |> doc()
+
+      assert length(json_response(conn, 200)["data"]) == 1
+    end
+  end
+
+  describe "GET show" do
+    test "shows chosen resource", %{conn: conn} do
+      tariff_plan = insert(:tariff_plan)
+      tp_filter = insert(:tp_filter, tpid: tariff_plan.alias)
+
+      conn = get(conn, Routes.tp_filter_path(conn, :show, tp_filter)) |> doc()
+      data = json_response(conn, 200)["data"]
+      assert data["id"] == "#{tp_filter.pk}"
+      assert data["type"] == "tp-filter"
+      assert data["attributes"]["tpid"] == tp_filter.tpid
+      assert data["attributes"]["tenant"] == tp_filter.tenant
+      assert data["attributes"]["activation-interval"] == tp_filter.activation_interval
+      assert data["attributes"]["cg-type"] == tp_filter.cg_type
+      assert data["attributes"]["element"] == tp_filter.element
+      assert data["attributes"]["values"] == tp_filter.values
+    end
+
+    test "does not show resource and instead throw error when id is nonexistent", %{conn: conn} do
+      assert_error_sent 404, fn ->
+        get(conn, Routes.tp_filter_path(conn, :show, -1)) |> doc
+      end
+    end
+  end
+
+  describe "GET export_to_csv" do
+    test "returns status 'ok'", %{conn: conn} do
+      tariff_plan = insert(:tariff_plan)
+      insert(:tp_filter, tpid: tariff_plan.alias, custom_id: "a")
+      insert(:tp_filter, tpid: tariff_plan.alias, custom_id: "b")
+
+      conn =
+        conn
+        |> get(Routes.tp_filter_path(conn, :export_to_csv), %{
+          tpid: tariff_plan.alias,
+          filter: %{custom_id: "a", field_type: "*string"}
+        })
+        |> doc()
+
+      assert conn.status == 200
+    end
+  end
+
+  describe "POST create" do
+    test "creates and renders resource when data is valid", %{conn: conn} do
+      tariff_plan = insert(:tariff_plan)
+      params = Map.merge(params_for(:tp_filter), %{tpid: tariff_plan.alias})
+
+      conn =
+        post(conn, Routes.tp_filter_path(conn, :create), %{
+          "meta" => %{},
+          "data" => %{
+            "type" => "tp_filter",
+            "attributes" => params,
+            "relationships" => relationships
+          }
+        })
+        |> doc()
+
+      assert json_response(conn, 201)["data"]["id"]
+      assert Repo.get_by(TpFilter, params)
+    end
+
+    test "does not create resource and renders errors when data is invalid", %{conn: conn} do
+      conn =
+        post(conn, Routes.tp_filter_path(conn, :create), %{
+          "meta" => %{},
+          "data" => %{
+            "type" => "tp_filter",
+            "attributes" => %{},
+            "relationships" => relationships
+          }
+        })
+        |> doc()
+
+      assert json_response(conn, 422)["errors"] != %{}
+    end
+  end
+
+  describe "PUT update" do
+    test "updates and renders chosen resource when data is valid", %{conn: conn} do
+      tp_filter = insert(:tp_filter)
+
+      conn =
+        put(conn, Routes.tp_filter_path(conn, :update, tp_filter), %{
+          "meta" => %{},
+          "data" => %{
+            "type" => "tp_filter",
+            "id" => tp_filter.pk,
+            "attributes" => %{custom_id: "new_id"},
+            "relationships" => relationships
+          }
+        })
+        |> doc()
+
+      assert json_response(conn, 200)["data"]["id"]
+      assert Repo.get_by(TpFilter, %{custom_id: "new_id"})
+    end
+
+    test "does not update chosen resource and renders errors when data is invalid", %{conn: conn} do
+      tp_filter = insert(:tp_filter)
+
+      conn =
+        put(conn, Routes.tp_filter_path(conn, :update, tp_filter), %{
+          "meta" => %{},
+          "data" => %{
+            "type" => "tp_filter",
+            "id" => tp_filter.pk,
+            "attributes" => %{tenant: nil},
+            "relationships" => relationships
+          }
+        })
+        |> doc()
+
+      assert json_response(conn, 422)["errors"] != %{}
+    end
+  end
+
+  describe "DELETE destroy" do
+    test "deletes chosen resource", %{conn: conn} do
+      tp_filter = insert(:tp_filter)
+      conn = delete(conn, Routes.tp_filter_path(conn, :delete, tp_filter)) |> doc()
+      assert response(conn, 204)
+      refute Repo.get(TpFilter, tp_filter.pk)
+    end
+  end
+
+  describe "DELETE delete_all" do
+    test "deletes all records by filter", %{conn: conn} do
+      tariff_plan = insert(:tariff_plan)
+
+      conn =
+        conn
+        |> post(Routes.tp_filter_path(conn, :delete_all), %{
+          tpid: tariff_plan.alias,
+          filter: %{custom_id: "b"}
+        })
+    end
+  end
+end

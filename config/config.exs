@@ -10,37 +10,34 @@ config :cgrates_web_jsonapi,
   ecto_repos: [CgratesWebJsonapi.Repo]
 
 # Configures the endpoint
-config :cgrates_web_jsonapi, CgratesWebJsonapi.Endpoint,
+config :cgrates_web_jsonapi, CgratesWebJsonapiWeb.Endpoint,
   url: [host: "localhost"],
   secret_key_base: "DgVccCSbXAD55dMmiwE+2I8VFSkfTz/6fqUSKANLFz5PJ1XxdKjVys2f9MgebeZF",
-  render_errors: [view: CgratesWebJsonapi.ErrorView, accepts: ~w(json)],
-  pubsub: [name: CgratesWebJsonapi.PubSub,
-           adapter: Phoenix.PubSub.PG2]
+  render_errors: [view: CgratesWebJsonapiWeb.ErrorView, accepts: ~w(json)],
+  pubsub: [name: CgratesWebJsonapi.PubSub, adapter: Phoenix.PubSub.PG2]
 
 # Configures Elixir's Logger
 config :logger, :console,
   format: "$time $metadata[$level] $message\n",
   metadata: [:request_id]
 
-config :phoenix, :format_encoders,
-  "json-api": Poison
+config :phoenix, :format_encoders, "json-api": Jason
 
 config :mime, :types, %{
   "application/vnd.api+json" => ["json-api"]
 }
 
-config :guardian, Guardian,
-      allowed_algos: ["HS512"], # optional
-      verify_module: Guardian.JWT,  # optional
-      ttl: nil,
-      allowed_drift: 2000,
-      verify_issuer: true, # optional
-      serializer: CgratesWebJsonapi.Guardian,
-      issuer: "cgrates_web_jsonapi",
-      secret_key: "qBAQMfUyVgiF9TQHqitGWC1BmNwX0alxYIQrl98HDLo8uvMcANZ60VH22RzvBw+/"
+config :cgrates_web_jsonapi, CgratesWebJsonapi.Guardian,
+  issuer: "cgrates_web_jsonapi",
+  secret_key: "qBAQMfUyVgiF9TQHqitGWC1BmNwX0alxYIQrl98HDLo8uvMcANZ60VH22RzvBw+/"
 
 config :ja_resource, repo: CgratesWebJsonapi.Repo
 # Import environment specific config. This must remain at the bottom
 # of this file so it overrides the configuration defined above.
 
-import_config "#{Mix.env}.exs"
+# TODO add credo
+config :husky,
+  pre_commit: "mix format",
+  pre_push: "mix format --check-formatted && mix test"
+
+import_config "#{Mix.env()}.exs"

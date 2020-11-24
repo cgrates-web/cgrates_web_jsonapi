@@ -1,6 +1,8 @@
 language: elixir
 elixir:
-  - 1.7.3
+  - 1.10.4
+otp_release:
+  - 23.0
 services:
   - postgresql
 addons:

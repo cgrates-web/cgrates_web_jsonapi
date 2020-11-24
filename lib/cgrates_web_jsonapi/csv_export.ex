@@ -11,17 +11,18 @@ defmodule CgratesWebJsonapi.CsvExport do
 
         copy_query = build_copy_query(raw_query, values)
 
-        conn = conn
+        conn =
+          conn
           |> put_resp_content_type("text/csv")
           |> put_resp_header("content-disposition", "attachment; filename=export.csv")
           |> send_chunked(200)
 
-        Repo.transaction fn ->
+        Repo.transaction(fn ->
           Repo
           |> Ecto.Adapters.SQL.stream(copy_query)
-          |> Stream.map(&(chunk(conn, &1.rows)))
-          |> Stream.run
-        end
+          |> Stream.map(&chunk(conn, &1.rows))
+          |> Stream.run()
+        end)
 
         conn
       end
@@ -33,18 +34,18 @@ defmodule CgratesWebJsonapi.CsvExport do
   """
   def build_copy_query(query, values) do
     1..length(values)
-      |> query_with_values(query, values)
-      |> build_raw_copy_query
+    |> query_with_values(query, values)
+    |> build_raw_copy_query
   end
 
   @doc """
   Replaces all paremeters in string with given values within range
   """
   def query_with_values(range, query, values) do
-    Enum.reduce range, query, fn(n, acc) ->
+    Enum.reduce(range, query, fn n, acc ->
       {:ok, value} = Enum.fetch(values, n - 1)
       String.replace(acc, "$#{n}", "'#{value}'")
-    end
+    end)
   end
 
   defp build_raw_copy_query(query) do

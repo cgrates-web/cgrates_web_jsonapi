@@ -1,0 +1,3 @@
+defmodule CgratesWebJsonapiWeb.TpAccountActionImportJobController do
+  use CgratesWebJsonapi.CsvImportJob, module: CgratesWebJsonapi.TariffPlans.TpAccountAction
+end

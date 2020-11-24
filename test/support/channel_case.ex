@@ -25,9 +25,8 @@ defmodule CgratesWebJsonapi.ChannelCase do
       import Ecto.Changeset
       import Ecto.Query
 
-
       # The default endpoint for testing
-      @endpoint CgratesWebJsonapi.Endpoint
+      @endpoint CgratesWebJsonapiWeb.Endpoint
     end
   end
 

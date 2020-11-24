@@ -3,12 +3,12 @@ defmodule CgratesWebJsonapi.Repo.Migrations.CreateUser do
 
   def change do
     create table(:users) do
-      add :email, :string
-      add :password_encrypted, :string
+      add(:email, :string)
+      add(:password_encrypted, :string)
 
       timestamps()
     end
 
-    create unique_index(:users, [:email])
+    create(unique_index(:users, [:email]))
   end
 end
