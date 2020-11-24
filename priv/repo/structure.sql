@@ -18,8 +18,6 @@ SET row_security = off;
 
 SET default_tablespace = '';
 
-SET default_table_access_method = heap;
-
 --
 -- Name: cdrs; Type: TABLE; Schema: public; Owner: -
 --
