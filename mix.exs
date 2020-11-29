@@ -68,7 +68,7 @@ defmodule CgratesWebJsonapi.Mixfile do
       {:scrivener_ecto, "~> 2.0"},
       {:uuid, "~> 1.1"},
       {:husky, "~> 1.0", only: :dev, runtime: false},
-      {:dialyxir, "~> 1.0", only: [:dev], runtime: false},
+      {:dialyxir, "~> 1.0", only: [:dev], runtime: false}
     ]
   end
 
