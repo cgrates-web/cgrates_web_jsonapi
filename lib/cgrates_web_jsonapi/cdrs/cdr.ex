@@ -24,9 +24,9 @@ defmodule CgratesWebJsonapi.Cdrs.Cdr do
     field :cost_details, :map
     field :extra_info, :string
 
-    field :created_at, :naive_datetime
-    field :updated_at, :naive_datetime
-    field :deleted_at, :naive_datetime
+    field :created_at, :utc_datetime
+    field :updated_at, :utc_datetime
+    field :deleted_at, :utc_datetime
   end
 
   @doc """
@@ -55,7 +55,7 @@ defmodule CgratesWebJsonapi.Cdrs.Cdr do
       :cost,
       :cost_details,
       :id,
-      :extra_info
+      :extra_info,
     ])
     |> validate_required([
       :cgrid,

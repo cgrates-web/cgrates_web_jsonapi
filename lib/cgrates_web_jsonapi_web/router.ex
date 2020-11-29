@@ -143,6 +143,8 @@ defmodule CgratesWebJsonapiWeb.Router do
     resources("/tp-stat-import-jobs", TpStatImportJobController, only: [:create])
     resources("/tp-threshold-import-jobs", TpThresholdImportJobController, only: [:create])
     resources("/tp-timing-import-jobs", TpTimingImportJobController, only: [:create])
+
+    resources("/cdr-stats", CdrStatController, only: [:index])
   end
 
   scope "/", CgratesWebJsonapiWeb do
