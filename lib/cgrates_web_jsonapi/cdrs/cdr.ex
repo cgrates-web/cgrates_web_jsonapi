@@ -55,7 +55,7 @@ defmodule CgratesWebJsonapi.Cdrs.Cdr do
       :cost,
       :cost_details,
       :id,
-      :extra_info,
+      :extra_info
     ])
     |> validate_required([
       :cgrid,

@@ -17,6 +17,7 @@ defmodule CgratesWebJsonapi.Cdrs do
   """
   @spec aggregate_stats("daily" | "weekly" | "monthly", nil | map()) :: list()
   def aggregate_stats(group, nil), do: aggregate_stats(group, %{})
+
   def aggregate_stats(group, filter) do
     Cdr
     |> group_by_created_at(group)
