@@ -13,8 +13,7 @@ config :cgrates_web_jsonapi,
 config :cgrates_web_jsonapi, CgratesWebJsonapiWeb.Endpoint,
   url: [host: "localhost"],
   secret_key_base: "DgVccCSbXAD55dMmiwE+2I8VFSkfTz/6fqUSKANLFz5PJ1XxdKjVys2f9MgebeZF",
-  render_errors: [view: CgratesWebJsonapiWeb.ErrorView, accepts: ~w(json)],
-  pubsub: [name: CgratesWebJsonapi.PubSub, adapter: Phoenix.PubSub.PG2]
+  render_errors: [view: CgratesWebJsonapiWeb.ErrorView, accepts: ~w(json)]
 
 # Configures Elixir's Logger
 config :logger, :console,

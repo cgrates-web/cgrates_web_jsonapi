@@ -6,6 +6,7 @@ defmodule CgratesWebJsonapiWeb.CdrStatController do
   def index(conn, %{"group" => group} = data) do
     data =
       group
+      |> String.to_atom()
       |> Cdrs.aggregate_stats(data["filter"])
 
     conn |> render("index.json-api", data: data)

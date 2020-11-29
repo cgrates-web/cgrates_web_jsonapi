@@ -7,6 +7,14 @@ defmodule CgratesWebJsonapi.Cdrs do
   alias CgratesWebJsonapi.Cdrs.Cdr
   import Ecto.Query
 
+  @type cgr_group :: :daily | :weekly | :monthly
+  @type cdr_stat :: %{
+          date: DateTime.t(),
+          total_usage: Decimal.t(),
+          usage_avg: Decimal.t(),
+          usage_avg: Decimal.t()
+        }
+
   @doc """
   Aggregates some statistics from CDRs.
 
@@ -15,7 +23,7 @@ defmodule CgratesWebJsonapi.Cdrs do
       iex> aggregate_stats("daily", %{created_at_lte: datetime})
       [%{date: datetime, total_usage: decimal, usage_avg: decimal, total_cost: decimal, ...}, ...]
   """
-  @spec aggregate_stats("daily" | "weekly" | "monthly", nil | map()) :: list()
+  @spec aggregate_stats(cgr_group(), nil | map()) :: list(cdr_stat())
   def aggregate_stats(group, nil), do: aggregate_stats(group, %{})
 
   def aggregate_stats(group, filter) do
@@ -32,15 +40,15 @@ defmodule CgratesWebJsonapi.Cdrs do
     |> Repo.all()
   end
 
-  defp group_by_created_at(q, "daily") do
+  defp group_by_created_at(q, :daily) do
     q |> group_by([r], fragment("date_trunc('day', ?)", r.created_at))
   end
 
-  defp group_by_created_at(q, "weekly") do
+  defp group_by_created_at(q, :weekly) do
     q |> group_by([r], fragment("date_trunc('week', ?)", r.created_at))
   end
 
-  defp group_by_created_at(q, "monthly") do
+  defp group_by_created_at(q, :monthly) do
     q |> group_by([r], fragment("date_trunc('month', ?)", r.created_at))
   end
 

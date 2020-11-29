@@ -67,7 +67,8 @@ defmodule CgratesWebJsonapi.Mixfile do
       {:proper_case, github: "max-konin/proper_case", branch: "upper-case"},
       {:scrivener_ecto, "~> 2.0"},
       {:uuid, "~> 1.1"},
-      {:husky, "~> 1.0", only: :dev, runtime: false}
+      {:husky, "~> 1.0", only: :dev, runtime: false},
+      {:dialyxir, "~> 1.0", only: [:dev], runtime: false},
     ]
   end
 
