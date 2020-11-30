@@ -12,7 +12,7 @@ defmodule CgratesWebJsonapi.Cdrs do
           date: DateTime.t(),
           total_usage: Decimal.t(),
           usage_avg: Decimal.t(),
-          usage_avg: Decimal.t()
+          total_cost: Decimal.t()
         }
 
   @doc """
