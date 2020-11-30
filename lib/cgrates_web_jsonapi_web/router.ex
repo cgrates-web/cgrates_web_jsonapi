@@ -101,6 +101,7 @@ defmodule CgratesWebJsonapiWeb.Router do
     post("/tp-timings/delete_all", TpTimingController, :delete_all)
     resources("/tp-timings", TpTimingController, except: [:new, :edit])
     resources("/users", UserController, except: [:new, :edit])
+    resources("/cdr-stats", CdrStatController, only: [:index])
   end
 
   scope "/uploaders", CgratesWebJsonapiWeb do
