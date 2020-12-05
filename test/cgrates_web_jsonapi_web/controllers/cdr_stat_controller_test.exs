@@ -36,11 +36,13 @@ defmodule CgratesWebJsonapiWeb.CdrStatControllerTest do
       assert length(response) == 2
 
       first = response |> List.first()
+      assert first["id"]
       assert first["attributes"]["total-cost"] == "10.0000"
       assert first["attributes"]["total-usage"] == "10000"
       assert first["attributes"]["usage-avg"] == "10000.0000000000000000"
 
       second = response |> List.last()
+      assert second["id"]
       assert second["attributes"]["total-cost"] == "20.0000"
       assert second["attributes"]["total-usage"] == "20000"
       assert second["attributes"]["usage-avg"] == "10000.0000000000000000"
@@ -60,11 +62,13 @@ defmodule CgratesWebJsonapiWeb.CdrStatControllerTest do
       assert length(response) == 2
 
       first = response |> List.first()
+      assert first["id"]
       assert first["attributes"]["total-cost"] == "10.0000"
       assert first["attributes"]["total-usage"] == "10000"
       assert first["attributes"]["usage-avg"] == "10000.0000000000000000"
 
       second = response |> List.last()
+      assert second["id"]
       assert second["attributes"]["total-cost"] == "20.0000"
       assert second["attributes"]["total-usage"] == "20000"
       assert second["attributes"]["usage-avg"] == "10000.0000000000000000"
@@ -84,11 +88,13 @@ defmodule CgratesWebJsonapiWeb.CdrStatControllerTest do
       assert length(response) == 2
 
       first = response |> List.first()
+      assert first["id"]
       assert first["attributes"]["total-cost"] == "10.0000"
       assert first["attributes"]["total-usage"] == "10000"
       assert first["attributes"]["usage-avg"] == "10000.0000000000000000"
 
       second = response |> List.last()
+      assert second["id"]
       assert second["attributes"]["total-cost"] == "20.0000"
       assert second["attributes"]["total-usage"] == "20000"
       assert second["attributes"]["usage-avg"] == "10000.0000000000000000"
