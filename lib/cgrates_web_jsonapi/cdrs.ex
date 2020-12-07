@@ -5,6 +5,7 @@ defmodule CgratesWebJsonapi.Cdrs do
 
   alias CgratesWebJsonapi.Repo
   alias CgratesWebJsonapi.Cdrs.Cdr
+  alias CgratesWebJsonapi.Cdrs.CdrsStats
   import Ecto.Query
 
   @type cgr_group :: :daily | :weekly | :monthly
@@ -21,9 +22,9 @@ defmodule CgratesWebJsonapi.Cdrs do
   ## Examples
 
       iex> aggregate_stats("daily", %{created_at_lte: datetime})
-      [%{date: datetime, total_usage: decimal, usage_avg: decimal, total_cost: decimal, ...}, ...]
+      [%CdrsStats{date: datetime, total_usage: decimal, usage_avg: decimal, total_cost: decimal, ...}, ...]
   """
-  @spec aggregate_stats(cgr_group(), nil | map()) :: list(cdr_stat())
+  @spec aggregate_stats(cgr_group(), nil | map()) :: list(CdrsStats.t())
   def aggregate_stats(group, nil), do: aggregate_stats(group, %{})
 
   def aggregate_stats(group, filter) do
@@ -38,6 +39,7 @@ defmodule CgratesWebJsonapi.Cdrs do
     |> apply_filter(filter)
     |> order_by(fragment("date"))
     |> Repo.all()
+    |> Enum.map(&CdrsStats.new/1)
   end
 
   defp group_by_created_at(q, :daily) do
@@ -60,4 +62,16 @@ defmodule CgratesWebJsonapi.Cdrs do
 
   defp filter(q, "created_at_lte", val), do: q |> where([r], r.created_at <= ^val)
   defp filter(q, "created_at_gte", val), do: q |> where([r], r.created_at >= ^val)
+
+  defp filter(q, "rating_plan_tag", val),
+    do:
+      q
+      |> where(
+        [r],
+        fragment(
+          "jsonb_path_exists(?, '$.RatingFilters.*.RatingPlanID \\? (@ == $rtag)', jsonb_build_object('rtag', ?::text))",
+          r.cost_details,
+          ^val
+        )
+      )
 end

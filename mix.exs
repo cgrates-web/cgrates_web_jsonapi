@@ -63,12 +63,13 @@ defmodule CgratesWebJsonapi.Mixfile do
       {:mapail, "~> 1.0"},
       {:mock, "~> 0.3.6", only: :test},
       {:parallel_stream, "~> 1.0.5"},
-      {:postgrex, ">= 0.0.0"},
+      {:postgrex, "~> 0.15.7"},
       {:proper_case, github: "max-konin/proper_case", branch: "upper-case"},
       {:scrivener_ecto, "~> 2.0"},
       {:uuid, "~> 1.1"},
       {:husky, "~> 1.0", only: :dev, runtime: false},
-      {:dialyxir, "~> 1.0", only: [:dev], runtime: false}
+      {:dialyxir, "~> 1.0", only: [:dev], runtime: false},
+      {:typed_struct, "~> 0.2.1"}
     ]
   end
 
