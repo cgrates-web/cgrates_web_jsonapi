@@ -139,26 +139,37 @@ defmodule CgratesWebJsonapiWeb.CdrStatControllerTest do
     end
 
     test "it returs a correct result with a filter by 'rating_plan_tag'", %{conn: conn} do
-      insert(:cdr, usage: 10_000, cost: 10, created_at: "2015-01-23T23:50:07Z", cost_details: %{
-        "RatingFilters" => %{
-          "1885182" => %{
+      insert(:cdr,
+        usage: 10_000,
+        cost: 10,
+        created_at: "2015-01-23T23:50:07Z",
+        cost_details: %{
+          "RatingFilters" => %{
+            "1885182" => %{
               "Subject" => "*out:cgrates.org:call:1001",
               "RatingPlanID" => "RP_1001",
               "DestinationPrefix" => "1002",
               "DestinationID" => "DST_1002"
+            }
           }
-        },
-      })
-      insert(:cdr, usage: 10_000, cost: 10, created_at: "2015-02-23T22:50:07Z", cost_details: %{
-        "RatingFilters" => %{
-          "1885182" => %{
+        }
+      )
+
+      insert(:cdr,
+        usage: 10_000,
+        cost: 10,
+        created_at: "2015-02-23T22:50:07Z",
+        cost_details: %{
+          "RatingFilters" => %{
+            "1885182" => %{
               "Subject" => "*out:cgrates.org:call:1001",
               "RatingPlanID" => "RP_1002",
               "DestinationPrefix" => "1002",
               "DestinationID" => "DST_1002"
+            }
           }
         }
-      })
+      )
 
       conn =
         conn

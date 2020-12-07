@@ -62,6 +62,7 @@ defmodule CgratesWebJsonapi.Cdrs do
 
   defp filter(q, "created_at_lte", val), do: q |> where([r], r.created_at <= ^val)
   defp filter(q, "created_at_gte", val), do: q |> where([r], r.created_at >= ^val)
+
   defp filter(q, "rating_plan_tag", val),
     do:
       q
