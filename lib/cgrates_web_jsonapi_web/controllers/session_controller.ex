@@ -12,10 +12,11 @@ defmodule CgratesWebJsonapiWeb.SessionController do
 
     if user && checkpw(params["password"], user.password_encrypted) do
       {:ok, jwt, claims} = CgratesWebJsonapi.Guardian.encode_and_sign(user)
+
       conn
       |> put_resp_header("authorization", "Bearer #{jwt}")
       |> put_resp_header("x-expires", "#{claims["exp"]}")
-      |> render "login.json", user: user, jwt: jwt, claims: claims
+      |> render("login.json", user: user, jwt: jwt, claims: claims)
     else
       conn
       |> put_status(401)

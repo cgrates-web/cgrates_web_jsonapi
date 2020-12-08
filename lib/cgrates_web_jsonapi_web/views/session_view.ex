@@ -8,5 +8,5 @@ defmodule CgratesWebJsonapiWeb.SessionView do
       expire_in: claims["exp"],
       issuer: claims["iss"]
     }
- end
+  end
 end
