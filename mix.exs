@@ -69,7 +69,8 @@ defmodule CgratesWebJsonapi.Mixfile do
       {:uuid, "~> 1.1"},
       {:husky, "~> 1.0", only: :dev, runtime: false},
       {:dialyxir, "~> 1.0", only: [:dev], runtime: false},
-      {:typed_struct, "~> 0.2.1"}
+      {:typed_struct, "~> 0.2.1"},
+      {:poison, "~> 3.1"}
     ]
   end
 
