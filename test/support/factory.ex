@@ -12,7 +12,7 @@ defmodule CgratesWebJsonapi.Factory do
     %CgratesWebJsonapi.Cdrs.Cdr{
       id: sequence(:id, fn n -> n end),
       cgrid: Faker.Pokemon.name(),
-      run_id: Faker.Pokemon.name(),
+      run_id: "*default",
       origin_host: Faker.Beer.name(),
       source: Faker.Pokemon.name(),
       origin_id: Faker.Beer.name(),
