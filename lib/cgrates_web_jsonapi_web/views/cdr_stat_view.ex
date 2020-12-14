@@ -6,6 +6,8 @@ defmodule CgratesWebJsonapiWeb.CdrStatView do
     :date,
     :total_usage,
     :usage_avg,
-    :total_cost
+    :total_cost,
+    :total_count,
+    :total_errors
   ])
 end

@@ -13,7 +13,7 @@ config :cgrates_web_jsonapi,
   cgrates_password: "11111"
 
 # Print only warnings and errors during test
-config :logger, level: :warn
+config :logger, level: :debug
 
 # Configure your database
 config :cgrates_web_jsonapi, CgratesWebJsonapi.Repo,
