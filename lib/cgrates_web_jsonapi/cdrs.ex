@@ -34,8 +34,11 @@ defmodule CgratesWebJsonapi.Cdrs do
       date: fragment("MIN(created_at) as date"),
       total_usage: sum(r.usage),
       usage_avg: avg(r.usage),
-      total_cost: fragment("sum(cost) filter (where cost >= 0)")
+      total_cost: fragment("sum(cost) filter (where cost >= 0)"),
+      total_count: count(r.id),
+      total_errors: fragment("count(id) filter (where cost < 0)")
     })
+    |> where(run_id: "*default")
     |> apply_filter(filter)
     |> order_by(fragment("date"))
     |> Repo.all()

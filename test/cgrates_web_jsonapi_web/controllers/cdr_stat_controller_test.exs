@@ -21,95 +21,76 @@ defmodule CgratesWebJsonapiWeb.CdrStatControllerTest do
     {:ok, conn: conn}
   end
 
+  def assert_stats(response) do
+    assert length(response) == 2
+
+    first = response |> List.first()
+    assert first["id"]
+    assert first["attributes"]["date"]
+    assert first["attributes"]["total-cost"] == "10.0000"
+    assert first["attributes"]["total-usage"] == "10000"
+    assert first["attributes"]["usage-avg"] == "10000.0000000000000000"
+    assert first["attributes"]["total-count"] == 1
+    assert first["attributes"]["total-errors"] == 0
+
+    second = response |> List.last()
+    assert second["id"]
+    assert second["attributes"]["date"]
+    assert second["attributes"]["total-cost"] == "20.0000"
+    assert second["attributes"]["total-usage"] == "20000"
+    assert second["attributes"]["usage-avg"] == "10000.0000000000000000"
+    assert second["attributes"]["total-count"] == 2
+    assert second["attributes"]["total-errors"] == 1
+  end
+
   describe "GET index" do
     test "it returns a list of cdr stats w/o filters and grouped daily", %{conn: conn} do
       insert(:cdr, usage: 10_000, cost: 10, created_at: "2015-01-23T23:50:07Z")
       insert(:cdr, usage: 20_000, cost: 20, created_at: "2015-01-24T23:50:07Z")
-      insert(:cdr, usage: 0, cost: -1, created_at: "2015-01-24T22:50:07Z")
+      insert(:cdr, usage: 0, cost: -1, created_at: "2015-01-24T23:50:07Z")
+      insert(:cdr, run_id: "*raw", usage: 0, cost: 20_000, created_at: "2015-01-23T23:50:07Z")
 
       conn =
         conn
         |> get(Routes.cdr_stat_path(conn, :index, group: "daily"))
         |> doc()
 
-      response = json_response(conn, 200)["data"]
-      assert length(response) == 2
-
-      first = response |> List.first()
-      assert first["id"]
-      assert first["attributes"]["date"]
-      assert first["attributes"]["total-cost"] == "10.0000"
-      assert first["attributes"]["total-usage"] == "10000"
-      assert first["attributes"]["usage-avg"] == "10000.0000000000000000"
-
-      second = response |> List.last()
-      assert second["id"]
-      assert second["attributes"]["date"]
-      assert second["attributes"]["total-cost"] == "20.0000"
-      assert second["attributes"]["total-usage"] == "20000"
-      assert second["attributes"]["usage-avg"] == "10000.0000000000000000"
+      assert_stats(json_response(conn, 200)["data"])
     end
 
     test "it returns a list of cdr stats w/o filters and grouped weekly", %{conn: conn} do
       insert(:cdr, usage: 10_000, cost: 10, created_at: "2015-01-23T23:50:07Z")
       insert(:cdr, usage: 20_000, cost: 20, created_at: "2015-02-17T23:50:07Z")
-      insert(:cdr, usage: 0, cost: -1, created_at: "2015-02-18T22:50:07Z")
+      insert(:cdr, usage: 0, cost: -1, created_at: "2015-02-17T22:50:07Z")
+      insert(:cdr, run_id: "*raw", usage: 20_000, cost: 20, created_at: "2015-01-24T22:50:07Z")
 
       conn =
         conn
         |> get(Routes.cdr_stat_path(conn, :index, group: "weekly"))
         |> doc()
 
-      response = json_response(conn, 200)["data"]
-      assert length(response) == 2
-
-      first = response |> List.first()
-      assert first["id"]
-      assert first["attributes"]["date"]
-      assert first["attributes"]["total-cost"] == "10.0000"
-      assert first["attributes"]["total-usage"] == "10000"
-      assert first["attributes"]["usage-avg"] == "10000.0000000000000000"
-
-      second = response |> List.last()
-      assert second["id"]
-      assert second["attributes"]["date"]
-      assert second["attributes"]["total-cost"] == "20.0000"
-      assert second["attributes"]["total-usage"] == "20000"
-      assert second["attributes"]["usage-avg"] == "10000.0000000000000000"
+      assert_stats(json_response(conn, 200)["data"])
     end
 
     test "it returns a list of cdr stats w/o filters and grouped monthly", %{conn: conn} do
       insert(:cdr, usage: 10_000, cost: 10, created_at: "2015-01-23T23:50:07Z")
       insert(:cdr, usage: 20_000, cost: 20, created_at: "2015-02-17T23:50:07Z")
       insert(:cdr, usage: 0, cost: -1, created_at: "2015-02-23T22:50:07Z")
+      insert(:cdr, run_id: "*raw", usage: 20_000, cost: 20, created_at: "2015-01-24T22:50:07Z")
 
       conn =
         conn
         |> get(Routes.cdr_stat_path(conn, :index, group: "monthly"))
         |> doc()
 
-      response = json_response(conn, 200)["data"]
-      assert length(response) == 2
-
-      first = response |> List.first()
-      assert first["id"]
-      assert first["attributes"]["date"]
-      assert first["attributes"]["total-cost"] == "10.0000"
-      assert first["attributes"]["total-usage"] == "10000"
-      assert first["attributes"]["usage-avg"] == "10000.0000000000000000"
-
-      second = response |> List.last()
-      assert second["id"]
-      assert second["attributes"]["date"]
-      assert second["attributes"]["total-cost"] == "20.0000"
-      assert second["attributes"]["total-usage"] == "20000"
-      assert second["attributes"]["usage-avg"] == "10000.0000000000000000"
+      assert_stats(json_response(conn, 200)["data"])
     end
 
     test "it returs a correct result with a filter by 'created_at_lte'", %{conn: conn} do
       insert(:cdr, usage: 10_000, cost: 10, created_at: "2015-01-23T23:50:07Z")
       insert(:cdr, usage: 20_000, cost: 20, created_at: "2015-02-17T23:50:07Z")
       insert(:cdr, usage: 0, cost: -1, created_at: "2015-02-23T22:50:07Z")
+      insert(:cdr, run_id: "*raw", usage: 20_000, cost: 20, created_at: "2015-01-24T22:50:07Z")
 
       conn =
         conn
@@ -129,6 +110,7 @@ defmodule CgratesWebJsonapiWeb.CdrStatControllerTest do
       insert(:cdr, usage: 10_000, cost: 10, created_at: "2015-01-23T23:50:07Z")
       insert(:cdr, usage: 20_000, cost: 20, created_at: "2015-02-17T23:50:07Z")
       insert(:cdr, usage: 0, cost: -1, created_at: "2015-02-23T22:50:07Z")
+      insert(:cdr, run_id: "*raw", usage: 20_000, cost: 20, created_at: "2015-01-24T22:50:07Z")
 
       conn =
         conn
