@@ -138,6 +138,30 @@ defmodule CgratesWebJsonapiWeb.CdrControllerTest do
 
       assert length(json_response(conn, 200)["data"]) == 1
     end
+
+    test "it returs a correct result with a filter by 'created_at_lte'", %{conn: conn} do
+      cdr1 = insert(:cdr, destination: "123", created_at: "2015-01-23T23:50:07Z")
+      cdr2 = insert(:cdr, destination: "456", created_at: "2015-02-17T23:50:07Z")
+
+      conn =
+        get(conn, Routes.cdr_path(conn, :index), filter: %{created_at_lte: "2015-02-17T23:40:07Z"})
+        |> doc
+
+      response = json_response(conn, 200)["data"]
+      assert length(response) == 1
+    end
+
+    test "it returs a correct result with a filter by 'created_at_gte'", %{conn: conn} do
+      cdr1 = insert(:cdr, destination: "123", created_at: "2015-01-23T23:50:07Z")
+      cdr2 = insert(:cdr, destination: "456", created_at: "2015-02-17T23:50:07Z")
+
+      conn =
+        get(conn, Routes.cdr_path(conn, :index), filter: %{created_at_gte: "2015-02-17T23:50:07Z"})
+        |> doc
+
+      response = json_response(conn, 200)["data"]
+      assert length(response) == 1
+    end
   end
 
   describe "GET show" do
