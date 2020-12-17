@@ -10,13 +10,13 @@ defmodule CgratesWebJsonapi.Cdrs.CdrFilter do
       def apply_filter(query, filter) do
         filter
         |> Map.to_list()
-        |> Enum.reduce(query, fn {key, value}, q -> filter(q, key, value) end)
+        |> Enum.reduce(query, fn {key, value}, q -> filter(nil, q, key, value) end)
       end
 
-      def filter(q, "created_at_lte", val), do: q |> where([r], r.created_at <= ^val)
-      def filter(q, "created_at_gte", val), do: q |> where([r], r.created_at >= ^val)
+      def filter(_conn, q, "created_at_lte", val), do: q |> where([r], r.created_at <= ^val)
+      def filter(_conn, q, "created_at_gte", val), do: q |> where([r], r.created_at >= ^val)
 
-      def filter(q, "rating_plan_tag", val),
+      def filter(_conn, q, "rating_plan_tag", val),
         do:
           q
           |> where(
