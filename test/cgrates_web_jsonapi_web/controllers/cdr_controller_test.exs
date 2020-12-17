@@ -164,7 +164,7 @@ defmodule CgratesWebJsonapiWeb.CdrControllerTest do
     end
 
     test "it returs a correct result with a filter by 'rating_plan_tag'", %{conn: conn} do
-      cdr1 = insert(:cdr,
+      insert(:cdr,
         usage: 10_000,
         cost: 10,
         created_at: "2015-01-23T23:50:07Z",
@@ -180,7 +180,7 @@ defmodule CgratesWebJsonapiWeb.CdrControllerTest do
         }
       )
 
-      cdr2 = insert(:cdr,
+      insert(:cdr,
         usage: 10_000,
         cost: 10,
         created_at: "2015-02-23T22:50:07Z",
