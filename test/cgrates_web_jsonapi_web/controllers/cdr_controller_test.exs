@@ -162,6 +162,47 @@ defmodule CgratesWebJsonapiWeb.CdrControllerTest do
       response = json_response(conn, 200)["data"]
       assert length(response) == 1
     end
+
+    test "it returs a correct result with a filter by 'rating_plan_tag'", %{conn: conn} do
+      cdr1 = insert(:cdr,
+        usage: 10_000,
+        cost: 10,
+        created_at: "2015-01-23T23:50:07Z",
+        cost_details: %{
+          "RatingFilters" => %{
+            "1885182" => %{
+              "Subject" => "*out:cgrates.org:call:1001",
+              "RatingPlanID" => "RP_1001",
+              "DestinationPrefix" => "1002",
+              "DestinationID" => "DST_1002"
+            }
+          }
+        }
+      )
+
+      cdr2 = insert(:cdr,
+        usage: 10_000,
+        cost: 10,
+        created_at: "2015-02-23T22:50:07Z",
+        cost_details: %{
+          "RatingFilters" => %{
+            "1885182" => %{
+              "Subject" => "*out:cgrates.org:call:1001",
+              "RatingPlanID" => "RP_1002",
+              "DestinationPrefix" => "1002",
+              "DestinationID" => "DST_1002"
+            }
+          }
+        }
+      )
+
+      conn =
+        get(conn, Routes.cdr_path(conn, :index), filter: %{rating_plan_tag: "RP_1001"})
+        |> doc
+
+      response = json_response(conn, 200)["data"]
+      assert length(response) == 1
+    end
   end
 
   describe "GET show" do
