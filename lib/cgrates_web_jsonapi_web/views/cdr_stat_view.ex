@@ -8,6 +8,9 @@ defmodule CgratesWebJsonapiWeb.CdrStatView do
     :usage_avg,
     :total_cost,
     :total_count,
-    :total_errors
+    :total_errors,
+    :total_unspecified_disconnects,
+    :total_normal_clearing_disconnects,
+    :total_rejected_disconnects
   ])
 end

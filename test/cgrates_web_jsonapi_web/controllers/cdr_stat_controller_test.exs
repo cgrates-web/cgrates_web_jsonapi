@@ -32,15 +32,21 @@ defmodule CgratesWebJsonapiWeb.CdrStatControllerTest do
     assert first["attributes"]["usage-avg"] == "10000.0000000000000000"
     assert first["attributes"]["total-count"] == 1
     assert first["attributes"]["total-errors"] == 0
+    assert first["attributes"]["total-unspecified-disconnects"] == 0
+    assert first["attributes"]["total-normal-clearing-disconnects"] == 0
+    assert first["attributes"]["total-rejected-disconnects"] == 0
 
     second = response |> List.last()
     assert second["id"]
     assert second["attributes"]["date"]
     assert second["attributes"]["total-cost"] == "20.0000"
     assert second["attributes"]["total-usage"] == "20000"
-    assert second["attributes"]["usage-avg"] == "10000.0000000000000000"
-    assert second["attributes"]["total-count"] == 2
+    assert second["attributes"]["usage-avg"] == "4000.0000000000000000"
+    assert second["attributes"]["total-count"] == 5
     assert second["attributes"]["total-errors"] == 1
+    assert second["attributes"]["total-unspecified-disconnects"] == 1
+    assert second["attributes"]["total-normal-clearing-disconnects"] == 1
+    assert second["attributes"]["total-rejected-disconnects"] == 1
   end
 
   describe "GET index" do
@@ -48,6 +54,34 @@ defmodule CgratesWebJsonapiWeb.CdrStatControllerTest do
       insert(:cdr, usage: 10_000, cost: 10, created_at: "2015-01-23T23:50:07Z")
       insert(:cdr, usage: 20_000, cost: 20, created_at: "2015-01-24T23:50:07Z")
       insert(:cdr, usage: 0, cost: -1, created_at: "2015-01-24T23:50:07Z")
+
+      insert(:cdr,
+        usage: 0,
+        cost: -1,
+        created_at: "2015-01-24T23:50:07Z",
+        extra_fields: %{
+          "DisconnectCause" => "Interworking, unspecified"
+        }
+      )
+
+      insert(:cdr,
+        usage: 0,
+        cost: -1,
+        created_at: "2015-01-24T23:50:07Z",
+        extra_fields: %{
+          "DisconnectCause" => "Normal Clearing"
+        }
+      )
+
+      insert(:cdr,
+        usage: 0,
+        cost: -1,
+        created_at: "2015-01-24T23:50:07Z",
+        extra_fields: %{
+          "DisconnectCause" => "Call Rejected"
+        }
+      )
+
       insert(:cdr, run_id: "*raw", usage: 0, cost: 20_000, created_at: "2015-01-23T23:50:07Z")
 
       conn =
@@ -64,6 +98,33 @@ defmodule CgratesWebJsonapiWeb.CdrStatControllerTest do
       insert(:cdr, usage: 0, cost: -1, created_at: "2015-02-17T22:50:07Z")
       insert(:cdr, run_id: "*raw", usage: 20_000, cost: 20, created_at: "2015-01-24T22:50:07Z")
 
+      insert(:cdr,
+        usage: 0,
+        cost: -1,
+        created_at: "2015-02-17T22:50:07Z",
+        extra_fields: %{
+          "DisconnectCause" => "Interworking, unspecified"
+        }
+      )
+
+      insert(:cdr,
+        usage: 0,
+        cost: -1,
+        created_at: "2015-02-17T22:50:07Z",
+        extra_fields: %{
+          "DisconnectCause" => "Normal Clearing"
+        }
+      )
+
+      insert(:cdr,
+        usage: 0,
+        cost: -1,
+        created_at: "2015-02-17T22:50:07Z",
+        extra_fields: %{
+          "DisconnectCause" => "Call Rejected"
+        }
+      )
+
       conn =
         conn
         |> get(Routes.cdr_stat_path(conn, :index, group: "weekly"))
@@ -77,6 +138,33 @@ defmodule CgratesWebJsonapiWeb.CdrStatControllerTest do
       insert(:cdr, usage: 20_000, cost: 20, created_at: "2015-02-17T23:50:07Z")
       insert(:cdr, usage: 0, cost: -1, created_at: "2015-02-23T22:50:07Z")
       insert(:cdr, run_id: "*raw", usage: 20_000, cost: 20, created_at: "2015-01-24T22:50:07Z")
+
+      insert(:cdr,
+        usage: 0,
+        cost: -1,
+        created_at: "2015-02-23T22:50:07Z",
+        extra_fields: %{
+          "DisconnectCause" => "Interworking, unspecified"
+        }
+      )
+
+      insert(:cdr,
+        usage: 0,
+        cost: -1,
+        created_at: "2015-02-23T22:50:07Z",
+        extra_fields: %{
+          "DisconnectCause" => "Normal Clearing"
+        }
+      )
+
+      insert(:cdr,
+        usage: 0,
+        cost: -1,
+        created_at: "2015-02-23T22:50:07Z",
+        extra_fields: %{
+          "DisconnectCause" => "Call Rejected"
+        }
+      )
 
       conn =
         conn
