@@ -37,7 +37,20 @@ defmodule CgratesWebJsonapi.Cdrs do
       usage_avg: avg(r.usage),
       total_cost: fragment("sum(cost) filter (where cost >= 0)"),
       total_count: count(r.id),
-      total_errors: fragment("count(id) filter (where cost < 0)")
+      total_errors:
+        fragment(
+          "count(id) filter (where cost < 0 AND extra_fields ->> 'DisconnectCause' IS NULL)"
+        ),
+      total_unspecified_disconnects:
+        fragment(
+          "count(id) filter (where extra_fields ->> 'DisconnectCause' = 'Interworking, unspecified')"
+        ),
+      total_normal_clearing_disconnects:
+        fragment(
+          "count(id) filter (where extra_fields ->> 'DisconnectCause' = 'Normal Clearing')"
+        ),
+      total_rejected_disconnects:
+        fragment("count(id) filter (where extra_fields ->> 'DisconnectCause' = 'Call Rejected')")
     })
     |> where(run_id: "*default")
     |> apply_filter(filter)
@@ -56,5 +69,11 @@ defmodule CgratesWebJsonapi.Cdrs do
 
   defp group_by_created_at(q, :monthly) do
     q |> group_by([r], fragment("date_trunc('month', ?)", r.created_at))
+  end
+
+  defp apply_filter(query, filter) do
+    filter
+    |> Map.to_list()
+    |> Enum.reduce(query, fn {key, value}, q -> filter(nil, q, key, value) end)
   end
 end

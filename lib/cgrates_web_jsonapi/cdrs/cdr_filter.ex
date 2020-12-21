@@ -7,12 +7,6 @@ defmodule CgratesWebJsonapi.Cdrs.CdrFilter do
 
   defmacro __using__(_opts) do
     quote do
-      def apply_filter(query, filter) do
-        filter
-        |> Map.to_list()
-        |> Enum.reduce(query, fn {key, value}, q -> filter(nil, q, key, value) end)
-      end
-
       def filter(_conn, q, "created_at_lte", val), do: q |> where([r], r.created_at <= ^val)
       def filter(_conn, q, "created_at_gte", val), do: q |> where([r], r.created_at >= ^val)
 
