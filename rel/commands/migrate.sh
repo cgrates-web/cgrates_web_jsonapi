@@ -1,3 +1,3 @@
 #!/bin/sh
 
-bin/cgrates_web_jsonapi command Elixir.CgratesWebJsonapi.ReleaseTasks seed
+release_ctl eval --mfa "CgratesWebJsonapi.ReleaseTasks.migrate/1" --argv -- "$@"
