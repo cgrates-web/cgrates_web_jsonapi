@@ -55,6 +55,15 @@ defmodule CgratesWebJsonapi.Cdrs.CdrFilter do
 
       def filter(_conn, query, "destination", val),
         do: query |> where([r], like(r.destination, ^"%#{val}%"))
+
+      def filter(_conn, q, "did", val),
+        do: q |> where([r], fragment("?->>'did' = ?", r.extra_fields, ^val))
+
+      def filter(_conn, q, "cid", val),
+        do: q |> where([r], fragment("?->>'cid' = ?", r.extra_fields, ^val))
+
+      def filter(_conn, q, "extra_direction", val),
+        do: q |> where([r], fragment("?->>'direction' = ?", r.extra_fields, ^val))
     end
   end
 end
