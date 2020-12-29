@@ -268,14 +268,15 @@ defmodule CgratesWebJsonapiWeb.CdrControllerTest do
         }
       )
 
-      cdr1 = insert(:cdr,
-        usage: 10_000,
-        cost: 10,
-        created_at: "2015-02-23T22:50:07Z",
-        extra_fields: %{
-          "direction" => "out"
-        }
-      )
+      cdr1 =
+        insert(:cdr,
+          usage: 10_000,
+          cost: 10,
+          created_at: "2015-02-23T22:50:07Z",
+          extra_fields: %{
+            "direction" => "out"
+          }
+        )
 
       conn =
         get(conn, Routes.cdr_path(conn, :index), filter: %{extra_direction: "out"})
