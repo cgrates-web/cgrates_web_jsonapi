@@ -261,6 +261,105 @@ defmodule CgratesWebJsonapiWeb.CdrStatControllerTest do
       assert length(response) == 1
     end
 
+    test "it returs a correct result with a filter by 'did'", %{conn: conn} do
+      insert(:cdr,
+        usage: 10_000,
+        cost: 10,
+        created_at: "2015-01-23T23:50:07Z",
+        extra_fields: %{
+          did: "123"
+        }
+      )
+
+      insert(:cdr,
+        usage: 10_000,
+        cost: 10,
+        created_at: "2015-02-23T22:50:07Z",
+        extra_fields: %{
+          did: "321"
+        }
+      )
+
+      conn =
+        conn
+        |> get(
+          Routes.cdr_stat_path(conn, :index,
+            group: "monthly",
+            filter: %{did: "123"}
+          )
+        )
+        |> doc()
+
+      response = json_response(conn, 200)["data"]
+      assert length(response) == 1
+    end
+
+    test "it returs a correct result with a filter by 'cid'", %{conn: conn} do
+      insert(:cdr,
+        usage: 10_000,
+        cost: 10,
+        created_at: "2015-01-23T23:50:07Z",
+        extra_fields: %{
+          cid: "123"
+        }
+      )
+
+      insert(:cdr,
+        usage: 10_000,
+        cost: 10,
+        created_at: "2015-02-23T22:50:07Z",
+        extra_fields: %{
+          cid: "321"
+        }
+      )
+
+      conn =
+        conn
+        |> get(
+          Routes.cdr_stat_path(conn, :index,
+            group: "monthly",
+            filter: %{cid: "123"}
+          )
+        )
+        |> doc()
+
+      response = json_response(conn, 200)["data"]
+      assert length(response) == 1
+    end
+
+    test "it returs a correct result with a filter by 'extra_direction'", %{conn: conn} do
+      insert(:cdr,
+        usage: 10_000,
+        cost: 10,
+        created_at: "2015-01-23T23:50:07Z",
+        extra_fields: %{
+          direction: "in"
+        }
+      )
+
+      insert(:cdr,
+        usage: 10_000,
+        cost: 10,
+        created_at: "2015-02-23T22:50:07Z",
+        extra_fields: %{
+          direction: "out"
+        }
+      )
+
+      conn =
+        conn
+        |> get(
+          Routes.cdr_stat_path(conn, :index,
+            group: "monthly",
+            filter: %{extra_direction: "in"}
+          )
+        )
+        |> doc()
+
+      response = json_response(conn, 200)["data"]
+      assert length(response) == 1
+    end
+
     test "filtering by cgrid", %{conn: conn} do
       cdr1 = insert(:cdr, cgrid: "1")
       cdr2 = insert(:cdr, cgrid: "2")
