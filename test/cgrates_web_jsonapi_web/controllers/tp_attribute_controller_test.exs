@@ -310,7 +310,7 @@ defmodule CgratesWebJsonapi.TariffPlans.TpAttributeControllerTest do
           "data" => %{
             "type" => "tp_attribute",
             "id" => tp_attribute.pk,
-            "attributes" => %{contexts: nil}
+            "attributes" => %{value: nil}
           }
         })
         |> doc
