@@ -2,7 +2,7 @@ defmodule CgratesWebJsonapi.Repo.Migrations.CreateTpAccountProfiles do
   use Ecto.Migration
 
   def up do
-    drop_if_exists table("tp_action_profiles")
+    drop_if_exists(table("tp_action_profiles"))
 
     execute("""
     CREATE TABLE tp_action_profiles (
@@ -27,13 +27,15 @@ defmodule CgratesWebJsonapi.Repo.Migrations.CreateTpAccountProfiles do
       "created_at" TIMESTAMP WITH TIME ZONE
     );
     """)
+
     execute("CREATE INDEX tp_action_profiles_ids ON tp_action_profiles (tpid);")
+
     execute("""
     CREATE INDEX tp_action_profiles_unique ON tp_action_profiles  ("tpid",  "tenant", "id", "filter_ids", "action_id");
     """)
   end
 
   def down do
-    drop table("tp_action_profiles")
+    drop(table("tp_action_profiles"))
   end
 end
