@@ -18,6 +18,8 @@ SET row_security = off;
 
 SET default_tablespace = '';
 
+SET default_table_access_method = heap;
+
 --
 -- Name: cdrs; Type: TABLE; Schema: public; Owner: -
 --
@@ -257,6 +259,53 @@ CREATE SEQUENCE public.tp_action_plans_id_seq
 --
 
 ALTER SEQUENCE public.tp_action_plans_id_seq OWNED BY public.tp_action_plans.id;
+
+
+--
+-- Name: tp_action_profiles; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public.tp_action_profiles (
+    pk integer NOT NULL,
+    tpid character varying(64) NOT NULL,
+    tenant character varying(64) NOT NULL,
+    id character varying(64) NOT NULL,
+    filter_ids character varying(64) NOT NULL,
+    activation_interval character varying(64) NOT NULL,
+    weight numeric(8,2) NOT NULL,
+    schedule character varying(64) NOT NULL,
+    target_type character varying(64) NOT NULL,
+    target_ids character varying(64) NOT NULL,
+    action_id character varying(64) NOT NULL,
+    action_filter_ids character varying(64) NOT NULL,
+    action_blocker boolean NOT NULL,
+    action_ttl character varying(64) NOT NULL,
+    action_type character varying(64) NOT NULL,
+    action_opts character varying(64) NOT NULL,
+    action_path character varying(64) NOT NULL,
+    action_value character varying(64) NOT NULL,
+    created_at timestamp with time zone
+);
+
+
+--
+-- Name: tp_action_profiles_pk_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+CREATE SEQUENCE public.tp_action_profiles_pk_seq
+    AS integer
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+--
+-- Name: tp_action_profiles_pk_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+--
+
+ALTER SEQUENCE public.tp_action_profiles_pk_seq OWNED BY public.tp_action_profiles.pk;
 
 
 --
@@ -1141,6 +1190,13 @@ ALTER TABLE ONLY public.tp_action_plans ALTER COLUMN id SET DEFAULT nextval('pub
 
 
 --
+-- Name: tp_action_profiles pk; Type: DEFAULT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.tp_action_profiles ALTER COLUMN pk SET DEFAULT nextval('public.tp_action_profiles_pk_seq'::regclass);
+
+
+--
 -- Name: tp_action_triggers id; Type: DEFAULT; Schema: public; Owner: -
 --
 
@@ -1373,6 +1429,14 @@ ALTER TABLE ONLY public.tp_action_plans
 
 ALTER TABLE ONLY public.tp_action_plans
     ADD CONSTRAINT tp_action_plans_tpid_tag_actions_tag_timing_tag_key UNIQUE (tpid, tag, actions_tag, timing_tag);
+
+
+--
+-- Name: tp_action_profiles tp_action_profiles_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.tp_action_profiles
+    ADD CONSTRAINT tp_action_profiles_pkey PRIMARY KEY (pk);
 
 
 --
@@ -1677,6 +1741,20 @@ CREATE UNIQUE INDEX tariff_plans_alias_index ON public.tariff_plans USING btree 
 --
 
 CREATE UNIQUE INDEX tariff_plans_name_index ON public.tariff_plans USING btree (name);
+
+
+--
+-- Name: tp_action_profiles_ids; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX tp_action_profiles_ids ON public.tp_action_profiles USING btree (tpid);
+
+
+--
+-- Name: tp_action_profiles_unique; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX tp_action_profiles_unique ON public.tp_action_profiles USING btree (tpid, tenant, id, filter_ids, action_id);
 
 
 --
@@ -1992,6 +2070,5 @@ ALTER TABLE ONLY public.raw_supplier_rates
 -- PostgreSQL database dump complete
 --
 
-INSERT INTO public."schema_migrations" (version) VALUES (20170905093653);
-INSERT INTO public."schema_migrations" (version) VALUES (20170908061508);
-INSERT INTO public."schema_migrations" (version) VALUES (20180220044803);
+INSERT INTO public."schema_migrations" (version) VALUES (20170905093653), (20170908061508), (20180220044803), (20210111053214), (20210111054400);
+
