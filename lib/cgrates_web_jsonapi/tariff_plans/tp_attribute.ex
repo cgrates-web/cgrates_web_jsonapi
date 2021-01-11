@@ -14,12 +14,12 @@ defmodule CgratesWebJsonapi.TariffPlans.TpAttribute do
     field :tpid, :string
     field :tenant, :string
     field :custom_id, :string, source: :id
-    field :contexts, :string
-    field :filter_ids, :string
-    field :activation_interval, :string
+    field :contexts, :string, default: ""
+    field :filter_ids, :string, default: ""
+    field :activation_interval, :string, default: ""
     field :blocker, :boolean
-    field :weight, :decimal
-    field :attribute_filter_ids, :string
+    field :weight, :decimal, default: 0
+    field :attribute_filter_ids, :string, default: ""
     field :path, :string
     field :cg_type, :string, source: :type
     field :value, :string
@@ -33,7 +33,7 @@ defmodule CgratesWebJsonapi.TariffPlans.TpAttribute do
   def changeset(struct, params \\ %{}) do
     struct
     |> cast(params, @attributes)
-    |> validate_required(@attributes)
+    |> validate_required([:tpid, :tenant, :custom_id, :path, :value, :cg_type])
     |> validate_length(:tpid, max: 64)
     |> validate_length(:tenant, max: 64)
     |> validate_length(:custom_id, max: 64)
