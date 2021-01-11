@@ -14,10 +14,10 @@ defmodule CgratesWebJsonapi.TariffPlans.TpCharger do
     field :tpid, :string
     field :tenant, :string
     field :custom_id, :string, source: :id
-    field :filter_ids, :string
-    field :activation_interval, :string
+    field :filter_ids, :string, default: ""
+    field :activation_interval, :string, default: ""
     field :run_id, :string
-    field :attribute_ids, :string
+    field :attribute_ids, :string, default: ""
     field :weight, :decimal
 
     field :created_at, :naive_datetime
@@ -29,7 +29,7 @@ defmodule CgratesWebJsonapi.TariffPlans.TpCharger do
   def changeset(struct, params \\ %{}) do
     struct
     |> cast(params, @attributes)
-    |> validate_required(@attributes)
+    |> validate_required(~w[tpid tenant custom_id run_id weight]a)
     |> validate_length(:tpid, max: 64)
     |> validate_length(:tenant, max: 64)
     |> validate_length(:custom_id, max: 64)
