@@ -12,20 +12,20 @@ defmodule CgratesWebJsonapi.TariffPlans.TpAction do
     field :tpid, :string
     field :tag, :string
     field :action, :string
-    field :balance_tag, :string
-    field :balance_type, :string
-    field :units, :string
-    field :expiry_time, :string
-    field :timing_tags, :string
-    field :destination_tags, :string
-    field :rating_subject, :string
-    field :categories, :string
-    field :shared_groups, :string
-    field :balance_weight, :string
+    field :balance_tag, :string, default: ""
+    field :balance_type, :string, default: ""
+    field :units, :string, default: ""
+    field :expiry_time, :string, default: ""
+    field :timing_tags, :string, default: ""
+    field :destination_tags, :string, default: ""
+    field :rating_subject, :string, default: ""
+    field :categories, :string, default: ""
+    field :shared_groups, :string, default: ""
+    field :balance_weight, :string, default: ""
     field :balance_blocker, :string
     field :balance_disabled, :string
-    field :extra_parameters, :string
-    field :filter, :string
+    field :extra_parameters, :string, default: ""
+    field :filter, :string, default: ""
     field :weight, :decimal
 
     field :created_at, :naive_datetime
@@ -47,7 +47,14 @@ defmodule CgratesWebJsonapi.TariffPlans.TpAction do
   def changeset(struct, params \\ %{}) do
     struct
     |> cast(params, @attributes)
-    |> validate_required(@attributes)
+    |> validate_required([
+      :tag,
+      :action,
+      :balance_blocker,
+      :tpid,
+      :balance_disabled,
+      :weight
+    ])
     |> validate_length(:tpid, max: 64)
     |> validate_length(:tag, max: 64)
     |> validate_length(:action, max: 24)

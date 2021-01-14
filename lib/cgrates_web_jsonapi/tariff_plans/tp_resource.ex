@@ -19,7 +19,7 @@ defmodule CgratesWebJsonapi.TariffPlans.TpResource do
     field :activation_interval, :string
     field :usage_ttl, :string
     field :limit, :string
-    field :allocation_message, :string
+    field :allocation_message, :string, default: ""
     field :threshold_ids, :string
     field :stored, :boolean
     field :blocker, :boolean
@@ -34,7 +34,10 @@ defmodule CgratesWebJsonapi.TariffPlans.TpResource do
   def changeset(struct, params \\ %{}) do
     struct
     |> cast(params, @attributes)
-    |> validate_required(@attributes)
+    |> validate_required(
+      ~w[tpid tenant custom_id filter_ids usage_ttl activation_interval threshold_ids stored
+        blocker weight limit]a
+    )
     |> validate_length(:tpid, max: 64)
     |> validate_length(:tenant, max: 64)
     |> validate_length(:custom_id, max: 64)

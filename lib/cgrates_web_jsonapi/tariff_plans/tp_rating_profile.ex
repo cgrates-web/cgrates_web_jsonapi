@@ -8,7 +8,7 @@ defmodule CgratesWebJsonapi.TariffPlans.TpRatingProfile do
 
   schema "tp_rating_profiles" do
     field :tpid, :string
-    field :loadid, :string
+    field :loadid, :string, default: ""
     field :tenant, :string
     field :category, :string
     field :subject, :string
@@ -27,7 +27,6 @@ defmodule CgratesWebJsonapi.TariffPlans.TpRatingProfile do
     |> cast(params, @attributes)
     |> validate_required([
       :tpid,
-      :loadid,
       :tenant,
       :category,
       :subject,
