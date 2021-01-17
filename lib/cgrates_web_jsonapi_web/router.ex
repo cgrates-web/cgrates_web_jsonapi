@@ -38,7 +38,7 @@ defmodule CgratesWebJsonapiWeb.Router do
     pipe_through :private_api
 
     resources("/accounts", AccountController, except: [:new, :edit, :update])
-    resources("/set-account-command", SetAccountCommandController, only: [:create])
+    resources("/set-account-commands", SetAccountCommandController, only: [:create])
     resources("/add-balance", AddBalanceController, only: [:create])
     resources("/cdrs", CdrController, only: [:index, :show])
     resources("/destinations", DestinationController, only: [:index, :show])
