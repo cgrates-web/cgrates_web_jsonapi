@@ -1,12 +1,15 @@
 defmodule CgratesWebJsonapi.Cgrates.Adapter do
   use HTTPoison.Base
 
+  @spec execute(%{method: String.t(), params: map()}) :: {:error, any} | {:ok, any}
   def execute(%{method: method, params: params}) do
-    {:ok, response} = post("/jsonrpc", %{method: method, params: params})
-    response.body
+    case post("/jsonrpc", %{method: method, params: params}) do
+      {:ok, response} -> handle_cgrates_response(response.body)
+      {:error, %HTTPoison.Error{reason: reason}} -> {:error, reason}
+    end
   end
 
-  def process_url(url) do
+  defp process_url(url) do
     Application.get_env(:cgrates_web_jsonapi, :cgrates_url) <> url
   end
 
@@ -45,4 +48,7 @@ defmodule CgratesWebJsonapi.Cgrates.Adapter do
   defp process_request_headers(_headers) do
     ["Content-Type": "application/json"]
   end
+
+  defp handle_cgrates_response(%{"error" => nil, "result" => result}), do: {:ok, result}
+  defp handle_cgrates_response(%{"error" => error, "result" => nil}), do: {:error, error}
 end

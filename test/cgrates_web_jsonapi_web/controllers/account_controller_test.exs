@@ -6,7 +6,7 @@ defmodule CgratesWebJsonapi.AccountControllerTest do
 
   alias CgratesWebJsonapi.Cgrates.Account
 
-  @valid_attrs %{allow_negative: true}
+  @valid_attrs %{account: "1"}
   @invalid_attrs %{}
 
   def fake_account_response(id) do
@@ -63,33 +63,15 @@ defmodule CgratesWebJsonapi.AccountControllerTest do
   test "paginated lists entries on index", %{conn: conn} do
     with_mock CgratesWebJsonapi.Cgrates.Adapter,
       execute: fn _params ->
-        %{
-          "result" => [
+        {
+          :ok,
+          [
             fake_account_response("cgrates.org:1"),
             fake_account_response("cgrates.org:2")
-          ],
-          "error" => nil,
-          "id" => nil
+          ]
         }
       end do
       conn = get(conn, Routes.account_path(conn, :index), %{page: "2", per_page: "10"}) |> doc
-      assert length(json_response(conn, 200)["data"]) == 2
-    end
-  end
-
-  test "returns first page with 10 entries if page and per_page not pass", %{conn: conn} do
-    with_mock CgratesWebJsonapi.Cgrates.Adapter,
-      execute: fn _params ->
-        %{
-          "result" => [
-            fake_account_response("cgrates.org:1"),
-            fake_account_response("cgrates.org:2")
-          ],
-          "error" => nil,
-          "id" => nil
-        }
-      end do
-      conn = get(conn, Routes.account_path(conn, :index)) |> doc
       assert length(json_response(conn, 200)["data"]) == 2
     end
   end
@@ -99,11 +81,7 @@ defmodule CgratesWebJsonapi.AccountControllerTest do
 
     with_mock CgratesWebJsonapi.Cgrates.Adapter,
       execute: fn _params ->
-        %{
-          "result" => account,
-          "error" => nil,
-          "id" => nil
-        }
+        {:ok, account}
       end do
       conn = get(conn, Routes.account_path(conn, :show, "cgrates.org:1")) |> doc
       data = json_response(conn, 200)["data"]
@@ -120,94 +98,11 @@ defmodule CgratesWebJsonapi.AccountControllerTest do
   test "does not show resource and instead throw error when id is nonexistent", %{conn: conn} do
     with_mock CgratesWebJsonapi.Cgrates.Adapter,
       execute: fn _params ->
-        %{
-          "result" => nil,
-          "error" => nil,
-          "id" => nil
-        }
+        {:ok, nil}
       end do
       assert_error_sent 404, fn ->
         get(conn, Routes.account_path(conn, :show, -1)) |> doc
       end
     end
   end
-
-  test "creates and renders resource when data is valid", %{conn: conn} do
-    with_mock CgratesWebJsonapi.Cgrates.Adapter,
-      execute: fn _params ->
-        %{
-          "result" => "OK",
-          "error" => nil,
-          "id" => nil
-        }
-      end do
-      conn =
-        post(conn, Routes.account_path(conn, :create), %{
-          "meta" => %{},
-          "data" => %{
-            "id" => "2001",
-            "type" => "accounts",
-            "attributes" => @valid_attrs,
-            "relationships" => relationships
-          }
-        })
-        |> doc
-
-      assert json_response(conn, 201)["data"]["id"]
-    end
-  end
-
-  test "does not create resource and renders errors when data is invalid", %{conn: conn} do
-    conn =
-      post(conn, Routes.account_path(conn, :create), %{
-        "meta" => %{},
-        "data" => %{
-          "id" => "",
-          "type" => "accounts",
-          "attributes" => @invalid_attrs,
-          "relationships" => relationships
-        }
-      })
-      |> doc
-
-    assert json_response(conn, 422)["errors"] != %{}
-  end
-
-  # test "updates and renders chosen resource when data is valid", %{conn: conn} do
-  #   account = Repo.insert! %Account{}
-  #   conn = put conn, Routes.account_path(conn, :update, account), %{
-  #     "meta" => %{},
-  #     "data" => %{
-  #       "type" => "accounts",
-  #       "id" => account.id,
-  #       "attributes" => @valid_attrs,
-  #       "relationships" => relationships
-  #     }
-  #   }
-  #
-  #   assert json_response(conn, 200)["data"]["id"]
-  #   assert Repo.get_by(Account, @valid_attrs)
-  # end
-  #
-  # test "does not update chosen resource and renders errors when data is invalid", %{conn: conn} do
-  #   account = Repo.insert! %Account{}
-  #   conn = put conn, Routes.account_path(conn, :update, account), %{
-  #     "meta" => %{},
-  #     "data" => %{
-  #       "type" => "accounts",
-  #       "id" => account.id,
-  #       "attributes" => @invalid_attrs,
-  #       "relationships" => relationships
-  #     }
-  #   }
-  #
-  #   assert json_response(conn, 422)["errors"] != %{}
-  # end
-  #
-  # test "deletes chosen resource", %{conn: conn} do
-  #   account = Repo.insert! %Account{}
-  #   conn = delete conn, Routes.account_path(conn, :delete, account)
-  #   assert response(conn, 204)
-  #   refute Repo.get(Account, account.id)
-  # end
 end
