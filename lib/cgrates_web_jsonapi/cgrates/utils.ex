@@ -36,7 +36,6 @@ defmodule CgratesWebJsonapi.Cgrates.Utils do
     end
   end
 
-
   @spec map_to_struct(nil | map, atom()) ::
           {:error,
            :atom_key_not_expected

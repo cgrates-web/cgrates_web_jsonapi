@@ -8,11 +8,10 @@ defmodule CgratesWebJsonapiWeb.DestinationController do
 
   def index(conn, params) do
     with {:ok, destinations} <-
-      Destinations.list_destinations(%{
-        page: String.to_integer(params["page"] || "1"),
-        per_page: String.to_integer(params["per_page"] || "10")
-      })
-    do
+           Destinations.list_destinations(%{
+             page: String.to_integer(params["page"] || "1"),
+             per_page: String.to_integer(params["per_page"] || "10")
+           }) do
       render(conn, "index.json-api", data: destinations)
     else
       {:error, reason} ->

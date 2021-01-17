@@ -7,11 +7,10 @@ defmodule CgratesWebJsonapiWeb.AccountController do
 
   def index(conn, params) do
     with {:ok, accounts} <-
-      Accounts.list_accounts(%{
-        page: String.to_integer(params["page"] || "1"),
-        per_page: String.to_integer(params["per_page"] || "10")
-      })
-    do
+           Accounts.list_accounts(%{
+             page: String.to_integer(params["page"] || "1"),
+             per_page: String.to_integer(params["per_page"] || "10")
+           }) do
       render(conn, "index.json-api", data: accounts)
     else
       {:error, reason} ->

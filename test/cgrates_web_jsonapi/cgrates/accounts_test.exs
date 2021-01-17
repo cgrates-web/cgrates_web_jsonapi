@@ -13,6 +13,7 @@ defmodule CgratesWebJsonapi.Cgrates.AccountsTest do
         assert result.id === "1"
       end
     end
+
     test "it returns {:validation_error, error} if data is invalid" do
       with_mock Adapter, execute: fn _params -> {:ok, "OK"} end do
         {:validation_error, errors} = Accounts.create_account(%{})

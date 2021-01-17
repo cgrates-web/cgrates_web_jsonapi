@@ -37,7 +37,9 @@ defmodule CgratesWebJsonapi.Cgrates.Destinations do
     case Adapter.execute(%{method: "ApierV2.GetDestinations", params: %{DestinationIDs: [id]}}) do
       {:ok, response} ->
         response |> Utils.process_list_resources(Destination) |> List.first() |> avoid_nil()
-      {:error, _} -> raise(NotFoundError)
+
+      {:error, _} ->
+        raise(NotFoundError)
     end
   end
 

@@ -25,8 +25,7 @@ defmodule CgratesWebJsonapi.AddBalanceControllerTest do
 
   test "success add", %{conn: conn} do
     with_mock CgratesWebJsonapi.Cgrates.Adapter,
-      execute: fn _params -> {:ok, "OK"} end
-    do
+      execute: fn _params -> {:ok, "OK"} end do
       conn =
         post(conn, Routes.add_balance_path(conn, :create), %{
           "meta" => %{},

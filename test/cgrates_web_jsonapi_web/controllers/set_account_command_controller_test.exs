@@ -21,7 +21,6 @@ defmodule CgratesWebJsonapi.SetAccountCommandControllerTest do
     {:ok, conn: conn}
   end
 
-
   test "creates and renders resource when data is valid", %{conn: conn} do
     with_mock CgratesWebJsonapi.Cgrates.Adapter,
       execute: fn _params ->

@@ -18,6 +18,7 @@ defmodule CgratesWebJsonapiWeb.AddBalanceController do
         conn
         |> put_status(:unprocessable_entity)
         |> render(:errors, data: changeset)
+
       {:error, reason} ->
         conn
         |> put_status(500)

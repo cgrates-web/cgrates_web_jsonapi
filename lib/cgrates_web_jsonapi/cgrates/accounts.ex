@@ -72,7 +72,8 @@ defmodule CgratesWebJsonapi.Cgrates.Accounts do
   @doc """
   Add balance for specific account
   """
-  @spec add_balance(map()) :: {:error, any} | {:ok, %{id: binary}} | {:validation_error, Ecto.Changeset.t()}
+  @spec add_balance(map()) ::
+          {:error, any} | {:ok, %{id: binary}} | {:validation_error, Ecto.Changeset.t()}
   def add_balance(attrs) do
     changeset = %AddBalanceAttrs{} |> AddBalanceAttrs.changeset(attrs)
 
