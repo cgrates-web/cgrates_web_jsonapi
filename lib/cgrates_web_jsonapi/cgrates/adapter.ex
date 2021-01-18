@@ -6,7 +6,7 @@ defmodule CgratesWebJsonapi.Cgrates.Adapter do
   @spec execute(%{method: String.t(), params: map()}) :: {:error, any} | {:ok, any}
   def execute(%{method: method, params: params}) do
     case post("/jsonrpc", %{method: method, params: params}) do
-      {:ok, response} -> handle_cgrates_response(response.body)
+      {:ok, response} -> response.body |> log_response() |> handle_cgrates_response()
       {:error, %HTTPoison.Error{reason: reason}} -> {:error, reason}
     end
   end
@@ -57,4 +57,9 @@ defmodule CgratesWebJsonapi.Cgrates.Adapter do
 
   defp handle_cgrates_response(%{"error" => nil, "result" => result}), do: {:ok, result}
   defp handle_cgrates_response(%{"error" => error, "result" => nil}), do: {:error, error}
+
+  defp log_response(res) do
+    Logger.info("CGRates response: #{res}")
+    res
+  end
 end
