@@ -1,6 +1,8 @@
 defmodule CgratesWebJsonapi.Cgrates.Adapter do
   use HTTPoison.Base
 
+  require Logger
+
   @spec execute(%{method: String.t(), params: map()}) :: {:error, any} | {:ok, any}
   def execute(%{method: method, params: params}) do
     case post("/jsonrpc", %{method: method, params: params}) do
@@ -31,6 +33,8 @@ defmodule CgratesWebJsonapi.Cgrates.Adapter do
       params
       |> ProperCase.to_camel_case(:upper)
       |> Map.merge(%{Tenant: Application.get_env(:cgrates_web_jsonapi, :cgrates_tenant)})
+
+    Logger.info("Call CGRates API; \n|__ Method: #{inspect(method)};\n|__ Params: #{inspect(params)}")
 
     %{
       method: method,
