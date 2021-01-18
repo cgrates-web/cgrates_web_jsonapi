@@ -59,7 +59,7 @@ defmodule CgratesWebJsonapi.Cgrates.Adapter do
   defp handle_cgrates_response(%{"error" => error, "result" => nil}), do: {:error, error}
 
   defp log_response(res) do
-    Logger.info("CGRates response: #{res}")
+    Logger.info("CGRates response: #{inspect(res)}")
     res
   end
 end
