@@ -20,7 +20,7 @@ defmodule CgratesWebJsonapi.Cgrates.Accounts.AddBalanceAttrs do
   end
 
   @doc """
-  Validates SetAccount Attributes
+  Validates Add Balance Attributes
   """
   @spec changeset(__MODULE__.t(), map()) :: Ecto.Changeset.t()
   def changeset(%__MODULE__{} = record, attrs \\ %{}) do
@@ -28,5 +28,10 @@ defmodule CgratesWebJsonapi.Cgrates.Accounts.AddBalanceAttrs do
     |> Ecto.Changeset.cast(attrs, Map.keys(@ecto_validation_types))
     |> Ecto.Changeset.validate_required([:account, :balance_type, :value])
     |> Ecto.Changeset.validate_number(:value, greater_than_or_equal_to: 0)
+  end
+
+  @spec to_cgrates_params(__MODULE__.t()) :: map()
+  def to_cgrates_params(%__MODULE__{} = attrs) do
+    attrs |> Map.from_struct()
   end
 end

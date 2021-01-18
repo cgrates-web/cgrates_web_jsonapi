@@ -81,7 +81,7 @@ defmodule CgratesWebJsonapi.Cgrates.Accounts do
          {:ok, _} <-
            Adapter.execute(%{
              method: "ApierV1.AddBalance",
-             params: params
+             params: AddBalanceAttrs.to_cgrates_params(params)
            }) do
       {
         :ok,
