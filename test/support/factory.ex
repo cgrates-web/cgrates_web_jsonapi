@@ -301,7 +301,7 @@ defmodule CgratesWebJsonapi.Factory do
       route_stat_ids: "22",
       route_blocker: false,
       route_parameters: "123",
-      weight: 2.0,
+      weight: 2.0
     }
   end
 end
