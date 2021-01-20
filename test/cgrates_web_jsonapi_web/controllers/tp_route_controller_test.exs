@@ -97,4 +97,37 @@ defmodule CgratesWebJsonapi.TariffPlans.TpRouteControllerTest do
       end
     end
   end
+
+  describe "POST create" do
+    test "creates and renders resource when data is valid", %{conn: conn} do
+      tariff_plan = insert(:tariff_plan)
+      params = Map.merge(params_for(:tp_route), %{tpid: tariff_plan.alias})
+
+      conn =
+        post(conn, Routes.tp_route_path(conn, :create), %{
+          "meta" => %{},
+          "data" => %{
+            "type" => "tp_route",
+            "attributes" => params
+          }
+        })
+        |> doc
+
+      assert json_response(conn, 201)["data"]["attributes"]["pk"]
+    end
+
+    test "does not create resource and renders errors when data is invalid", %{conn: conn} do
+      conn =
+        post(conn, Routes.tp_route_path(conn, :create), %{
+          "meta" => %{},
+          "data" => %{
+            "type" => "tp_route",
+            "attributes" => %{contexts: nil}
+          }
+        })
+        |> doc
+
+      assert json_response(conn, 422)["errors"] != %{}
+    end
+  end
 end
