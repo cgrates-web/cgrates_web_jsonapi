@@ -130,4 +130,54 @@ defmodule CgratesWebJsonapi.TariffPlans.TpRouteControllerTest do
       assert json_response(conn, 422)["errors"] != %{}
     end
   end
+
+  describe "PATCH/PUT update" do
+    test "updates and renders chosen resource when data is valid", %{conn: conn} do
+      tariff_plan = insert(:tariff_plan)
+      tp_route = insert(:tp_route, tpid: tariff_plan.alias)
+      params = params_for(:tp_route)
+
+      conn =
+        put(conn, Routes.tp_route_path(conn, :update, tp_route), %{
+          "meta" => %{},
+          "data" => %{
+            "type" => "tp_route",
+            "id" => tp_route.pk,
+            "attributes" => params
+          }
+        })
+        |> doc
+
+      assert json_response(conn, 200)["data"]["attributes"]["pk"]
+    end
+
+    test "does not update chosen resource and renders errors when data is invalid", %{conn: conn} do
+      tariff_plan = insert(:tariff_plan)
+      tp_route = insert(:tp_route, tpid: tariff_plan.alias)
+
+      conn =
+        put(conn, Routes.tp_route_path(conn, :update, tp_route), %{
+          "meta" => %{},
+          "data" => %{
+            "type" => "tp_attribute",
+            "id" => tp_route.pk,
+            "attributes" => %{route_id: nil}
+          }
+        })
+        |> doc
+
+      assert json_response(conn, 422)["errors"] != %{}
+    end
+  end
+
+  describe "DELETE destroy" do
+    test "deletes chosen resource", %{conn: conn} do
+      tariff_plan = insert(:tariff_plan)
+      tp_route = insert(:tp_route, tpid: tariff_plan.alias)
+
+      conn = delete(conn, Routes.tp_route_path(conn, :delete, tp_route)) |> doc
+      assert response(conn, 204)
+      refute Repo.get(TpRoute, tp_route.pk)
+    end
+  end
 end
