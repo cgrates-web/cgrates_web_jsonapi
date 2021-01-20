@@ -57,7 +57,7 @@ defmodule CgratesWebJsonapi.Mixfile do
       {:ex_machina, "~> 2.4", only: :test},
       {:faker, "~> 0.8", only: :test},
       {:guardian, "~> 2.0"},
-      {:httpoison, "~> 0.13"},
+      {:httpoison, "~> 1.8.0"},
       {:ja_resource, github: "vt-elixir/ja_resource"},
       {:ja_serializer, "~> 0.16.0"},
       {:mapail, "~> 1.0"},

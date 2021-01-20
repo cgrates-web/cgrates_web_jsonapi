@@ -37,10 +37,11 @@ defmodule CgratesWebJsonapiWeb.Router do
     pipe_through :cors
     pipe_through :private_api
 
-    resources("/accounts", AccountController, except: [:new, :edit])
+    resources("/accounts", AccountController, except: [:new, :edit, :update])
+    resources("/set-account-commands", SetAccountCommandController, only: [:create])
     resources("/add-balance", AddBalanceController, only: [:create])
     resources("/cdrs", CdrController, only: [:index, :show])
-    resources("/destinations", DestinationController, except: [:new, :edit])
+    resources("/destinations", DestinationController, only: [:index, :show])
     resources("/load-tariff-plan", LoadTariffPlanController, only: [:create])
     get("/raw-supplier-rates/export-to-csv", RawSupplierRateController, :export_to_csv)
     resources("/raw-supplier-rates", RawSupplierRateController, except: [:new, :edit])
