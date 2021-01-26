@@ -23,11 +23,7 @@ defmodule CgratesWebJsonapi.LoadTariffPlanControllerTest do
   test "executes LoadTariffPlanFromStorDb when data is valid", %{conn: conn} do
     with_mock CgratesWebJsonapi.Cgrates.Adapter,
       execute: fn _params ->
-        %{
-          "result" => "OK",
-          "error" => nil,
-          "id" => nil
-        }
+        {:ok, "OK"}
       end do
       conn =
         post(conn, Routes.load_tariff_plan_path(conn, :create), %{
@@ -43,7 +39,7 @@ defmodule CgratesWebJsonapi.LoadTariffPlanControllerTest do
         })
         |> doc
 
-      assert json_response(conn, 201)
+      assert conn.status == 201
     end
   end
 
