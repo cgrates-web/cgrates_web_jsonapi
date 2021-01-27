@@ -16,8 +16,8 @@ defmodule CgratesWebJsonapiWeb.TpRouteController do
 
   def filter(_conn, query, "tpid", tpid), do: query |> where([r], like(r.tpid, ^"%#{tpid}%"))
 
-  def filter(_conn, query, "tp_route_id", tp_route_id),
-    do: query |> where([r], like(r.tp_route_id, ^"%#{tp_route_id}%"))
+  def filter(_conn, query, "route_id", route_id),
+    do: query |> where([r], like(r.route_id, ^"%#{route_id}%"))
 
   def filter(_conn, query, "route_weight", route_weight),
     do: query |> where(route_weight: ^route_weight)

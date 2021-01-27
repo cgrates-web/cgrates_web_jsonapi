@@ -3,7 +3,7 @@ defmodule CgratesWebJsonapi.TariffPlans.TpRoute do
   import Ecto.Changeset
   use EctoConditionals, repo: CgratesWebJsonapi.Repo
 
-  @attributes ~w[tpid custom_id route_weight tp_route_id route_weight tenant sorting sorting_parameters
+  @attributes ~w[tpid custom_id route_weight route_id route_weight tenant sorting sorting_parameters
    filter_ids activation_interval route_filter_ids route_account_ids route_resource_ids
    route_ratingplan_ids route_stat_ids route_blocker route_parameters weight]a
 
@@ -12,7 +12,7 @@ defmodule CgratesWebJsonapi.TariffPlans.TpRoute do
   schema "tp_routes" do
     field :id, :integer, source: :pk
     field :custom_id, :string, source: :id
-    field :tp_route_id, :string, source: :route_id, default: ""
+    field :route_id, :string, default: ""
     field :tpid, :string
     field :route_weight, :decimal
     field :tenant, :string, default: ""

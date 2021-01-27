@@ -50,15 +50,15 @@ defmodule CgratesWebJsonapi.TariffPlans.TpRouteControllerTest do
       assert length(json_response(conn, 200)["data"]) == 1
     end
 
-    test "filtering by tp_route_id", %{conn: conn} do
+    test "filtering by route_id", %{conn: conn} do
       tariff_plan = insert(:tariff_plan)
 
-      r1 = insert(:tp_route, tpid: tariff_plan.alias, tp_route_id: "custom_id")
+      r1 = insert(:tp_route, tpid: tariff_plan.alias, route_id: "custom_id")
       insert(:tp_route, tpid: tariff_plan.alias)
 
       conn =
         get(conn, Routes.tp_route_path(conn, :index, tpid: tariff_plan.alias),
-          filter: %{tp_route_id: r1.tp_route_id}
+          filter: %{route_id: r1.route_id}
         )
         |> doc
 
@@ -79,7 +79,7 @@ defmodule CgratesWebJsonapi.TariffPlans.TpRouteControllerTest do
       assert data["attributes"]["tpid"] == r.tpid
       assert data["attributes"]["tenant"] == r.tenant
       assert data["attributes"]["custom-id"] == r.custom_id
-      assert data["attributes"]["tp-route-id"] == r.tp_route_id
+      assert data["attributes"]["route-id"] == r.route_id
       assert data["attributes"]["activation-interval"] == r.activation_interval
       assert data["attributes"]["filter-ids"] == r.filter_ids
       assert data["attributes"]["activation-interval"] == r.activation_interval

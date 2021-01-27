@@ -6,7 +6,7 @@ defmodule CgratesWebJsonapiWeb.TpRouteView do
     :tpid,
     :tenant,
     :custom_id,
-    :tp_route_id,
+    :route_id,
     :route_weight,
     :sorting,
     :sorting_parameters,
