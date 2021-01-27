@@ -3,10 +3,9 @@ defmodule CgratesWebJsonapiWeb.TpRouteView do
   use JaSerializer.PhoenixView
 
   attributes([
-    :pk,
     :tpid,
     :tenant,
-    :route_id,
+    :custom_id,
     :tp_route_id,
     :route_weight,
     :sorting,

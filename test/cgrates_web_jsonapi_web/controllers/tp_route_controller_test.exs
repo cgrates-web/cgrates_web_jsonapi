@@ -73,11 +73,12 @@ defmodule CgratesWebJsonapi.TariffPlans.TpRouteControllerTest do
 
       conn = get(conn, Routes.tp_route_path(conn, :show, r)) |> doc
       data = json_response(conn, 200)["data"]
-      assert data["id"] == "#{r.pk}"
+
       assert data["type"] == "tp-route"
+      assert data["id"] == "#{r.pk}"
       assert data["attributes"]["tpid"] == r.tpid
       assert data["attributes"]["tenant"] == r.tenant
-      assert data["attributes"]["route-id"] == r.route_id
+      assert data["attributes"]["custom-id"] == r.custom_id
       assert data["attributes"]["tp-route-id"] == r.tp_route_id
       assert data["attributes"]["activation-interval"] == r.activation_interval
       assert data["attributes"]["filter-ids"] == r.filter_ids
@@ -113,7 +114,7 @@ defmodule CgratesWebJsonapi.TariffPlans.TpRouteControllerTest do
         })
         |> doc
 
-      assert json_response(conn, 201)["data"]["attributes"]["pk"]
+      assert json_response(conn, 201)["data"]["id"]
     end
 
     test "does not create resource and renders errors when data is invalid", %{conn: conn} do
@@ -148,7 +149,7 @@ defmodule CgratesWebJsonapi.TariffPlans.TpRouteControllerTest do
         })
         |> doc
 
-      assert json_response(conn, 200)["data"]["attributes"]["pk"]
+      assert json_response(conn, 200)["data"]["id"]
     end
 
     test "does not update chosen resource and renders errors when data is invalid", %{conn: conn} do
@@ -161,7 +162,7 @@ defmodule CgratesWebJsonapi.TariffPlans.TpRouteControllerTest do
           "data" => %{
             "type" => "tp_attribute",
             "id" => tp_route.pk,
-            "attributes" => %{route_id: nil}
+            "attributes" => %{custom_id: nil}
           }
         })
         |> doc
