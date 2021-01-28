@@ -79,6 +79,7 @@ defmodule CgratesWebJsonapiWeb.Router do
     get("/tp-rates/export-to-csv", TpRateController, :export_to_csv)
     post("/tp-rates/delete_all", TpRateController, :delete_all)
     resources("/tp-rates", TpRateController, except: [:new, :edit])
+    resources("/tp-routes", TpRouteController, except: [:new, :edit])
     get("/tp-rating-plans/export-to-csv", TpRatingPlanController, :export_to_csv)
     post("/tp-rating-plans/delete_all", TpRatingPlanController, :delete_all)
     resources("/tp-rating-plans", TpRatingPlanController, except: [:new, :edit])
