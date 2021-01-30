@@ -22,9 +22,9 @@ defmodule CgratesWebJsonapi.TariffPlans.TpRoute do
     field :activation_interval, :string, default: ""
     field :route_filter_ids, :string, default: ""
     field :route_account_ids, :string, default: ""
-    field :route_ratingplan_ids, :string, defailt: ""
-    field :route_resource_ids, :string, defailt: ""
-    field :route_stat_ids, :string, defailt: ""
+    field :route_ratingplan_ids, :string, default: ""
+    field :route_resource_ids, :string, default: ""
+    field :route_stat_ids, :string, default: ""
     field :route_blocker, :boolean
     field :route_parameters, :string, default: ""
     field :weight, :decimal, default: 0.0
