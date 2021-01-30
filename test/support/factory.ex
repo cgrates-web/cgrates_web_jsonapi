@@ -284,4 +284,23 @@ defmodule CgratesWebJsonapi.Factory do
       time: "8"
     }
   end
+
+  def tp_route_factory do
+    %CgratesWebJsonapi.TariffPlans.TpRoute{
+      tpid: Faker.Beer.name(),
+      custom_id: sequence(:id, fn n -> "route_#{n}" end),
+      route_weight: 3.0,
+      tenant: Faker.Beer.name(),
+      filter_ids: "1",
+      activation_interval: "3",
+      route_filter_ids: "3",
+      route_account_ids: "2",
+      route_ratingplan_ids: "1",
+      route_resource_ids: "1",
+      route_stat_ids: "22",
+      route_blocker: false,
+      route_parameters: "123",
+      weight: 2.0
+    }
+  end
 end
