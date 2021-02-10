@@ -320,10 +320,10 @@ defmodule CgratesWebJsonapiWeb.CdrControllerTest do
           }
         )
 
-      require IEx; IEx.pry;
-
       conn =
-        get(conn, Routes.cdr_path(conn, :index), filter: %{ extra_fields: %{ 0 => %{ extra_field: "cid", op: "LIKE", val: "123" } } } )
+        get(conn, Routes.cdr_path(conn, :index),
+          filter: %{extra_fields: %{ "cid" => %{ op: "LIKE", val: "123"}, "cid" => %{ op: "LIKE", val: "321"}}}
+        )
         |> doc
 
       response = json_response(conn, 200)["data"]

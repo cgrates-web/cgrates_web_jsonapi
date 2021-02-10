@@ -67,7 +67,8 @@ defmodule CgratesWebJsonapi.Cdrs.CdrFilter do
 
       def filter(_conn, q, "extra_fields", val) do
         val
-        |> Enum.map(fn {_, v} -> v |> where(fragment("extra_fields --> ? ? ?", field, op, value))end)
+          |> Map.to_list
+          |> Enum.reduce(q, fn {key, %{"op" => op, "val" => val}}, query -> query |> where([r], fragment("? ->> ? LIKE ?", r.extra_fields, ^key, ^val)) end)
       end
     end
   end
