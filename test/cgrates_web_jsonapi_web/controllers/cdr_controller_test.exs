@@ -322,7 +322,12 @@ defmodule CgratesWebJsonapiWeb.CdrControllerTest do
 
       conn =
         get(conn, Routes.cdr_path(conn, :index),
-          filter: %{extra_fields: %{ "cid" => %{ op: "LIKE", val: "123"}, "cid" => %{ op: "LIKE", val: "321"}}}
+          filter: %{
+            extra_fields: %{
+              "cid" => %{op: "LIKE", val: "123"},
+              "cid" => %{op: "LIKE", val: "321"}
+            }
+          }
         )
         |> doc
 
