@@ -286,6 +286,50 @@ defmodule CgratesWebJsonapiWeb.CdrControllerTest do
 
       assert length(response) == 1
     end
+
+    test "filtering by extra fields", %{conn: conn} do
+      insert(:cdr,
+        usage: 10_000,
+        cost: 10,
+        created_at: "2015-01-23T23:50:07Z",
+        extra_fields: %{
+          "direction" => "in",
+          "cid" => "123"
+        }
+      )
+
+      cdr1 =
+        insert(:cdr,
+          usage: 10_000,
+          cost: 10,
+          created_at: "2015-02-23T22:50:07Z",
+          extra_fields: %{
+            "direction" => "out",
+            "cid" => "321"
+          }
+        )
+
+      cdr2 =
+        insert(:cdr,
+          usage: 10_002,
+          cost: 12,
+          created_at: "2015-02-23T22:50:07Z",
+          extra_fields: %{
+            "direction" => "out",
+            "cid" => "231"
+          }
+        )
+
+      require IEx; IEx.pry;
+
+      conn =
+        get(conn, Routes.cdr_path(conn, :index), filter: %{ extra_fields: %{ 0 => %{ extra_field: "cid", op: "LIKE", val: "123" } } } )
+        |> doc
+
+      response = json_response(conn, 200)["data"]
+
+      assert length(response) == 1
+    end
   end
 
   describe "GET show" do

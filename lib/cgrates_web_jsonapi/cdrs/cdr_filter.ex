@@ -64,6 +64,11 @@ defmodule CgratesWebJsonapi.Cdrs.CdrFilter do
 
       def filter(_conn, q, "extra_direction", val),
         do: q |> where([r], fragment("?->>'direction' = ?", r.extra_fields, ^val))
+
+      def filter(_conn, q, "extra_fields", val) do
+        val
+        |> Enum.map(fn {_, v} -> v |> where(fragment("extra_fields --> ? ? ?", field, op, value))end)
+      end
     end
   end
 end
