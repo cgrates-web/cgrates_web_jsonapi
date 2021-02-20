@@ -2,13 +2,7 @@
 
 Faker.start()
 
-Bureaucrat.start(
-  writer: Bureaucrat.MarkdownWriter,
-  default_path: "API.md",
-  paths: [],
-  titles: [],
-  env_var: "DOC"
-)
+Bureaucrat.start()
 
 ExUnit.start(formatters: [ExUnit.CLIFormatter, Bureaucrat.Formatter])
 

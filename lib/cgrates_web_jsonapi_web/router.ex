@@ -41,6 +41,7 @@ defmodule CgratesWebJsonapiWeb.Router do
     resources("/set-account-commands", SetAccountCommandController, only: [:create])
     resources("/add-balance", AddBalanceController, only: [:create])
     resources("/cdrs", CdrController, only: [:index, :show])
+    resources("/calls", CallController, only: [:index, :show])
     resources("/destinations", DestinationController, only: [:index, :show])
     resources("/load-tariff-plan", LoadTariffPlanController, only: [:create])
     get("/raw-supplier-rates/export-to-csv", RawSupplierRateController, :export_to_csv)
