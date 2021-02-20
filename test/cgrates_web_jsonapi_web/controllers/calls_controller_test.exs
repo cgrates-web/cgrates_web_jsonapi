@@ -5,7 +5,6 @@ defmodule CgratesWebJsonapiWeb.CallsControllerTest do
   import CgratesWebJsonapi.Fixtures
   import CgratesWebJsonapi.Guardian
 
-
   setup do
     user = insert(:user)
 
@@ -25,9 +24,10 @@ defmodule CgratesWebJsonapiWeb.CallsControllerTest do
       call_fixture("1")
       call_fixture("2")
 
-      conn = conn
-      |> get(Routes.call_path(conn, :index))
-      |> doc(description: "List all calls", operation_id: "list_calls")
+      conn =
+        conn
+        |> get(Routes.call_path(conn, :index))
+        |> doc(description: "List all calls", operation_id: "list_calls")
 
       assert length(json_response(conn, 200)["data"]) == 2
     end
@@ -36,6 +36,7 @@ defmodule CgratesWebJsonapiWeb.CallsControllerTest do
   describe "GET show" do
     test "shows chosen resource", %{conn: conn} do
       id = "1"
+
       attrs = %{
         tenant: "cgrates.org",
         origin_host: "example.com",
@@ -43,11 +44,13 @@ defmodule CgratesWebJsonapiWeb.CallsControllerTest do
         origin_id: "1613483697.12524",
         source: "Aster"
       }
+
       [first_cdr, second_cdr] = call_fixture(id, attrs)
 
-      conn = conn
-      |> get(Routes.call_path(conn, :show, id))
-      |> doc(description: "Get specifc call by cgrid", operation_id: "Get a call")
+      conn =
+        conn
+        |> get(Routes.call_path(conn, :show, id))
+        |> doc(description: "Get specifc call by cgrid", operation_id: "Get a call")
 
       data = json_response(conn, 200)["data"]
       assert data["id"] == id
@@ -59,24 +62,25 @@ defmodule CgratesWebJsonapiWeb.CallsControllerTest do
       assert data["attributes"]["account"] == attrs[:account]
 
       assert data["relationships"] == %{
-        "cdrs" => %{
-          "data" => [
-            %{
-              "type" => "cdr",
-              "id" => "#{first_cdr.id}"
-            },
-            %{
-              "type" => "cdr",
-              "id" => "#{second_cdr.id}"
-            }
-          ]
-        }
-      }
+               "cdrs" => %{
+                 "data" => [
+                   %{
+                     "type" => "cdr",
+                     "id" => "#{first_cdr.id}"
+                   },
+                   %{
+                     "type" => "cdr",
+                     "id" => "#{second_cdr.id}"
+                   }
+                 ]
+               }
+             }
     end
 
     test "does not show resource and instead throw error when id is nonexistent", %{conn: conn} do
-      conn = conn
-      |> get(Routes.call_path(conn, :show, -1))
+      conn =
+        conn
+        |> get(Routes.call_path(conn, :show, -1))
 
       assert conn.status == 404
     end

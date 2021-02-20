@@ -17,11 +17,13 @@ defmodule CgratesWebJsonapi.Calls.Call do
   @spec new(nil | %{:cdrs => list(map), :id => binary(), optional(any) => any}) ::
           nil | __MODULE__.t()
   def new(nil), do: nil
+
   def new(%{
         id: id,
         cdrs: cdrs
       }) do
     first_cdr = List.first(cdrs)
+
     %__MODULE__{
       id: id,
       account: first_cdr.account,

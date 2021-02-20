@@ -8,7 +8,7 @@ defmodule CgratesWebJsonapiWeb.CallView do
     :source,
     :origin_id,
     :tenant,
-    :account,
+    :account
   ])
 
   has_many :cdrs,
