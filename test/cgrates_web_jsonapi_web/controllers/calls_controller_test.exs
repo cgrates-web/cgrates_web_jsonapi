@@ -49,6 +49,32 @@ defmodule CgratesWebJsonapiWeb.CallsControllerTest do
                "total-pages" => 2
              }
     end
+
+    test "with filter by created_at_lte", %{conn: conn} do
+      insert(:cdr, cgrid: "1", run_id: "*default", created_at: "2015-01-23T23:50:07Z")
+      insert(:cdr, cgrid: "1", run_id: "*raw", created_at: "2015-02-17T23:50:07Z")
+      insert(:cdr, cgrid: "2", run_id: "*default", created_at: "2015-02-17T23:50:07Z")
+
+      conn =
+        conn
+        |> get(Routes.call_path(conn, :index), filter: %{created_at_lte: "2015-02-17T23:40:07Z"})
+
+      response = json_response(conn, 200)["data"]
+      assert length(response) == 1
+    end
+
+    test "with filter by created_at_gte", %{conn: conn} do
+      insert(:cdr, cgrid: "1", run_id: "*default", created_at: "2015-01-23T23:50:07Z")
+      insert(:cdr, cgrid: "1", run_id: "*raw", created_at: "2015-02-17T23:50:07Z")
+      insert(:cdr, cgrid: "2", run_id: "*default", created_at: "2015-02-17T23:50:07Z")
+
+      conn =
+        conn
+        |> get(Routes.call_path(conn, :index), filter: %{created_at_gte: "2015-02-17T23:40:07Z"})
+
+      response = json_response(conn, 200)["data"]
+      assert length(response) == 1
+    end
   end
 
   describe "GET show" do

@@ -26,12 +26,28 @@ defmodule CgratesWebJsonapiWeb.CallController do
     get("/api/calls")
     CommonSwaggerParams.authorization()
     CommonSwaggerParams.content_type()
+    CommonSwaggerParams.pagination()
+
+    parameter(
+      "filter[created_at_gte]",
+      :query,
+      :string,
+      "Filter by created_at (created_at greater then or equal value)"
+    )
+
+    parameter(
+      "filter[created_at_lte]",
+      :query,
+      :string,
+      "Filter by created_at (created_at less then or equal value)"
+    )
+
     response(200, "OK", Schema.ref(:Calls))
   end
 
-  def index(conn, params) do
+  def index(conn, params \\ %{}) do
     paginator = if params["page"] |> is_nil, do: %{"page" => 1}, else: params["page"]
-    data = Calls.paged_list_calls(paginator)
+    data = Calls.paged_list_calls(paginator, params)
 
     conn
     |> render("index.json-api", data: data, opts: [meta: JSONAPIResource.pagination_meta(data)])

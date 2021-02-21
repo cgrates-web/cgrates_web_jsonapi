@@ -171,6 +171,36 @@
             "name": "Authorization",
             "required": true,
             "type": "string"
+          },
+          {
+            "description": "Number of elements per page",
+            "in": "query",
+            "minimum": 1,
+            "name": "page[page-size]",
+            "required": false,
+            "type": "integer"
+          },
+          {
+            "description": "Number of the page",
+            "in": "query",
+            "minimum": 1,
+            "name": "page[page]",
+            "required": false,
+            "type": "integer"
+          },
+          {
+            "description": "Filter by created_at (created_at greater then or equal value)",
+            "in": "query",
+            "name": "filter[created_at_gte]",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "Filter by created_at (created_at less then or equal value)",
+            "in": "query",
+            "name": "filter[created_at_lte]",
+            "required": false,
+            "type": "string"
           }
         ],
         "produces": [
