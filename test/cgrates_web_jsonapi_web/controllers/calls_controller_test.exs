@@ -43,10 +43,11 @@ defmodule CgratesWebJsonapiWeb.CallsControllerTest do
 
       response = json_response(conn, 200)
       assert length(response["data"]) == 1
+
       assert response["meta"] == %{
-        "total-count" => 2,
-        "total-pages" => 2
-      }
+               "total-count" => 2,
+               "total-pages" => 2
+             }
     end
   end
 
@@ -87,6 +88,7 @@ defmodule CgratesWebJsonapiWeb.CallsControllerTest do
                  ]
                }
              }
+
       assert length(json_response(conn, 200)["included"]) == 2
     end
 
