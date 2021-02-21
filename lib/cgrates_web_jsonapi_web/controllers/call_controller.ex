@@ -3,6 +3,7 @@ defmodule CgratesWebJsonapiWeb.CallController do
 
   alias CgratesWebJsonapi.Calls
   alias CgratesWebJsonapiWeb.ErrorView
+  alias CgratesWebJsonapi.JSONAPIResource
 
   use PhoenixSwagger
 
@@ -13,12 +14,6 @@ defmodule CgratesWebJsonapiWeb.CallController do
           description(
             "A call represent an aggrigation of all CDRs connected with a specific SIP call"
           )
-
-          attribute("origin-host", :string, "Origin Host name")
-          attribute("source", :string, "Source name")
-          attribute("origin-id", :string, "Origin identifier")
-          attribute("tenant", :string, "Tenant name")
-          attribute("account", :string, "Account identifier")
 
           relationship(:cdrs, type: :has_many)
         end,
@@ -35,9 +30,11 @@ defmodule CgratesWebJsonapiWeb.CallController do
   end
 
   def index(conn, params) do
-    data = Calls.list_calls(params)
+    paginator = if params["page"] |> is_nil, do: %{"page" => 1}, else: params["page"]
+    data = Calls.paged_list_calls(paginator)
 
-    conn |> render("index.json-api", data: data)
+    conn
+    |> render("index.json-api", data: data, opts: [meta: JSONAPIResource.pagination_meta(data)])
   end
 
   swagger_path :show do

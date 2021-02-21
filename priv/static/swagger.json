@@ -42,28 +42,7 @@
       "description": "A call represent an aggrigation of all CDRs connected with a specific SIP call",
       "properties": {
         "attributes": {
-          "properties": {
-            "account": {
-              "description": "Account identifier",
-              "type": "string"
-            },
-            "origin-host": {
-              "description": "Origin Host name",
-              "type": "string"
-            },
-            "origin-id": {
-              "description": "Origin identifier",
-              "type": "string"
-            },
-            "source": {
-              "description": "Source name",
-              "type": "string"
-            },
-            "tenant": {
-              "description": "Tenant name",
-              "type": "string"
-            }
-          },
+          "properties": {},
           "type": "object"
         },
         "id": {

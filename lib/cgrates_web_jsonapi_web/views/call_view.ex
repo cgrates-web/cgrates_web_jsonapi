@@ -2,16 +2,10 @@ defmodule CgratesWebJsonapiWeb.CallView do
   use CgratesWebJsonapiWeb, :view
   use JaSerializer.PhoenixView
 
-  attributes([
-    :cgrid,
-    :origin_host,
-    :source,
-    :origin_id,
-    :tenant,
-    :account
-  ])
+  attributes([])
 
   has_many :cdrs,
     serializer: CgratesWebJsonapiWeb.CdrView,
+    include: true,
     identifiers: :always
 end

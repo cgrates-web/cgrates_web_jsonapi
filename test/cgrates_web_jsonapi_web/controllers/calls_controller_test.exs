@@ -41,7 +41,12 @@ defmodule CgratesWebJsonapiWeb.CallsControllerTest do
         conn
         |> get(Routes.call_path(conn, :index), page: %{"page" => 1, "page-size" => 1})
 
-      assert length(json_response(conn, 200)["data"]) == 1
+      response = json_response(conn, 200)
+      assert length(response["data"]) == 1
+      assert response["meta"] == %{
+        "total-count" => 2,
+        "total-pages" => 2
+      }
     end
   end
 
@@ -67,11 +72,6 @@ defmodule CgratesWebJsonapiWeb.CallsControllerTest do
       data = json_response(conn, 200)["data"]
       assert data["id"] == id
       assert data["type"] == "call"
-      assert data["attributes"]["origin-host"] == attrs[:origin_host]
-      assert data["attributes"]["source"] == attrs[:source]
-      assert data["attributes"]["origin-id"] == attrs[:origin_id]
-      assert data["attributes"]["tenant"] == attrs[:tenant]
-      assert data["attributes"]["account"] == attrs[:account]
 
       assert data["relationships"] == %{
                "cdrs" => %{
@@ -87,6 +87,7 @@ defmodule CgratesWebJsonapiWeb.CallsControllerTest do
                  ]
                }
              }
+      assert length(json_response(conn, 200)["included"]) == 2
     end
 
     test "does not show resource and instead throw error when id is nonexistent", %{conn: conn} do
