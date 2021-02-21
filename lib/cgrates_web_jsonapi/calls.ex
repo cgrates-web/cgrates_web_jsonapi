@@ -16,9 +16,10 @@ defmodule CgratesWebJsonapi.Calls do
       iex> list_calls()
       [%Call{id: cgrid, cdrs: [%Cdr{...}], ...}, ...]
   """
-  @spec list_calls :: list(Call.t())
-  def list_calls do
+  @spec list_calls(map() | nil) :: list(Call.t())
+  def list_calls(opts \\ %{}) do
     base_query()
+    |> maybe_apply_pagination(opts["page"])
     |> Repo.all()
     |> Enum.map(&prepare_cdrs/1)
     |> Enum.map(&Call.new/1)
@@ -54,7 +55,31 @@ defmodule CgratesWebJsonapi.Calls do
   defp prepare_cdrs(%{id: id, cdrs: raw_cdrs}) do
     %{
       id: id,
-      cdrs: raw_cdrs |> Enum.map(&struct(Cdr, &1))
+      cdrs: raw_cdrs |> Enum.map(&prepare_cdr/1)
     }
   end
+
+  defp prepare_cdr(raw_cdr) do
+    struct(Cdr, raw_cdr |> Map.new(fn {k, v} -> {String.to_atom(k), v} end))
+  end
+
+  defp maybe_apply_pagination(query, nil), do: query
+
+  defp maybe_apply_pagination(query, %{"page" => page, "page_size" => size})
+       when is_binary(page) do
+    maybe_apply_pagination(query, %{"page" => String.to_integer(page), "page_size" => size})
+  end
+
+  defp maybe_apply_pagination(query, %{"page" => page, "page_size" => size})
+       when is_binary(size) do
+    maybe_apply_pagination(query, %{"page" => page, "page_size" => String.to_integer(size)})
+  end
+
+  defp maybe_apply_pagination(query, %{"page" => page, "page_size" => size}) do
+    query
+    |> limit(^size)
+    |> offset(^calc_offset(page, size))
+  end
+
+  defp calc_offset(page, size), do: page * size
 end

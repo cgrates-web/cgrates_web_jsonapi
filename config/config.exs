@@ -50,5 +50,6 @@ config :cgrates_web_jsonapi, :phoenix_swagger,
   }
 
 config :phoenix_swagger, json_library: Jason
+config :phoenix, :json_library, Jason
 
 import_config "#{Mix.env()}.exs"

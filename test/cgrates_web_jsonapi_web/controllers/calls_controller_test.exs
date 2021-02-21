@@ -1,5 +1,6 @@
 defmodule CgratesWebJsonapiWeb.CallsControllerTest do
   use CgratesWebJsonapi.ConnCase
+  use PhoenixSwagger.SchemaTest, "priv/static/swagger.json"
 
   import CgratesWebJsonapi.Factory
   import CgratesWebJsonapi.Fixtures
@@ -20,21 +21,32 @@ defmodule CgratesWebJsonapiWeb.CallsControllerTest do
   end
 
   describe "GET index" do
-    test "lists all entries related tariff plan on index", %{conn: conn} do
+    test "lists all calls", %{conn: conn, swagger_schema: schema} do
       call_fixture("1")
       call_fixture("2")
 
       conn =
         conn
         |> get(Routes.call_path(conn, :index))
-        |> doc(description: "List all calls", operation_id: "list_calls")
+        |> validate_resp_schema(schema, "Calls")
 
       assert length(json_response(conn, 200)["data"]) == 2
+    end
+
+    test "with pagination", %{conn: conn} do
+      call_fixture("1")
+      call_fixture("2")
+
+      conn =
+        conn
+        |> get(Routes.call_path(conn, :index), page: %{"page" => 1, "page-size" => 1})
+
+      assert length(json_response(conn, 200)["data"]) == 1
     end
   end
 
   describe "GET show" do
-    test "shows chosen resource", %{conn: conn} do
+    test "shows chosen resource", %{conn: conn, swagger_schema: schema} do
       id = "1"
 
       attrs = %{
@@ -50,7 +62,7 @@ defmodule CgratesWebJsonapiWeb.CallsControllerTest do
       conn =
         conn
         |> get(Routes.call_path(conn, :show, id))
-        |> doc(description: "Get specifc call by cgrid", operation_id: "Get a call")
+        |> validate_resp_schema(schema, "Call")
 
       data = json_response(conn, 200)["data"]
       assert data["id"] == id

@@ -5,7 +5,7 @@ defmodule CgratesWebJsonapi.Mixfile do
     [
       app: :cgrates_web_jsonapi,
       version: "0.3.5",
-      elixir: "~> 1.4",
+      elixir: "~> 1.10",
       elixirc_paths: elixirc_paths(Mix.env()),
       compilers: [:phoenix, :gettext] ++ Mix.compilers() ++ [:phoenix_swagger],
       build_embedded: Mix.env() == :prod,
@@ -47,7 +47,7 @@ defmodule CgratesWebJsonapi.Mixfile do
       {:telemetry_metrics, "~> 0.4"},
       {:telemetry_poller, "~> 0.4"},
       {:jason, "~> 1.0"},
-      {:bureaucrat, "~> 0.1.4", runtime: false},
+      {:bureaucrat, github: "api-hogs/bureaucrat", only: :test},
       {:comeonin, "~> 2.0"},
       {:cors_plug, "~> 1.2"},
       {:coverex, "~> 1.4.10", only: :test},
