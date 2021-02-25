@@ -39,4 +39,17 @@ config :husky,
   pre_commit: "mix format",
   pre_push: "mix format --check-formatted && mix test"
 
+config :cgrates_web_jsonapi, :phoenix_swagger,
+  swagger_files: %{
+    "priv/static/swagger.json" => [
+      # phoenix routes will be converted to swagger paths
+      router: CgratesWebJsonapiWeb.Router,
+      # (optional) endpoint config used to set host, port and https schemes.
+      endpoint: CgratesWebJsonapiWeb.Endpoint
+    ]
+  }
+
+config :phoenix_swagger, json_library: Jason
+config :phoenix, :json_library, Jason
+
 import_config "#{Mix.env()}.exs"

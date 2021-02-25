@@ -45,7 +45,7 @@ defmodule CgratesWebJsonapi.Cdrs.CdrFilter do
         do: query |> where([r], like(r.category, ^"%#{val}%"))
 
       def filter(_conn, query, "account", val),
-        do: query |> where([r], like(r.account, ^"%#{val}%"))
+        do: query |> where([r], like(r.account, ^val))
 
       def filter(_conn, query, "destination", val),
         do: query |> where([r], like(r.destination, ^"%#{val}%"))

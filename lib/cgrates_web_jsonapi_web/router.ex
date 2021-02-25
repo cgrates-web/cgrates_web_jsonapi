@@ -41,6 +41,7 @@ defmodule CgratesWebJsonapiWeb.Router do
     resources("/set-account-commands", SetAccountCommandController, only: [:create])
     resources("/add-balance", AddBalanceController, only: [:create])
     resources("/cdrs", CdrController, only: [:index, :show])
+    resources("/calls", CallController, only: [:index, :show])
     resources("/destinations", DestinationController, only: [:index, :show])
     resources("/load-tariff-plan", LoadTariffPlanController, only: [:create])
     get("/raw-supplier-rates/export-to-csv", RawSupplierRateController, :export_to_csv)
@@ -152,5 +153,21 @@ defmodule CgratesWebJsonapiWeb.Router do
     pipe_through :cors
     resources("/sessions", SessionController, only: [:create])
     get("/csv-export", CsvExportController, :index)
+  end
+
+  scope "/api/swagger" do
+    forward "/", PhoenixSwagger.Plug.SwaggerUI,
+      otp_app: :cgrates_web_jsonapi,
+      swagger_file: "swagger.json"
+  end
+
+  def swagger_info do
+    %{
+      info: %{
+        version: "1.0",
+        title: "CGRateS JSON:API"
+      },
+      tags: []
+    }
   end
 end

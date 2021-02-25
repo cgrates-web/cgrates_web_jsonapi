@@ -1,0 +1,264 @@
+{
+  "definitions": {
+    "Call": {
+      "description": "A JSON-API document with a single [CallResource](#callresource) resource",
+      "properties": {
+        "data": {
+          "$ref": "#/definitions/CallResource"
+        },
+        "included": {
+          "description": "Included resources",
+          "items": {
+            "properties": {
+              "id": {
+                "description": "The JSON-API resource ID",
+                "type": "string"
+              },
+              "type": {
+                "description": "The JSON-API resource type",
+                "type": "string"
+              }
+            },
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "links": {
+          "properties": {
+            "self": {
+              "description": "the link that generated the current response document.",
+              "type": "string"
+            }
+          },
+          "type": "object"
+        }
+      },
+      "required": [
+        "data"
+      ],
+      "type": "object"
+    },
+    "CallResource": {
+      "description": "A call represent an aggrigation of all CDRs connected with a specific SIP call",
+      "properties": {
+        "attributes": {
+          "properties": {},
+          "type": "object"
+        },
+        "id": {
+          "description": "The JSON-API resource ID",
+          "type": "string"
+        },
+        "links": {
+          "properties": {},
+          "type": "object"
+        },
+        "relationships": {
+          "properties": {
+            "cdrs": {
+              "properties": {
+                "data": {
+                  "items": {
+                    "properties": {
+                      "id": {
+                        "description": "Related cdrs resource id",
+                        "type": "string"
+                      },
+                      "type": {
+                        "description": "Type of related cdrs resource",
+                        "type": "string"
+                      }
+                    },
+                    "type": "object"
+                  },
+                  "type": "array"
+                },
+                "links": {
+                  "properties": {
+                    "related": {
+                      "description": "Related cdrs link",
+                      "type": "string"
+                    },
+                    "self": {
+                      "description": "Relationship link for cdrs",
+                      "type": "string"
+                    }
+                  },
+                  "type": "object"
+                }
+              },
+              "type": "object"
+            }
+          },
+          "type": "object"
+        },
+        "type": {
+          "description": "The JSON-API resource type",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "Calls": {
+      "description": "A page of [CallResource](#callresource) results",
+      "properties": {
+        "data": {
+          "description": "Content with [CallResource](#callresource) objects",
+          "items": {
+            "$ref": "#/definitions/CallResource"
+          },
+          "type": "array"
+        },
+        "links": {
+          "properties": {
+            "first": {
+              "description": "Link to the first page of results",
+              "type": "string"
+            },
+            "last": {
+              "description": "Link to the last page of results",
+              "type": "string"
+            },
+            "next": {
+              "description": "Link to the next page of results",
+              "type": "string"
+            },
+            "prev": {
+              "description": "Link to the previous page of results",
+              "type": "string"
+            },
+            "self": {
+              "description": "Link to this page of results",
+              "type": "string"
+            }
+          },
+          "type": "object"
+        },
+        "meta": {
+          "properties": {
+            "total-count": {
+              "description": "The total number of items available",
+              "type": "integer"
+            },
+            "total-pages": {
+              "description": "The total number of pages available",
+              "type": "integer"
+            }
+          },
+          "type": "object"
+        }
+      },
+      "required": [
+        "data"
+      ],
+      "type": "object"
+    }
+  },
+  "host": "localhost:4000",
+  "info": {
+    "title": "CGRateS JSON:API",
+    "version": "1.0"
+  },
+  "paths": {
+    "/api/calls": {
+      "get": {
+        "description": "",
+        "operationId": "CgratesWebJsonapiWeb.CallController.index",
+        "parameters": [
+          {
+            "description": "OAuth2 access token",
+            "in": "header",
+            "name": "Authorization",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "Number of elements per page",
+            "in": "query",
+            "minimum": 1,
+            "name": "page[page-size]",
+            "required": false,
+            "type": "integer"
+          },
+          {
+            "description": "Number of the page",
+            "in": "query",
+            "minimum": 1,
+            "name": "page[page]",
+            "required": false,
+            "type": "integer"
+          },
+          {
+            "description": "Filter by created_at (created_at greater then or equal value)",
+            "in": "query",
+            "name": "filter[created_at_gte]",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "Filter by created_at (created_at less then or equal value)",
+            "in": "query",
+            "name": "filter[created_at_lte]",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "produces": [
+          "application/vnd.api+json"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Calls"
+            }
+          }
+        },
+        "summary": "",
+        "tags": [
+          "Call"
+        ]
+      }
+    },
+    "/api/calls/{id}": {
+      "get": {
+        "description": "",
+        "operationId": "CgratesWebJsonapiWeb.CallController.show",
+        "parameters": [
+          {
+            "description": "OAuth2 access token",
+            "in": "header",
+            "name": "Authorization",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "CGRID",
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "string",
+            "x-example": "123"
+          }
+        ],
+        "produces": [
+          "application/vnd.api+json"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Call"
+            }
+          }
+        },
+        "summary": "",
+        "tags": [
+          "Call"
+        ]
+      }
+    }
+  },
+  "swagger": "2.0",
+  "tags": []
+}

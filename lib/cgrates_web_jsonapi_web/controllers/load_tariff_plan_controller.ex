@@ -14,11 +14,16 @@ defmodule CgratesWebJsonapiWeb.LoadTariffPlanController do
       }) do
     params = Params.to_attributes(data)
 
-    cgrates_response =
-      Adapter.execute(%{method: "ApierV1.LoadTariffPlanFromStorDb", params: params})
+    case Adapter.execute(%{method: "ApierV1.LoadTariffPlanFromStorDb", params: params}) do
+      {:ok, cgrates_response} ->
+        conn
+        |> put_status(:created)
+        |> text(cgrates_response)
 
-    conn
-    |> put_status(:created)
-    |> json(cgrates_response)
+      {:error, reason} ->
+        conn
+        |> put_status(500)
+        |> text(reason)
+    end
   end
 end
