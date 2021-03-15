@@ -303,4 +303,10 @@ defmodule CgratesWebJsonapi.Factory do
       weight: 2.0
     }
   end
+
+  def tenant_factory do
+    %CgratesWebJsonapi.Tenants.Tenant{
+      id: UUID.uuid4()
+    }
+  end
 end
