@@ -26,7 +26,15 @@ defmodule CgratesWebJsonapiWeb.UserControllerTest do
   end
 
   defp relationships do
-    %{}
+    tenant = insert :tenant
+    %{
+      "tenant" => %{
+        "data" => %{
+          "id" => tenant.id,
+          "type" => "tenant"
+        }
+      }
+    }
   end
 
   test "lists all entries on index", %{conn: conn} do

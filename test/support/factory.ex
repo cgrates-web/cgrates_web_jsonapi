@@ -4,7 +4,8 @@ defmodule CgratesWebJsonapi.Factory do
   def user_factory do
     %CgratesWebJsonapi.Auth.User{
       email: Faker.Internet.email(),
-      password: "password"
+      password: "password",
+      tenant_id: insert(:tenant).id
     }
   end
 

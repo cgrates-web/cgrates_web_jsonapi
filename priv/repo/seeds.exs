@@ -11,9 +11,16 @@
 # and so on) as they will fail if something goes wrong.
 
 if CgratesWebJsonapi.Repo.aggregate(CgratesWebJsonapi.Auth.User, :count, :id) == 0 do
+  CgratesWebJsonapi.Tenants.Tenant.create_changeset(%CgratesWebJsonapi.Tenants.Tenant{}, %{
+    id: "cgrates.org",
+    customer_chargers_run_id: "*default",
+    supplier_chargers_run_id: "*supplier"
+  })
+  |> CgratesWebJsonapi.Repo.insert()
   CgratesWebJsonapi.Auth.User.registration_changeset(%CgratesWebJsonapi.Auth.User{}, %{
     email: "admin@example.com",
-    password: "password"
+    password: "password",
+    tenant_id: "cgrates.org"
   })
   |> CgratesWebJsonapi.Repo.insert()
 end

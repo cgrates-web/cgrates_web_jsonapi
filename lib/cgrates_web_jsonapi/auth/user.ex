@@ -2,11 +2,15 @@ defmodule CgratesWebJsonapi.Auth.User do
   use Ecto.Schema
   import Ecto.Changeset
 
+  alias CgratesWebJsonapi.Tenants.Tenant
+
   schema "users" do
     field :email, :string
     field :password_encrypted, :string
 
     field :password, :string, virtual: true
+
+    belongs_to :tenant, Tenant, type: :string
 
     timestamps()
   end
@@ -16,8 +20,8 @@ defmodule CgratesWebJsonapi.Auth.User do
   """
   def changeset(model, params \\ :empty) do
     model
-    |> cast(params, [:email], [])
-    |> validate_required(:email)
+    |> cast(params, [:email, :tenant_id], [])
+    |> validate_required([:email, :tenant_id])
     |> validate_length(:email, min: 1, max: 255)
     |> validate_format(:email, ~r/@/)
   end

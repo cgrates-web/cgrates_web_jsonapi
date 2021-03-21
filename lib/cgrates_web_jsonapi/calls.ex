@@ -40,7 +40,6 @@ defmodule CgratesWebJsonapi.Calls do
     page =
       params
       |> list_query()
-      |> IO.inspect()
       |> Repo.paginate(page: page, page_size: page_size)
 
     %Scrivener.Page{
