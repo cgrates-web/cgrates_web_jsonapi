@@ -152,6 +152,133 @@
         "data"
       ],
       "type": "object"
+    },
+    "Tenant": {
+      "description": "A JSON-API document with a single [TenantResource](#tenantresource) resource",
+      "properties": {
+        "data": {
+          "$ref": "#/definitions/TenantResource"
+        },
+        "included": {
+          "description": "Included resources",
+          "items": {
+            "properties": {
+              "id": {
+                "description": "The JSON-API resource ID",
+                "type": "string"
+              },
+              "type": {
+                "description": "The JSON-API resource type",
+                "type": "string"
+              }
+            },
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "links": {
+          "properties": {
+            "self": {
+              "description": "the link that generated the current response document.",
+              "type": "string"
+            }
+          },
+          "type": "object"
+        }
+      },
+      "required": [
+        "data"
+      ],
+      "type": "object"
+    },
+    "TenantResource": {
+      "description": "Tenants",
+      "properties": {
+        "attributes": {
+          "properties": {
+            "customer_chargers_run_id": {
+              "description": "Run ID of CDRs with customer costs",
+              "type": "string"
+            },
+            "supplier_chargers_run_id": {
+              "description": "Run ID of CDRs with supplier costs",
+              "type": "string"
+            }
+          },
+          "type": "object"
+        },
+        "id": {
+          "description": "The JSON-API resource ID",
+          "type": "string"
+        },
+        "links": {
+          "properties": {},
+          "type": "object"
+        },
+        "relationships": {
+          "properties": {},
+          "type": "object"
+        },
+        "type": {
+          "description": "The JSON-API resource type",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "Tenants": {
+      "description": "A page of [TenantResource](#tenantresource) results",
+      "properties": {
+        "data": {
+          "description": "Content with [TenantResource](#tenantresource) objects",
+          "items": {
+            "$ref": "#/definitions/TenantResource"
+          },
+          "type": "array"
+        },
+        "links": {
+          "properties": {
+            "first": {
+              "description": "Link to the first page of results",
+              "type": "string"
+            },
+            "last": {
+              "description": "Link to the last page of results",
+              "type": "string"
+            },
+            "next": {
+              "description": "Link to the next page of results",
+              "type": "string"
+            },
+            "prev": {
+              "description": "Link to the previous page of results",
+              "type": "string"
+            },
+            "self": {
+              "description": "Link to this page of results",
+              "type": "string"
+            }
+          },
+          "type": "object"
+        },
+        "meta": {
+          "properties": {
+            "total-count": {
+              "description": "The total number of items available",
+              "type": "integer"
+            },
+            "total-pages": {
+              "description": "The total number of pages available",
+              "type": "integer"
+            }
+          },
+          "type": "object"
+        }
+      },
+      "required": [
+        "data"
+      ],
+      "type": "object"
     }
   },
   "host": "localhost:4000",

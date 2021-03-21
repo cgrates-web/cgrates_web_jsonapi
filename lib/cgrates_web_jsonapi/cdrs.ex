@@ -52,7 +52,6 @@ defmodule CgratesWebJsonapi.Cdrs do
       total_rejected_disconnects:
         fragment("count(id) filter (where extra_fields ->> 'DisconnectCause' = 'Call Rejected')")
     })
-    |> where(run_id: "*default")
     |> apply_filter(filter)
     |> order_by(fragment("date"))
     |> Repo.all()
