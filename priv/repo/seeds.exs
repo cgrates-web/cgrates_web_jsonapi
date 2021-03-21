@@ -17,6 +17,7 @@ if CgratesWebJsonapi.Repo.aggregate(CgratesWebJsonapi.Auth.User, :count, :id) ==
     supplier_chargers_run_id: "*supplier"
   })
   |> CgratesWebJsonapi.Repo.insert()
+
   CgratesWebJsonapi.Auth.User.registration_changeset(%CgratesWebJsonapi.Auth.User{}, %{
     email: "admin@example.com",
     password: "password",

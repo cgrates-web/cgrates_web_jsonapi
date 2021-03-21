@@ -3,7 +3,7 @@ defmodule CgratesWebJsonapi.Repo.Migrations.AddTenantIdToUsers do
 
   def change do
     alter table("users") do
-      add :tenant_id, references(:tenants, on_delete: :delete_all, type: :string), null: false
+      add(:tenant_id, references(:tenants, on_delete: :delete_all, type: :string), null: false)
     end
   end
 end

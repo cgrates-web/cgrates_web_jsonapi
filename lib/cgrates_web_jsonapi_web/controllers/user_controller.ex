@@ -15,7 +15,12 @@ defmodule CgratesWebJsonapiWeb.UserController do
     User.registration_changeset(%User{}, attributes)
   end
 
-  def serialization_opts(_conn, params, _models) do
-    [include: params["include"]]
+  def render_show(conn, record) do
+    conn
+    |> Phoenix.Controller.render(
+      :show,
+      data: record,
+      opts: [include: "tenant"]
+    )
   end
 end

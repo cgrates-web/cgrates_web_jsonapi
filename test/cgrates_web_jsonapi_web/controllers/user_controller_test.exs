@@ -26,7 +26,8 @@ defmodule CgratesWebJsonapiWeb.UserControllerTest do
   end
 
   defp relationships do
-    tenant = insert :tenant
+    tenant = insert(:tenant)
+
     %{
       "tenant" => %{
         "data" => %{

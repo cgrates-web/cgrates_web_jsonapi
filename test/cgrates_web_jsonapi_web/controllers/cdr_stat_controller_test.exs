@@ -82,7 +82,6 @@ defmodule CgratesWebJsonapiWeb.CdrStatControllerTest do
         }
       )
 
-
       conn =
         conn
         |> get(Routes.cdr_stat_path(conn, :index, group: "daily"))
