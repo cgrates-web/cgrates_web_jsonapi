@@ -1,7 +1,7 @@
 on: push
 
 jobs:
-  test:20.04
+  test:
     runs-on: ubuntu-latest
 
     services:
