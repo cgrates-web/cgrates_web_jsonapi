@@ -42,8 +42,12 @@ defmodule CgratesWebJsonapi.Cgrates.Accounts do
     offset = (page - 1) * per_page
 
     case Adapter.execute(%{method: "ApierV2.GetAccounts", params: %{limit: limit, offset: offset}}) do
-      {:ok, response} -> {:ok, response |> Utils.process_list_resources(Account) |> Enum.map(&remove_tenant_from_id/1)}
-      {:error, reason} -> {:error, reason}
+      {:ok, response} ->
+        {:ok,
+         response |> Utils.process_list_resources(Account) |> Enum.map(&remove_tenant_from_id/1)}
+
+      {:error, reason} ->
+        {:error, reason}
     end
   end
 
