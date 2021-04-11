@@ -73,6 +73,8 @@ defmodule CgratesWebJsonapi.AccountControllerTest do
       end do
       conn = get(conn, Routes.account_path(conn, :index), %{page: "2", per_page: "10"}) |> doc
       assert length(json_response(conn, 200)["data"]) == 2
+      ids = json_response(conn, 200)["data"] |> Enum.map(fn r -> r["id"] end)
+      assert ids == ["1", "2"]
     end
   end
 
@@ -83,9 +85,9 @@ defmodule CgratesWebJsonapi.AccountControllerTest do
       execute: fn _params ->
         {:ok, account}
       end do
-      conn = get(conn, Routes.account_path(conn, :show, "cgrates.org:1")) |> doc
+      conn = get(conn, Routes.account_path(conn, :show, "1")) |> doc
       data = json_response(conn, 200)["data"]
-      assert data["id"] == "cgrates.org:1"
+      assert data["id"] == "1"
       assert data["type"] == "account"
       assert data["attributes"]["balance-map"] == account["balance_map"]
       assert data["attributes"]["unit-counters"] == account["unit_counters"]
