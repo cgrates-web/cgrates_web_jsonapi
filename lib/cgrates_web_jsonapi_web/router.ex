@@ -104,8 +104,8 @@ defmodule CgratesWebJsonapiWeb.Router do
     post("/tp-timings/delete_all", TpTimingController, :delete_all)
     resources("/tp-timings", TpTimingController, except: [:new, :edit])
     resources("/users", UserController, except: [:new, :edit])
+    get("/cdr-stats/extra_fields", CdrStatController, :extra_fields)
     resources("/cdr-stats", CdrStatController, only: [:index])
-    get("/cdr-stats/extra", CdrStatController, :extra_fields)
     resources("/tenants", TenantController, only: [:show, :update])
   end
 
