@@ -506,5 +506,9 @@ defmodule CgratesWebJsonapiWeb.CdrStatControllerTest do
 
       assert length(json_response(conn, 200)["data"]) == 1
     end
+
+    test "cdrs extra fields list", %{conn: conn} do
+
+    end
   end
 end

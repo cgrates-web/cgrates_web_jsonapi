@@ -11,4 +11,9 @@ defmodule CgratesWebJsonapiWeb.CdrStatController do
 
     conn |> render("index.json-api", data: data)
   end
+
+  def extra_fields(conn) do
+    data = Cdrs.extra()
+    conn |> render("", data: data)
+  end
 end
