@@ -4,7 +4,8 @@ defmodule CgratesWebJsonapi.Factory do
   def user_factory do
     %CgratesWebJsonapi.Auth.User{
       email: Faker.Internet.email(),
-      password: "password"
+      password: "password",
+      tenant_id: insert(:tenant).id
     }
   end
 
@@ -301,6 +302,12 @@ defmodule CgratesWebJsonapi.Factory do
       route_blocker: false,
       route_parameters: "123",
       weight: 2.0
+    }
+  end
+
+  def tenant_factory do
+    %CgratesWebJsonapi.Tenants.Tenant{
+      id: UUID.uuid4()
     }
   end
 end

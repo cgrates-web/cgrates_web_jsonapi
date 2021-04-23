@@ -6,7 +6,8 @@ defmodule CgratesWebJsonapiWeb.SessionView do
       access_token: jwt,
       token_type: "bearer",
       expire_in: claims["exp"],
-      issuer: claims["iss"]
+      issuer: claims["iss"],
+      user_id: user.id
     }
   end
 end

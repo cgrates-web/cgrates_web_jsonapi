@@ -42,8 +42,12 @@ defmodule CgratesWebJsonapi.Cgrates.Accounts do
     offset = (page - 1) * per_page
 
     case Adapter.execute(%{method: "ApierV2.GetAccounts", params: %{limit: limit, offset: offset}}) do
-      {:ok, response} -> {:ok, Utils.process_list_resources(response, Account)}
-      {:error, reason} -> {:error, reason}
+      {:ok, response} ->
+        {:ok,
+         response |> Utils.process_list_resources(Account) |> Enum.map(&remove_tenant_from_id/1)}
+
+      {:error, reason} ->
+        {:error, reason}
     end
   end
 
@@ -55,7 +59,7 @@ defmodule CgratesWebJsonapi.Cgrates.Accounts do
     with {:ok, result} <-
            Adapter.execute(%{method: "ApierV2.GetAccount", params: %{account: id}}),
          {:ok, account} <- result |> Utils.map_to_struct(Account) do
-      account
+      account |> remove_tenant_from_id()
     else
       _ -> raise CgratesWebJsonapi.Cgrates.NotFoundError
     end
@@ -93,4 +97,13 @@ defmodule CgratesWebJsonapi.Cgrates.Accounts do
       err -> err
     end
   end
+
+  defp remove_tenant_from_id(account) do
+    %Account{
+      account
+      | id: String.replace(account.id, "#{get_tenant()}:", "")
+    }
+  end
+
+  defp get_tenant, do: Application.get_env(:cgrates_web_jsonapi, :cgrates_tenant)
 end

@@ -82,8 +82,6 @@ defmodule CgratesWebJsonapiWeb.CdrStatControllerTest do
         }
       )
 
-      insert(:cdr, run_id: "*raw", usage: 0, cost: 20_000, created_at: "2015-01-23T23:50:07Z")
-
       conn =
         conn
         |> get(Routes.cdr_stat_path(conn, :index, group: "daily"))
@@ -96,7 +94,6 @@ defmodule CgratesWebJsonapiWeb.CdrStatControllerTest do
       insert(:cdr, usage: 10_000, cost: 10, created_at: "2015-01-23T23:50:07Z")
       insert(:cdr, usage: 20_000, cost: 20, created_at: "2015-02-17T23:50:07Z")
       insert(:cdr, usage: 0, cost: -1, created_at: "2015-02-17T22:50:07Z")
-      insert(:cdr, run_id: "*raw", usage: 20_000, cost: 20, created_at: "2015-01-24T22:50:07Z")
 
       insert(:cdr,
         usage: 0,
@@ -137,7 +134,6 @@ defmodule CgratesWebJsonapiWeb.CdrStatControllerTest do
       insert(:cdr, usage: 10_000, cost: 10, created_at: "2015-01-23T23:50:07Z")
       insert(:cdr, usage: 20_000, cost: 20, created_at: "2015-02-17T23:50:07Z")
       insert(:cdr, usage: 0, cost: -1, created_at: "2015-02-23T22:50:07Z")
-      insert(:cdr, run_id: "*raw", usage: 20_000, cost: 20, created_at: "2015-01-24T22:50:07Z")
 
       insert(:cdr,
         usage: 0,
@@ -178,7 +174,6 @@ defmodule CgratesWebJsonapiWeb.CdrStatControllerTest do
       insert(:cdr, usage: 10_000, cost: 10, created_at: "2015-01-23T23:50:07Z")
       insert(:cdr, usage: 20_000, cost: 20, created_at: "2015-02-17T23:50:07Z")
       insert(:cdr, usage: 0, cost: -1, created_at: "2015-02-23T22:50:07Z")
-      insert(:cdr, run_id: "*raw", usage: 20_000, cost: 20, created_at: "2015-01-24T22:50:07Z")
 
       conn =
         conn
@@ -198,7 +193,6 @@ defmodule CgratesWebJsonapiWeb.CdrStatControllerTest do
       insert(:cdr, usage: 10_000, cost: 10, created_at: "2015-01-23T23:50:07Z")
       insert(:cdr, usage: 20_000, cost: 20, created_at: "2015-02-17T23:50:07Z")
       insert(:cdr, usage: 0, cost: -1, created_at: "2015-02-23T22:50:07Z")
-      insert(:cdr, run_id: "*raw", usage: 20_000, cost: 20, created_at: "2015-01-24T22:50:07Z")
 
       conn =
         conn
