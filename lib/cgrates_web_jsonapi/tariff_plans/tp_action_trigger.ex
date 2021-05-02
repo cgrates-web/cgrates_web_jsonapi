@@ -42,7 +42,13 @@ defmodule CgratesWebJsonapi.TariffPlans.TpActionTrigger do
     field :recurrent, :boolean
     field :weight, :decimal
 
-    field :created_at, :naive_datetime
+    timestamps(
+      inserted_at: :created_at,
+      updated_at: false,
+      inserted_at_source: :created_at,
+      updated_at_source: false,
+      type: :utc_datetime
+    )
 
     has_many :tp_account_actions, CgratesWebJsonapi.TariffPlans.TpAccountAction,
       foreign_key: :action_triggers_tag,

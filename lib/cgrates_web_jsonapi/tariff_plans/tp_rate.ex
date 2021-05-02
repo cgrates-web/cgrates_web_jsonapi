@@ -18,7 +18,13 @@ defmodule CgratesWebJsonapi.TariffPlans.TpRate do
     field :rate_increment, :string
     field :group_interval_start, :string
 
-    field :created_at, :naive_datetime
+    timestamps(
+      inserted_at: :created_at,
+      updated_at: false,
+      inserted_at_source: :created_at,
+      updated_at_source: false,
+      type: :utc_datetime
+    )
 
     has_many :tp_destination_rates, TpDestinationRate,
       foreign_key: :rates_tag,

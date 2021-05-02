@@ -24,6 +24,7 @@ defmodule CgratesWebJsonapiWeb.TpActionTriggerView do
     :balance_timing_tags,
     :balance_disabled,
     :recurrent,
-    :weight
+    :weight,
+    :created_at
   ])
 end

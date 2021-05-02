@@ -19,6 +19,7 @@ defmodule CgratesWebJsonapiWeb.TpRouteView do
     :route_resource_ids,
     :route_stat_ids,
     :route_blocker,
-    :route_parameters
+    :route_parameters,
+    :created_at
   ])
 end

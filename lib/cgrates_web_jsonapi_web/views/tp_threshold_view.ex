@@ -14,6 +14,7 @@ defmodule CgratesWebJsonapiWeb.TpThresholdView do
     :min_hits,
     :async,
     :blocker,
-    :weight
+    :weight,
+    :created_at
   ])
 end
