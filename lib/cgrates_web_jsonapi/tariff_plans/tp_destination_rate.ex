@@ -8,7 +8,7 @@ defmodule CgratesWebJsonapi.TariffPlans.TpDestinationRate do
   use CgratesWebJsonapi.CsvImport, module: __MODULE__, attributes: @attributes
 
   def rounding_methods, do: ["*up", "*down", "*middle"]
-  def max_cost_strategies, do: ["*free", "*disconnect"]
+  def max_cost_strategies, do: ["*free", "*disconnect", ""]
 
   schema "tp_destination_rates" do
     field :tpid, :string
@@ -20,7 +20,13 @@ defmodule CgratesWebJsonapi.TariffPlans.TpDestinationRate do
     field :max_cost, :decimal, default: 0.0
     field :max_cost_strategy, :string, default: ""
 
-    field :created_at, :naive_datetime
+    timestamps(
+      inserted_at: :created_at,
+      updated_at: false,
+      inserted_at_source: :created_at,
+      updated_at_source: false,
+      type: :utc_datetime
+    )
 
     has_many :tp_rating_plans, CgratesWebJsonapi.TariffPlans.TpRatingPlan,
       foreign_key: :destrates_tag,
@@ -44,7 +50,7 @@ defmodule CgratesWebJsonapi.TariffPlans.TpDestinationRate do
   end
 
   def maybe_assign_blank(struct, attr) do
-    if is_nil(Map.get(struct, attr)) do
+    if is_nil(Map.get(struct, attr)) && is_nil(Map.get(struct, String.to_atom(attr))) do
       Map.merge(struct, %{attr => ""})
     else
       struct

@@ -10,6 +10,7 @@ defmodule CgratesWebJsonapiWeb.TpAccountActionView do
     :action_plan_tag,
     :action_triggers_tag,
     :allow_negative,
-    :disabled
+    :disabled,
+    :created_at
   ])
 end

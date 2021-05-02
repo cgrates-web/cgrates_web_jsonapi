@@ -15,7 +15,13 @@ defmodule CgratesWebJsonapi.TariffPlans.TpTiming do
     field :week_days, :string
     field :time, :string
 
-    field :created_at, :naive_datetime
+    timestamps(
+      inserted_at: :created_at,
+      updated_at: false,
+      inserted_at_source: :created_at,
+      updated_at_source: false,
+      type: :utc_datetime
+    )
 
     has_many :tp_action_plans, CgratesWebJsonapi.TariffPlans.TpActionPlan,
       foreign_key: :timing_tag,

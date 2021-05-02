@@ -14,6 +14,7 @@ defmodule CgratesWebJsonapiWeb.TpAttributeView do
     :attribute_filter_ids,
     :path,
     :cg_type,
-    :value
+    :value,
+    :created_at
   ])
 end
