@@ -108,5 +108,10 @@ defmodule CgratesWebJsonapi.Calls do
     |> having([cdr], min(cdr.created_at) >= ^value)
   end
 
+  defp filter(query, "destination", value) do
+    query
+    |> where([cdr], like(cdr.destination, ^"#{value}%"))
+  end
+
   defp filter(query, _, _), do: query
 end
