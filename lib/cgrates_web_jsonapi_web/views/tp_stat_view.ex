@@ -16,6 +16,7 @@ defmodule CgratesWebJsonapiWeb.TpStatView do
     :min_items,
     :threshold_ids,
     :metric_ids,
-    :metric_filter_ids
+    :metric_filter_ids,
+    :created_at
   ])
 end

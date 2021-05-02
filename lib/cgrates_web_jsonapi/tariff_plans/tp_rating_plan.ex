@@ -13,7 +13,13 @@ defmodule CgratesWebJsonapi.TariffPlans.TpRatingPlan do
     field :timing_tag, :string
     field :weight, :decimal
 
-    field :created_at, :naive_datetime
+    timestamps(
+      inserted_at: :created_at,
+      updated_at: false,
+      inserted_at_source: :created_at,
+      updated_at_source: false,
+      type: :utc_datetime
+    )
 
     has_many :tp_rating_profiles, CgratesWebJsonapi.TariffPlans.TpRatingProfile,
       foreign_key: :rating_plan_tag,

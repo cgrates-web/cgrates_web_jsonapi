@@ -14,6 +14,7 @@ defmodule CgratesWebJsonapiWeb.TpResourceView do
     :allocation_message,
     :blocker,
     :weight,
-    :limit
+    :limit,
+    :created_at
   ])
 end

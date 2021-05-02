@@ -19,7 +19,13 @@ defmodule CgratesWebJsonapi.TariffPlans.TpFilter do
     field :element, :string
     field :values, :string
 
-    field :created_at, :naive_datetime
+    timestamps(
+      inserted_at: :created_at,
+      updated_at: false,
+      inserted_at_source: :created_at,
+      updated_at_source: false,
+      type: :utc_datetime
+    )
   end
 
   @doc """

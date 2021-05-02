@@ -10,6 +10,7 @@ defmodule CgratesWebJsonapiWeb.TpChargerView do
     :filter_ids,
     :run_id,
     :activation_interval,
-    :weight
+    :weight,
+    :created_at
   ])
 end

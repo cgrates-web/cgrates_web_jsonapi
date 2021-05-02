@@ -10,6 +10,7 @@ defmodule CgratesWebJsonapiWeb.TpFilterView do
     :created_at,
     :cg_type,
     :element,
-    :values
+    :values,
+    :created_at
   ])
 end

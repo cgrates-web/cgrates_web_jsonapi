@@ -16,7 +16,13 @@ defmodule CgratesWebJsonapi.TariffPlans.TpRatingProfile do
     field :rating_plan_tag, :string
     field :fallback_subjects, :string, default: ""
 
-    field :created_at, :naive_datetime
+    timestamps(
+      inserted_at: :created_at,
+      updated_at: false,
+      inserted_at_source: :created_at,
+      updated_at_source: false,
+      type: :utc_datetime
+    )
   end
 
   @doc """
