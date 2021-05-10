@@ -506,21 +506,5 @@ defmodule CgratesWebJsonapiWeb.CdrStatControllerTest do
 
       assert length(json_response(conn, 200)["data"]) == 1
     end
-
-    test "cdrs extra fields list", %{conn: conn} do
-
-      cdr1 = insert(:cdr, destination: "123", account: "1")
-      cdr2 = insert(:cdr, destination: "987", account: "2")
-
-      conn =
-        conn
-        |> get(
-          Routes.cdr_stat_path(conn, :extra_fields)
-        )
-
-      response = json_response(conn, 200)["data"]
-      Map.has_key?(response, "rows") == true
-      length(List.flatten(response["rows"])) == 1
-    end
   end
 end

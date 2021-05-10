@@ -1,4 +1,4 @@
-defmodule CgratesWebJsonapiWeb.EstraFieldsView do
+defmodule CgratesWebJsonapiWeb.CdrExtraFieldView do
   use CgratesWebJsonapiWeb, :view
   use JaSerializer.PhoenixView
 

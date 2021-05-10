@@ -13,8 +13,4 @@ defmodule CgratesWebJsonapiWeb.CdrStatView do
     :total_normal_clearing_disconnects,
     :total_rejected_disconnects
   ])
-
-  def render("extra_fields.json", %{data: data}) do
-    %{data: %{columns: data.columns, num_rows: data.num_rows, rows: data.rows}}
-  end
 end
