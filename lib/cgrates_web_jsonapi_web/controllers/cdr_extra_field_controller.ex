@@ -16,7 +16,6 @@ defmodule CgratesWebJsonapiWeb.CdrExtraFieldController do
   end
 
   def index(conn, _) do
-    result = EtsCache.get(Cdrs.extra(), ttl: 86400)
-    render(conn, "index.json-api", data: result)
+    render(conn, "index.json-api", data: Cdrs.extra())
   end
 end
