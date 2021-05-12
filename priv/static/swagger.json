@@ -403,18 +403,12 @@
         ],
         "responses": {
           "200": {
-            "description": "OK",
-            "properties": {"rows": {
-              "items": {
-                "type": "string"
-              }
-            }
+            "description": "OK"
           }
-        }
-      },
-      "summary": "",
-       "tags": [
-         "CdrExtraField"
+        },
+        "summary": "",
+        "tags": [
+          "CdrExtraField"
         ]
       }
     }
