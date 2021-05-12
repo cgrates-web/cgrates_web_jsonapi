@@ -384,6 +384,39 @@
           "Call"
         ]
       }
+    },
+    "/api/cdr-extra-fields": {
+      "get": {
+        "description": "An array of string values of used extra_fields",
+        "operationId": "CgratesWebJsonapiWeb.CdrExtraFieldController.index",
+        "parameters": [
+          {
+            "description": "OAuth2 access token",
+            "in": "header",
+            "name": "Authorization",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "produces": [
+          "application/vnd.api+json"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "properties": {"rows": {
+              "items": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      },
+      "summary": "",
+       "tags": [
+         "CdrExtraField"
+        ]
+      }
     }
   },
   "swagger": "2.0",
