@@ -3,8 +3,6 @@ defmodule CgratesWebJsonapiWeb.CdrExtraFieldView do
   use JaSerializer.PhoenixView
 
   attributes([
-    :columns,
-    :num_rows,
     :rows
   ])
 end

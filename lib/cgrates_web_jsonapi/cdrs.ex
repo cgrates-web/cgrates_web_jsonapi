@@ -59,13 +59,13 @@ defmodule CgratesWebJsonapi.Cdrs do
   end
 
   def extra do
-    request = "SELECT DISTINCT extra
+    request = "SELECT DISTINCT extra_fields
         FROM (
-          SELECT jsonb_object_keys(extra_fields) AS extra
+          SELECT jsonb_object_keys(extra_fields) AS extra_fields
           FROM cdrs
         ) AS subquery"
 
-    elem(Repo.query(request), 1)
+    %{rows: List.flatten(elem(Repo.query(request), 1).rows)}
   end
 
   defp group_by_created_at(q, :daily) do

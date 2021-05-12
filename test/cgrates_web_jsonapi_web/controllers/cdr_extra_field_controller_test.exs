@@ -32,9 +32,6 @@ defmodule CgratesWebJsonapiWeb.CdrExtraFieldControllerTest do
     response = json_response(conn, 200)["data"]
 
     attributes = response["attributes"]
-
-    assert attributes["columns"] == ["extra"]
-    assert attributes["num-rows"] == 1
-    assert attributes["rows"] == [["cost"]]
+    assert attributes["rows"] == ["cost"]
   end
 end
