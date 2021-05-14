@@ -16,6 +16,6 @@ defmodule CgratesWebJsonapiWeb.CdrExtraFieldController do
   end
 
   def index(conn, _) do
-    render(conn, "index.json-api", data: Cdrs.extra())
+    render(conn, "extra_fields.json", data: Cdrs.extra())
   end
 end

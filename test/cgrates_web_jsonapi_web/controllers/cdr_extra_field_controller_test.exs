@@ -29,9 +29,8 @@ defmodule CgratesWebJsonapiWeb.CdrExtraFieldControllerTest do
       conn
       |> get(Routes.cdr_extra_field_path(conn, :index))
 
-    response = json_response(conn, 200)["data"]
+    response = json_response(conn, 200)
 
-    attributes = response["attributes"]
-    assert attributes["rows"] == ["cost"]
+    assert response == ["cost"]
   end
 end
