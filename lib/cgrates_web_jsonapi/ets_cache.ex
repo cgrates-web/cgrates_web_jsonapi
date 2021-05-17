@@ -3,22 +3,22 @@ defmodule CgratesWebJsonapi.EtsCache do
   Cache via ETS.
   """
 
-  @spec get(any) :: list(any)
-  def get(args, opts \\ []) do
-    case lookup(args) do
+  @spec get(any, atom | :ets.tid(), any) :: list(any)
+  def get(args, table_name, opts \\ []) do
+    case lookup(args, table_name) do
       nil ->
         ttl = Keyword.get(opts, :ttl, 86400)
-        cache_apply(args, ttl)
+        cache_apply(args.(), ttl)
 
       result ->
         result
     end
   end
 
-  defp lookup(args) do
-    create_table?()
+  defp lookup(args, table_name) do
+    maybe_create_table(table_name)
 
-    case :ets.lookup(:extra_fields, [args]) do
+    case :ets.lookup(table_name, [args]) do
       [result | _] -> check_freshness(result)
       [] -> nil
     end
@@ -38,9 +38,9 @@ defmodule CgratesWebJsonapi.EtsCache do
     result
   end
 
-  defp create_table? do
-    if Enum.member?(:ets.all(), :extra_fields) == false do
-        :ets.new(:extra_fields, [:public, :named_table])
+  defp maybe_create_table(table_name) do
+    if Enum.member?(:ets.all(), table_name) == false do
+      :ets.new(table_name, [:public, :named_table])
     end
   end
 end
