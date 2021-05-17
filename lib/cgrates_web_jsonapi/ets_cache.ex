@@ -3,6 +3,7 @@ defmodule CgratesWebJsonapi.EtsCache do
   Cache via ETS.
   """
 
+  @spec get(any) :: list(any)
   def get(args, opts \\ []) do
     case lookup(args) do
       nil ->
@@ -15,6 +16,8 @@ defmodule CgratesWebJsonapi.EtsCache do
   end
 
   defp lookup(args) do
+    create_table?()
+
     case :ets.lookup(:extra_fields, [args]) do
       [result | _] -> check_freshness(result)
       [] -> nil
@@ -33,5 +36,11 @@ defmodule CgratesWebJsonapi.EtsCache do
     expiration = :os.system_time(:seconds) + ttl
     :ets.insert(:extra_fields, {args, result, expiration})
     result
+  end
+
+  defp create_table? do
+    if Enum.member?(:ets.all(), :extra_fields) == false do
+        :ets.new(:extra_fields, [:public, :named_table])
+    end
   end
 end

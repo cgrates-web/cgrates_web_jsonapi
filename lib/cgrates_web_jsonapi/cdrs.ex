@@ -65,7 +65,7 @@ defmodule CgratesWebJsonapi.Cdrs do
           FROM cdrs
         ) AS subquery"
 
-    request |> Repo.query() |> elem(1) |> Map.get(:rows) |> List.flatten
+    request |> Repo.query() |> elem(1) |> Map.get(:rows) |> List.flatten()
   end
 
   defp group_by_created_at(q, :daily) do
