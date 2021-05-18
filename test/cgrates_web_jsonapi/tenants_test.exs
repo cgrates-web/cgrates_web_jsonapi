@@ -66,4 +66,63 @@ defmodule CgratesWebJsonapi.TenantsTest do
       assert %Ecto.Changeset{} = Tenants.change_tenant(tenant)
     end
   end
+
+  describe "memberships" do
+    alias CgratesWebJsonapi.Tenants.Membership
+
+    @valid_attrs %{" role": 42}
+    @update_attrs %{" role": 43}
+    @invalid_attrs %{" role": nil}
+
+    def membership_fixture(attrs \\ %{}) do
+      {:ok, membership} =
+        attrs
+        |> Enum.into(@valid_attrs)
+        |> Tenants.create_membership()
+
+      membership
+    end
+
+    test "list_memberships/0 returns all memberships" do
+      membership = membership_fixture()
+      assert Tenants.list_memberships() == [membership]
+    end
+
+    test "get_membership!/1 returns the membership with given id" do
+      membership = membership_fixture()
+      assert Tenants.get_membership!(membership.id) == membership
+    end
+
+    test "create_membership/1 with valid data creates a membership" do
+      assert {:ok, %Membership{} = membership} = Tenants.create_membership(@valid_attrs)
+      assert membership. role == 42
+    end
+
+    test "create_membership/1 with invalid data returns error changeset" do
+      assert {:error, %Ecto.Changeset{}} = Tenants.create_membership(@invalid_attrs)
+    end
+
+    test "update_membership/2 with valid data updates the membership" do
+      membership = membership_fixture()
+      assert {:ok, %Membership{} = membership} = Tenants.update_membership(membership, @update_attrs)
+      assert membership. role == 43
+    end
+
+    test "update_membership/2 with invalid data returns error changeset" do
+      membership = membership_fixture()
+      assert {:error, %Ecto.Changeset{}} = Tenants.update_membership(membership, @invalid_attrs)
+      assert membership == Tenants.get_membership!(membership.id)
+    end
+
+    test "delete_membership/1 deletes the membership" do
+      membership = membership_fixture()
+      assert {:ok, %Membership{}} = Tenants.delete_membership(membership)
+      assert_raise Ecto.NoResultsError, fn -> Tenants.get_membership!(membership.id) end
+    end
+
+    test "change_membership/1 returns a membership changeset" do
+      membership = membership_fixture()
+      assert %Ecto.Changeset{} = Tenants.change_membership(membership)
+    end
+  end
 end
