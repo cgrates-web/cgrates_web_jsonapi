@@ -1,8 +1,15 @@
 defmodule CgratesWebJsonapiWeb.MembershipControllerTest do
   use CgratesWebJsonapi.ModelCase
+  use CgratesWebJsonapi.ConnCase
 
   alias CgratesWebJsonapi.Tenants
   alias CgratesWebJsonapi.Tenants.Membership
+
+  alias CgratesWebJsonapi.Cdrs.Cdr
+  alias CgratesWebJsonapi.Repo
+
+  import CgratesWebJsonapi.Factory
+  import CgratesWebJsonapi.Guardian
 
   @create_attrs %{
     role: 42
@@ -17,8 +24,18 @@ defmodule CgratesWebJsonapiWeb.MembershipControllerTest do
     membership
   end
 
-  setup %{conn: conn} do
-    {:ok, conn: put_req_header(conn, "accept", "application/json")}
+  setup do
+    user = insert(:user)
+
+    {:ok, token, _} = encode_and_sign(user, %{}, token_type: :access)
+
+    conn =
+      build_conn()
+      |> put_req_header("accept", "application/vnd.api+json")
+      |> put_req_header("content-type", "application/vnd.api+json")
+      |> put_req_header("authorization", "bearer: " <> token)
+
+    {:ok, conn: conn}
   end
 
   describe "index" do
