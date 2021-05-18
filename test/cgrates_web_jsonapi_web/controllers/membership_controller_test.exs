@@ -1,5 +1,5 @@
 defmodule CgratesWebJsonapiWeb.MembershipControllerTest do
-  use CgratesWebJsonapiWeb.ConnCase
+  use CgratesWebJsonapi.ModelCase
 
   alias CgratesWebJsonapi.Tenants
   alias CgratesWebJsonapi.Tenants.Membership
