@@ -11,7 +11,6 @@ defmodule CgratesWebJsonapiWeb.MembershipView do
   end
 
   def render("membership.json", %{membership: membership}) do
-    %{id: membership.id,
-       role: membership. role}
+    %{id: membership.id, role: membership.role}
   end
 end

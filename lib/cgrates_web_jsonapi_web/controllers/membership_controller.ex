@@ -28,7 +28,8 @@ defmodule CgratesWebJsonapiWeb.MembershipController do
   def update(conn, %{"id" => id, "membership" => membership_params}) do
     membership = Tenants.get_membership!(id)
 
-    with {:ok, %Membership{} = membership} <- Tenants.update_membership(membership, membership_params) do
+    with {:ok, %Membership{} = membership} <-
+           Tenants.update_membership(membership, membership_params) do
       render(conn, "show.json", membership: membership)
     end
   end

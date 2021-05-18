@@ -95,7 +95,7 @@ defmodule CgratesWebJsonapi.TenantsTest do
 
     test "create_membership/1 with valid data creates a membership" do
       assert {:ok, %Membership{} = membership} = Tenants.create_membership(@valid_attrs)
-      assert membership. role == 42
+      assert membership.role == 42
     end
 
     test "create_membership/1 with invalid data returns error changeset" do
@@ -104,8 +104,11 @@ defmodule CgratesWebJsonapi.TenantsTest do
 
     test "update_membership/2 with valid data updates the membership" do
       membership = membership_fixture()
-      assert {:ok, %Membership{} = membership} = Tenants.update_membership(membership, @update_attrs)
-      assert membership. role == 43
+
+      assert {:ok, %Membership{} = membership} =
+               Tenants.update_membership(membership, @update_attrs)
+
+      assert membership.role == 43
     end
 
     test "update_membership/2 with invalid data returns error changeset" do

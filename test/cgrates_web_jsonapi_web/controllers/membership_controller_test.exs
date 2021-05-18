@@ -5,12 +5,12 @@ defmodule CgratesWebJsonapiWeb.MembershipControllerTest do
   alias CgratesWebJsonapi.Tenants.Membership
 
   @create_attrs %{
-     role: 42
+    role: 42
   }
   @update_attrs %{
-     role: 43
+    role: 43
   }
-  @invalid_attrs %{" role": nil}
+  @invalid_attrs %{role: nil}
 
   def fixture(:membership) do
     {:ok, membership} = Tenants.create_membership(@create_attrs)
@@ -50,8 +50,13 @@ defmodule CgratesWebJsonapiWeb.MembershipControllerTest do
   describe "update membership" do
     setup [:create_membership]
 
-    test "renders membership when data is valid", %{conn: conn, membership: %Membership{id: id} = membership} do
-      conn = put(conn, Routes.membership_path(conn, :update, membership), membership: @update_attrs)
+    test "renders membership when data is valid", %{
+      conn: conn,
+      membership: %Membership{id: id} = membership
+    } do
+      conn =
+        put(conn, Routes.membership_path(conn, :update, membership), membership: @update_attrs)
+
       assert %{"id" => ^id} = json_response(conn, 200)["data"]
 
       conn = get(conn, Routes.membership_path(conn, :show, id))
@@ -63,7 +68,9 @@ defmodule CgratesWebJsonapiWeb.MembershipControllerTest do
     end
 
     test "renders errors when data is invalid", %{conn: conn, membership: membership} do
-      conn = put(conn, Routes.membership_path(conn, :update, membership), membership: @invalid_attrs)
+      conn =
+        put(conn, Routes.membership_path(conn, :update, membership), membership: @invalid_attrs)
+
       assert json_response(conn, 422)["errors"] != %{}
     end
   end
