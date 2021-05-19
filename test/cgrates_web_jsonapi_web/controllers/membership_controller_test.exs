@@ -10,6 +10,14 @@ defmodule CgratesWebJsonapiWeb.MembershipControllerTest do
   import CgratesWebJsonapi.Factory
   import CgratesWebJsonapi.Guardian
 
+  @create_attrs %{
+    role: 42
+  }
+
+  @update_attrs %{
+    role: 43
+  }
+
   setup do
     user = insert(:user)
 
@@ -53,44 +61,27 @@ defmodule CgratesWebJsonapiWeb.MembershipControllerTest do
 
       assert %{
                "id" => id,
-               " role" => 42
+               "role" => 42
              } = json_response(conn, 200)["data"]
-    end
-
-    test "renders errors when data is invalid", %{conn: conn} do
-      conn = post(conn, Routes.membership_path(conn, :create), membership: @invalid_attrs)
-      assert json_response(conn, 422)["errors"] != %{}
     end
   end
 
   describe "update membership" do
-    test "renders membership when data is valid", %{
-      conn: conn,
-      membership: %Membership{id: id} = membership
-    } do
-      conn =
-        put(conn, Routes.membership_path(conn, :update, membership), membership: @update_attrs)
+    test "update chosen membership", %{conn: conn} do
+      membership = insert(:membership, role: 1)
 
-      assert %{"id" => ^id} = json_response(conn, 200)["data"]
+      id = membership.id
+      conn = put(conn, Routes.membership_path(conn, :update, id), membership: @update_attrs)
+      assert json_response(conn, 200)["data"]["id"]
 
-      conn = get(conn, Routes.membership_path(conn, :show, id))
-
-      assert %{
-               "id" => id,
-               " role" => 43
-             } = json_response(conn, 200)["data"]
-    end
-
-    test "renders errors when data is invalid", %{conn: conn, membership: membership} do
-      conn =
-        put(conn, Routes.membership_path(conn, :update, membership), membership: @invalid_attrs)
-
-      assert json_response(conn, 422)["errors"] != %{}
+      assert json_response(conn, 200)["data"]["role"] == @update_attrs[:role]
     end
   end
 
   describe "delete membership" do
-    test "deletes chosen membership", %{conn: conn, membership: membership} do
+    test "deletes chosen membership", %{conn: conn} do
+      membership = insert(:membership, role: 1)
+
       conn = delete(conn, Routes.membership_path(conn, :delete, membership))
       assert response(conn, 204)
 
