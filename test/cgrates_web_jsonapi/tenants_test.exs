@@ -70,9 +70,9 @@ defmodule CgratesWebJsonapi.TenantsTest do
   describe "memberships" do
     alias CgratesWebJsonapi.Tenants.Membership
 
-    @valid_attrs %{" role": 42}
-    @update_attrs %{" role": 43}
-    @invalid_attrs %{" role": nil}
+    @valid_attrs %{role: 42}
+    @update_attrs %{role: 43}
+    @invalid_attrs %{role: nil}
 
     def membership_fixture(attrs \\ %{}) do
       {:ok, membership} =
@@ -104,10 +104,7 @@ defmodule CgratesWebJsonapi.TenantsTest do
 
     test "update_membership/2 with valid data updates the membership" do
       membership = membership_fixture()
-
-      assert {:ok, %Membership{} = membership} =
-               Tenants.update_membership(membership, @update_attrs)
-
+      assert {:ok, %Membership{} = membership} = Tenants.update_membership(membership, @update_attrs)
       assert membership.role == 43
     end
 
