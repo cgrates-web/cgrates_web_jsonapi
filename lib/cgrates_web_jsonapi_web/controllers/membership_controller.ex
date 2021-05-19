@@ -4,7 +4,6 @@ defmodule CgratesWebJsonapiWeb.MembershipController do
   alias CgratesWebJsonapi.Tenants
   alias CgratesWebJsonapi.Tenants.Membership
 
-
   def index(conn, _params) do
     memberships = Tenants.list_memberships()
     render(conn, "index.json", memberships: memberships)

@@ -26,10 +26,21 @@ defmodule CgratesWebJsonapiWeb.MembershipControllerTest do
 
   describe "index" do
     test "lists all memberships", %{conn: conn} do
-      membership = insert(:membership)
+      insert(:membership)
       conn = get(conn, Routes.membership_path(conn, :index))
 
       assert length(json_response(conn, 200)["data"]) == 1
+    end
+  end
+
+  describe "show" do
+    test "show one memberships", %{conn: conn} do
+      membership = insert(:membership, role: 1)
+      conn = get(conn, Routes.membership_path(conn, :show, membership)) |> doc
+
+      data = json_response(conn, 200)["data"]
+      assert data["id"] == membership.id
+      assert data["role"] == 1
     end
   end
 
@@ -79,7 +90,6 @@ defmodule CgratesWebJsonapiWeb.MembershipControllerTest do
   end
 
   describe "delete membership" do
-
     test "deletes chosen membership", %{conn: conn, membership: membership} do
       conn = delete(conn, Routes.membership_path(conn, :delete, membership))
       assert response(conn, 204)
