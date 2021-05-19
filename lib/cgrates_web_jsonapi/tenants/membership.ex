@@ -7,8 +7,8 @@ defmodule CgratesWebJsonapi.Tenants.Membership do
 
   schema "memberships" do
     field :role, :integer
-    belongs_to :tenant_id, Tenant, type: :string
-    belongs_to :user_id, User
+    belongs_to :tenant, Tenant, type: :string
+    belongs_to :user, User
 
     timestamps()
   end

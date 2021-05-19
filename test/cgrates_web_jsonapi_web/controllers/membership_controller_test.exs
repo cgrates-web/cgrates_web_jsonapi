@@ -1,5 +1,4 @@
 defmodule CgratesWebJsonapiWeb.MembershipControllerTest do
-  use CgratesWebJsonapi.ModelCase
   use CgratesWebJsonapi.ConnCase
 
   alias CgratesWebJsonapi.Tenants
@@ -10,19 +9,6 @@ defmodule CgratesWebJsonapiWeb.MembershipControllerTest do
 
   import CgratesWebJsonapi.Factory
   import CgratesWebJsonapi.Guardian
-
-  @create_attrs %{
-    role: 42
-  }
-  @update_attrs %{
-    role: 43
-  }
-  @invalid_attrs %{role: nil}
-
-  def fixture(:membership) do
-    {:ok, membership} = Tenants.create_membership(@create_attrs)
-    membership
-  end
 
   setup do
     user = insert(:user)
@@ -40,8 +26,10 @@ defmodule CgratesWebJsonapiWeb.MembershipControllerTest do
 
   describe "index" do
     test "lists all memberships", %{conn: conn} do
+      membership = insert(:membership)
       conn = get(conn, Routes.membership_path(conn, :index))
-      assert json_response(conn, 200)["data"] == []
+
+      assert length(json_response(conn, 200)["data"]) == 1
     end
   end
 
@@ -65,8 +53,6 @@ defmodule CgratesWebJsonapiWeb.MembershipControllerTest do
   end
 
   describe "update membership" do
-    setup [:create_membership]
-
     test "renders membership when data is valid", %{
       conn: conn,
       membership: %Membership{id: id} = membership
@@ -93,7 +79,6 @@ defmodule CgratesWebJsonapiWeb.MembershipControllerTest do
   end
 
   describe "delete membership" do
-    setup [:create_membership]
 
     test "deletes chosen membership", %{conn: conn, membership: membership} do
       conn = delete(conn, Routes.membership_path(conn, :delete, membership))
@@ -103,10 +88,5 @@ defmodule CgratesWebJsonapiWeb.MembershipControllerTest do
         get(conn, Routes.membership_path(conn, :show, membership))
       end
     end
-  end
-
-  defp create_membership(_) do
-    membership = fixture(:membership)
-    %{membership: membership}
   end
 end

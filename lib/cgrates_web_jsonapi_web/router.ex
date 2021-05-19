@@ -107,6 +107,7 @@ defmodule CgratesWebJsonapiWeb.Router do
     resources("/cdr-extra-fields", CdrExtraFieldController, only: [:index])
     resources("/cdr-stats", CdrStatController, only: [:index])
     resources("/tenants", TenantController, only: [:show, :update])
+    resources("/memberships", MembershipController)
   end
 
   scope "/uploaders", CgratesWebJsonapiWeb do

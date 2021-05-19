@@ -4,7 +4,6 @@ defmodule CgratesWebJsonapiWeb.MembershipController do
   alias CgratesWebJsonapi.Tenants
   alias CgratesWebJsonapi.Tenants.Membership
 
-  action_fallback CgratesWebJsonapiWeb.FallbackController
 
   def index(conn, _params) do
     memberships = Tenants.list_memberships()
