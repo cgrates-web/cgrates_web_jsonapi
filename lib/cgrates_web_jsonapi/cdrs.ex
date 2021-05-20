@@ -58,6 +58,16 @@ defmodule CgratesWebJsonapi.Cdrs do
     |> Enum.map(&CdrsStats.new/1)
   end
 
+  def extra do
+    request = "SELECT DISTINCT extra_fields
+        FROM (
+          SELECT jsonb_object_keys(extra_fields) AS extra_fields
+          FROM cdrs
+        ) AS subquery"
+
+    request |> Repo.query() |> elem(1) |> Map.get(:rows) |> List.flatten()
+  end
+
   defp group_by_created_at(q, :daily) do
     q |> group_by([r], fragment("date_trunc('day', ?)", r.created_at))
   end
