@@ -310,4 +310,12 @@ defmodule CgratesWebJsonapi.Factory do
       id: UUID.uuid4()
     }
   end
+
+  def membership_factory do
+    %CgratesWebJsonapi.Tenants.Membership{
+      id: sequence(:id, fn n -> n end),
+      tenant_id: insert(:tenant).id,
+      user_id: insert(:user).id
+    }
+  end
 end
